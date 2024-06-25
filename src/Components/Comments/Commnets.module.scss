@@ -1,0 +1,32 @@
+.Comments {
+  text-align: center;
+  .commentBox {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    border: 0.5px solid #d7d7d7;
+    width: 500px;
+    @media (max-width: 560px) {
+      width: 90%;
+    }
+    border-radius: 30px;
+    margin: 30px auto;
+    position: relative;
+    z-index: 44;
+    .slide {
+      padding: 30px;
+      h4 {
+        color: #333;
+        font-weight: 700;
+        font-size: 18px;
+        @media (max-width: 560px) {
+          font-size: 16px;
+        }
+      }
+      p {
+        color: #9e9780;
+        @media (max-width: 560px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

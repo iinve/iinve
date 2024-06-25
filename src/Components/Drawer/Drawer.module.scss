@@ -1,0 +1,74 @@
+.overlay {
+  background: #4c4c4c7b !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 999;
+}
+.content {
+  background: #fefbf3;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 50px;
+  border-radius: 50px 50px 0 0;
+  z-index: 999;
+  .head {
+    display: flex;
+    justify-content: end;
+    span {
+      cursor: pointer;
+      background: #edd5af;
+      padding: 10px;
+      border-radius: 50%;
+      color: #704900;
+    }
+  }
+  .contentBox {
+    margin-top: 40px;
+    width: 50%;
+    margin: auto;
+    @media (max-width: 840px) {
+      width: 90%;
+    }
+    h4 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    form {
+      .input {
+        margin-bottom: 20px;
+        border: 1px solid #704900;
+        border-radius: 12px;
+      }
+    }
+    .button {
+      background: #704900;
+      color: #fefbf3;
+    }
+  }
+  .suggestion {
+    padding: 0 20px 20px 20px;
+
+    .suggest_item {
+      background: #edd5af;
+      margin: 0 10px;
+      border-radius: 10px;
+      padding: 12px 20px;
+      :global {
+        .transition-colors {
+          color: #704900 !important;
+        }
+        .border-default {
+          border-color: #704900;
+        }
+        .transition-transform-opacity {
+          background: #704900;
+        }
+      }
+      label {
+        span {
+          color: #704900 !important;
+        }
+      }
+    }
+  }
+}
