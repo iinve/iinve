@@ -92,7 +92,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
 
         {!isNotSpotlight && (
           <div className={Style.quote}>
-            <span>"</span>
+            <span>&quot;</span>
             <p>{anilShakthiData?.quote}</p>
           </div>
         )}
