@@ -3,10 +3,8 @@ import { Assets } from "@/assets/assets";
 import Image from "next/image";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
-import useLenis from "@/utils/useLenis";
 
 export default function Home() {
-  useLenis();
   return (
     <NextUIProvider>
       <main className="no-data">
