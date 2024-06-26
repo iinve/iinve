@@ -1,5 +1,5 @@
+import dynamic from 'next/dynamic';
 import Head from "next/head";
-import CoffeePremium from "@/Templates/CoffeePremium";
 import React from "react";
 import { Assets } from "@/assets/assets";
 
@@ -19,6 +19,9 @@ export const metadata = {
     ],
   },
 };
+const CoffeePremium = dynamic(() => import('@/Templates/CoffeePremium'), {
+  ssr: false, // Ensure it only loads on the client side
+});
 
 const Page = () => {
   return (
