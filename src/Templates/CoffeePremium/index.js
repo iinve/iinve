@@ -11,8 +11,10 @@ import Map from "@/Components/Map";
 import Comments from "@/Components/Comments";
 import Footer from "@/Components/Footer";
 import DrawerSheet from "@/Components/Drawer";
+import useLenis from "@/utils/useLenis";
 
 function CoffeePremium() {
+  useLenis();
   return (
     <div className={Style.CoffeWrapper}>
       <MeshMasonrySpotlight />
