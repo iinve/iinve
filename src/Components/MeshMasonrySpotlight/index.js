@@ -13,7 +13,11 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { scrollY } = useScroll();
-  const yTransform = useTransform(scrollY, [0, 800], [-100, 200]);
+  const yTransform = useTransform(
+    scrollY,
+    [0, 1000],
+    [window?.innerWidth > 480 ? -50 : 0, 200]
+  );
 
   const calculateY = (index) => {
     return index % 2 === 0
