@@ -9,6 +9,11 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   margin-bottom: 18px;
   border: 0.5px solid #d7d7d7;
+  .avatar {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+  }
   @media (max-width: 760px) {
     width: 90%;
     margin: 0 auto 18px;
