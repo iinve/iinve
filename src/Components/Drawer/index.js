@@ -6,15 +6,23 @@ import { Button, Input, Radio, RadioGroup, Textarea } from "@nextui-org/react";
 import { useDrawer } from "./useDrawer";
 
 const DrawerSheet = ({ button }) => {
-  const { handleComments, formData, handleSubmit } = useDrawer();
+  const {
+    handleComments,
+    formData,
+    handleSubmit,
+    selected,
+    setSelected,
+    handleSuggestion,
+  } = useDrawer();
   return (
-    <Drawer.Root shouldScaleBackground={true} className=" h-20">
+    <Drawer.Root shouldScaleBackground={true}>
       <Drawer.Trigger asChild>{button}</Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay
           className={`${Style.overlay} fixed inset-0 bg-black/40 `}
         />
         <Drawer.Content
+          data-lenis-prevent
           className={`${Style.content} bg-zinc-100 flex flex-col w-full rounded-t-[10px] mt-24 fixed bottom-0 left-0 right-0`}
         >
           <div className={Style.container}>
@@ -23,7 +31,7 @@ const DrawerSheet = ({ button }) => {
                 <IoMdClose />
               </span>
             </div>
-            <div className={`${Style.contentBox} px-96`}>
+            <div className={`${Style.contentBox} px-96 `}>
               <h4>Join to guest list</h4>
               <form action="">
                 <Input
@@ -50,24 +58,30 @@ const DrawerSheet = ({ button }) => {
                   placeholder="Enter your wishes"
                   className={` ${Style.input} w-full`}
                 />
+
                 <div className={Style.suggestion}>
                   <RadioGroup
                     label="or select wishes"
                     orientation="horizontal"
                     color="secondary"
+                    value={selected}
+                    onValueChange={handleSuggestion}
                   >
-                    <Radio value="best wishes!" className={Style.suggest_item}>
+                    <Radio
+                      value="best wishes!"
+                      className={`${Style.suggest_item} max-w-[300px]`}
+                    >
                       Best Wishes!
                     </Radio>
                     <Radio
                       value="forever bliss!"
-                      className={Style.suggest_item}
+                      className={`${Style.suggest_item} max-w-[300px]`}
                     >
                       Forever Bliss!
                     </Radio>
                     <Radio
                       value="Cheers to Love!"
-                      className={Style.suggest_item}
+                      className={`${Style.suggest_item} max-w-[300px]`}
                     >
                       Cheers to Love!
                     </Radio>
@@ -77,7 +91,7 @@ const DrawerSheet = ({ button }) => {
                   className={`${Style.button} w-full mt-2`}
                   onClick={handleSubmit}
                 >
-                  Button
+                  Submit
                 </Button>
               </form>
             </div>

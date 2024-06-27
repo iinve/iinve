@@ -23,14 +23,6 @@ const MinimalSpotlight = () => {
     window.open(googleMapsUrl, "_blank");
   };
 
-  const event = {
-    title: "Wedding Event",
-    start: "20240630T110000Z",
-    end: "20240630T200000Z",
-    description: "Join us for our wedding!",
-    location: "Crown Convention Center, Pathanapuram",
-  };
-
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0 },
@@ -48,7 +40,7 @@ const MinimalSpotlight = () => {
               transition={{ duration: 0.5 }}
             >
               <h2>
-                Anzar <span>&amp;</span> Asna
+                Anzar Nazeer<span>&amp;</span> Asna
               </h2>
             </motion.div>
           </div>
@@ -59,7 +51,7 @@ const MinimalSpotlight = () => {
         <div class="weapper">
           <div class="content">
             <p>
-              With joyful hearts, Ansar Naseer and Asna S, together with their
+              With joyful hearts, Ansar Nazeer and Asna S, together with their
               families, invite you to celebrate their union. Please join us for
               the wedding ceremony on Sunday, June 30, 2024, at 11:00 AM at
               Crown Convention Center, Pathanapuram. Reception to follow at the
@@ -134,7 +126,7 @@ const MinimalSpotlight = () => {
           <span>Add event to your calendar</span>
           <button>
             <add-to-calendar-button
-              name="Ansar & Asna's Wedding Ceremony"
+              name="Ansar Nazeer & Asna's Wedding Ceremony"
               title="Ansar & Asna's Wedding Ceremony"
               startDate="2024-06-30"
               location="Pathanapuram"

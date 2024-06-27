@@ -9,17 +9,17 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Ansar & Asna Wedding Invitation | iinve",
+  title: "Ansar Nazeer & Asna Wedding Invitation | iinve",
   description:
-    "Ansar & Asna are getting married and joyfully invite you to celebrate their wedding.",
+    "Ansar Nazeer& Asna are getting married and joyfully invite you to celebrate their wedding.",
   openGraph: {
-    title: "Ansar & Asna Wedding Invitation | iinve",
+    title: "Ansar Nazeer & Asna Wedding Invitation | iinve",
     description:
-      "Ansar & Asna are getting married and joyfully invite you to celebrate their wedding.",
+      "Ansar Nazeer & Asna are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
         url: Assets?.ansar_og_image?.src,
-        alt: "Ansar & Asna Wedding Invitation",
+        alt: "Ansar Nazeer & Asna Wedding Invitation",
       },
     ],
   },
