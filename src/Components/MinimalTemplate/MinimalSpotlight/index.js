@@ -69,27 +69,27 @@ const MinimalSpotlight = () => {
                 draggable={false}
                 //   effect={"fade"}
                 speed={500}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
-                }}
+                // autoplay={{
+                //   delay: 2500,
+                //   disableOnInteraction: false,
+                // }}
                 // roundLengths={true}
                 modules={[EffectFade, Autoplay]}
                 // center
-                breakpoints={{
-                  // when window width is >= 640px
-                  640: {
-                    slidesPerView: 1,
-                  },
-                  // when window width is >= 768px
-                  768: {
-                    slidesPerView: 2,
-                  },
-                  // when window width is >= 1024px
-                  1024: {
-                    slidesPerView: 3,
-                  },
-                }}
+                // breakpoints={{
+                //   // when window width is >= 640px
+                //   640: {
+                //     slidesPerView: 1,
+                //   },
+                //   // when window width is >= 768px
+                //   768: {
+                //     slidesPerView: 2,
+                //   },
+                //   // when window width is >= 1024px
+                //   1024: {
+                //     slidesPerView: 3,
+                //   },
+                // }}
               >
                 {ansar_asna?.images?.map((item, i) => (
                   <SwiperSlide key={i}>

@@ -134,6 +134,11 @@ body {
 
 }
 
+#bottom .slide-img li img {
+    width: 100%;
+    display: block;
+}
+
 .mySwiper {
     width: 100%;
     /* margin: 0 auto !important; */
@@ -145,12 +150,15 @@ body {
     transition: transform 0.3s ease;
     filter: brightness(0.5);
     transform: scale(0.7) !important;
+    /* width: auto !important; */
+
 }
 
 .mySwiper .swiper-slide-active {
-    transform: scale(1) !important;
+    transform: scaleX(1) !important;
     z-index: 10 !important;
     filter: brightness(1);
+    width: 300px !important;
 
 }
 
@@ -327,6 +335,10 @@ body {
 
     #bottom .content p {
         width: 90%;
+    }
+
+    #bottom .slide-img li {
+        width: 150px !important;
     }
 }
 
