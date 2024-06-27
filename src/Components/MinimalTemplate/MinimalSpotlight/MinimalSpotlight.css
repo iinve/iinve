@@ -377,7 +377,7 @@ body {
 @media screen and (max-width:430px) {
     #bottom .location iframe {
         width: 300px !important;
-        height: 100px !important;
+        height: 200px !important;
     }
 }
 

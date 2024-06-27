@@ -18,7 +18,7 @@ export const metadata = {
       "Ansar & Asna are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: Assets?.minimal_cover?.src,
+        url: Assets?.ansar_og_image?.src,
         alt: "Ansar & Asna Wedding Invitation",
       },
     ],
@@ -50,7 +50,7 @@ const page = () => {
           />
         )}
       </Head>
-      <MinimalTemplate />;
+      <MinimalTemplate />
     </>
   );
 };

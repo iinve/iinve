@@ -13,6 +13,7 @@ import divider from "./coffeePremium/divider.png";
 import og_image from "./coffeePremium/og-image.png";
 import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
+import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
 
 export const Assets = {
   Logo,
@@ -30,4 +31,5 @@ export const Assets = {
   og_image,
   couples,
   minimal_cover,
+  ansar_og_image,
 };

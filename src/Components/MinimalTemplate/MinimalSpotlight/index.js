@@ -19,18 +19,52 @@ const MinimalSpotlight = () => {
     window.open(googleMapsUrl, "_blank");
   };
 
-  const addToGoogleCalendar = () => {
-    const baseUrl = "https://calendar.google.com/calendar/r/eventedit";
-    const details = {
-      text: "Ansar & Asna Wedding Event",
-      dates: "20240630T110000Z/20240630T200000Z",
-      details: "Join us for our wedding!",
-      location: "Crown Convention Center, Pathanapuram",
-    };
+  const event = {
+    title: "Ansar & Asna's Wedding",
+    start: "20240630T110000",
+    end: "20240630T200000",
+    location: "Pathanapuram",
+    description: "Join us to celebrate the wedding of Ansar and Asna.",
+  };
 
-    const queryString = new URLSearchParams(details).toString();
-    const url = `${baseUrl}?${queryString}`;
-    window.open(url, "_blank");
+  const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+    event.title
+  )}&dates=${event.start}/${event.end}&details=${encodeURIComponent(
+    event.description
+  )}&location=${encodeURIComponent(event.location)}`;
+  const outlookCalendarUrl = `https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(
+    event.title
+  )}&startdt=${event.start}&enddt=${event.end}&body=${encodeURIComponent(
+    event.description
+  )}&location=${encodeURIComponent(event.location)}`;
+  const appleCalendarUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:${encodeURIComponent(
+    event.title
+  )}%0ADTSTART:${event.start}%0ADTEND:${
+    event.end
+  }%0ADESCRIPTION:${encodeURIComponent(
+    event.description
+  )}%0ALOCATION:${encodeURIComponent(
+    event.location
+  )}%0AEND:VEVENT%0AEND:VCALENDAR`;
+
+  const getCalendarUrl = () => {
+    const userAgent = window.navigator.userAgent;
+    if (
+      userAgent.includes("Mac") ||
+      userAgent.includes("iPhone") ||
+      userAgent.includes("iPad")
+    ) {
+      return appleCalendarUrl;
+    } else if (userAgent.includes("Windows") || userAgent.includes("Linux")) {
+      return outlookCalendarUrl;
+    } else {
+      return googleCalendarUrl;
+    }
+  };
+
+  const handleAddToCalendar = () => {
+    const calendarUrl = getCalendarUrl();
+    window.open(calendarUrl, "_blank");
   };
   return (
     <div className="ansar-asna">
@@ -122,7 +156,7 @@ const MinimalSpotlight = () => {
             </div>
           </div>
           <small>Crown Convention center, Pathanapuram</small>
-          <button onClick={addToGoogleCalendar}>Add to calender</button>
+          <button onClick={handleAddToCalendar}>Add to calender</button>
         </div>
         <div className="wrapper">
           <div class="location">
