@@ -10,7 +10,7 @@ import {
   Spinner,
   Textarea,
 } from "@nextui-org/react";
-import { useDrawer } from "./useDrawer";
+import { useComment } from "../../utils/CoffeePremiumUtils/useComment";
 
 const DrawerSheet = ({ button }) => {
   const {
@@ -21,13 +21,17 @@ const DrawerSheet = ({ button }) => {
     setSelected,
     handleSuggestion,
     loading,
-  } = useDrawer();
-  const [isClosed, setIsClosed] = useState(false);
-  const handleCloseDrawer = () => {
-    setIsClosed(true);
-  };
+    isNotValid,
+    drawerOpen,
+    setDrawerOpen,
+  } = useComment();
+
   return (
-    <Drawer.Root shouldScaleBackground={true} close={isClosed}>
+    <Drawer.Root
+      shouldScaleBackground={true}
+      open={drawerOpen}
+      onOpenChange={setDrawerOpen}
+    >
       <Drawer.Trigger asChild>{button}</Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay
@@ -39,9 +43,11 @@ const DrawerSheet = ({ button }) => {
         >
           <div className={Style.container}>
             <div className={Style.head}>
-              <span onClick={handleCloseDrawer}>
-                <IoMdClose />
-              </span>
+              <Drawer.Close asChild>
+                <span>
+                  <IoMdClose />
+                </span>
+              </Drawer.Close>
             </div>
             {!loading ? (
               <div className={`${Style.contentBox} px-96 `}>
@@ -102,6 +108,7 @@ const DrawerSheet = ({ button }) => {
                   </div>
 
                   <Button
+                    isDisabled={isNotValid}
                     className={`${Style.button} w-full mt-2`}
                     onClick={handleSubmit}
                   >

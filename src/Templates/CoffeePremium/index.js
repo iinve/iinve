@@ -12,9 +12,23 @@ import Comments from "@/Components/Comments";
 import Footer from "@/Components/Footer";
 import DrawerSheet from "@/Components/Drawer";
 import useLenis from "@/utils/useLenis";
+import { useComment } from "@/utils/CoffeePremiumUtils/useComment";
 
 function CoffeePremium() {
   useLenis();
+  const {
+    handleComments,
+    formData,
+    handleSubmit,
+    selected,
+    setSelected,
+    handleSuggestion,
+    loading,
+    isNotValid,
+    drawerOpen,
+    setDrawerOpen,
+    comments,
+  } = useComment();
   return (
     <div className={Style.CoffeWrapper}>
       <MeshMasonrySpotlight />
@@ -30,8 +44,19 @@ function CoffeePremium() {
       <Calendar />
       <MeshMasonrySpotlight isNotSpotlight={true} />
       <Map />
-      <DrawerSheet />
-      <Comments data={anilShakthiData?.wishes} />
+      <DrawerSheet
+        handleComments={handleComments}
+        formData={formData}
+        handleSubmit={handleSubmit}
+        selected={selected}
+        setSelected={setSelected}
+        handleSuggestion={handleSuggestion}
+        loading={loading}
+        isNotValid={isNotValid}
+        drawerOpen={drawerOpen}
+        setDrawerOpen={setDrawerOpen}
+      />
+      <Comments data={comments?.reverse()} />
       <Footer />
     </div>
   );

@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade } from "swiper/modules/effect-fade/effect-fade";?
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { Avatar, AvatarGroup } from "@nextui-org/react";
 
 const Comments = ({ data }) => {
   return (
@@ -30,11 +31,24 @@ const Comments = ({ data }) => {
             <SwiperSlide key={wish.id}>
               <div className={Style.slide}>
                 <h4>{wish?.name}</h4>
-                <p className="text-gray-600">{wish?.wishes}</p>
+                <p className="text-gray-600">{wish?.message}</p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        {data?.length > 2 && (
+          <div className={Style.avathar_group}>
+            <AvatarGroup isBordered max={3} total={data?.length}>
+              {data?.slice(1, 5).map((profile, i) => (
+                <Avatar
+                  name={profile?.name}
+                  key={i}
+                  src="https://images.unsplash.com/broken"
+                />
+              ))}
+            </AvatarGroup>
+          </div>
+        )}
       </div>
 
       <DrawerSheet
