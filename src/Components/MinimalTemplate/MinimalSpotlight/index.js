@@ -84,12 +84,12 @@ const MinimalSpotlight = () => {
         <div class="weapper">
           <div class="content">
             <p>
-              With joyful hearts, Emily Davis and Michael Brown, together with
-              their families, invite you to celebrate their union. Please join
-              us for the wedding ceremony on Saturday, September 14, 2024, at
-              4:00 PM at The Rose Garden, 5678 Elm Street, Greenwood. Reception
-              to follow at The Evergreen Hall. We eagerly await your presence to
-              share in this special day.
+              With joyful hearts, Ansar Naseer and Asna S, together with their
+              families, invite you to celebrate their union. Please join us for
+              the wedding ceremony on Sunday, June 30, 2024, at 11:00 AM at
+              Crown Convention Center, Pathanapuram. Reception to follow at the
+              same venue. We eagerly await your presence to share in this
+              special day.
             </p>
           </div>
           <div class="slide-img">
