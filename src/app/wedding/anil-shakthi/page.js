@@ -1,8 +1,13 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 import Head from "next/head";
 import React from "react";
 import { Assets } from "@/assets/assets";
-import useLenis from "@/utils/useLenis";
+
+// Determine the base URL of your application
+const isProduction = process.env.NODE_ENV === "production";
+const metadataBase = isProduction
+  ? "https://www.iinve.com"
+  : "http://localhost:3000";
 
 export const metadata = {
   title: "Anil & Shakthi Wedding Invitation | iinve",
@@ -14,18 +19,19 @@ export const metadata = {
       "Anil and Shakthi are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: Assets?.og_image?.src,
+        url: `${metadataBase}${Assets?.og_image?.src}`,
         alt: "Anil & Shakthi Wedding Invitation",
       },
     ],
   },
+  metadataBase: metadataBase, // Add this line to set the metadataBase
 };
-const CoffeePremium = dynamic(() => import("@/Templates/CoffeePremium"), {
+
+const CoffeePremium = dynamic(() => import('@/Templates/CoffeePremium'), {
   ssr: false, // Ensure it only loads on the client side
 });
 
 const Page = () => {
-  useLenis();
   return (
     <div>
       <Head>

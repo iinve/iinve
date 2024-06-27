@@ -22,6 +22,7 @@ export const metadata = {
 const MinimalTemplate = dynamic(() => import("@/Templates/MinimalTemplate"), {
   ssr: false, // Ensure it only loads on the client side
 });
+
 const page = () => {
   return (
     <>
