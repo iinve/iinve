@@ -14,6 +14,7 @@ import og_image from "./coffeePremium/og-image.png";
 import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
+import anil_og_image from "./coffeePremium/anil_og_image.jpg";
 
 export const Assets = {
   Logo,
@@ -32,4 +33,5 @@ export const Assets = {
   couples,
   minimal_cover,
   ansar_og_image,
+  anil_og_image,
 };

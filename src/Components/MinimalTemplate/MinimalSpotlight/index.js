@@ -40,7 +40,9 @@ const MinimalSpotlight = () => {
               transition={{ duration: 0.5 }}
             >
               <h2>
-                Anzar Nazeer<span>&amp;</span> Asna
+                Anzar Nazeer <br />
+                <span>&amp;</span>
+                <br /> Asna
               </h2>
             </motion.div>
           </div>

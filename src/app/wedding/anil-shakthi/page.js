@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 import { Assets } from "@/assets/assets";
@@ -19,7 +19,7 @@ export const metadata = {
       "Anil and Shakthi are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}${Assets?.og_image?.src}`,
+        url: `${metadataBase}${Assets?.anil_og_image?.src}`,
         alt: "Anil & Shakthi Wedding Invitation",
       },
     ],
@@ -27,7 +27,7 @@ export const metadata = {
   metadataBase: metadataBase, // Add this line to set the metadataBase
 };
 
-const CoffeePremium = dynamic(() => import('@/Templates/CoffeePremium'), {
+const CoffeePremium = dynamic(() => import("@/Templates/CoffeePremium"), {
   ssr: false, // Ensure it only loads on the client side
 });
 
