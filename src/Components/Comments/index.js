@@ -41,8 +41,9 @@ const Comments = ({ data }) => {
             <AvatarGroup isBordered max={3} total={data?.length}>
               {data?.slice(1, 5).map((profile, i) => (
                 <Avatar
-                  name={profile?.name}
                   key={i}
+                  showFallback
+                  name={profile.name}
                   src="https://images.unsplash.com/broken"
                 />
               ))}
