@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Drawer } from "vaul";
 import Style from "./Drawer.module.scss";
 import { IoMdClose } from "react-icons/io";
-import { Button, Input, Radio, RadioGroup, Textarea } from "@nextui-org/react";
+import {
+  Button,
+  Input,
+  Radio,
+  RadioGroup,
+  Spinner,
+  Textarea,
+} from "@nextui-org/react";
 import { useDrawer } from "./useDrawer";
 
 const DrawerSheet = ({ button }) => {
@@ -13,9 +20,14 @@ const DrawerSheet = ({ button }) => {
     selected,
     setSelected,
     handleSuggestion,
+    loading,
   } = useDrawer();
+  const [isClosed, setIsClosed] = useState(false);
+  const handleCloseDrawer = () => {
+    setIsClosed(true);
+  };
   return (
-    <Drawer.Root shouldScaleBackground={true}>
+    <Drawer.Root shouldScaleBackground={true} close={isClosed}>
       <Drawer.Trigger asChild>{button}</Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay
@@ -27,74 +39,91 @@ const DrawerSheet = ({ button }) => {
         >
           <div className={Style.container}>
             <div className={Style.head}>
-              <span>
+              <span onClick={handleCloseDrawer}>
                 <IoMdClose />
               </span>
             </div>
-            <div className={`${Style.contentBox} px-96 `}>
-              <h4>Join to guest list</h4>
-              <form action="">
-                <Input
-                  type="text"
-                  name="name"
-                  label="Name"
-                  value={formData?.name}
-                  onChange={handleComments}
-                  className={` ${Style.input} mb-2`}
-                />
-                <Input
-                  type="text"
-                  name="place"
-                  label="Place"
-                  value={formData.place}
-                  onChange={handleComments}
-                  className={` ${Style.input} mb-2`}
-                />
-                <Textarea
-                  label="Wishes"
-                  name="wishes"
-                  value={formData.wishes}
-                  onChange={handleComments}
-                  placeholder="Enter your wishes"
-                  className={` ${Style.input} w-full`}
-                />
+            {!loading ? (
+              <div className={`${Style.contentBox} px-96 `}>
+                <h4>Join to guest list</h4>
+                <form action="">
+                  <Input
+                    type="text"
+                    name="name"
+                    label="Name"
+                    value={formData?.name}
+                    onChange={handleComments}
+                    className={` ${Style.input} mb-2`}
+                  />
+                  <Input
+                    type="text"
+                    name="place"
+                    label="Place"
+                    value={formData.place}
+                    onChange={handleComments}
+                    className={` ${Style.input} mb-2`}
+                  />
+                  <Textarea
+                    label="Wishes"
+                    name="wishes"
+                    value={formData.wishes}
+                    onChange={handleComments}
+                    placeholder="Enter your wishes"
+                    className={` ${Style.input} w-full`}
+                  />
 
-                <div className={Style.suggestion}>
-                  <RadioGroup
-                    label="or select wishes"
-                    orientation="horizontal"
-                    color="secondary"
-                    value={selected}
-                    onValueChange={handleSuggestion}
+                  <div className={Style.suggestion}>
+                    <RadioGroup
+                      label="or select wishes"
+                      orientation="horizontal"
+                      color="secondary"
+                      value={selected}
+                      onValueChange={handleSuggestion}
+                    >
+                      <Radio
+                        value="best wishes!"
+                        className={`${Style.suggest_item} max-w-[300px]`}
+                      >
+                        Best Wishes!
+                      </Radio>
+                      <Radio
+                        value="forever bliss!"
+                        className={`${Style.suggest_item} max-w-[300px]`}
+                      >
+                        Forever Bliss!
+                      </Radio>
+                      <Radio
+                        value="Cheers to Love!"
+                        className={`${Style.suggest_item} max-w-[300px]`}
+                      >
+                        Cheers to Love!
+                      </Radio>
+                    </RadioGroup>
+                  </div>
+
+                  <Button
+                    className={`${Style.button} w-full mt-2`}
+                    onClick={handleSubmit}
                   >
-                    <Radio
-                      value="best wishes!"
-                      className={`${Style.suggest_item} max-w-[300px]`}
-                    >
-                      Best Wishes!
-                    </Radio>
-                    <Radio
-                      value="forever bliss!"
-                      className={`${Style.suggest_item} max-w-[300px]`}
-                    >
-                      Forever Bliss!
-                    </Radio>
-                    <Radio
-                      value="Cheers to Love!"
-                      className={`${Style.suggest_item} max-w-[300px]`}
-                    >
-                      Cheers to Love!
-                    </Radio>
-                  </RadioGroup>
-                </div>
-                <Button
-                  className={`${Style.button} w-full mt-2`}
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </Button>
-              </form>
-            </div>
+                    {loading ? (
+                      <Spinner color="default" labelColor="foreground" />
+                    ) : (
+                      " Submit"
+                    )}
+                  </Button>
+                </form>
+              </div>
+            ) : (
+              <div className={Style.sucess}>
+                <iframe
+                  src="https://lottie.host/embed/75c44d92-58e2-40a8-aa31-16187fae73a1/gy5ziWAmq2.json"
+                  width={window?.innerWidth > 560 ? 300 : 150}
+                  height={window?.innerWidth > 560 ? 300 : 150}
+                ></iframe>
+                <h5>Thnak you!</h5>
+                <p>Your wishes added to list.</p>
+              </div>
+            )}
           </div>
         </Drawer.Content>
       </Drawer.Portal>

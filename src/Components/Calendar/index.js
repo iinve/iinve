@@ -6,6 +6,8 @@ import { LuCalendarCheck2 } from "react-icons/lu";
 import { useCalendar } from "./useCalendar";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import "add-to-calendar-button";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
 
 const Calendar = () => {
   const dateData = [
@@ -60,12 +62,23 @@ const Calendar = () => {
         </h2>
       </div>
 
-      <div className="p-4 flex justify-center">
-        <CommonButton
-          text={"Add to"}
-          icon={<LuCalendarCheck2 />}
-          onClick={handleAddEvent}
-        />
+      <div className="p-4 flex justify-center flex-col items-center ">
+        <h5 className={Style.addEventHead}>Add to your calendar</h5>
+        <add-to-calendar-button
+          name="Anil & Shakthi's Wedding Ceremony"
+          title="Anil & Shakthi's Wedding Ceremony"
+          startDate="2024-12-05"
+          location="Alankritha Resort & Convention Center Shubhamastu lawn, Hyderabad Telangana"
+          startTime="07:30"
+          endTime="20:00"
+          timeZone="Asia/Calcutta"
+          description="Celebrate the wedding of Anil & Shakthi!"
+          options="'Apple','Google','iCal','Outlook.com','Yahoo'"
+          buttonsList
+          hideTextLabelButton
+          buttonStyle="round"
+          lightMode="bodyScheme"
+        ></add-to-calendar-button>
       </div>
     </div>
   );

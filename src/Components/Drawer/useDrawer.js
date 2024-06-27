@@ -3,12 +3,12 @@ import { useState } from "react";
 
 export const useDrawer = () => {
   const [selected, setSelected] = useState("");
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     place: "",
     wishes: "",
   });
-  //   console.log(anilShakthiData?.wishes);
   console.log(formData);
   const handleComments = (e) => {
     const { name, value } = e.target;
@@ -19,16 +19,19 @@ export const useDrawer = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     fetch("https://api.iinve.com/v1/guests", {
-      method: "GET",
+      method: "POST",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
+        setLoading(false);
       });
   };
 
@@ -37,6 +40,7 @@ export const useDrawer = () => {
       ...formData,
       wishes: data,
     });
+    setSelected(data);
   };
   return {
     handleComments,
@@ -46,5 +50,6 @@ export const useDrawer = () => {
     setSelected,
     setFormData,
     handleSuggestion,
+    loading,
   };
 };
