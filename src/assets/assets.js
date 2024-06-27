@@ -11,6 +11,8 @@ import flower from "./coffeePremium/flower.png";
 import flower_flip from "./coffeePremium/flower-flip.png";
 import divider from "./coffeePremium/divider.png";
 import og_image from "./coffeePremium/og-image.png";
+import couples from "./MinimalTemplate/couples.JPG";
+import minimal_cover from "./MinimalTemplate/cover.jpg";
 
 export const Assets = {
   Logo,
@@ -26,4 +28,6 @@ export const Assets = {
   divider,
   flower_flip,
   og_image,
+  couples,
+  minimal_cover,
 };
