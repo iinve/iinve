@@ -30,25 +30,6 @@ const MinimalSpotlight = () => {
     location: "Crown Convention Center, Pathanapuram",
   };
 
-  const handleAddEvent = () => {
-    const event = {
-      title: "Ansar & Asna's Wedding Ceremony",
-      description: "Celebrate the wedding of Ansar & Asna!",
-      start: new Date(2024, 6, 30, 11, 0).toISOString(),
-      end: new Date(2024, 6, 30, 20, 0).toISOString(),
-    };
-    console.log(window.navigator);
-    // Check for browser support
-    if (window.navigator && window.navigator.calendar) {
-      window.navigator.calendar
-        .addAppointment(event)
-        .then(() => console.log("Event added to calendar"))
-        .catch((error) => console.error("Error adding event:", error));
-    } else {
-      alert("Your browser does not support adding events to the calendar.");
-    }
-  };
-
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0 },
@@ -149,19 +130,36 @@ const MinimalSpotlight = () => {
             </div>
           </div>
           <small>Crown Convention center, Pathanapuram</small>
+          <span>Add event to your calendar</span>
           <button>
             <add-to-calendar-button
-              name="Title"
-              options="'Apple','Google'"
-              location="World Wide Web"
+              name="Ansar & Asna's Wedding Ceremony"
+              title="Ansar & Asna's Wedding Ceremony"
               startDate="2024-06-30"
+              location="Pathanapuram"
+              startTime="11:00"
+              endTime="20:00"
+              timeZone="Asia/Calcutta"
+              description="Celebrate the wedding of Ansar & Asna!"
+              options="'Apple','Google','iCal','Outlook.com','Yahoo'"
+              buttonsList
+              hideTextLabelButton
+              buttonStyle="round"
+              lightMode="bodyScheme"
+            ></add-to-calendar-button>
+            {/* <add-to-calendar-button
+              name="Ansar & Asna's Wedding Ceremony"
+              options="'Apple','Google'"
+              location="Pathanapuram"
+              startDate="2024-06-30"
+              description="Celebrate the wedding of Ansar & Asna!"
               endDate="2024-06-30"
-              startTime="10:15"
-              endTime="23:30"
-              timeZone="America/Los_Angeles"
+              startTime="11:00"
+              endTime="20:00"
+              timeZone="Asia/Calcutta"
             >
-              skdkljdsg
-            </add-to-calendar-button>
+              Add to your calendar
+            </add-to-calendar-button> */}
           </button>
         </div>
         <div className="wrapper">

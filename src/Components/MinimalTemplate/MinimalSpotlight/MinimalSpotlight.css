@@ -213,6 +213,14 @@ body {
     margin-top: 40px;
 }
 
+#bottom .venue span {
+    display: block;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
 #bottom .venue .date .timing .item {
     width: 100px;
     text-align: right;
@@ -245,7 +253,7 @@ body {
     border-radius: 35px;
     border: 1px solid #fff;
     display: block;
-    margin: 40px auto;
+    margin: 10px auto;
     font-size: 16px;
     transition: .3s ease-in-out;
 }
