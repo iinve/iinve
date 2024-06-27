@@ -20,51 +20,30 @@ const MinimalSpotlight = () => {
   };
 
   const event = {
-    title: "Ansar & Asna's Wedding",
-    start: "20240630T110000",
-    end: "20240630T200000",
-    location: "Pathanapuram",
-    description: "Join us to celebrate the wedding of Ansar and Asna.",
+    title: "Wedding Event",
+    start: "20240630T110000Z",
+    end: "20240630T200000Z",
+    description: "Join us for our wedding!",
+    location: "Crown Convention Center, Pathanapuram",
   };
 
-  const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-    event.title
-  )}&dates=${event.start}/${event.end}&details=${encodeURIComponent(
-    event.description
-  )}&location=${encodeURIComponent(event.location)}`;
-  const outlookCalendarUrl = `https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(
-    event.title
-  )}&startdt=${event.start}&enddt=${event.end}&body=${encodeURIComponent(
-    event.description
-  )}&location=${encodeURIComponent(event.location)}`;
-  const appleCalendarUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:${encodeURIComponent(
-    event.title
-  )}%0ADTSTART:${event.start}%0ADTEND:${
-    event.end
-  }%0ADESCRIPTION:${encodeURIComponent(
-    event.description
-  )}%0ALOCATION:${encodeURIComponent(
-    event.location
-  )}%0AEND:VEVENT%0AEND:VCALENDAR`;
+  const handleAddEvent = () => {
+    const event = {
+      title: "Ansar & Asna's Wedding Ceremony",
+      description: "Celebrate the wedding of Ansar & Asna!",
+      start: new Date(2024, 6, 30, 11, 0).toISOString(),
+      end: new Date(2024, 6, 30, 20, 0).toISOString(),
+    };
 
-  const getCalendarUrl = () => {
-    const userAgent = window.navigator.userAgent;
-    if (
-      userAgent.includes("Mac") ||
-      userAgent.includes("iPhone") ||
-      userAgent.includes("iPad")
-    ) {
-      return appleCalendarUrl;
-    } else if (userAgent.includes("Windows") || userAgent.includes("Linux")) {
-      return outlookCalendarUrl;
+    // Check for browser support
+    if (window.navigator && window.navigator.calendar) {
+      window.navigator.calendar
+        .addAppointment(event)
+        .then(() => console.log("Event added to calendar"))
+        .catch((error) => console.error("Error adding event:", error));
     } else {
-      return googleCalendarUrl;
+      alert("Your browser does not support adding events to the calendar.");
     }
-  };
-
-  const handleAddToCalendar = () => {
-    const calendarUrl = getCalendarUrl();
-    window.open(calendarUrl, "_blank");
   };
   return (
     <div className="ansar-asna">
@@ -156,7 +135,7 @@ const MinimalSpotlight = () => {
             </div>
           </div>
           <small>Crown Convention center, Pathanapuram</small>
-          <button onClick={handleAddToCalendar}>Add to calender</button>
+          <button onClick={handleAddEvent}>Add to calender</button>
         </div>
         <div className="wrapper">
           <div class="location">
