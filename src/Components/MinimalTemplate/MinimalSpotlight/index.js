@@ -39,7 +39,7 @@ const MinimalSpotlight = () => {
           <div class="main">
             <div class="name">
               <h2>
-                Anzar <span>&</span> Asna
+                Anzar <span>&amp;</span> Asna
               </h2>
             </div>
           </div>
@@ -69,27 +69,27 @@ const MinimalSpotlight = () => {
                 draggable={false}
                 //   effect={"fade"}
                 speed={500}
-                // autoplay={{
-                //   delay: 2500,
-                //   disableOnInteraction: false,
-                // }}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
                 // roundLengths={true}
                 modules={[EffectFade, Autoplay]}
                 // center
-                // breakpoints={{
-                //   // when window width is >= 640px
-                //   640: {
-                //     slidesPerView: 1,
-                //   },
-                //   // when window width is >= 768px
-                //   768: {
-                //     slidesPerView: 2,
-                //   },
-                //   // when window width is >= 1024px
-                //   1024: {
-                //     slidesPerView: 3,
-                //   },
-                // }}
+                breakpoints={{
+                  // when window width is >= 640px
+                  640: {
+                    slidesPerView: 1,
+                  },
+                  // when window width is >= 768px
+                  768: {
+                    slidesPerView: 2,
+                  },
+                  // when window width is >= 1024px
+                  1024: {
+                    slidesPerView: 3,
+                  },
+                }}
               >
                 {ansar_asna?.images?.map((item, i) => (
                   <SwiperSlide key={i}>
@@ -116,7 +116,7 @@ const MinimalSpotlight = () => {
               <div className="item">
                 <h5>Reception</h5>
                 <p>
-                  At 06 PM <br /> Groom's Residence
+                  At 06 PM <br /> Groom&apos;s Residence
                 </p>
               </div>
             </div>
