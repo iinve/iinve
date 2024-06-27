@@ -8,11 +8,11 @@ import { useDrawer } from "./useDrawer";
 const DrawerSheet = ({ button }) => {
   const { handleComments, formData, handleSubmit } = useDrawer();
   return (
-    <Drawer.Root shouldScaleBackground={true}>
+    <Drawer.Root shouldScaleBackground={true} className=" h-20">
       <Drawer.Trigger asChild>{button}</Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay
-          className={`${Style.overlay} fixed inset-0 bg-black/40`}
+          className={`${Style.overlay} fixed inset-0 bg-black/40 `}
         />
         <Drawer.Content
           className={`${Style.content} bg-zinc-100 flex flex-col w-full rounded-t-[10px] mt-24 fixed bottom-0 left-0 right-0`}

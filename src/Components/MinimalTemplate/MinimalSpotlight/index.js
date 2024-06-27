@@ -165,19 +165,17 @@ const MinimalSpotlight = () => {
         </div>
         <div className="wrapper">
           <div class="location">
-            <Skeleton>
-              <div class="gmap">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.685942121755!2d76.85043851043893!3d9.092347390933922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0672e61bf2183b%3A0xb448813ca4dca6b5!2sCrown%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1719455916775!5m2!1sen!2sin"
-                  width="600"
-                  height="450"
-                  // style="border:0;"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </Skeleton>
+            <div class="gmap">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.685942121755!2d76.85043851043893!3d9.092347390933922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0672e61bf2183b%3A0xb448813ca4dca6b5!2sCrown%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1719455916775!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                // style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
             <button onClick={handleOpenGoogleMaps}>
               <a href="#">
                 Get event location
