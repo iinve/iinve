@@ -39,7 +39,7 @@ const MinimalSpotlight = () => {
           <div class="main">
             <div class="name">
               <h2>
-                Anzar <span>&</span> Asna
+                Anzar <span>&amp;</span> Asna
               </h2>
             </div>
           </div>
