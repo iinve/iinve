@@ -13,6 +13,16 @@ body {
     /* font-family: 'poppinsregular'; */
 }
 
+@font-face {
+    font-family: 'great_vibesregular';
+
+    src: url('../../../assets/fonts/greatvibes-regular-webfont.woff') format('woff2'),
+        url('../../../assets/fonts/greatvibes-regular-webfont.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .wrapper {
     width: 90%;
     margin: 0 auto;
@@ -42,8 +52,8 @@ body {
     content: "";
     height: 100vh;
     width: 100%;
-    background-color: #fff;
-    opacity: 0.25;
+    background-color: #000;
+    opacity: 0.5;
     position: absolute;
     z-index: 2;
 }
@@ -54,6 +64,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 44;
 }
 
 .spotlight .main .name {
@@ -66,6 +78,8 @@ body {
 
 .spotlight .main .name h2 {
     font-size: 60px;
+    font-family: 'great_vibesregular';
+
 }
 
 .spotlight .main .name span {
@@ -78,7 +92,7 @@ body {
     bottom: 20px;
     right: 50%;
     transform: translateX(50%);
-    font-weight: 600;
+    z-index: 44;
 }
 
 #bottom {
