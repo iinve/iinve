@@ -3,6 +3,11 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 
+const isProduction = process.env.NODE_ENV === "production";
+const metadataBase = isProduction
+  ? "https://www.iinve.com"
+  : "http://localhost:3000";
+
 export const metadata = {
   title: "Ansar & Asna Wedding Invitation | iinve",
   description:
@@ -18,7 +23,9 @@ export const metadata = {
       },
     ],
   },
+  metadataBase: metadataBase,
 };
+
 const MinimalTemplate = dynamic(() => import("@/Templates/MinimalTemplate"), {
   ssr: false, // Ensure it only loads on the client side
 });
