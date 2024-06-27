@@ -7,6 +7,9 @@ import { Assets } from "@/assets/assets";
 import { EffectFade, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaMapLocationDot } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import "add-to-calendar-button";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
@@ -34,7 +37,7 @@ const MinimalSpotlight = () => {
       start: new Date(2024, 6, 30, 11, 0).toISOString(),
       end: new Date(2024, 6, 30, 20, 0).toISOString(),
     };
-
+    console.log(window.navigator);
     // Check for browser support
     if (window.navigator && window.navigator.calendar) {
       window.navigator.calendar
@@ -45,16 +48,27 @@ const MinimalSpotlight = () => {
       alert("Your browser does not support adding events to the calendar.");
     }
   };
+
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0 },
+  };
   return (
     <div className="ansar-asna">
       <section className="spotlight">
         <div class="wrapper">
           <div class="main">
-            <div class="name">
+            <motion.div
+              className="name"
+              initial="hidden"
+              animate="show"
+              variants={fadeUpVariants}
+              transition={{ duration: 0.5 }}
+            >
               <h2>
                 Anzar <span>&amp;</span> Asna
               </h2>
-            </div>
+            </motion.div>
           </div>
           <small>Getting Married</small>
         </div>
@@ -135,7 +149,20 @@ const MinimalSpotlight = () => {
             </div>
           </div>
           <small>Crown Convention center, Pathanapuram</small>
-          <button onClick={handleAddEvent}>Add to calender</button>
+          <button>
+            <add-to-calendar-button
+              name="Title"
+              options="'Apple','Google'"
+              location="World Wide Web"
+              startDate="2024-06-30"
+              endDate="2024-06-30"
+              startTime="10:15"
+              endTime="23:30"
+              timeZone="America/Los_Angeles"
+            >
+              skdkljdsg
+            </add-to-calendar-button>
+          </button>
         </div>
         <div className="wrapper">
           <div class="location">
