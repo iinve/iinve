@@ -23,11 +23,10 @@ export default function Home() {
               }
               target="_blankk"
             >
-              instagram
+              whatsapp
             </a>
-            whatsapp
           </Button>
-          <Button color="primary" variant="flat">
+          <Button color="primary" variant="flat" className="ms-2">
             <a href={"https://www.instagram.com/hi.iinve/"} target="_blankk">
               instagram
             </a>
