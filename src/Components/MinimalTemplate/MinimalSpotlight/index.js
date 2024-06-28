@@ -13,6 +13,7 @@ import { AddToCalendarButton } from "add-to-calendar-button-react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Skeleton } from "@nextui-org/react";
+import Link from "next/link";
 
 const MinimalSpotlight = () => {
   const handleOpenGoogleMaps = () => {
@@ -178,7 +179,14 @@ const MinimalSpotlight = () => {
             </button>
           </div>
           <div class="logo">
-            <Image src={Assets?.Created_by} alt="logo" width={50} height={50} />
+            <Link href={"/"}>
+              <Image
+                src={Assets?.Created_by}
+                alt="Logo"
+                width={50}
+                height={50}
+              />
+            </Link>
           </div>
         </div>
       </section>

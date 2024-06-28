@@ -24,3 +24,11 @@ body {
     font-size: 20px;
     color: #fff;
 }
+
+.no-data span {
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 14px;
+    font-weight: 200;
+    color: #fff;
+}
