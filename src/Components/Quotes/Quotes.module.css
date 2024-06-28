@@ -1,0 +1,63 @@
+.quote {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  padding: 100px 0 0;
+}
+@media (max-width: 760px) {
+  .quote {
+    width: 80%;
+  }
+}
+.quote .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 60px;
+}
+.quote .container {
+  z-index: 44;
+  position: relative;
+  background: rgba(254, 251, 243, 0.0980392157);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  border: 0.5px solid #d7d7d7;
+  padding: 60px 60px;
+  border-radius: 30px;
+}
+@media (max-width: 480px) {
+  .quote .container {
+    padding: 40px 30px;
+  }
+}
+.quote .container p {
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+@media (max-width: 560px) {
+  .quote .container p {
+    font-size: 16px;
+  }
+}
+.quote .container .name {
+  margin-top: 50px;
+}
+@media (max-width: 560px) {
+  .quote .container .name {
+    font-size: 18px;
+  }
+}
+@media (max-width: 560px) {
+  .quote .container .name {
+    font-size: 16px;
+  }
+}
+.quote .button_box {
+  text-align: center;
+  padding: 50px 0;
+}/*# sourceMappingURL=Quotes.module.css.map */

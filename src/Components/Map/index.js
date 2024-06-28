@@ -20,8 +20,8 @@ const Map = () => {
           width="650"
           height={window?.innerWidth >= 560 ? "350" : "240"}
           className={Style.mapBox}
-          allowfullscreen=""
-          referrerpolicy="no-referrer-when-downgrade"
+          allowFullScreen=""
+          referrerPolicy="no-referrer-when-downgrade"
           onLoad={mapOnLoad}
         ></iframe>
       </div>

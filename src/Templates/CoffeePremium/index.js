@@ -4,18 +4,15 @@ import CouplesDetails from "@/Components/CouplesDetails";
 import MeshMasonrySpotlight from "@/Components/MeshMasonrySpotlight";
 import Style from "./CoffeePremium.module.scss";
 import { anilShakthiData } from "@/Data/Anil-Shakthi";
-import { useEffect } from "react";
 import Quote from "@/Components/Quotes";
 import Calendar from "@/Components/Calendar";
 import Map from "@/Components/Map";
 import Comments from "@/Components/Comments";
 import Footer from "@/Components/Footer";
 import DrawerSheet from "@/Components/Drawer";
-import useLenis from "@/utils/useLenis";
 import { useComment } from "@/utils/CoffeePremiumUtils/useComment";
 
 function CoffeePremium() {
-  useLenis();
   const {
     handleComments,
     formData,
@@ -28,7 +25,9 @@ function CoffeePremium() {
     drawerOpen,
     setDrawerOpen,
     comments,
+    setLoading
   } = useComment();
+
   return (
     <div className={Style.CoffeWrapper}>
       <MeshMasonrySpotlight />
@@ -52,11 +51,12 @@ function CoffeePremium() {
         setSelected={setSelected}
         handleSuggestion={handleSuggestion}
         loading={loading}
+        setLoading={setLoading}
         isNotValid={isNotValid}
         drawerOpen={drawerOpen}
         setDrawerOpen={setDrawerOpen}
       />
-      <Comments data={comments?.reverse()} />
+      {comments && <Comments data={comments.slice().reverse()} />}
       <Footer />
     </div>
   );

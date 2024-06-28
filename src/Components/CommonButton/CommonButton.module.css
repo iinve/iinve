@@ -1,0 +1,31 @@
+.button {
+  background: linear-gradient(to right, #e8c694, #dfb273);
+  font-size: 20px;
+  color: #704900;
+  padding: 12px 30px;
+}
+@media (max-width: 560px) {
+  .button {
+    font-size: 16px;
+  }
+}
+.button svg {
+  width: 25px;
+  height: 25px;
+}
+@media (max-width: 560px) {
+  .button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.button .divider {
+  width: 1.5px;
+  border-radius: 30px;
+  background-color: #704900;
+}
+@media (max-width: 560px) {
+  .button .divider {
+    width: 1px;
+  }
+}/*# sourceMappingURL=CommonButton.module.css.map */

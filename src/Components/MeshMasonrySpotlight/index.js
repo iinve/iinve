@@ -22,7 +22,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
   const calculateY = (index) => {
     return index % 2 === 0
       ? yTransform
-      : yTransform.onChange((value) => -value);
+      : yTransform.on((value) => -value);
   };
 
   //   const imageSize =

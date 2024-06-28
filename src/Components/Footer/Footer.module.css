@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+.footer {
+  text-align: center;
+  padding: 50px 0 10px 0;
+  position: relative;
+  background-image: url(../../assets/coffeePremium/flower-flip.png);
+  background-repeat: no-repeat;
+}
+.footer .thanks {
+  text-align: center;
+}
+.footer .thanks h3 {
+  color: #ddae6b;
+  font-family: "Fleur De Leah", cursive !important;
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+@media (max-width: 560px) {
+  .footer .thanks h3 {
+    font-size: 20px;
+  }
+}
+.footer .iinve img {
+  width: 70px;
+  display: block;
+  margin: auto;
+}
+@media (max-width: 480px) {
+  .footer .iinve img {
+    width: 50px;
+  }
+}
+.footer .flower {
+  position: absolute;
+  bottom: 0;
+  width: 400px;
+  right: 0;
+  z-index: -1;
+}/*# sourceMappingURL=Footer.module.css.map */

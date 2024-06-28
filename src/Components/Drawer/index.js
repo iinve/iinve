@@ -18,12 +18,12 @@ const DrawerSheet = ({ button }) => {
     formData,
     handleSubmit,
     selected,
-    setSelected,
     handleSuggestion,
     loading,
     isNotValid,
     drawerOpen,
     setDrawerOpen,
+    setLoading
   } = useComment();
 
   return (
@@ -32,13 +32,12 @@ const DrawerSheet = ({ button }) => {
       open={drawerOpen}
       onOpenChange={setDrawerOpen}
     >
-      <Drawer.Trigger asChild>{button}</Drawer.Trigger>
+      <Drawer.Trigger asChild onClick={() => setLoading(false)}>{button}</Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay
           className={`${Style.overlay} fixed inset-0 bg-black/40 `}
         />
         <Drawer.Content
-          data-lenis-prevent
           className={`${Style.content} bg-zinc-100 flex flex-col w-full rounded-t-[10px] mt-24 fixed bottom-0 left-0 right-0`}
         >
           <div className={Style.container}>
@@ -127,7 +126,7 @@ const DrawerSheet = ({ button }) => {
                   width={window?.innerWidth > 560 ? 300 : 150}
                   height={window?.innerWidth > 560 ? 300 : 150}
                 ></iframe>
-                <h5>Thnak you!</h5>
+                <h5>Thank you!</h5>
                 <p>Your wishes added to list.</p>
               </div>
             )}

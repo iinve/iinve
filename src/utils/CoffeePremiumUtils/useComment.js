@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useComment = () => {
-  // api init---> developer- make more dynamic
-  const api = "http://api.iinve.com/v1/guests/";
+  const api = "https://api.iinve.com/v1/guests/";
   const [selected, setSelected] = useState("");
   const [loading, setLoading] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -12,15 +11,14 @@ export const useComment = () => {
     place: "",
     wishes: "",
   });
+  const [updateTrigger, setUpdateTrigger] = useState(false); // New state to force re-render
   const isNotValid = !formData?.name || !formData?.place || !formData?.wishes;
 
   useEffect(() => {
     fetchComments();
-  }, []);
+  }, [comments]); 
 
   const fetchComments = () => {
-    setLoading(true);
-
     fetch(api, {
       method: "GET",
       headers: {
@@ -29,8 +27,6 @@ export const useComment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setLoading(false);
         setComments(data);
       })
       .catch((error) => {
@@ -46,6 +42,7 @@ export const useComment = () => {
       [name]: value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -65,15 +62,16 @@ export const useComment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        fetchComments();
+        setComments([...comments, data]);
+        setUpdateTrigger(!updateTrigger);
         setTimeout(() => {
-          setLoading(false);
           setFormData({
             name: "",
             place: "",
             wishes: "",
           });
           setSelected("");
+          setLoading(false);
           setDrawerOpen(false);
         }, 3500);
       })
@@ -90,6 +88,7 @@ export const useComment = () => {
     });
     setSelected(data);
   };
+
   return {
     handleComments,
     formData,
@@ -103,5 +102,6 @@ export const useComment = () => {
     drawerOpen,
     setDrawerOpen,
     comments,
+    setLoading,
   };
 };

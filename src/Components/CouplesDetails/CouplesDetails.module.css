@@ -1,0 +1,56 @@
+.couplesDetails {
+  background: #fefbf3;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  width: 700px;
+  margin: auto;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  margin-bottom: 18px;
+  border: 0.5px solid #d7d7d7;
+}
+.couplesDetails .avatar {
+  width: 65px;
+  height: 65px;
+}
+@media (max-width: 760px) {
+  .couplesDetails {
+    width: 90%;
+    margin: 0 auto 18px;
+  }
+}
+@media (max-width: 560px) {
+  .couplesDetails {
+    flex-direction: column;
+  }
+}
+.couplesDetails .ContentBox {
+  margin-left: 30px;
+}
+@media (max-width: 560px) {
+  .couplesDetails .ContentBox {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+}
+.couplesDetails .ContentBox h5 {
+  font-weight: 700;
+  font-size: 20px;
+  color: #333;
+}
+@media (max-width: 560px) {
+  .couplesDetails .ContentBox h5 {
+    font-size: 18px;
+  }
+}
+.couplesDetails .ContentBox p {
+  width: 90%;
+  color: #909090;
+  font-size: 18px;
+}
+@media (max-width: 560px) {
+  .couplesDetails .ContentBox p {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=CouplesDetails.module.css.map */

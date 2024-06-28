@@ -1,0 +1,190 @@
+.calendarWrapper {
+  background-image: url(../../assets/coffeePremium/flower-flip.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+@media (max-width: 560px) {
+  .calendarWrapper {
+    background-size: 300px;
+  }
+}
+.calendarWrapper .time {
+  color: #ddae6b;
+}
+.calendarWrapper .calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.calendarWrapper .calendar::after {
+  content: "";
+  width: 100%;
+  height: 200px;
+  background: rgb(254, 251, 243);
+  background: linear-gradient(90deg, rgb(254, 251, 243) 0%, rgba(254, 251, 243, 0) 50%, rgb(254, 251, 243) 100%);
+  position: absolute;
+}
+.calendarWrapper .calendar li {
+  padding: 0 50px;
+  opacity: 0.5;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .calendarWrapper .calendar li {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 560px) {
+  .calendarWrapper .calendar li {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 480px) {
+  .calendarWrapper .calendar li {
+    padding: 0 20px;
+  }
+}
+.calendarWrapper .calendar li span {
+  color: #333;
+  font-size: 28px;
+  font-weight: 500;
+}
+@media (max-width: 760px) {
+  .calendarWrapper .calendar li span {
+    font-size: 24px;
+  }
+}
+@media (max-width: 560px) {
+  .calendarWrapper .calendar li span {
+    font-size: 20px;
+  }
+}
+.calendarWrapper .calendar li h5 {
+  color: #333;
+  font-size: 40px;
+  font-weight: 700;
+}
+@media (max-width: 760px) {
+  .calendarWrapper .calendar li h5 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 560px) {
+  .calendarWrapper .calendar li h5 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .calendarWrapper .calendar li h5 {
+    font-size: 20px;
+  }
+}
+.calendarWrapper .calendar .active {
+  opacity: 1 !important;
+  position: relative;
+}
+.calendarWrapper .calendar .active span {
+  color: #ddae6b;
+}
+.calendarWrapper .calendar .active h5 {
+  color: #ddae6b;
+}
+.calendarWrapper .calendar .round {
+  position: absolute;
+  right: 50%;
+  top: -72%;
+  transform: translate(50%, 50%) scale(1.05);
+}
+@media (max-width: 480px) {
+  .calendarWrapper .calendar .round {
+    top: -50%;
+    transform: translate(50%, 50%) scale(1.4);
+  }
+}
+.calendarWrapper .Starttime {
+  text-align: center;
+  color: #333;
+  display: block;
+  font-size: 20px;
+  position: relative;
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .calendarWrapper .Starttime {
+    font-size: 18px;
+  }
+}
+.calendarWrapper .time {
+  text-align: center;
+  color: #333;
+  display: block;
+  font-size: 20px;
+  position: relative;
+  font-weight: 600;
+  position: relative;
+}
+@media (max-width: 560px) {
+  .calendarWrapper .time {
+    font-size: 18px;
+  }
+}
+.calendarWrapper .exactTime {
+  position: relative;
+}
+.calendarWrapper .exactTime img {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.calendarWrapper .destination {
+  text-align: center;
+  text-align: center;
+  padding: 40px 0;
+}
+.calendarWrapper .destination h5 {
+  color: #333;
+  font-size: 40px;
+}
+@media (max-width: 760px) {
+  .calendarWrapper .destination h5 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 560px) {
+  .calendarWrapper .destination h5 {
+    font-size: 24px;
+  }
+}
+.calendarWrapper .destination h2 {
+  width: 60%;
+  margin: auto;
+  font-size: 24px;
+  color: #ddae6b;
+  font-weight: 600;
+}
+@media (max-width: 760px) {
+  .calendarWrapper .destination h2 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 560px) {
+  .calendarWrapper .destination h2 {
+    width: 80%;
+  }
+}
+.calendarWrapper .addEventHead {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+@media (max-width: 560px) {
+  .calendarWrapper .addEventHead {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=Calendar.module.css.map */
