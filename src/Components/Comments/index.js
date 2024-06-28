@@ -11,6 +11,7 @@ import "swiper/css/effect-fade";
 import { Avatar, AvatarGroup } from "@nextui-org/react";
 
 const Comments = ({ data }) => {
+  console.log("iinve | create your elegant invitation");
   return (
     <div className={Style.Comments}>
       <div className={Style.commentBox}>
