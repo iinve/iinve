@@ -1,4 +1,5 @@
 import Logo from "./images/logo.png";
+import default_og_image from "./images/og-image.jpg";
 import Logo_black from "./images/logo-black.png";
 import Logo_white from "./images/logo-white.png";
 import Created_by from "./images/create-tag.png";
@@ -23,6 +24,7 @@ import star from "./images/star-icon.png";
 export const Assets = {
   Logo,
   icon,
+  default_og_image,
   Logo_black,
   Logo_white,
   Created_by,

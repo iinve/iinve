@@ -4,12 +4,33 @@ import Image from "next/image";
 import "./globals.css";
 import { Button, NextUIProvider } from "@nextui-org/react";
 import { Toaster } from "sonner";
-import Link from "next/link";
+
+const isProduction = process.env.NODE_ENV === "production";
+const metadataBase = isProduction
+  ? "https://www.iinve.com"
+  : "http://localhost:3000";
+
+export const metadata = {
+  title: "iinve | Dashboard",
+  description: "You can easily manage your guests.",
+  openGraph: {
+    title: "iinve | Dashboard",
+    description: "You can easily manage your guests.",
+    images: [
+      {
+        url: `${metadataBase}${Assets?.default_og_image?.src}`,
+        alt: "You can easily manage your guests.",
+      },
+    ],
+  },
+  metadataBase: metadataBase,
+};
 
 export default function Home() {
   return (
     <NextUIProvider>
       <Toaster />
+
       <main className="no-data">
         <Image src={Assets?.Logo} alt="Logo" />
         <StarBackground />
