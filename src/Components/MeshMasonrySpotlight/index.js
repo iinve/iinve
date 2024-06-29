@@ -20,9 +20,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
   );
 
   const calculateY = (index) => {
-    return index % 2 === 0
-      ? yTransform
-      : yTransform.on((value) => -value);
+    return index % 2 === 0 ? yTransform : yTransform.on((value) => -value);
   };
 
   //   const imageSize =

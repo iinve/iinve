@@ -1,0 +1,47 @@
+.infocard {
+  background: #ffffff58;
+  border: 1px solid #d5d5d5;
+  width: fit-content;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-right: 20px;
+  @media (max-width: 660px) {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .contents {
+    padding-right: 90px;
+    h4 {
+      font-size: 26px;
+      font-weight: 600;
+      @media (max-width: 760px) {
+        font-size: 20px;
+      }
+    }
+    span {
+      display: inline-block;
+      font-size: 16px;
+      color: #333;
+    }
+  }
+  img {
+    width: 180px;
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    @media (max-width: 760px) {
+      width: 100px;
+      bottom: -10px;
+      right: -40px;
+    }
+  }
+  :last-child {
+    margin-right: 20px;
+  }
+}

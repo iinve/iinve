@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Drawer } from "vaul";
 import Style from "./Drawer.module.scss";
@@ -23,7 +24,7 @@ const DrawerSheet = ({ button }) => {
     isNotValid,
     drawerOpen,
     setDrawerOpen,
-    setLoading
+    setLoading,
   } = useComment();
 
   return (
@@ -32,7 +33,9 @@ const DrawerSheet = ({ button }) => {
       open={drawerOpen}
       onOpenChange={setDrawerOpen}
     >
-      <Drawer.Trigger asChild onClick={() => setLoading(false)}>{button}</Drawer.Trigger>
+      <Drawer.Trigger asChild onClick={() => setLoading(false)}>
+        {button}
+      </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay
           className={`${Style.overlay} fixed inset-0 bg-black/40 `}

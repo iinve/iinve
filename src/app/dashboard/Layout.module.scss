@@ -1,0 +1,33 @@
+.layout {
+  padding-left: 300px;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+  @media (max-width: 660px) {
+    padding-left: 0;
+    height: 100%;
+  }
+
+  .gradient {
+    position: absolute;
+    top: -60px;
+    right: 50px;
+    width: 700px;
+    z-index: -1;
+  }
+  .bottom_gradient {
+    position: absolute;
+    bottom: 0;
+    width: 600px;
+    left: -100px;
+    transform: rotate(-180deg);
+    z-index: -1;
+  }
+}
+.side_bar_active {
+  padding-left: 50px;
+  @media (max-width: 660px) {
+    padding-left: 0 !important;
+  }
+}

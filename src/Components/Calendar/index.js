@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Style from "./Calendar.module.scss";
 import { Assets } from "@/assets/assets";

@@ -1,0 +1,20 @@
+.DashboardHome {
+  //   padding-left: 300px;
+  &_container {
+    padding: 50px;
+    .head {
+      font-size: 30px;
+      font-weight: 800;
+    }
+    @media (max-width: 660px) {
+      padding: 20px;
+    }
+  }
+  .infocards {
+    margin-top: 40px;
+    display: flex;
+    @media (max-width: 660px) {
+      flex-direction: column;
+    }
+  }
+}
