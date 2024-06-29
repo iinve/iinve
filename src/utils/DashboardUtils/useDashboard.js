@@ -79,6 +79,11 @@ const useDashboard = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const formattedCommentsLength =
+    comments.length < 10 ? `0${comments.length}` : comments.length.toString();
+
+  console.log(isLoading);
+
   return {
     handleSidebar,
     isSidebar,
@@ -88,6 +93,7 @@ const useDashboard = () => {
     fetchComments,
     isLoading,
     isClient,
+    formattedCommentsLength,
   };
 };
 

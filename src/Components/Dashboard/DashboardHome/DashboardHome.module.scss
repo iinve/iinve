@@ -2,6 +2,14 @@
   //   padding-left: 300px;
   &_container {
     padding: 50px;
+    .icon {
+      display: none;
+      width: 30px;
+      margin: 0 auto 50px;
+      @media (max-width: 780px) {
+        display: block;
+      }
+    }
     .head {
       font-size: 30px;
       font-weight: 800;
