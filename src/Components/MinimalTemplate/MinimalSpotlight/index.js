@@ -143,19 +143,6 @@ const MinimalSpotlight = () => {
               buttonStyle="round"
               lightMode="bodyScheme"
             ></add-to-calendar-button>
-            {/* <add-to-calendar-button
-              name="Ansar & Asna's Wedding Ceremony"
-              options="'Apple','Google'"
-              location="Pathanapuram"
-              startDate="2024-06-30"
-              description="Celebrate the wedding of Ansar & Asna!"
-              endDate="2024-06-30"
-              startTime="11:00"
-              endTime="20:00"
-              timeZone="Asia/Calcutta"
-            >
-              Add to your calendar
-            </add-to-calendar-button> */}
           </button>
         </div>
         <div className="wrapper">

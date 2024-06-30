@@ -16,7 +16,7 @@ const DashboardTable = ({ comments, isloading }) => {
   const columns = [
     {
       key: "name",
-      label: "NAME",
+      label: "Name",
     },
     {
       key: "place",
