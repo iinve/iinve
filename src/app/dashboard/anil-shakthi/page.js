@@ -5,7 +5,7 @@ import React from "react";
 
 const isProduction = process.env.NODE_ENV === "production";
 const metadataBase = isProduction
-  ? "https://www.iinve.com"
+  ? "https://iinve.com"
   : "http://localhost:3000";
 
 export const metadata = {

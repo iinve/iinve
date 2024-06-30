@@ -6,7 +6,7 @@ import { Assets } from "@/assets/assets";
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
 const metadataBase = isProduction
-  ? "https://www.iinve.com"
+  ? "https://iinve.com"
   : "http://localhost:3000";
 
 export const metadata = {

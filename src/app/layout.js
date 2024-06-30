@@ -9,7 +9,7 @@ const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
 
 const isProduction = process.env.NODE_ENV === "production";
 const metadataBase = isProduction
-  ? "https://www.iinve.com"
+  ? "https://iinve.com"
   : "http://localhost:3000";
 
 export const metadata = {
@@ -23,7 +23,7 @@ export const metadata = {
     images: [
       {
         url: `${metadataBase}${Assets?.default_og_image?.src}`,
-        alt: "You can easily manage your guests.",
+        alt: "iinve - Create Elegant Wedding Invitations",
       },
     ],
   },
