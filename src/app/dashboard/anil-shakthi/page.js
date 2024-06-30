@@ -43,7 +43,7 @@ const page = () => {
           />
         )}
       </Head>
-      <DashboardHome />;
+      <DashboardHome />
     </>
   );
 };
