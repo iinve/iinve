@@ -34,8 +34,6 @@ const MinimalSpotlight = ({
     const query = encodeURIComponent(location);
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
     window.open(googleMapsUrl, "_blank");
-
-    window.open(googleMapsUrl, "_blank");
   };
 
   const fadeUpVariants = {
