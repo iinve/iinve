@@ -29,11 +29,11 @@ const MinimalSpotlight = ({
   endTime,
   mapLink,
 }) => {
-  console.log(mapLink, "link");
   const handleOpenGoogleMaps = () => {
-    const location = "Crown Convention Centre";
+    const location = "Kumaramangalam Auditorium";
     const query = encodeURIComponent(location);
-    const googleMapsUrl = mapLink;
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+    window.open(googleMapsUrl, "_blank");
 
     window.open(googleMapsUrl, "_blank");
   };
