@@ -17,6 +17,7 @@ import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
 import anil_og_image from "./coffeePremium/anil_og_image.jpg";
+import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
 import gradient from "./images/gradient.png";
 import calendar from "./images/calendar-icon.png";
 import star from "./images/star-icon.png";
@@ -44,4 +45,5 @@ export const Assets = {
   gradient,
   calendar,
   star,
+  sreejitha_og_image,
 };
