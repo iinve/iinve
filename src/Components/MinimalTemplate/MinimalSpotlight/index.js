@@ -29,10 +29,11 @@ const MinimalSpotlight = ({
   endTime,
   mapLink,
 }) => {
+  console.log(mapLink, "link");
   const handleOpenGoogleMaps = () => {
     const location = "Crown Convention Centre";
     const query = encodeURIComponent(location);
-    const googleMapsUrl = { mapLink };
+    const googleMapsUrl = mapLink;
 
     window.open(googleMapsUrl, "_blank");
   };
