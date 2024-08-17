@@ -188,7 +188,7 @@ body {
     background-size: cover;
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     -webkit-background-clip: unset;
     padding: 30px;
     color: #fff;
