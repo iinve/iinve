@@ -71,7 +71,7 @@ const MinimalSpotlight = ({
               With joyful hearts, {groomName} and {brideName}, together with
               their families, invite you to celebrate their union. Please join
               us for the wedding ceremony on {date}, at {time} at {place}.
-              Reception to follow at the same venue. We eagerly await your
+              Reception at SN Auditorium Ayyapankavu. We eagerly await your
               presence to share in this special day.
             </p>
           </div>
