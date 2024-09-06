@@ -1,9 +1,10 @@
-import { Assets } from "@/assets/assets";
-import ansar_asna from "@/Data/Ansar_asna";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
+import { Assets } from "@/assets/assets";
+import { nikil_sreejitha } from "@/Data/nikil_sreejitha";
 
+// Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
 const metadataBase = isProduction
   ? "https://iinve.com"
@@ -12,27 +13,28 @@ const metadataBase = isProduction
 export const metadata = {
   title: "Nikil & Sreejitha Wedding Invitation | iinve",
   description:
-    "Nikil & Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
+    "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
   openGraph: {
     title: "Nikil & Sreejitha Wedding Invitation | iinve",
     description:
-      "Nikil & Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
+      "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: Assets?.sreejitha_og_image?.src,
-        alt: "Wedding Invitation",
+        url: `${metadataBase}${Assets?.sreejitha_og_image?.src}`,
+        alt: "Nikil & Sreejitha Wedding Invitation",
       },
     ],
   },
-  metadataBase: metadataBase,
+  metadataBase: metadataBase, // Add this line to set the metadataBase
 };
 
-const MinimalTemplate = dynamic(() => import("@/Templates/MinimalTemplate"), {
-  ssr: false,
+const CoffeePremium = dynamic(() => import("@/Templates/CoffeePremium"), {
+  ssr: false, // Ensure it only loads on the client side
 });
-const page = () => {
+
+const Page = () => {
   return (
-    <>
+    <div>
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
@@ -50,22 +52,9 @@ const page = () => {
           />
         )}
       </Head>
-      <MinimalTemplate
-        groomName="Nikil"
-        brideName="Sreejitha"
-        date="September 8, 2024"
-        time="11:50 AM"
-        place="Sri Kumaramangalam Auditorium"
-        slideData={ansar_asna}
-        day="Sunday"
-        receptionTime="6 PM"
-        startDate="2024-09-08"
-        location="North Paravoor, Ernakulam"
-        endTime="16:00"
-        mapLink="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.287352772389!2d76.2368767!3d10.1572816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081a900118aa8b%3A0xee6a9fe8635b5256!2sKumaramangalam%20Auditorium!5e0!3m2!1sen!2sin!4v1723884391562!5m2!1sen!2sin"
-      />
-    </>
+      <CoffeePremium data={nikil_sreejitha} />
+    </div>
   );
 };
 
-export default page;
+export default Page;
