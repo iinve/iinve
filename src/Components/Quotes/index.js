@@ -4,7 +4,6 @@ import { Avatar, AvatarGroup } from "@nextui-org/react";
 import Style from "./Quotes.module.scss";
 import Image from "next/image";
 import { Assets } from "@/assets/assets";
-import { anilShakthiData } from "@/Data/Anil-Shakthi";
 import CommonButton from "../CommonButton";
 import { LuMessagesSquare } from "react-icons/lu";
 import { useQuotes } from "./useQuotes";
@@ -12,8 +11,8 @@ import { useInView } from "framer-motion";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-const Quote = () => {
-  const { handleWishes } = useQuotes();
+const Quote = ({ data }) => {
+  const { handleWishes } = useQuotes(data);
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { amount: "some" });
@@ -41,7 +40,7 @@ const Quote = () => {
         </span>
         <div className={Style.avatars}>
           <AvatarGroup isBordered max={2}>
-            {anilShakthiData?.couples_data.map((item, i) => (
+            {data?.couples_data.map((item, i) => (
               <Avatar src={item?.avatar?.src} size="lg" key={i} />
             ))}
           </AvatarGroup>
@@ -59,7 +58,9 @@ const Quote = () => {
           Your presence will bring immense joy and blessings to our hearts. We
           look forward to celebrating this special day with you.
         </p>
-        <p className={Style.name}>- By Anil and Shakthi</p>
+        <p className={Style.name}>
+          - By {data?.bride} and {data?.groom}
+        </p>
       </motion.div>
       <div className={Style.button_box}>
         <CommonButton

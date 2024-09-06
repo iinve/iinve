@@ -3,7 +3,6 @@
 import CouplesDetails from "@/Components/CouplesDetails";
 import MeshMasonrySpotlight from "@/Components/MeshMasonrySpotlight";
 import Style from "./CoffeePremium.module.scss";
-import { anilShakthiData } from "@/Data/Anil-Shakthi";
 import Quote from "@/Components/Quotes";
 import Calendar from "@/Components/Calendar";
 import Map from "@/Components/Map";
@@ -12,7 +11,7 @@ import Footer from "@/Components/Footer";
 import DrawerSheet from "@/Components/Drawer";
 import { useComment } from "@/utils/CoffeePremiumUtils/useComment";
 
-function CoffeePremium() {
+function CoffeePremium({ data }) {
   const {
     handleComments,
     formData,
@@ -25,13 +24,13 @@ function CoffeePremium() {
     drawerOpen,
     setDrawerOpen,
     comments,
-    setLoading
+    setLoading,
   } = useComment();
 
   return (
     <div className={Style.CoffeWrapper}>
-      <MeshMasonrySpotlight />
-      {anilShakthiData?.couples_data?.map((item, i) => (
+      <MeshMasonrySpotlight data={data} />
+      {data?.couples_data?.map((item, i) => (
         <CouplesDetails
           key={i}
           full_name={item?.full_name}
@@ -39,11 +38,11 @@ function CoffeePremium() {
           avatar={item?.avatar}
         />
       ))}
-      <Quote />
-      <Calendar />
+      <Quote data={data} />
+      <Calendar data={data} />
       <MeshMasonrySpotlight isNotSpotlight={true} />
-      <Map />
-      <DrawerSheet
+      <Map data={data} />
+      {/* <DrawerSheet
         handleComments={handleComments}
         formData={formData}
         handleSubmit={handleSubmit}
@@ -56,7 +55,7 @@ function CoffeePremium() {
         drawerOpen={drawerOpen}
         setDrawerOpen={setDrawerOpen}
       />
-      {comments && <Comments data={comments.slice().reverse()} />}
+      {comments && <Comments data={comments.slice().reverse()} />} */}
       <Footer />
     </div>
   );

@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 import { Assets } from "@/assets/assets";
+import { anilShakthiData } from "@/Data/Anil-Shakthi";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
@@ -51,7 +52,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <CoffeePremium />
+      <CoffeePremium data={anilShakthiData} />
     </div>
   );
 };

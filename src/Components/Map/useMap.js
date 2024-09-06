@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export const useMap = () => {
+export const useMap = (data) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const handleOpenGoogleMaps = () => {
-    const location = "Aalankrita Resort And Convention";
+    const location = data?.map_name;
     const query = encodeURIComponent(location);
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
 

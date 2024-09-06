@@ -3,13 +3,12 @@
 import Image from "next/image";
 import Style from "./MeshMasonrySpotlight.module.scss";
 import { useEffect, useState } from "react";
-import { anilShakthiData } from "@/Data/Anil-Shakthi";
 import { Skeleton } from "@nextui-org/react";
 import { Assets } from "@/assets/assets";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
+const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { scrollY } = useScroll();
@@ -22,13 +21,6 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
   const calculateY = (index) => {
     return index % 2 === 0 ? yTransform : yTransform.on((value) => -value);
   };
-
-  //   const imageSize =
-  //     window.innerWidth > 1050
-  //       ? 300
-  //       : window.innerWidth >= 760 && window?.innerWidth < 1050
-  //       ? 600
-  //       : 900;
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -43,7 +35,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
 
   const renderColumn = (index, items) => (
     <div className="column" key={index}>
-      {items.map((item, i) => (
+      {items?.map((item, i) => (
         <motion.div
           key={i}
           className={Style.brick}
@@ -78,24 +70,24 @@ const MeshMasonrySpotlight = ({ isNotSpotlight }) => {
           <div className={Style.nameBox}>
             <span>The wedding of</span>
             <h4>
-              {anilShakthiData?.groom} & {anilShakthiData?.bride}
+              {data?.groom} & {data?.bride}
             </h4>
           </div>
         )}
 
         <div className={`${Style.masonry} flex items-center justify-center`}>
           {[
-            anilShakthiData?.images.slice(0, 1),
-            anilShakthiData?.images.slice(1, 3),
-            anilShakthiData?.images.slice(3, 5),
-            anilShakthiData?.images.slice(7, 8),
+            data?.images.slice(0, 1),
+            data?.images.slice(1, 3),
+            data?.images.slice(3, 5),
+            data?.images.slice(7, 8),
           ].map((items, index) => renderColumn(index, items))}
         </div>
 
         {!isNotSpotlight && (
           <div className={Style.quote}>
             <span>&quot;</span>
-            <p>{anilShakthiData?.quote}</p>
+            <p>{data?.quote}</p>
           </div>
         )}
 
