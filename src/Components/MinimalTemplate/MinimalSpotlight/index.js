@@ -1,19 +1,15 @@
 "use client";
-import React from "react";
-import "./MinimalSpotlight.css";
-import Image from "next/image";
-import { ansar_asna } from "@/Data/Ansar_asna";
 import { Assets } from "@/assets/assets";
-import { EffectFade, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { motion } from "framer-motion";
 import "add-to-calendar-button";
-import { AddToCalendarButton } from "add-to-calendar-button-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { FaMapLocationDot } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { Skeleton } from "@nextui-org/react";
-import Link from "next/link";
+import { Autoplay, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./MinimalSpotlight.css";
 
 const MinimalSpotlight = ({
   brideName,

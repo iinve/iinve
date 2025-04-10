@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import Style from "./MeshMasonrySpotlight.module.scss";
-import { useEffect, useState } from "react";
-import { Skeleton } from "@nextui-org/react";
 import { Assets } from "@/assets/assets";
+import { Skeleton } from "@nextui-org/react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import Style from "./MeshMasonrySpotlight.module.scss";
 
 const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -87,7 +87,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
         {!isNotSpotlight && (
           <div className={Style.quote}>
             <span>&quot;</span>
-            <p>{data?.quote}</p>
+            <p dangerouslySetInnerHTML={{ __html: data?.quote }}></p>
           </div>
         )}
 

@@ -1,12 +1,9 @@
-import React from "react";
-import Style from "./Map.module.scss";
-import CommonButton from "../CommonButton";
 import { FaMapLocationDot } from "react-icons/fa6";
+import CommonButton from "../CommonButton";
+import Style from "./Map.module.scss";
 import { useMap } from "./useMap";
-import { Skeleton } from "@nextui-org/react";
 const Map = ({ data }) => {
   const { handleOpenGoogleMaps, mapOnLoad, isLoaded } = useMap(data);
-  console.log(isLoaded);
   return (
     <div className={Style.map}>
       <p>

@@ -1,8 +1,7 @@
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import React from "react";
 import { Assets } from "@/assets/assets";
 import { nikil_sreejitha } from "@/Data/nikil_sreejitha";
+import dynamic from "next/dynamic";
+import Head from "next/head";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";

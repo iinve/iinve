@@ -1,4 +1,5 @@
-import { Assets } from "@/assets/assets";
+import Bride from "../assets/coffeePremium/nikil_sreejitha/bride_avathar.JPG";
+import Groom from "../assets/coffeePremium/nikil_sreejitha/groom_avathar.JPG";
 import image01 from "../assets/coffeePremium/nikil_sreejitha/image01.JPG";
 import image02 from "../assets/coffeePremium/nikil_sreejitha/image02.JPG";
 import image03 from "../assets/coffeePremium/nikil_sreejitha/image03.JPG";
@@ -7,8 +8,6 @@ import image05 from "../assets/coffeePremium/nikil_sreejitha/image05.JPG";
 import image06 from "../assets/coffeePremium/nikil_sreejitha/image06.JPG";
 import image07 from "../assets/coffeePremium/nikil_sreejitha/image07.JPG";
 import image08 from "../assets/coffeePremium/nikil_sreejitha/image08.JPG";
-import Groom from "../assets/coffeePremium/nikil_sreejitha/groom_avathar.JPG";
-import Bride from "../assets/coffeePremium/nikil_sreejitha/bride_avathar.JPG";
 
 export const nikil_sreejitha = {
   bride: "Sreejitha",
