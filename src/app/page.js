@@ -1,9 +1,9 @@
 import StarBackground from "@/Components/StarBackground";
 import { Assets } from "@/assets/assets";
-import Image from "next/image";
-import "./globals.css";
 import { Button, NextUIProvider } from "@nextui-org/react";
+import Image from "next/image";
 import { Toaster } from "sonner";
+import "./globals.css";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
           <Button color="primary" variant="flat">
             <a
               href={
-                "https://api.whatsapp.com/send/?phone=%2B917306122521&text=Hello%2C%0A%0AI+hope+this+message+finds+you+well.+I+am+interested+in+creating+a+wedding+invitation+website+for+my+upcoming+wedding.+Could+you+please+provide+me+with+more+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you&type=phone_number&app_absent=0"
+                "https://api.whatsapp.com/send?phone=919072102340&text=Hello%2C%0A%0AI+hope+this+message+finds+you+well.+I+am+interested+in+creating+a+wedding+invitation+website+for+my+upcoming+wedding.+Could+you+please+provide+me+with+more+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you"
               }
               target="_blankk"
             >
