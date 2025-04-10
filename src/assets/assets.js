@@ -1,5 +1,5 @@
 import anil_og_image from "./coffeePremium/anil_og_image.jpg";
-import og_atheeq from "./coffeePremium/atheeq-hisana/og-atheeq.png";
+import og_atheeq from "./coffeePremium/atheeq-hisana/og-atheeq.jpg";
 import divider from "./coffeePremium/divider.png";
 import flower_flip from "./coffeePremium/flower-flip.png";
 import flower from "./coffeePremium/flower.png";
