@@ -1,12 +1,12 @@
 .calendarWrapper {
-  background-image: url(../../assets/coffeePremium/flower-flip.png);
+  // background-image: url(../../assets/coffeePremium/flower-flip.png);
   background-repeat: no-repeat;
   background-position: bottom right;
   @media (max-width: 560px) {
     background-size: 300px;
   }
   .time {
-    color: #ddae6b;
+    color: var(--highlight-color);
   }
 
   .calendar {
@@ -17,6 +17,7 @@
     width: 100%;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
     &::after {
       content: "";
       width: 100%;
@@ -24,9 +25,9 @@
       background: rgb(254, 251, 243);
       background: linear-gradient(
         90deg,
-        rgba(254, 251, 243, 1) 0%,
+        var(--theme-color),
         rgba(254, 251, 243, 0) 50%,
-        rgba(254, 251, 243, 1) 100%
+        var(--theme-color)
       );
       position: absolute;
     }
@@ -44,7 +45,7 @@
         padding: 0 20px;
       }
       span {
-        color: #333;
+        color: var(--content-color);
         font-size: 28px;
         font-weight: 500;
         @media (max-width: 760px) {
@@ -55,7 +56,7 @@
         }
       }
       h5 {
-        color: #333;
+        color: var(--content-color);
         font-size: 40px;
         font-weight: 700;
         @media (max-width: 760px) {
@@ -93,7 +94,7 @@
   }
   .Starttime {
     text-align: center;
-    color: #333;
+    color: var(--content-color);
     display: block;
     font-size: 20px;
     position: relative;
@@ -104,7 +105,7 @@
   }
   .time {
     text-align: center;
-    color: #333;
+    color: var(--content-color);
     display: block;
     font-size: 20px;
     position: relative;
@@ -128,7 +129,7 @@
     text-align: center;
     padding: 40px 0;
     h5 {
-      color: #333;
+      color: var(--content-color);
       font-size: 40px;
       @media (max-width: 760px) {
         font-size: 28px;
@@ -141,7 +142,7 @@
       width: 60%;
       margin: auto;
       font-size: 24px;
-      color: #ddae6b;
+      color: var(--highlight-color);
       font-weight: 600;
       @media (max-width: 760px) {
         font-size: 14px;
@@ -155,7 +156,7 @@
   .addEventHead {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: var(--content-color);
     margin-bottom: 10px;
     @media (max-width: 560px) {
       font-size: 18px;

@@ -1,5 +1,5 @@
 .couplesDetails {
-  background: #fefbf3;
+  background: var(--theme-color);
   display: flex;
   align-items: center;
   padding: 30px;
@@ -19,24 +19,26 @@
   }
   @media (max-width: 560px) {
     flex-direction: column;
+    
   }
   .ContentBox {
     margin-left: 30px;
     @media (max-width: 560px) {
       margin-left: 0;
       margin-top: 30px;
+      width: 100%;
     }
     h5 {
       font-weight: 700;
       font-size: 20px;
-      color: #333;
+      color: var(--content-color);
       @media (max-width: 560px) {
         font-size: 18px;
       }
     }
     p {
       width: 90%;
-      color: #909090;
+      color: var(--content-color);
       font-size: 18px;
       @media (max-width: 560px) {
         font-size: 16px;

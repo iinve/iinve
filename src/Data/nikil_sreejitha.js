@@ -15,6 +15,9 @@ export const nikil_sreejitha = {
   phone1: "+918139894272",
   phone2: "+918139894272",
   begin_time: "11:30 AM",
+  theme:"#fefbf3",
+  default_color:"#333",
+  highlight_color:"#ddae6b",
   quote:
     " We're so excited to celebrate our special day with you. Here, you'll find all the details you need about our wedding. We can't wait to share this moment with our closest family and friends.",
   couples_data: [

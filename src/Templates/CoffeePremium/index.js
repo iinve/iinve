@@ -1,15 +1,16 @@
 "use client";
 
-import CouplesDetails from "@/Components/CouplesDetails";
-import MeshMasonrySpotlight from "@/Components/MeshMasonrySpotlight";
-import Style from "./CoffeePremium.module.scss";
-import Quote from "@/Components/Quotes";
 import Calendar from "@/Components/Calendar";
-import Map from "@/Components/Map";
-import Comments from "@/Components/Comments";
+import CouplesDetails from "@/Components/CouplesDetails";
 import Footer from "@/Components/Footer";
-import DrawerSheet from "@/Components/Drawer";
+import Map from "@/Components/Map";
+import MeshMasonrySpotlight from "@/Components/MeshMasonrySpotlight";
+import Quote from "@/Components/Quotes";
 import { useComment } from "@/utils/CoffeePremiumUtils/useComment";
+import { useEffect, useRef, useState } from "react";
+import * as SoundUtils from "../../utils/soundUtils.ts";
+import Style from "./CoffeePremium.module.scss";
+
 
 function CoffeePremium({ data }) {
   const {
@@ -27,8 +28,58 @@ function CoffeePremium({ data }) {
     setLoading,
   } = useComment();
 
+
+  const play = () => {
+    if (playerRef.current && !playerRef.current.playing()) {
+      playerRef.current.play();
+    }
+  };
+
+  const pause = () => {
+    if (playerRef.current && playerRef.current.playing()) {
+      playerRef.current.pause();
+    }
+  };
+  
+
+  const playerRef = useRef(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleUserGesture = async () => {
+    await SoundUtils.resumeAudioContext();
+    if (!playerRef.current) {
+      playerRef.current = SoundUtils.initPlayer("/audio/arabic.mp3", {
+        loop: true,
+        autoplay: true,
+        volume: 0.5,
+      });
+    } else {
+      playerRef.current.play();
+    }
+
+    setHasInteracted(true);
+    removeListeners();
+  };
+
+  const removeListeners = () => {
+    window.removeEventListener("click", handleUserGesture);
+    window.removeEventListener("touchstart", handleUserGesture);
+    window.removeEventListener("scroll", handleUserGesture);
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleUserGesture);
+    window.addEventListener("touchstart", handleUserGesture);
+    window.addEventListener("scroll", handleUserGesture);
+
+    return () => {
+      SoundUtils.stopAllSongs();
+      removeListeners();
+    };
+  }, []);
+
   return (
-    <div className={Style.CoffeWrapper}>
+    <div className={Style.CoffeWrapper} style={{'--theme-color': data?.theme, '--content-color': data?.default_color, '--highlight-color': data?.highlight_color}}>
       <MeshMasonrySpotlight data={data} />
       {data?.couples_data?.map((item, i) => (
         <CouplesDetails

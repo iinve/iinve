@@ -3,9 +3,9 @@ import image02 from "../assets/coffeePremium/atheeq-hisana/2.jpg";
 import image03 from "../assets/coffeePremium/atheeq-hisana/3.jpg";
 import image04 from "../assets/coffeePremium/atheeq-hisana/4.jpg";
 import image05 from "../assets/coffeePremium/atheeq-hisana/5.jpg";
-// import image06 from "../assets/coffeePremium/atheeq-hisana/6.jpg";
-// import image07 from "../assets/coffeePremium/atheeq-hisana/7.jpg";
-// import image08 from "../assets/coffeePremium/atheeq-hisana/8.jpg";
+import image06 from "../assets/coffeePremium/atheeq-hisana/6.jpg";
+import image07 from "../assets/coffeePremium/atheeq-hisana/7.jpg";
+import image08 from "../assets/coffeePremium/atheeq-hisana/8.jpg";
 import Bride from "../assets/coffeePremium/atheeq-hisana/b-avatar.png";
 import Groom from "../assets/coffeePremium/atheeq-hisana/g-avatar.png";
 
@@ -13,30 +13,33 @@ export const atheeq_hisana = {
   bride: "Hisana",
   groom: "Atheeq",
   phone1: "",
+  theme:"#000",
+  default_color:"#fff",
+  highlight_color:"#ddae6b",
   phone2: "",
   begin_time: "11:30 AM",
   quote: "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ\n\n <br /> In the name of Allah, the Most Gracious, the Most Merciful. With hearts full of gratitude and joy, we request the honour of your presence as we unite in marriage by the will of Allah.",
   couples_data: [
     {
       full_name: "Atheeq",
-      bio: "",
+      bio: "Son of Abdul Gafoor Faizy",
       avatar: Groom,
     },
     {
       full_name: "Hisana",
-      bio: "",
+      bio: "Daughter of Aboobaker",
       avatar: Bride,
     },
   ],
 
   images: [
     image01,
-    // image08,
+    image08,
     image03,
     image04,
     image05,
-    // image06,
-    // image07,
+    image06,
+    image07,
     image02,
   ],
   dateData: [
