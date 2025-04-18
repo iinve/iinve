@@ -2,8 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ASSETS } from "../../lib/assets";
 import ActionButton from "../../ProUI/ActionButton/ActionButton";
+import { Assets } from "@/assets/assets";
 
 const PageNotFound = () => {
   return (
@@ -31,7 +31,7 @@ const PageNotFound = () => {
             }}
           >
             <Image
-              src={ASSETS.world_icon}
+              src={Assets.world_icon}
               width={430}
               height={430}
               alt="404"

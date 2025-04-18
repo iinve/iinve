@@ -1,7 +1,7 @@
-import DashboardHome from "@/Components/Dashboard/DashboardHome";
 import { Assets } from "@/assets/assets";
+import DashboardHome from "@/Components/Dashboard/DashboardHome";
+
 import Head from "next/head";
-import React from "react";
 
 const isProduction = process.env.NODE_ENV === "production";
 const metadataBase = isProduction

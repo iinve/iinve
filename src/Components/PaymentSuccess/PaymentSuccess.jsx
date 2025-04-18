@@ -1,4 +1,5 @@
-import { ASSETS } from '@/lib/assets'
+
+import { Assets } from '@/assets/assets'
 import ActionButton from '@/ProUI/ActionButton/ActionButton'
 import { ProSkeleton, ProSnippet } from '@/ProUI/Common/Common'
 import ProIcon from '@/ProUI/Icons/icons'
@@ -56,7 +57,7 @@ function PaymentSuccess(props) {
                 <Image
                   alt="Breathing app icon"
                   className="w-6 h-11"
-                  src={ASSETS.Logo.icon_light}
+                  src={Assets.Logo.icon_light}
                   height={400}
                   width={200}
                 />

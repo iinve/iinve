@@ -1,13 +1,14 @@
 import React from 'react'
 import Style from './Images.module.scss'
 import Image from 'next/image'
-import { ASSETS } from '@/lib/assets'
+import { Assets } from '@/assets/assets'
+
 
 const Images = () => {
     return (
         <div className={Style.image_container}>
             <div className={Style.Images}>
-                {ASSETS.dash_images.map((item, idx) => (
+                {Assets.dash_images.map((item, idx) => (
                     <Image
                         key={idx}
                         src={item}

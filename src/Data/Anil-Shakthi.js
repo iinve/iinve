@@ -1,4 +1,6 @@
-import { Assets } from "@/assets/assets";
+
+import Bride from "../assets/coffeePremium/bride_avathar.jpeg";
+import Groom from "../assets/coffeePremium/groom_avathar.jpeg";
 import image01 from "../assets/coffeePremium/image01.jpeg";
 import image02 from "../assets/coffeePremium/image02.jpeg";
 import image03 from "../assets/coffeePremium/image03.jpeg";
@@ -7,8 +9,6 @@ import image05 from "../assets/coffeePremium/image05.jpeg";
 import image06 from "../assets/coffeePremium/image06.jpeg";
 import image07 from "../assets/coffeePremium/image07.jpeg";
 import image08 from "../assets/coffeePremium/image08.jpeg";
-import Groom from "../assets/coffeePremium/groom_avathar.jpeg";
-import Bride from "../assets/coffeePremium/bride_avathar.jpeg";
 
 export const anilShakthiData = {
   bride: "Shakthi",

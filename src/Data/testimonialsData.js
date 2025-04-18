@@ -1,4 +1,5 @@
-import { ASSETS } from "@/lib/assets";
+import { Assets } from "@/assets/assets";
+
 
 export const testimonialsData =[
   {
@@ -20,7 +21,7 @@ export const testimonialsData =[
   //  {
   //   name:'Afnaz Finu',
   //   designation:'Photographer | KBFC',
-  //   avatar: ASSETS.testimonials.afnaz,
+  //   avatar: Assets.testimonials.afnaz,
   //   message:"<span style='color: #485ddc;'>viiew.me</span> has completely transformed how I showcase my photography! As a KBFC photographer, I capture intense moments on the field, and with <span style='color: #485ddc;'>viiew.me</span>, I can present my best shots in a sleek and professional way. It's easy to update after every match, and sharing my work with clubs and clients has never been smoother!",
   //   rating: 5,
   //   instagram:'https://www.instagram.com/afnas_finu_'
@@ -36,28 +37,28 @@ export const testimonialsData =[
    {
     name:'Carlos Finley',
     designation:'Marketing Consultant',
-    avatar: ASSETS.testimonials.carlos,
+    avatar: Assets.testimonials.carlos,
     message:"This is a powerful tool for designers, developers, and creatives alike. Providing a dedicated space for people to showcase their work can truly be a <span style='color: #485ddc;'>game changer</span> for landing new opportunities.",
     rating: 5,
   },
    {
     name:'Tyler Byron',
     designation:'IT Professional',
-    avatar: ASSETS.testimonials.tyler,
+    avatar: Assets.testimonials.tyler,
     message:"I love that this platform combines customization with simplicity it’s perfect for creators who want a stunning portfolio <span style='color: #485ddc;'>without spending hours coding</span> ",
     rating: 5,
   },
    {
     name:'Luke Dunsmore',
     designation:'Founder of How About This',
-    avatar: ASSETS.testimonials.luke,
+    avatar: Assets.testimonials.luke,
     message:"Really like this its sleek, elegant and not overly complicated. Great work!",
     rating: 5,
   },
    {
     name:'Finn Archer',
     designation:'Marketing Manager',
-    avatar: ASSETS.testimonials.finn,
+    avatar: Assets.testimonials.finn,
     message:"This is absolutely brilliant.",
     rating: 5,
   },

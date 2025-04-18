@@ -6,6 +6,7 @@ import { Autoplay, EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import TemplateCard from "../TemplateCard/TemplateCard";
+import { Assets } from "@/assets/assets";
 
 
 const templateData = [

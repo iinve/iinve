@@ -8,6 +8,7 @@ import Style from "./StepContainer.module.scss";
 import { useRef } from 'react';
 
 import { StarsBackground } from '../StarBackground copy/StarBackground';
+import { Assets } from '@/assets/assets';
 
 const stepCardData = [
   {

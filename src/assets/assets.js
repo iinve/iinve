@@ -48,6 +48,7 @@ export const Assets = {
   star,
   sreejitha_og_image,
   og_atheeq,
+  
   Logo: {
     light: "/assets/images/logo.png",
     dark: "/assets/images/dark_logo.png",
