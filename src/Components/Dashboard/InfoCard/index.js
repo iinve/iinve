@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import Style from "./InfoCard.module.scss";
 import Image from "next/image";
-import { Assets } from "@/assets/assets";
+import { useRef } from "react";
+import Style from "./InfoCard.module.scss";
+
 
 const InfoCard = ({ info }) => {
   const cardRef = useRef();

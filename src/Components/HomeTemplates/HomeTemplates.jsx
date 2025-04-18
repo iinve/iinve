@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Style from './HomeTemplates.module.scss';
-import { Assets } from '@/assets/assets';
+import { Assets } from 'assets/assets';
+
 
 const HomeTemplates = () => {
   const [positions, setPositions] = useState([
@@ -41,7 +42,7 @@ const HomeTemplates = () => {
       }}
     >
       <div>
-        {[Assets.templates?.stellar, Assets.templates?.jupiter, Assets.templates?.hero_me].map((src, index) => (
+        {[Assets?.templates?.stellar, Assets?.templates?.jupiter, Assets?.templates?.hero_me].map((src, index) => (
           <motion.div
             key={index}
             animate={{

@@ -1,5 +1,6 @@
 
-import { Assets } from "@/assets/assets"
+
+import { Assets } from "assets/assets"
 import Image from "next/image"
 import Link from "next/link"
 

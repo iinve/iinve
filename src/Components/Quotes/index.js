@@ -1,7 +1,8 @@
 "use client";
 
-import { Assets } from "@/assets/assets";
+
 import { Avatar, AvatarGroup } from "@heroui/react";
+import { Assets } from "assets/assets";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";

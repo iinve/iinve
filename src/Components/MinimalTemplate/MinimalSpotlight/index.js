@@ -1,6 +1,7 @@
 "use client";
-import { Assets } from "@/assets/assets";
+
 import "add-to-calendar-button";
+import { Assets } from "assets/assets";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";

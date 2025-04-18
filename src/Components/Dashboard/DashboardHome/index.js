@@ -1,6 +1,7 @@
 "use client";
-import { Assets } from "@/assets/assets";
 
+
+import { Assets } from "assets/assets";
 import Image from "next/image";
 import { useEffect } from "react";
 import useDashboard from "utils/DashboardUtils/useDashboard";

@@ -1,7 +1,8 @@
 "use client";
 
-import { Assets } from "@/assets/assets";
 
+
+import { Assets } from "assets/assets";
 import DashboardSidebar from "Components/Dashboard/DashboardSidebar";
 import PageLoader from "Components/PageLoader/PageLoader";
 import Image from "next/image";

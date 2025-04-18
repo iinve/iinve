@@ -1,7 +1,8 @@
 import React from 'react'
 import Style from './Images.module.scss'
 import Image from 'next/image'
-import { Assets } from '@/assets/assets'
+import { Assets } from 'assets/assets'
+
 
 
 const Images = () => {

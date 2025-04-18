@@ -1,8 +1,10 @@
 'use client'
-import useWindowDimensions from "@/utils/useWindowDimensions";
 
+
+import useWindowDimensions from "utils/useWindowDimensions";
 import GradientCard from "../GradientCard/GradientCard";
-import { Assets } from "@/assets/assets";
+import { Assets } from "assets/assets";
+
 
 const bentoData = [
   {

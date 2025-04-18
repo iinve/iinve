@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import ActionButton from "../../ProUI/ActionButton/ActionButton";
-import { Assets } from "@/assets/assets";
+import { Assets } from "assets/assets";
 
 const PageNotFound = () => {
   return (

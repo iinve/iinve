@@ -1,6 +1,6 @@
 "use client";
 
-import { Assets } from "@/assets/assets";
+import { Assets } from "assets/assets";
 import Image from "next/image";
 
 const Categories = () => {
@@ -22,7 +22,7 @@ const Categories = () => {
 
           <div className="category_img w-full w-full rounded-xl overflow-hidden shadow-lg">
             <Image
-              src={Assets.invitation}
+              src={Assets?.invitation}
               alt="Digital Wall"
               className="w-full h-auto object-cover"
               width={500}
@@ -33,7 +33,7 @@ const Categories = () => {
         <div className="category_item mt-6 md:mt-0 flex flex-col md:flex-row flex-col-reverse gap-20 items-center items-center justify-between  ">
           <div className="category_img w-full rounded-xl overflow-hidden shadow-lg">
             <Image
-              src={Assets.digital_wall}
+              src={Assets?.digital_wall}
               alt="Digital Wall"
               className="w-full h-auto object-cover"
               width={500}

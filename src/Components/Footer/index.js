@@ -1,6 +1,6 @@
-import React from "react";
 import Style from "./Footer.module.scss";
-import { Assets } from "@/assets/assets";
+
+import { Assets } from "assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 
