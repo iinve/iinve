@@ -5,7 +5,7 @@ import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
 import { DM_Sans, Josefin_Sans } from "next/font/google";
 import Head from "next/head";
-import "./globals.css";
+import "../styles/globals.css";
 
 const DMSans = DM_Sans({ subsets: ["latin"] });
 const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
