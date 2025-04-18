@@ -1,41 +1,11 @@
-// tailwind.config.ts
-// @ts-ignore
 const { heroui } = require("@heroui/react");
-import svgToDataUri from "mini-svg-data-uri";
+const svgToDataUri = require("mini-svg-data-uri");
 
-
-// Define type manually
-type PluginContext = {
-  addBase: (styles: Record<string, any>) => void;
-  theme: (key: string) => any;
-  matchUtilities?: (utilities: Record<string, (value: any) => any>, options?: any) => void;
-};
-
-// Dynamically import flattenColorPalette
-const getFlattenColorPalette = async () => {
-  const module = await import("tailwindcss/lib/util/flattenColorPalette");
-  return module.default;
-};
-
-// Plugin to add Tailwind colors as CSS variables
-const addVariablesForColors = async ({ addBase, theme }: PluginContext) => {
-  const flattenColorPalette = await getFlattenColorPalette();
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-};
-
-const config: Config = {
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{ts,tsx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -80,12 +50,23 @@ const config: Config = {
   plugins: [
     require("@tailwindcss/container-queries"),
     heroui(),
-    addVariablesForColors,
-    async function ({ matchUtilities, theme }: PluginContext) {
-      const flattenColorPalette = await getFlattenColorPalette();
+    // Add the colors as CSS variables
+    async function ({ addBase, theme }) {
+      const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
+      const allColors = flattenColorPalette(theme("colors"));
+      const newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      );
+
+      addBase({
+        ":root": newVars,
+      });
+    },
+    async function ({ matchUtilities, theme }) {
+      const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
       matchUtilities?.(
         {
-          "bg-dot-thick": (value: any) => ({
+          "bg-dot-thick": (value) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
             )}")`,
@@ -96,5 +77,3 @@ const config: Config = {
     },
   ],
 };
-
-export default config;
