@@ -13,11 +13,6 @@ const nextConfig = {
     config.resolve.fallback = { fs: false };
     return config;
   },
-  api: {
-    bodyParser: {
-      sizeLimit: "20mb",
-    },
-  },
   async headers() {
     return [
       {
