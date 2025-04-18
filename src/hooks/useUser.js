@@ -1,5 +1,5 @@
-import { userData } from "@/atoms/userDataAtom";
-import { allUsers } from "@/data/database/allUsers";
+import { userData } from "atoms/userDataAtom";
+import { allUsers } from "data/database/allUsers";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";

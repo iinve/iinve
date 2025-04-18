@@ -1,5 +1,5 @@
 
-import { loadingState } from "@/atoms/loadingAtom";
+import { loadingState } from "atoms/loadingAtom";
 import { useRecoilState } from "recoil";
 
 export function useLoading() {

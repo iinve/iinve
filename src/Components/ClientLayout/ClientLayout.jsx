@@ -1,6 +1,6 @@
 "use client";
 
-import { userData } from "@/atoms/userDataAtom";
+import { userData } from "atoms/userDataAtom";
 import React from "react";
 import { RecoilProvider } from "../recoil";
 

@@ -1,4 +1,4 @@
-import { sheetVisibility } from "@/atoms/sheetAtom";
+import { sheetVisibility } from "atoms/sheetAtom";
 import { useRecoilState } from "recoil";
 
 

@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRecoilState } from "recoil";
-import { editorData } from "@/atoms/editorDataAtom";
-import { userTemplateData } from "@/atoms/templateDataAtom";
+import { editorData } from "atoms/editorDataAtom";
+import { userTemplateData } from "atoms/templateDataAtom";
 import { getTemplateComponent } from "utils/getTemplateComponent";
 
 const EditorPreview = ({ showEditorPreview }) => {

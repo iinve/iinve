@@ -1,14 +1,14 @@
-import { editorData } from "@/atoms/editorDataAtom";
-import { savedUserData } from "@/atoms/savedUserDataAtom";
-import { sheetVisibility } from "@/atoms/sheetAtom";
-import { userTemplateData } from "@/atoms/templateDataAtom";
-import { templateData } from "@/data/templateData";
-import { useLoading } from "@/hooks/useLoading";
-import { generateOGImage, uploadImageToCloudinary } from "@/services/ogImageService";
 import { addToast } from "@heroui/react";
+import { editorData } from "atoms/editorDataAtom";
+import { savedUserData } from "atoms/savedUserDataAtom";
+import { sheetVisibility } from "atoms/sheetAtom";
+import { userTemplateData } from "atoms/templateDataAtom";
+import { templateData } from "data/templateData";
+import { useLoading } from "hooks/useLoading";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
+import { generateOGImage, uploadImageToCloudinary } from "services/ogImageService";
 import { extractColorFromUserImage } from "utils/colorUtils";
 import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useAuthHandler } from "@/hooks/useAuthHandler";
+import { useAuthHandler } from "hooks/useAuthHandler";
 import { allRoutes } from "utils/pagesUtils";
 import { HeroUIProvider, ToastProvider } from "@heroui/react";
 import { usePathname } from "next/navigation";

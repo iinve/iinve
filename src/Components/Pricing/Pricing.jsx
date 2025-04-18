@@ -1,5 +1,5 @@
 "use client";
-import { useOutEffect } from "@/hooks/useOutEffect";
+import { useOutEffect } from "hooks/useOutEffect";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import Icon from "../../ProUI/Icons/icons";
