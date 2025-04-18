@@ -1,9 +1,9 @@
 import { userData } from "@/atoms/userDataAtom";
 import { allUsers } from "@/data/database/allUsers";
-import { fetchInstagramData } from "@/utils/useService";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
+import { fetchInstagramData } from "utils/useService";
 import { fetchUserData } from "./userDataUtils";
 
 export const useUserData = () => {

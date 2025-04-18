@@ -1,4 +1,4 @@
-import { ProInput } from "@/ProUI/Form/Form";
+
 import AboutInfo from "../AboutInfo/AboutInfo";
 import BannerUploader from "../BannerUploader/BannerUploader";
 import PortfolioLinksUploader from "../PortfolioLinksUploader/PortfolioLinksUploader";
@@ -9,6 +9,7 @@ import UserImageUploader from "../UserImageUploader/UserImageUploader";
 import UserVideoUploader from "../UserVideoUploader/UserVideoUploader";
 // import ConnectionDataForm from "../ConnectionDataFrom/ConnectionDataForm";
 import CollaboratorForm from "../ConnectionDataFrom/ConnectionDataForm";
+import { ProInput } from "ProUI/Form/Form";
 
 
 export const EDITOR_COMPONENT_LIST = ({

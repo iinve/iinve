@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { testimonialsData } from "@/data/testimonialsData";
-import ProHeading from "@/ProUI/ProHeading/ProHeading";
+import { testimonialsData } from "data/testimonialsData";
+import ProHeading from "ProUI/ProHeading/ProHeading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import Tilt from 'react-parallax-tilt';

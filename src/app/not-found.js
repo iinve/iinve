@@ -1,4 +1,5 @@
-import StarBackground from "@/Components/StarBackground";
+import StarBackground from "Components/StarBackground";
+
 
 const NotFound = () => {
   return (

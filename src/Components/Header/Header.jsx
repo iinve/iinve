@@ -1,6 +1,6 @@
 "use client";
-import { useAuthHandler } from "@/hooks/useAuthHandler";
-import useWindowDimensions from "@/utils/useWindowDimensions";
+import { useAuthHandler } from "hooks/useAuthHandler";
+import useWindowDimensions from "utils/useWindowDimensions";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
@@ -13,8 +13,10 @@ import {
   DropdownTrigger,
   Button,
 } from "@heroui/react";
-import ProIcon from "@/ProUI/Icons/icons";
-import { ProUser } from "@/ProUI/Common/Common";
+import { ProUser } from "ProUI/Common/Common";
+import ProIcon from "ProUI/Icons/icons";
+
+
 
 const Header = () => {
   const { isMobile, isTablet } = useWindowDimensions();

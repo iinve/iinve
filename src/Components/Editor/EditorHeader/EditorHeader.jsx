@@ -1,9 +1,9 @@
 "use client";
-import { Logo } from "@/components/Logo/Logo";
-import ActionButton from "@/ProUI/ActionButton/ActionButton";
-import { ProUser } from "@/ProUI/Common/Common";
-import { SHEETS, useToggleVisibility } from "@/utils/sheetUtils";
-import useWindowDimensions from "@/utils/useWindowDimensions";
+
+
+
+import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
+import useWindowDimensions from "utils/useWindowDimensions";
 import {
   Button,
   Dropdown,
@@ -12,9 +12,13 @@ import {
   DropdownTrigger,
 } from "@heroui/react";
 // import { useRouter } from "next/navigation";
-import ProIcon from "@/ProUI/Icons/icons";
+
 import { signOut, useSession } from "next-auth/react";
 import { useEditor } from "../useEditor";
+import { Logo } from "Components/Logo/Logo";
+import ActionButton from "ProUI/ActionButton/ActionButton";
+import { ProUser } from "ProUI/Common/Common";
+import ProIcon from "ProUI/Icons/icons";
 
 const EditorHeader = () => {
   // const router = useRouter()

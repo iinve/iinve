@@ -1,9 +1,11 @@
-import { ProSkeleton, Section } from "@/ProUI/Common/Common";
-import { ProAvatarUploader } from "@/ProUI/Form/Form";
+
+
 import Image from "next/image";
 import Style from "./UserAvatarUploader.module.scss";
-import { handleImageCompression } from "@/utils/imageUtils";
+import { handleImageCompression } from "utils/imageUtils";
 import { useState } from "react";
+import { ProSkeleton, Section } from "ProUI/Common/Common";
+import { ProAvatarUploader } from "ProUI/Form/Form";
 
 
 const UserAvatarUploader = ({ formData, handleAvatarUpload, setFormData }) => {

@@ -1,10 +1,10 @@
-import Loader from "@/Components/Loader";
-import React from "react";
+
+import PageLoader from "Components/PageLoader/PageLoader";
 
 const loading = () => {
   return (
     <div>
-      <Loader />
+      <PageLoader />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import ProIcon from "@/ProUI/Icons/icons";
+import ProIcon from "ProUI/Icons/icons";
 
 const shareContent = async ({ title, text, url }) => {
   if (!navigator.canShare) {

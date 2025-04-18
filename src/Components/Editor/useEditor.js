@@ -5,12 +5,12 @@ import { userTemplateData } from "@/atoms/templateDataAtom";
 import { templateData } from "@/data/templateData";
 import { useLoading } from "@/hooks/useLoading";
 import { generateOGImage, uploadImageToCloudinary } from "@/services/ogImageService";
-import { extractColorFromUserImage } from "@/utils/colorUtils";
-import { SHEETS, useToggleVisibility } from "@/utils/sheetUtils";
 import { addToast } from "@heroui/react";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
+import { extractColorFromUserImage } from "utils/colorUtils";
+import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 
 export const useEditor = () => {
   const [userBanner, setUserBanner] = useState(null)

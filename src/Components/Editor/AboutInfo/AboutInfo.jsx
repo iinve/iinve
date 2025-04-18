@@ -1,4 +1,5 @@
-import { ProTextEditor } from "@/ProUI/Form/Form"
+import { ProTextEditor } from "ProUI/Form/Form"
+
 
 const AboutInfo = ({formData, setFormData}) => {
   return <div className='mb-4 h-auto'>

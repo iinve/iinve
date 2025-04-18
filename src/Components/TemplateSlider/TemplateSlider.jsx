@@ -1,5 +1,5 @@
 "use client";
-import ProHeading from "@/ProUI/ProHeading/ProHeading";
+import ProHeading from "ProUI/ProHeading/ProHeading";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import ProIcon from "../../ProUI/Icons/icons";

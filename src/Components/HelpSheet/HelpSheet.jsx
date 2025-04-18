@@ -1,7 +1,7 @@
 "use client";
-import ActionButton from "@/ProUI/ActionButton/ActionButton";
-import { ProForm, ProInput, ProTextArea } from "@/ProUI/Form/Form";
-import { Sheet, SheetBody, SheetHeader } from "@/ProUI/Sheet/Sheet";
+import ActionButton from "ProUI/ActionButton/ActionButton";
+import { ProForm, ProInput, ProTextArea } from "ProUI/Form/Form";
+import { Sheet, SheetBody, SheetHeader } from "ProUI/Sheet/Sheet";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useState } from "react";
 import axios from "axios";

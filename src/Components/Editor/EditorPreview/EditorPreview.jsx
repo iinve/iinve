@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { useRecoilState } from "recoil";
 import { editorData } from "@/atoms/editorDataAtom";
 import { userTemplateData } from "@/atoms/templateDataAtom";
-import { getTemplateComponent } from "@/utils/getTemplateComponent";
+import { getTemplateComponent } from "utils/getTemplateComponent";
 
 const EditorPreview = ({ showEditorPreview }) => {
   const iframeRef = useRef(null);

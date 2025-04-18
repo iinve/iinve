@@ -1,5 +1,6 @@
 import { Select, SelectItem } from "@heroui/react";
-import { ProInput, ProRadio, ProRadioGroup } from "@/ProUI/Form/Form";
+import { ProInput, ProRadio, ProRadioGroup } from "ProUI/Form/Form";
+
 import { useState, useMemo } from "react";
 
 export default function CollaboratorForm({ selectedCollaboration, handleCollaborationButtonChange, formData, setFormData }) {

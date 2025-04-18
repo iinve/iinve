@@ -1,13 +1,13 @@
 "use client";
 
-import Calendar from "@/Components/Calendar";
-import CouplesDetails from "@/Components/CouplesDetails";
-import Footer from "@/Components/Footer";
-import Map from "@/Components/Map";
-import MeshMasonrySpotlight from "@/Components/MeshMasonrySpotlight";
-import Quote from "@/Components/Quotes";
-import { useComment } from "@/utils/CoffeePremiumUtils/useComment";
+import { Calendar } from "@heroui/react";
+import CouplesDetails from "Components/CouplesDetails/index.js";
+import Footer from "Components/Footer/index.js";
+import Map from "Components/Map/index.js";
+import MeshMasonrySpotlight from "Components/MeshMasonrySpotlight/index.js";
+import Quote from "Components/Quotes/index.js";
 import { useEffect, useRef, useState } from "react";
+import { useComment } from "utils/CoffeePremiumUtils/useComment.js";
 import * as SoundUtils from "../../utils/soundUtils.ts";
 import Style from "./CoffeePremium.module.scss";
 

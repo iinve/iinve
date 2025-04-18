@@ -1,8 +1,11 @@
 
-import ActionButton from "@/ProUI/ActionButton/ActionButton";
-import { ProInput } from "@/ProUI/Form/Form";
-import ProIcon from "@/ProUI/Icons/icons";
+
+
+
 import { addToast, Select, SelectItem } from "@heroui/react";
+import ActionButton from "ProUI/ActionButton/ActionButton";
+import { ProInput } from "ProUI/Form/Form";
+import ProIcon from "ProUI/Icons/icons";
 
 const socialOptions = [
   { label: "LinkedIn", value: "FaLinkedinIn" },
