@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",  // The root of your source code
+    "baseUrl": "./src",
     "paths": {
-      "@/data/*": ["data/*"]  // This maps '@data' to 'src/data'
+      "@/data/*": ["data/*"],
+      "@/styles/*": ["styles/*"],
     }
   }
 }
