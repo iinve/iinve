@@ -1,7 +1,7 @@
 
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { nikil_sreejitha } from "../../../data/nikil_sreejitha";
+import { Nikil_Sreejitha } from "../../../data/Nikil_Sreejitha";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
@@ -51,7 +51,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <CoffeePremium data={nikil_sreejitha} />
+      <CoffeePremium data={Nikil_Sreejitha} />
     </div>
   );
 };

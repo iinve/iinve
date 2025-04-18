@@ -9,7 +9,7 @@ import image06 from "../assets/coffeePremium/nikil_sreejitha/image06.JPG";
 import image07 from "../assets/coffeePremium/nikil_sreejitha/image07.JPG";
 import image08 from "../assets/coffeePremium/nikil_sreejitha/image08.JPG";
 
-export const nikil_sreejitha = {
+export const Nikil_Sreejitha = {
   bride: "Sreejitha",
   groom: "Nikil",
   phone1: "+918139894272",
