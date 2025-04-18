@@ -2,7 +2,6 @@
 import { useOutEffect } from "@/hooks/useOutEffect";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { planData } from "../../data/planData";
 import Icon from "../../ProUI/Icons/icons";
 import PlanCard from "../../ProUI/PlanCard/PlanCard";
 import InfoChip from "../InfoChip/InfoChip";

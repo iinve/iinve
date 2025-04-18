@@ -8,7 +8,7 @@ import Style from "./StepContainer.module.scss";
 import { useRef } from 'react';
 
 import { StarsBackground } from '../StarBackground copy/StarBackground';
-import { stepCardData } from '../../data/stepCardData';
+import { stepCardData } from '@/data/stepCardData';
 
 const StepContainer = () => {
   const container = useRef(null);

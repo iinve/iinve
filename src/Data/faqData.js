@@ -28,16 +28,4 @@ export const faqData = [
     answer:
       "Yes, iinve pages are fully responsive and work well on all devices, including smartphones.",
   },
-  // {
-  //   id: 6,
-  //   question: "Can I track the performance of my links?",
-  //   answer:
-  //     "Yes, viiew.me provides analytics to help you track how many clicks your links receive and analyze user engagement.",
-  // },
-  // {
-  //   id: 7,
-  //   question: "Do I need to pay to use viiew.me?",
-  //   answer:
-  //     "viiew.me offers a free plan, and there are premium plans with more features and advanced analytics for a monthly fee.",
-  // },
 ];
