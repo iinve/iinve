@@ -17,7 +17,7 @@ const GetADemo = () => {
             <GradientHeading className={Style.heading}>Book your demo <br /> iinve!</GradientHeading>
             <span className={Style.content}>Schedule your IINVE demo and start designing heartfelt digital wedding invites that make every<br/> “You’re Invited” feel magical.</span>
             <div className={Style.messege}>
-               <ActionButton className={Style.button} color="primary" size="lg" onClick={handleClickDemo}>Create yours now</ActionButton>
+               <ActionButton className={Style.button} color="primary" size="lg" onClick={handleClickDemo}>Book a Demo</ActionButton>
             </div>
         </div>
     </div>
