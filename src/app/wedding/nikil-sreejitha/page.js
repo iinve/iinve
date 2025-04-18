@@ -1,7 +1,7 @@
 
-import { nikil_sreejitha } from "@/data/nikil_sreejitha";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { nikil_sreejitha } from "../../../data/nikil_sreejitha";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
