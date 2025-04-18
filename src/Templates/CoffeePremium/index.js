@@ -1,6 +1,7 @@
 "use client";
 
-import { Calendar } from "@heroui/react";
+
+import Calendar from "Components/Calendar/index.js";
 import CouplesDetails from "Components/CouplesDetails/index.js";
 import Footer from "Components/Footer/index.js";
 import Map from "Components/Map/index.js";
