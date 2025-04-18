@@ -1,5 +1,5 @@
 
-import { faqData } from "@/Data/accordionData";
+import { faqData } from "@/data/accordionData";
 import { Accordion, AccordionItem } from "@heroui/react";
 
 

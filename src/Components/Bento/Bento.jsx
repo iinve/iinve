@@ -2,7 +2,7 @@
 import useWindowDimensions from "@/utils/useWindowDimensions";
 
 import GradientCard from "../GradientCard/GradientCard";
-import { bentoData } from "@/Data/bentoData";
+import { bentoData } from "@/data/bentoData";
 
 const Bento = () => {
 

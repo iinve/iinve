@@ -1,6 +1,6 @@
 
 import { Assets } from "@/assets/assets";
-import { atheeq_hisana } from "@/Data/Atheeq-Hisana";
+import { atheeq_hisana } from "@/data/Atheeq-Hisana";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
