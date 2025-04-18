@@ -3,7 +3,6 @@
 import { userData } from "atoms/userDataAtom";
 import React from "react";
 import { RecoilProvider } from "../recoil";
-import '../../styles/globals.css'
 
 export default function ClientLayout({ children }) {
   return (
