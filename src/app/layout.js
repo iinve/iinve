@@ -1,6 +1,7 @@
 
 
 import { HeroUIProvider } from "@heroui/react";
+import { Assets } from "assets/assets";
 import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
 import { DM_Sans, Josefin_Sans } from "next/font/google";
@@ -20,12 +21,12 @@ export const metadata = {
   description:
     "Plan your perfect wedding with iinve's easy-to-use invitations. Send stunning invitations with your favorite images, and share important details with your loved ones. Start creating your dream wedding website today with iinve!",
   openGraph: {
-    title: "iinve - Create Elegant Wedding Invitations",
+    title: "iinve - Create Magic for You",
     description:
       "Plan your perfect wedding with iinve's easy-to-use invitations. Send stunning invitations with your favorite images, and share important details with your loved ones. Start creating your dream wedding website today with iinve!",
     images: [
       {
-        url: `${metadataBase}/images/og-image.jpg`,
+        url: `${metadataBase}${Assets.default_og_image.src}`,
         alt: "iinve - Create Magic for You",
       },
     ],
