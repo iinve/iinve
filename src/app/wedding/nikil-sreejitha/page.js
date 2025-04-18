@@ -1,5 +1,5 @@
 
-import data from "@/data/nikil_sreejitha.json";
+import { nikil_sreejitha } from "@/data/nikil_sreejitha";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
@@ -51,7 +51,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <CoffeePremium data={data} />
+      <CoffeePremium data={nikil_sreejitha} />
     </div>
   );
 };
