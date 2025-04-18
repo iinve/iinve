@@ -1,4 +1,4 @@
-import { anilShakthiData } from "@/data/Anil-Shakthi";
+import { anilShakthiData } from "DB/Anil-Shakthi";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
