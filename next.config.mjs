@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const path = require('path');
+// Use ES module imports
+import path from 'path';
+
 const nextConfig = {
   reactStrictMode: false,
   images: {
@@ -12,7 +13,7 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
-    config.resolve.modules.push(path.resolve(__dirname, 'src'));
+    config.resolve.modules.push(path.resolve('src'));  // You don't need __dirname in ES modules
     return config;
   },
   async headers() {
