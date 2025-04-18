@@ -1,12 +1,5 @@
 "use client";
 
-
-
-
-
-
-
-
 import Bento from "Components/Bento/Bento";
 import Categories from "Components/Categories/Categories";
 import FAQs from "Components/FAQs/FAQs";

@@ -26,7 +26,7 @@ export const metadata = {
       "Plan your perfect wedding with iinve's easy-to-use invitations. Send stunning invitations with your favorite images, and share important details with your loved ones. Start creating your dream wedding website today with iinve!",
     images: [
       {
-        url: `${metadataBase}${Assets.default_og_image.src}`,
+        url: `${metadataBase}${Assets.default_og_image}`,
         alt: "iinve - Create Magic for You",
       },
     ],
