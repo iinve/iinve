@@ -1,11 +1,10 @@
 "use client";
 import ProHeading from "@/ProUI/ProHeading/ProHeading";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
 import { useInView } from "react-intersection-observer";
-import ActionButton from "../../ProUI/ActionButton/ActionButton";
 import ProIcon from "../../ProUI/Icons/icons";
 import InfoChip from "../InfoChip/InfoChip";
+
 import TemplateSwiper from "../TemplateSwiper/TemplateSwiper";
 import Style from "./TemplateSlider.module.scss";
 

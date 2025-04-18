@@ -8,6 +8,7 @@ import "swiper/swiper-bundle.css";
 import TemplateCard from "../TemplateCard/TemplateCard";
 import { templateData } from "@/data/templateData";
 
+
 SwiperCore.use([Autoplay, EffectCards]);
 
 const TemplateSwiper = ({ inView }) => {
