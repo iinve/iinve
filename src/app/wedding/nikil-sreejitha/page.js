@@ -2,16 +2,16 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-import Bride from "../assets/coffeePremium/nikil_sreejitha/bride_avathar.JPG";
-import Groom from "../assets/coffeePremium/nikil_sreejitha/groom_avathar.JPG";
-import image01 from "../assets/coffeePremium/nikil_sreejitha/image01.JPG";
-import image02 from "../assets/coffeePremium/nikil_sreejitha/image02.JPG";
-import image03 from "../assets/coffeePremium/nikil_sreejitha/image03.JPG";
-import image04 from "../assets/coffeePremium/nikil_sreejitha/image04.JPG";
-import image05 from "../assets/coffeePremium/nikil_sreejitha/image05.JPG";
-import image06 from "../assets/coffeePremium/nikil_sreejitha/image06.JPG";
-import image07 from "../assets/coffeePremium/nikil_sreejitha/image07.JPG";
-import image08 from "../assets/coffeePremium/nikil_sreejitha/image08.JPG";
+import Bride from "../../../assets/coffeePremium/nikil_sreejitha/bride_avathar.JPG";
+import Groom from "../../../assets/coffeePremium/nikil_sreejitha/groom_avathar.JPG";
+import image01 from "../../../assets/coffeePremium/nikil_sreejitha/image01.JPG";
+import image02 from "../../../assets/coffeePremium/nikil_sreejitha/image02.JPG";
+import image03 from "../../../assets/coffeePremium/nikil_sreejitha/image03.JPG";
+import image04 from "../../../assets/coffeePremium/nikil_sreejitha/image04.JPG";
+import image05 from "../../../assets/coffeePremium/nikil_sreejitha/image05.JPG";
+import image06 from "../../../assets/coffeePremium/nikil_sreejitha/image06.JPG";
+import image07 from "../../../assets/coffeePremium/nikil_sreejitha/image07.JPG";
+import image08 from "../../../assets/coffeePremium/nikil_sreejitha/image08.JPG";
 
 const Nikil_Sreejitha = {
   bride: "Sreejitha",
