@@ -51,8 +51,12 @@ const config: Config = {
     },
   },
   darkMode: "class",
+  safelist: [
+    'container',
+    'container-queries',  
+  ],
   plugins: [
-    require("@tailwindcss/container-queries"),
+    require('@tailwindcss/container-queries'),
     heroui(),
     function({ addBase, theme }) {
       const colors = flattenColorPalette(theme('colors'));
