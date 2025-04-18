@@ -11,6 +11,7 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
+    config.resolve.modules.push(path.resolve(__dirname, 'src'));
     return config;
   },
   async headers() {

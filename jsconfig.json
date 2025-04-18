@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src", // Ensure this is set
+    "baseUrl": "./src", // Ensure this is pointing to the 'src' folder
     "paths": {
-      "@/*": ["./*"], // This resolves @/ to the src directory
-      "@/data/*": ["./data/*"] // This resolves @/data to the data directory
+      "@/*": ["./*"], // This resolves '@' to the 'src' directory
+      "@/data/*": ["./data/*"] // This resolves '@/data' to the 'data' directory
     }
   }
 }
