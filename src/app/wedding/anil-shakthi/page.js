@@ -29,7 +29,7 @@ export const metadata = {
   metadataBase: metadataBase, // Add this line to set the metadataBase
 };
 
-const CoffeePremium = dynamic(() => import("@/Templates/CoffeePremium"), {
+const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
   ssr: false, // Ensure it only loads on the client side
 });
 
@@ -52,9 +52,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <AnilShakthiData>
-        {(data) => <CoffeePremium data={anilShakthiData} />}
-      </AnilShakthiData>
+       <CoffeePremium data={anilShakthiData} />
     </div>
   );
 };

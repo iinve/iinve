@@ -27,7 +27,7 @@ const metadataBase = isProduction
   };
   
 
-const CoffeePremium = dynamic(() => import("@/Templates/CoffeePremium"), {
+const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
   ssr: false, // Ensure it only loads on the client side
 });
 
