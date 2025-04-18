@@ -2,7 +2,7 @@
 // @ts-ignore
 const { heroui } = require("@heroui/react");
 import svgToDataUri from "mini-svg-data-uri";
-import type { Config } from "tailwindcss";
+
 
 // Define type manually
 type PluginContext = {
