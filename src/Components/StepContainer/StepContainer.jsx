@@ -6,8 +6,9 @@ import { ShootingStars } from '../ShootingStars/ShootingStars';
 import StepCard from './StepCard/StepCard';
 import Style from "./StepContainer.module.scss";
 import { useRef } from 'react';
-import { stepCardData } from '@/data/stepCardData';
+
 import { StarsBackground } from '../StarBackground copy/StarBackground';
+import { stepCardData } from '../../data/stepCardData';
 
 const StepContainer = () => {
   const container = useRef(null);

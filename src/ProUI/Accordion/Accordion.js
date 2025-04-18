@@ -1,6 +1,6 @@
 
-import { faqData } from "@/data/accordionData";
 import { Accordion, AccordionItem } from "@heroui/react";
+import { faqData } from "../../data/accordionData";
 
 
 const AccordionContainer = () => {
