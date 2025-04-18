@@ -1,12 +1,11 @@
 
 
 import { HeroUIProvider } from "@heroui/react";
-import { Assets } from "assets/assets";
 import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
 import { DM_Sans, Josefin_Sans } from "next/font/google";
 import Head from "next/head";
-import "../styles/global.css";
+import "../styles/globals.css";
 
 const DMSans = DM_Sans({ subsets: ["latin"] });
 const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
@@ -26,7 +25,7 @@ export const metadata = {
       "Plan your perfect wedding with iinve's easy-to-use invitations. Send stunning invitations with your favorite images, and share important details with your loved ones. Start creating your dream wedding website today with iinve!",
     images: [
       {
-        url: `${metadataBase}${Assets.default_og_image}`,
+        url: `${metadataBase}/assets/images/og-image.jpg`,
         alt: "iinve - Create Magic for You",
       },
     ],
