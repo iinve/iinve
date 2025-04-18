@@ -1,9 +1,9 @@
-import { Assets } from "@/assets/assets";
+
+import { Assets } from "assets/assets";
 import Image from "next/image";
-import React from "react";
-import Style from "./DashboardSidebar.module.scss";
 import { FaAngleLeft } from "react-icons/fa6";
 import { MdOutlineDashboard } from "react-icons/md";
+import Style from "./DashboardSidebar.module.scss";
 
 const DashboardSidebar = ({ handleSidebar, isSidebar }) => {
   return (

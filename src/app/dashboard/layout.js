@@ -1,9 +1,9 @@
 "use client";
 
 import { Assets } from "@/assets/assets";
-import Loader from "@/Components/Loader";
 
 import DashboardSidebar from "Components/Dashboard/DashboardSidebar";
+import PageLoader from "Components/PageLoader/PageLoader";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import useDashboard from "utils/DashboardUtils/useDashboard";
@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <>
           {isClient && window.innerWidth > 660 && (
