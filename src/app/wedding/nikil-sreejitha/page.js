@@ -1,4 +1,4 @@
-import { nikil_sreejitha } from "@/data/nikil_sreejitha";
+import { nikil_sreejitha } from "data/nikil_sreejitha";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 

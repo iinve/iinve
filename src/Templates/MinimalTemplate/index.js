@@ -1,6 +1,6 @@
 
-import { ansar_asna } from "@/data/Ansar_asna";
 import MinimalSpotlight from "Components/MinimalTemplate/MinimalSpotlight";
+import { ansar_asna } from "data/Ansar_asna";
 
 const MinimalTemplate = ({
   brideName,

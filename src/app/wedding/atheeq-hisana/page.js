@@ -1,4 +1,4 @@
-import { atheeq_hisana } from "@/data/Atheeq-Hisana";
+import { atheeq_hisana } from "data/Atheeq-Hisana";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
