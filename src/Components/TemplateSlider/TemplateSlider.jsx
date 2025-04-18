@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import ProIcon from "../../ProUI/Icons/icons";
 import InfoChip from "../InfoChip/InfoChip";
-
 import TemplateSwiper from "../TemplateSwiper/TemplateSwiper";
 import Style from "./TemplateSlider.module.scss";
 
