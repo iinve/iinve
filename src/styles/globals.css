@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --background: #ffffff;
+    --foreground: #1717178d;
+    --primary: #1444a8;
+    --hover-primary: #698be878;
+    --light-primary: #141724;
+    --light-gray: #252525;
+    --dark-gray: #0f0f0f;
+    --text-gray: #898989;
+    --stroke: #292929;
+    --blur-circle: #494F73;
+    --content: #7c88a0;
+    --golden: #D1AF02;
+    --light-gold: #272311;
+    --gold-hover: #2723114e;
+}
+
 @font-face {
     font-family: 'Afacad';
     src: url('../../public/fonts/Afacad-Medium.woff2') format('woff2'),
@@ -38,22 +55,7 @@
     font-display: swap;
 }
 
-:root {
-    --background: #ffffff;
-    --foreground: #1717178d;
-    --primary: #1444a8;
-    --hover-primary: #698be878;
-    --light-primary: #141724;
-    --light-gray: #252525;
-    --dark-gray: #0f0f0f;
-    --text-gray: #898989;
-    --stroke: #292929;
-    --blur-circle: #494F73;
-    --content: #7c88a0;
-    --golden: #D1AF02;
-    --light-gold: #272311;
-    --gold-hover: #2723114e;
-}
+
 
 * {
     list-style: none;
