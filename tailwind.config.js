@@ -1,25 +1,10 @@
-// tailwind.config.ts
-// @ts-ignore
 const { heroui } = require("@heroui/react");
-import svgToDataUri from "mini-svg-data-uri";
+const svgToDataUri = require("mini-svg-data-uri");
+const plugin = require("tailwindcss/plugin");
 
+const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
 
-// Define type manually
-type PluginContext = {
-  addBase: (styles: Record<string, any>) => void;
-  theme: (key: string) => any;
-  matchUtilities?: (utilities: Record<string, (value: any) => any>, options?: any) => void;
-};
-
-// Dynamically import flattenColorPalette
-const getFlattenColorPalette = async () => {
-  const module = await import("tailwindcss/lib/util/flattenColorPalette");
-  return module.default;
-};
-
-// Plugin to add Tailwind colors as CSS variables
-const addVariablesForColors = async ({ addBase, theme }: PluginContext) => {
-  const flattenColorPalette = await getFlattenColorPalette();
+const addVariablesForColors = plugin(({ addBase, theme }) => {
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
@@ -28,9 +13,23 @@ const addVariablesForColors = async ({ addBase, theme }: PluginContext) => {
   addBase({
     ":root": newVars,
   });
-};
+});
 
-const config: Config = {
+const bgDotThick = plugin(({ matchUtilities, theme }) => {
+  matchUtilities(
+    {
+      "bg-dot-thick": (value) => ({
+        backgroundImage: `url("${svgToDataUri(
+          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
+        )}")`,
+      }),
+    },
+    { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+  );
+});
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -81,20 +80,6 @@ const config: Config = {
     require("@tailwindcss/container-queries"),
     heroui(),
     addVariablesForColors,
-    async function ({ matchUtilities, theme }: PluginContext) {
-      const flattenColorPalette = await getFlattenColorPalette();
-      matchUtilities?.(
-        {
-          "bg-dot-thick": (value: any) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
-            )}")`,
-          }),
-        },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
-    },
+    bgDotThick,
   ],
 };
-
-export default config;
