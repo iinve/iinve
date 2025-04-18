@@ -1,8 +1,9 @@
 "use client";
 import { Assets } from "@/assets/assets";
-import useDashboard from "@/utils/DashboardUtils/useDashboard";
+
 import Image from "next/image";
 import { useEffect } from "react";
+import useDashboard from "utils/DashboardUtils/useDashboard";
 import DashboardTable from "../DashboardTable";
 import InfoCard from "../InfoCard";
 import Style from "./DashboardHome.module.scss";
