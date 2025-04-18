@@ -51,7 +51,7 @@ const handleClickDemo = () => {
           <motion.div variants={blurVariants}>
             {/* <TemplateChip /> */}
             <motion.div variants={blurVariants}>
-              <ProHeading className={Style.heading}>Design <span>Magic</span> for You!{!isMobile && <br/>}</ProHeading>
+              <ProHeading className={Style.heading}>Create <span>Magic</span> for You!{!isMobile && <br/>}</ProHeading>
             </motion.div>
           </motion.div>
           <motion.span className={Style.quote} variants={blurVariants}>

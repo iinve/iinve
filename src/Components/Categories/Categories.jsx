@@ -1,6 +1,7 @@
 "use client";
 
 import { Assets } from "@/assets/assets";
+import Image from "next/image";
 
 const Categories = () => {
   return (
@@ -20,19 +21,23 @@ const Categories = () => {
           </div>
 
           <div className="category_img w-full w-full rounded-xl overflow-hidden shadow-lg">
-            <img
+            <Image
               src={Assets.invitation}
               alt="Digital Wall"
               className="w-full h-auto object-cover"
+              width={500}
+              height={500}
             />
           </div>
         </div>
         <div className="category_item mt-6 md:mt-0 flex flex-col md:flex-row flex-col-reverse gap-20 items-center items-center justify-between  ">
           <div className="category_img w-full rounded-xl overflow-hidden shadow-lg">
-            <img
+            <Image
               src={Assets.digital_wall}
               alt="Digital Wall"
               className="w-full h-auto object-cover"
+              width={500}
+              height={500}
             />
           </div>
           <div className="category_content max-w-2xl text-center md:text-left">
