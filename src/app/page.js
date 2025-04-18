@@ -1,18 +1,16 @@
 "use client";
 
-import Spotlight from "@/Components/Spotlight/Spotlight";
-import TemplateSlider from "@/Components/TemplateSlider/TemplateSlider";
 
 
 
 export default function Home() {
   return (
     <>
-      <Spotlight />
+      {/* <Spotlight /> */}
       {/* <Bento /> */}
       {/* <Categories /> */}
       {/* <StepContainer /> */}
-      <TemplateSlider />
+      {/* <TemplateSlider /> */}
       {/* <Pricing/> */}
       {/* <FAQs /> */}
       {/* <Testimonials /> */}
