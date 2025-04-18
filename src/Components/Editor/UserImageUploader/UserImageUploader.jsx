@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ProSkeleton, ProSwitch, Section } from 'ProUI/Common/Common';
 import { ProUploader } from 'ProUI/Form/Form';
+import useWindowDimensions from 'utils/useWindowDimensions';
 
 
 const UserImageUploader = ({ formData, setFormData, handleRemoveUploadedImage, enableGallery, handleEnableGallery }) => {

@@ -11,6 +11,7 @@ import HomeTemplates from '../HomeTemplates/HomeTemplates'
 // import TemplateChip from '../TemplateChip/TemplateChip'
 import Style from './Spotlight.module.scss'
 import ProHeading from 'ProUI/ProHeading/ProHeading'
+import useWindowDimensions from 'utils/useWindowDimensions'
 // import { addToast } from '@heroui/react'
 
 const blurVariants = {
