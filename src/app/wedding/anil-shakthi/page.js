@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { anilShakthiData } from "../../../data/Anil-Shakthi";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
@@ -8,9 +9,7 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 // Dynamically import the data module
-const AnilShakthiData = dynamic(() => import('@/data/Anil-Shakthi'), {
-  ssr: false, // Make sure it only loads on the client side
-});
+
 
 export const metadata = {
   title: "Anil & Shakthi Wedding Invitation | iinve",
@@ -54,7 +53,7 @@ const Page = () => {
         )}
       </Head>
       <AnilShakthiData>
-        {(data) => <CoffeePremium data={data.anilShakthiData} />}
+        {(data) => <CoffeePremium data={anilShakthiData} />}
       </AnilShakthiData>
     </div>
   );
