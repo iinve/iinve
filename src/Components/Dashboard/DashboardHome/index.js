@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
-import Style from "./DashboardHome.module.scss";
-import useDashboard from "@/utils/DashboardUtils/useDashboard";
-import InfoCard from "../InfoCard";
 import { Assets } from "@/assets/assets";
-import DashboardTable from "../DashboardTable";
+import useDashboard from "@/utils/DashboardUtils/useDashboard";
 import Image from "next/image";
+import { useEffect } from "react";
+import DashboardTable from "../DashboardTable";
+import InfoCard from "../InfoCard";
+import Style from "./DashboardHome.module.scss";
 
 const DashboardHome = () => {
   const { getGreeting, timeLeft, comments, fetchComments, isloading } =

@@ -1,32 +1,29 @@
-import { Assets } from "@/assets/assets";
-import DashboardHome from "@/Components/Dashboard/DashboardHome";
 
-import Head from "next/head";
 
-const isProduction = process.env.NODE_ENV === "production";
-const metadataBase = isProduction
-  ? "https://iinve.com"
-  : "http://localhost:3000";
+// const isProduction = process.env.NODE_ENV === "production";
+// const metadataBase = isProduction
+//   ? "https://iinve.com"
+//   : "http://localhost:3000";
 
-export const metadata = {
-  title: "iinve | Dashboard",
-  description: "You can easily manage your guests.",
-  openGraph: {
-    title: "iinve | Dashboard",
-    description: "You can easily manage your guests.",
-    images: [
-      {
-        url: `${metadataBase}${Assets?.default_og_image?.src}`,
-        alt: "You can easily manage your guests.",
-      },
-    ],
-  },
-  metadataBase: metadataBase,
-};
+// export const metadata = {
+//   title: "iinve | Dashboard",
+//   description: "You can easily manage your guests.",
+//   openGraph: {
+//     title: "iinve | Dashboard",
+//     description: "You can easily manage your guests.",
+//     images: [
+//       {
+//         url: `${metadataBase}${Assets?.default_og_image?.src}`,
+//         alt: "You can easily manage your guests.",
+//       },
+//     ],
+//   },
+//   metadataBase: metadataBase,
+// };
 const page = () => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta property="og:title" content={metadata.openGraph.title} />
@@ -42,8 +39,9 @@ const page = () => {
             content={metadata.openGraph.images[0].alt}
           />
         )}
-      </Head>
-      <DashboardHome />
+      </Head> */}
+      {/* <DashboardHome /> */}
+      <h3>We are working on this page!</h3>
     </>
   );
 };

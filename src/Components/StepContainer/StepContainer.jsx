@@ -3,12 +3,12 @@ import { useScroll } from 'framer-motion';
 import GradientCircle from '../GradientCircle/GradientCircle';
 import { ShootingStars } from '../ShootingStars/ShootingStars';
 
+import { useRef } from 'react';
 import StepCard from './StepCard/StepCard';
 import Style from "./StepContainer.module.scss";
-import { useRef } from 'react';
 
-import { StarsBackground } from '../StarBackground copy/StarBackground';
 import { Assets } from '@/assets/assets';
+import { StarsBackground } from '../StarBackground copy/StarBackground';
 
 const stepCardData = [
   {

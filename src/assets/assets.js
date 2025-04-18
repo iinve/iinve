@@ -1,3 +1,4 @@
+'use client'
 import anil_og_image from "./coffeePremium/anil_og_image.jpg";
 import og_atheeq from "./coffeePremium/atheeq-hisana/og-atheeq.jpg";
 import divider from "./coffeePremium/divider.png";
