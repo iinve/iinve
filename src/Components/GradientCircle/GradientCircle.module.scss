@@ -1,0 +1,11 @@
+.gradient{
+  width: 600px;
+  height: 600px;
+  background: var(--primary);
+  opacity: .2;
+  filter: blur(90px);
+  -webkit-filter: blur(90px);
+  border-radius: 50%;
+  transform: translateX(-400px);
+  position: absolute;
+}

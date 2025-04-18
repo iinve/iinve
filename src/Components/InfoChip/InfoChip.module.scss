@@ -1,0 +1,20 @@
+.chip {
+  background: #2929297c;
+  padding: 10px 20px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  &.left {
+    margin: 0;
+    @media (max-width: 1080px) {
+      margin: 0 auto;
+    }
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+}

@@ -1,8 +1,10 @@
-import { DM_Sans, Josefin_Sans } from "next/font/google";
-import "./globals.css";
-import { NextUIProvider } from "@nextui-org/react";
-import Head from "next/head";
 import { Assets } from "@/assets/assets";
+import ClientLayout from "@/Components/ClientLayout/ClientLayout";
+import MainLayout from "@/Components/MainLayout/MainLayout";
+import { HeroUIProvider } from "@heroui/react";
+import { DM_Sans, Josefin_Sans } from "next/font/google";
+import Head from "next/head";
+import "./globals.css";
 
 const DMSans = DM_Sans({ subsets: ["latin"] });
 const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
@@ -51,7 +53,15 @@ export default function RootLayout({ children }) {
         )}
       </Head>
       <html lang="en">
-        <body className={JosefinSans.className}>{children}</body>
+        <body className={JosefinSans.className}>
+          <MainLayout>
+            <ClientLayout>
+              <HeroUIProvider>
+                {children}
+              </HeroUIProvider>
+            </ClientLayout>
+          </MainLayout>
+        </body>
       </html>
     </>
   );

@@ -1,0 +1,104 @@
+.main{
+   min-height: 100vh;
+    background-color: #242424;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    overflow: hidden;
+    .blur{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: #76834A;
+        margin: 0 auto;
+        filter: blur(100px);
+        position: absolute; 
+        right: 450px;
+        top: -130px;
+        z-index: -1;
+        opacity: .8;
+        @media (max-width: 860px){
+            right: 250px;
+        }
+        @media (max-width: 420px){
+            right: 50px;
+        }
+    }
+    .blur_two{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: #76834A;
+        margin: 0 auto;
+        filter: blur(100px);
+        position: absolute; 
+        left: -70px;
+        top: 300px;
+        z-index: -1;
+        overflow: hidden;
+        @media (max-width: 860px){
+            left: -150px;
+            top: 250px;
+        }
+        
+    }
+    .blur_blue{
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            background-color: #745af4;
+            margin: 0 auto;
+            filter: blur(100px);
+            position: absolute; 
+            right: -70px;
+            top: 400px;
+            z-index: -1;
+            overflow: hidden;
+            opacity: .5;
+            @media (max-width: 860px){
+                right: -120px;
+            }
+    }
+    .wrapper{
+        width: 45%;
+        margin: 0 auto;
+        @media (max-width: 640px) {
+            width: 100%;
+          }
+        .carditems{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;
+            @media (max-width: 1200px) {
+                width: 600px;
+              }
+            @media (max-width: 860px) {
+                width: 500px;
+                margin: 0 auto;
+              }
+              @media (max-width: 760px) {
+                width: 440px;  
+              }
+              @media (max-width: 640px) {
+                width: 370px;
+                padding: 20px 0;
+              }
+              @media (max-width: 560px) {
+                width: 340px;
+              }
+              @media (max-width: 480px) {
+                width: 300px;
+                padding: 16px 0;
+              }
+              @media (max-width: 420px) {
+                padding: 12px 0;
+              }
+              @media (max-width: 360px) {
+                padding: 10px 0;
+              }
+        }
+    }
+}

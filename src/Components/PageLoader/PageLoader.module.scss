@@ -1,0 +1,35 @@
+.loaderContainer{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  width: 100%;
+  background: #000;
+}
+.loader {
+  width: 65px;
+  height: 30px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: 50px;
+    box-shadow: 0 0 0 3px inset #485ddc;
+    animation: l3 0.75s infinite alternate;
+  }
+}
+
+@keyframes l3 {
+  0% {
+    inset: 0 35px 0 0;
+  }
+  50% {
+    inset: 0 0 0 0;
+  }
+  100% {
+    inset: 0 0 0 35px;
+  }
+}

@@ -1,0 +1,20 @@
+.pricing_container {
+  padding: 70px;
+  text-align: center;
+  position: relative;
+  @media (max-width: 640px) {
+    padding: 0;
+  }
+
+  .head {
+    position: sticky;
+    top: 50px;
+  }
+  .hint {
+    font-size: 20px;
+    color: #667185;
+    padding: 0 30px 30px 30px;
+    display: block;
+    margin-bottom: 30px;
+  }
+}

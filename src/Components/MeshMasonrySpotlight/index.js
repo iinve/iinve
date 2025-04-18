@@ -1,7 +1,7 @@
 "use client";
 
 import { Assets } from "@/assets/assets";
-import { Skeleton } from "@nextui-org/react";
+import { Skeleton } from "@heroui/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";

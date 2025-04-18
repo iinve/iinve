@@ -1,0 +1,21 @@
+.image_container {
+    width: 72%;
+    margin: 0 auto;
+    .Images {
+        display: flex;
+        flex-wrap: wrap;
+        .items{
+            padding: 6px;
+            border-radius: 20px;
+        }
+    }
+    .add_images{
+        width: 18%;
+        display: block;
+        padding: 6px 12px;
+        font-size: 12px;
+        border: 1px solid var(--primary);
+        border-radius: 25px;
+        text-align: center;
+    }
+}

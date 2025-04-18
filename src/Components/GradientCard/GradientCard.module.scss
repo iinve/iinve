@@ -1,0 +1,70 @@
+.GradientCard {
+  background: #131313;
+  border-radius: 30px;
+  border: 1px solid var(--stroke);
+  overflow: hidden;
+  position: relative;
+  padding: 25px 35px;
+
+  &:hover {
+    .image_container {
+      transform: scale(1.05) translateY(-10px);
+    }
+
+    .head {
+      transform: translateY(22px);
+    }
+  }
+
+  &.top_to_bottom {
+    &::after {
+
+      background-image: linear-gradient(to left bottom, #1a224b5a, #1F233D, #2f2f40, #212129, #131313);
+    }
+  }
+
+  &.bottom_to_top {
+    &::after {
+      background-image: linear-gradient(to left bottom, #131313, #212129, #2f2f40, #3c3f59, #1F233D);
+
+    }
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-image: linear-gradient(to left bottom, #494f73, #3c3f59, #2f2f40, #212129, #131313);
+    opacity: .4;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .head {
+    position: relative;
+    z-index: 99;
+    transition: .3s ease-in-out;
+
+    h4 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 16px;
+      color: var(--content);
+    }
+  }
+}
+
+.image_container {
+  position: absolute;
+  bottom: 0px;
+  z-index: 4;
+  // right: -20px;
+  // width: 400px;
+  transition: .3s ease-in-out;
+}

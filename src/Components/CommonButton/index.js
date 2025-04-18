@@ -1,6 +1,6 @@
-import React from "react";
+import { Button, Divider } from "@heroui/react";
 import Style from "./CommonButton.module.scss";
-import { Button, Divider } from "@nextui-org/react";
+
 
 const CommonButton = ({ text, icon, onClick }) => {
   return (

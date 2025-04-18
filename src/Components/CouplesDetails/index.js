@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import { Avatar } from "@heroui/react";
 import Style from "./CouplesDetails.module.scss";
-import { Avatar } from "@nextui-org/react";
+
 
 const CouplesDetails = ({ full_name, bio, avatar }) => {
   return (

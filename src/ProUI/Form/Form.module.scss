@@ -1,0 +1,36 @@
+.input_container{
+  width: 80%;
+  margin: 0 auto;
+}
+.Input {
+    padding:10px 0;
+    font-size: 16px;
+    width: 100%;
+    margin-right: 10px;
+    background: #131313;
+    padding-left: 16px;
+    margin:10px;
+    border-radius: 20px;
+    @media (max-width: 480px) {
+      padding: 0;
+  } 
+    &::placeholder{
+      color: #4e4e4e;
+      display: inline-block;
+
+    }
+    &:focus{
+      border: 1px solid #fff;
+    }
+    @media (max-width: 380px) {
+      font-size: 12px; 
+  }
+  }
+
+  .AvatarUploader{
+    width: 100%;
+    height: 100%;
+    input{
+      width: 150px;
+    }
+  }

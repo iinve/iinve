@@ -1,0 +1,37 @@
+.loader {
+  --path: #2f3545;
+  --dot: #485ddc;
+  --duration: 3s;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.loader:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  // position: absolute;
+  display: block;
+  border: 5px solid #fff ;
+  border-top: 5px solid transparent;
+  // top: 37px;
+  // left: 19px;
+  // transform: translate(-18px, -18px);
+  animation: loader .9s cubic-bezier(1, 0.2, 0.795, 1) infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

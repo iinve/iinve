@@ -1,16 +1,54 @@
-// tailwind.config.js
-const { nextui } = require("@nextui-org/react");
+// tailwind.config.ts
+// @ts-ignore
+const { heroui } = require("@heroui/react");
+import svgToDataUri from "mini-svg-data-uri";
+import type { Config } from "tailwindcss";
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+// Define type manually
+type PluginContext = {
+  addBase: (styles: Record<string, any>) => void;
+  theme: (key: string) => any;
+  matchUtilities?: (utilities: Record<string, (value: any) => any>, options?: any) => void;
+};
+
+// Dynamically import flattenColorPalette
+const getFlattenColorPalette = async () => {
+  const module = await import("tailwindcss/lib/util/flattenColorPalette");
+  return module.default;
+};
+
+// Plugin to add Tailwind colors as CSS variables
+const addVariablesForColors = async ({ addBase, theme }: PluginContext) => {
+  const flattenColorPalette = await getFlattenColorPalette();
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+};
+
+const config: Config = {
   content: [
-    // ...
-    // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        hover_primary: "var(--hover-primary)",
+        light_primary: "var(--light-primary)",
+        light_gray: "var(--light-gray)",
+        dark_gray: "var(--dark-gray)",
+        text_gray: "var(--text-gray)",
         zinc: {
           50: "#fafafa",
           100: "#f4f4f5",
@@ -24,8 +62,39 @@ module.exports = {
           900: "#18181b",
         },
       },
+      fontFamily: {
+        afacad: ["var(--font-afacad)"],
+      },
+      spacing: {
+        "4.5": "4.5rem",
+        "15": "3.3rem",
+      },
+      zIndex: {
+        "-1": "-1",
+        "-2": "-2",
+        "-3": "-3",
+      },
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    require("@tailwindcss/container-queries"),
+    heroui(),
+    addVariablesForColors,
+    async function ({ matchUtilities, theme }: PluginContext) {
+      const flattenColorPalette = await getFlattenColorPalette();
+      matchUtilities?.(
+        {
+          "bg-dot-thick": (value: any) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
+            )}")`,
+          }),
+        },
+        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+      );
+    },
+  ],
 };
+
+export default config;

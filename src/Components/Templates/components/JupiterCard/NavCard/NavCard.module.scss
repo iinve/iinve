@@ -1,0 +1,95 @@
+.navigations {
+    padding: 30px;
+    position: relative;
+    @media (max-width: 860px){
+        padding: 45px;
+    }
+    @media (max-width: 760px) {
+        padding: 10px;  
+      }
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #313131;
+        padding: 10px;
+        border-radius: 25px;
+        width: 60%;
+        margin: 0 auto;
+        justify-content: space-between;
+        @media (max-width: 1200px) {
+            width: 100%;
+          }
+          @media (max-width: 760px) {
+           width: 80%;
+           padding: 6px;
+           justify-content: center;   
+          }
+          @media (max-width: 640px) {
+           width: 330px;
+          }
+          @media (max-width: 480px) {
+           width: 230px;
+          }
+          @media (max-width: 420px) {
+           width: 250px;
+          }
+        li{
+            margin: 0 30px;
+            font-size: 18px;
+            padding: 6px 20px;
+            background: #5e605895;
+            border-radius: 25px;
+            :active{
+                background: #9EB94C;
+            }
+            @media (max-width: 860px){
+                margin: 0 20px;
+            }
+            @media (max-width: 760px) {
+                margin: 0 15px; 
+                font-size: 16px; 
+              }
+            @media (max-width: 480px) {
+                font-size: 14px;
+                margin: 0 8px;
+                padding: 4px 10px;
+              }
+              @media (max-width: 420px) {
+                margin: 0 12px;
+              }
+        }
+    }
+    .blur_two{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: #745af4;
+        margin: 0 auto;
+        filter: blur(100px);
+        position: absolute; 
+        left: -400px;
+        top: 380px;
+        z-index: -1;
+        overflow: hidden;
+        @media (max-width: 760px) {
+            display: none; 
+          }
+    }
+    .blur_blue{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: #76834A;
+        margin: 0 auto;
+        filter: blur(100px);
+        position: absolute; 
+        right: -360px;
+        top: 280px;
+        z-index: -1;
+        overflow: hidden;
+        @media (max-width: 760px) {
+            display: none; 
+          }
+    }
+}

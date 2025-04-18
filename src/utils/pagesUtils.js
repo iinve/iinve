@@ -1,0 +1,1 @@
+export const allRoutes = ['/', '/auth', '/templates', '/dashboard', '/privacy-policy', '/terms-conditions', '/claim-username' ];

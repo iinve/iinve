@@ -1,5 +1,3 @@
-import React from "react";
-import Style from "./DashboardTable.module.scss";
 import {
   Avatar,
   Spinner,
@@ -10,7 +8,8 @@ import {
   TableHeader,
   TableRow,
   getKeyValue,
-} from "@nextui-org/react";
+} from "@heroui/react";
+import Style from "./DashboardTable.module.scss";
 
 const DashboardTable = ({ comments, isloading }) => {
   const columns = [

@@ -1,14 +1,13 @@
-import React from "react";
-import Style from "./Commnets.module.scss";
-import CommonButton from "../CommonButton";
 import { GoChecklist } from "react-icons/go";
-import DrawerSheet from "../Drawer";
-import { EffectFade, Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import CommonButton from "../CommonButton";
+import DrawerSheet from "../Drawer";
+import Style from "./Commnets.module.scss";
 // import { EffectFade } from "swiper/modules/effect-fade/effect-fade";?
+import { Avatar, AvatarGroup } from "@heroui/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { Avatar, AvatarGroup } from "@nextui-org/react";
 
 const Comments = ({ data }) => {
   console.log("iinve | create your elegant invitation");

@@ -1,8 +1,4 @@
 "use client";
-import React, { useState } from "react";
-import { Drawer } from "vaul";
-import Style from "./Drawer.module.scss";
-import { IoMdClose } from "react-icons/io";
 import {
   Button,
   Input,
@@ -10,8 +6,11 @@ import {
   RadioGroup,
   Spinner,
   Textarea,
-} from "@nextui-org/react";
+} from "@heroui/react";
+import { IoMdClose } from "react-icons/io";
+import { Drawer } from "vaul";
 import { useComment } from "../../utils/CoffeePremiumUtils/useComment";
+import Style from "./Drawer.module.scss";
 
 const DrawerSheet = ({ button }) => {
   const {

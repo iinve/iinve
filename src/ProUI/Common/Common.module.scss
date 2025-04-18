@@ -1,0 +1,22 @@
+.section{
+  position: relative;
+  .close{
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: -10px;
+    top: -10px;
+    z-index: 33;
+    background: #000 !important;
+    border-radius: 50%;
+    transition: .3s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+}

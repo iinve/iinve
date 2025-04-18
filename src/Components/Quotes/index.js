@@ -1,15 +1,14 @@
 "use client";
 
-import { Avatar, AvatarGroup } from "@nextui-org/react";
-import Style from "./Quotes.module.scss";
-import Image from "next/image";
 import { Assets } from "@/assets/assets";
-import CommonButton from "../CommonButton";
-import { LuMessagesSquare } from "react-icons/lu";
-import { useQuotes } from "./useQuotes";
-import { useInView } from "framer-motion";
-import { motion, useAnimation } from "framer-motion";
+import { Avatar, AvatarGroup } from "@heroui/react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { LuMessagesSquare } from "react-icons/lu";
+import CommonButton from "../CommonButton";
+import Style from "./Quotes.module.scss";
+import { useQuotes } from "./useQuotes";
 
 const Quote = ({ data }) => {
   const { handleWishes } = useQuotes(data);
