@@ -1,8 +1,11 @@
-import { ProAvatar } from '@/ProUI/Common/Common';
-import ProIcon from '@/ProUI/Icons/icons';
-import { getRatingStars } from '@/utils/shareUtils';
+
+
+
 import Link from 'next/link';
 import Style from './Testimonial.module.scss';
+import { ProAvatar } from 'ProUI/Common/Common';
+import ProIcon from 'ProUI/Icons/icons';
+import { getRatingStars } from 'utils/shareUtils';
 
 
 

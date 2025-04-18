@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import ActionButton from '@/ProUI/ActionButton/ActionButton';
-import { ProSkeleton, Section } from '@/ProUI/Common/Common';
-import { ProInput, ProUploader } from '@/ProUI/Form/Form';
-import ProIcon from '@/ProUI/Icons/icons';
+
+
+
+
 import Image from 'next/image';
-import { handleImageCompression } from '@/utils/imageUtils';
+import { ProInput, ProUploader } from 'ProUI/Form/Form';
+import { ProSkeleton, Section } from 'ProUI/Common/Common';
+import ActionButton from 'ProUI/ActionButton/ActionButton';
+import ProIcon from 'ProUI/Icons/icons';
+
 
 
 const PortfolioLinksUploader = ({ formData, setFormData, handleAddLink, handleRemoveLink }) => {

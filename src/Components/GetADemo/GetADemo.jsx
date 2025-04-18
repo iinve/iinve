@@ -1,5 +1,6 @@
 'use client';
-import { useToggleVisibility } from '@/utils/sheetUtils';
+
+import { useToggleVisibility } from 'utils/sheetUtils';
 import ActionButton from '../../ProUI/ActionButton/ActionButton';
 import GradientHeading from '../../ProUI/ProHeading/ProHeading';
 import Style from './Contact.module.scss';

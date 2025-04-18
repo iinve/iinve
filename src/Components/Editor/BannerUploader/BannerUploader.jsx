@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { ProSkeleton, Section } from '@/ProUI/Common/Common';
-import { ProUploader } from '@/ProUI/Form/Form';
+
+
 import ReactCrop, { makeAspectCrop, centerCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
-import ActionButton from '@/ProUI/ActionButton/ActionButton';
-import { handleImageCompression } from '@/utils/imageUtils';
+import { ProSkeleton, Section } from 'ProUI/Common/Common';
+import { ProUploader } from 'ProUI/Form/Form';
+import ActionButton from 'ProUI/ActionButton/ActionButton';
+
+
 
 const BannerUploader = ({ formData, setFormData }) => {
   const [cropImageURL, setCropImageURL] = useState(null);

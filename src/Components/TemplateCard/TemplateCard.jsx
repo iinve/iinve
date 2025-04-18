@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { default as ProIcon } from '../../ProUI/Icons/icons';
 import Style from './TemplateCard.module.scss';
-import { ProChip } from '@/ProUI/Common/Common';
+import { ProChip } from 'ProUI/Common/Common';
+
 
 const TemplateCard = ({ template, selection, isSelected, onSelect }) => {
     const { image, name, price } = template;

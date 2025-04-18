@@ -1,7 +1,7 @@
 "use client"
-import ProHeading from '@/ProUI/ProHeading/ProHeading'
-import { SHEETS, useToggleVisibility } from '@/utils/sheetUtils'
-import useWindowDimensions from '@/utils/useWindowDimensions'
+
+
+
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 // import { useState } from 'react'
@@ -10,6 +10,7 @@ import { HeroHighlight } from '../HeroHighlight/HeroHighlight'
 import HomeTemplates from '../HomeTemplates/HomeTemplates'
 // import TemplateChip from '../TemplateChip/TemplateChip'
 import Style from './Spotlight.module.scss'
+import ProHeading from 'ProUI/ProHeading/ProHeading'
 // import { addToast } from '@heroui/react'
 
 const blurVariants = {

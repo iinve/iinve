@@ -1,15 +1,20 @@
 
 
-import ActionButton from '@/ProUI/ActionButton/ActionButton'
-import { ProSkeleton, ProSnippet } from '@/ProUI/Common/Common'
-import ProIcon from '@/ProUI/Icons/icons'
-import { Sheet, SheetBody, SheetHeader } from '@/ProUI/Sheet/Sheet'
-import shareUtils from '@/utils/shareUtils'
+
+
+
+
+
 import { Card, CardFooter } from '@heroui/react'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 import { Assets } from 'assets/assets'
 import Image from 'next/image'
 import Link from 'next/link'
+import ActionButton from 'ProUI/ActionButton/ActionButton';
+import { ProSkeleton, ProSnippet } from 'ProUI/Common/Common';
+import ProIcon from 'ProUI/Icons/icons';
+import { Sheet, SheetBody, SheetHeader } from 'ProUI/Sheet/Sheet';
 
 
 function PaymentSuccess(props) {

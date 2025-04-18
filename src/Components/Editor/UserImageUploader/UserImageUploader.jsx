@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { ProSkeleton, ProSwitch, Section } from '@/ProUI/Common/Common';
-import { ProUploader } from '@/ProUI/Form/Form';
-import useWindowDimensions from '@/utils/useWindowDimensions';
+
+
+
 import Image from 'next/image';
-import { handleImageCompression } from '@/utils/imageUtils';
+import { ProSkeleton, ProSwitch, Section } from 'ProUI/Common/Common';
+import { ProUploader } from 'ProUI/Form/Form';
+
 
 const UserImageUploader = ({ formData, setFormData, handleRemoveUploadedImage, enableGallery, handleEnableGallery }) => {
   const { width } = useWindowDimensions();

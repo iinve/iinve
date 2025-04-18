@@ -1,13 +1,17 @@
 'use client'
-import { editorData } from '@/atoms/editorDataAtom'
-import { userTemplateData } from '@/atoms/templateDataAtom'
-import { templateData } from '@/data/templateData'
-import ActionButton from '@/ProUI/ActionButton/ActionButton'
-import { Sheet, SheetBody, SheetFooter } from '@/ProUI/Sheet/Sheet'
+
+
+
+
+
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { useEditor } from '../Editor/useEditor'
 import TemplateCard from '../TemplateCard/TemplateCard'
+import { userTemplateData } from 'atoms/templateDataAtom'
+import { editorData } from 'atoms/editorDataAtom'
+import { Sheet, SheetBody, SheetFooter } from 'ProUI/Sheet/Sheet'
+import ActionButton from 'ProUI/ActionButton/ActionButton'
 
 
 const TemplateSelectSheet = (props) => {

@@ -1,8 +1,13 @@
-import ActionButton from '@/ProUI/ActionButton/ActionButton';
-import { ProSwitch, Section } from '@/ProUI/Common/Common';
-import { ProInput } from '@/ProUI/Form/Form';
-import ProIcon from '@/ProUI/Icons/icons';
-import useWindowDimensions from '@/utils/useWindowDimensions';
+import ActionButton from "ProUI/ActionButton/ActionButton";
+import { ProSwitch, Section } from "ProUI/Common/Common";
+import { ProInput } from "ProUI/Form/Form";
+import ProIcon from "ProUI/Icons/icons";
+import useWindowDimensions from "utils/useWindowDimensions";
+
+
+
+
+
 
 const UserVideoUploader = ({ formData, setFormData, videosVisible, handleEnableVideoLinks, handleRemoveVideoLink, handleVideoLink }) => {
   const { width } = useWindowDimensions()

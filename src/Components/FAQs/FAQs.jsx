@@ -1,5 +1,6 @@
 'use client'
-import ProHeading from '@/ProUI/ProHeading/ProHeading'
+
+import ProHeading from 'ProUI/ProHeading/ProHeading'
 import AccordionContainer from '../../ProUI/Accordion/Accordion'
 import ProIcon from '../../ProUI/Icons/icons'
 import InfoChip from '../InfoChip/InfoChip'

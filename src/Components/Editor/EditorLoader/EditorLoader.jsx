@@ -1,4 +1,5 @@
-import { ProSkeleton } from '@/ProUI/Common/Common'
+
+import { ProSkeleton } from 'ProUI/Common/Common'
 import React from 'react'
 
 const EditorLoader = () => {

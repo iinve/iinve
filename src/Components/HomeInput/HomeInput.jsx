@@ -1,6 +1,7 @@
 'use client';
 
-import { ProForm } from '@/ProUI/Form/Form';
+
+import { ProForm } from 'ProUI/Form/Form';
 import ActionButton from '../../ProUI/ActionButton/ActionButton';
 import Style from './HomeInput.module.scss';
 
