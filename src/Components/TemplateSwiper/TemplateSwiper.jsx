@@ -5,8 +5,8 @@ import { default as SwiperCore } from "swiper";
 import { Autoplay, EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import { templateData } from "../../data/templateData";
 import TemplateCard from "../TemplateCard/TemplateCard";
+import { templateData } from "@/data/templateData";
 
 SwiperCore.use([Autoplay, EffectCards]);
 
