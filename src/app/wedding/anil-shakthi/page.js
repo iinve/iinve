@@ -1,55 +1,30 @@
+'use client'
+import MetaDataLayout from "@/Components/MetaDataLayout/MetaDataLayout";
 import { anilShakthiData } from "@/data/Anil-Shakthi";
 import dynamic from "next/dynamic";
-import Head from "next/head";
 
-// Determine the base URL of your application
-const isProduction = process.env.NODE_ENV === "production";
-const metadataBase = isProduction
-  ? "https://iinve.com"
-  : "http://localhost:3000";
 
-export const metadata = {
+const metadata = {
   title: "Anil & Shakthi Wedding Invitation | iinve",
   description:
     "Anil and Shakthi are getting married and joyfully invite you to celebrate their wedding.",
-  openGraph: {
-    title: "Anil & Shakthi Wedding Invitation | iinve",
-    description:
-      "Anil and Shakthi are getting married and joyfully invite you to celebrate their wedding.",
-    images: [
-      {
-        url: `${metadataBase}/coffeePremium/anil_og_image.jpg`,
-        alt: "Anil & Shakthi Wedding Invitation",
-      },
-    ],
-  },
-  metadataBase: metadataBase, // Add this line to set the metadataBase
+  ogImageUrl: "/coffeePremium/anil_og_image.jpg", // Relative path for the Open Graph image
+  ogAlt: "Anil & Shakthi Wedding Invitation",
 };
 
 const CoffeePremium = dynamic(() => import("@/Templates/CoffeePremium"), {
-  ssr: false, // Ensure it only loads on the client side
+  ssr: false,
 });
 
 const Page = () => {
   return (
     <div>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-
-        {metadata.openGraph.images[0].alt && (
-          <meta
-            property="og:image:alt"
-            content={metadata.openGraph.images[0].alt}
-          />
-        )}
-      </Head>
+      <MetaDataLayout
+        title={metadata.title}
+        description={metadata.description}
+        ogImageUrl={metadata.ogImageUrl}
+        ogAlt={metadata.ogAlt}
+      />
       <CoffeePremium data={anilShakthiData} />
     </div>
   );
