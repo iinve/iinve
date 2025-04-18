@@ -6,7 +6,6 @@ import { HeroUIProvider, ToastProvider } from "@heroui/react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import "../../styles/globals.css";
 import Header from "../Header/Header";
 import MainFooter from "../MainFooter/MainFooter";
 import { RecoilProvider } from "../recoil";
