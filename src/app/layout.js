@@ -10,17 +10,17 @@ const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
 
 // Metadata config for Next.js App Router
 export const metadata = {
-  title: "iinve - Create Magic for You",
+  title: "iinve - Create magic for you",
   description:
-    "Whether you're preparing for your big day or building stronger customer connections — iinve is your digital partner.",
+    "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner.",
   openGraph: {
-    title: "iinve - Create Magic for You",
+    title: "iinve - Create magic for you",
     description:
-      "Whether you're preparing for your big day or building stronger customer connections — iinve is your digital partner.",
+      "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner.",
     images: [
       {
         url: "https://iinve.com/assets/images/og-image.jpg",
-        alt: "iinve - Create Magic for You",
+        alt: "iinve - Create magic for you",
       },
     ],
     icons: {
