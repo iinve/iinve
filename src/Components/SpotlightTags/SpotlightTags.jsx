@@ -17,7 +17,7 @@ const SpotlightTags = () => {
         alt="Spotlight"
         width={260}
         height={200}
-        className='animate-float -m-[10px] '
+        className='animate-floatSlow -m-[10px] '
       />
     </div>
   );
