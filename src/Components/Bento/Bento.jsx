@@ -26,8 +26,8 @@ const bentoData = [
     style: { gridColumn: "2 / span 2", gridRow: "1 / span 2" },
   },
   {
-    heading: "No-code pages.",
-    sub_heading: "No coding required.",
+    heading: "Premium Design",
+    sub_heading: "Premium design for you",
     image: {
       url: Assets.bento.crown,
       style: { width: "clamp(200px, 50%, 200px)", right: "50%", marginRight:'-100px', bottom: "0", maxWidth: "100%" },
