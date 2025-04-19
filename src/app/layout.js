@@ -23,6 +23,11 @@ export const metadata = {
         alt: "iinve - Create Magic for You",
       },
     ],
+    icons: {
+      icon: "https://iinve.com/favicon.ico", // or your custom path like "/icons/icon.svg"
+      shortcut: "https://iinve.com/favicon.ico",
+      apple: "https://iinve.com/apple-touch-icon.png",
+    },
   },
 };
 
