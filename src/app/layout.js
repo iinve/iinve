@@ -12,11 +12,11 @@ const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "iinve - Create Magic for You",
   description:
-    "Plan your perfect wedding with iinve's easy-to-use invitations. Send stunning invitations with your favorite images, and share important details with your loved ones. Start creating your dream wedding website today with iinve!",
+    "Whether you're preparing for your big day or building stronger customer connections — iinve is your digital partner.",
   openGraph: {
     title: "iinve - Create Magic for You",
     description:
-      "Plan your perfect wedding with iinve's easy-to-use invitations. Send stunning invitations with your favorite images, and share important details with your loved ones. Start creating your dream wedding website today with iinve!",
+      "Whether you're preparing for your big day or building stronger customer connections — iinve is your digital partner.",
     images: [
       {
         url: "https://iinve.com/assets/images/og-image.jpg",
