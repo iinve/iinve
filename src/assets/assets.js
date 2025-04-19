@@ -55,6 +55,7 @@ export const Assets = {
     dark: "/assets/images/dark_logo.png",
     icon_light: "/assets/images/icon_light.svg",
     icon_dark: "/assets/images/icon.svg",
+    digital_wall: "/assets/images/digital_wall_logo.png",
   },
   tags:{
     
