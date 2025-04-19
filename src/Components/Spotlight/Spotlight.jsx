@@ -9,10 +9,11 @@ import ActionButton from '../../ProUI/ActionButton/ActionButton'
 import { HeroHighlight } from '../HeroHighlight/HeroHighlight'
 import HomeTemplates from '../HomeTemplates/HomeTemplates'
 // import TemplateChip from '../TemplateChip/TemplateChip'
-import Style from './Spotlight.module.scss'
+import SpotlightTags from 'Components/SpotlightTags/SpotlightTags'
 import ProHeading from 'ProUI/ProHeading/ProHeading'
-import useWindowDimensions from 'utils/useWindowDimensions'
 import { useToggleVisibility } from 'utils/sheetUtils'
+import useWindowDimensions from 'utils/useWindowDimensions'
+import Style from './Spotlight.module.scss'
 // import { addToast } from '@heroui/react'
 
 const blurVariants = {
@@ -50,6 +51,7 @@ const handleClickDemo = () => {
         animate="visible"
         variants={blurVariants}
       >
+        {isMobile && <SpotlightTags />}
         <motion.div className={Style.main} variants={blurVariants}>
           <motion.div variants={blurVariants}>
             {/* <TemplateChip /> */}

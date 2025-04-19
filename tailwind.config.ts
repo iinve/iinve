@@ -1,4 +1,3 @@
-// tailwind.config.ts
 import type { Config } from 'tailwindcss';
 const { heroui } = require("@heroui/react");
 import svgToDataUri from "mini-svg-data-uri";
@@ -9,20 +8,34 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}", // <- updated this line
+    "./src/**/*.{js,ts,jsx,tsx,mdx}", // ensure full coverage
     "./src/styles/**/*.css",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  
+
   theme: {
     screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     extend: {
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        floatSlow: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+      },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+        floatSlow: "floatSlow 4s ease-in-out infinite",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -60,24 +73,21 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  safelist: [
-    'container',
-    'container-queries',  
-  ],
+  safelist: ["container", "container-queries"],
   plugins: [
-    require('@tailwindcss/container-queries'),
+    require("@tailwindcss/container-queries"),
     heroui(),
-    function({ addBase, theme }) {
-      const colors = flattenColorPalette(theme('colors'));
+    function ({ addBase, theme }) {
+      const colors = flattenColorPalette(theme("colors"));
       const newVars = Object.fromEntries(
         Object.entries(colors).map(([key, val]) => [`--${key}`, val])
       );
-      
+
       addBase({
         ":root": newVars,
       });
     },
-    function({ matchUtilities, theme }) {
+    function ({ matchUtilities, theme }) {
       matchUtilities(
         {
           "bg-dot-thick": (value) => ({
@@ -86,7 +96,10 @@ const config: Config = {
             )}")`,
           }),
         },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+        {
+          values: flattenColorPalette(theme("backgroundColor")),
+          type: "color",
+        }
       );
     },
   ],

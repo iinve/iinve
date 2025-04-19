@@ -56,6 +56,11 @@ export const Assets = {
     icon_light: "/assets/images/icon_light.svg",
     icon_dark: "/assets/images/icon.svg",
   },
+  tags:{
+    
+    digital_wall: "/assets/images/tags/digital-wall-tag.png",
+    invitation: "/assets/images/tags/invitation-tag.png",
+  },
   world_icon: "/assets/images/world.svg",
   spotlight_background: "/public/images/home-light.png",
   blur: "/assets/images/blur.png",
