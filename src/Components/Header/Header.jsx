@@ -29,8 +29,8 @@ const Header = () => {
       link: "#templates",
     },
     {
-      name: "How it Works",
-      link: "#how_it_works",
+      name: "Invitations",
+      link: "#invitations",
     },
     {
       name: "FAQ",

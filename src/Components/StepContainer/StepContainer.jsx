@@ -64,7 +64,7 @@ const StepContainer = () => {
     offset: ['start start', 'end end']
   })
   return (
-    <div id='how_it_works' className='relative' ref={headingRef}>
+    <div id='invitations' className='relative' ref={headingRef}>
       <div ref={container} className={Style.StepContainer}>
       {stepCardData.map(({ id, image, heading, description }, i) => {
         const targetScale = 1 - ((stepCardData.length - i) * 0.05);
