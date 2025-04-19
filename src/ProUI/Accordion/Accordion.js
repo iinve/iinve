@@ -46,7 +46,7 @@ const AccordionContainer = () => {
             title={data.question}
             className="w-full overflow-hidden "
           >
-            <div className="text-text_gray">{data.answer}</div>
+            <div className="text-text_gray text-sm md:text-md">{data.answer}</div>
           </AccordionItem>
         ))}
       </Accordion>
