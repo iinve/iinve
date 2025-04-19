@@ -37,6 +37,7 @@ const TemplateSlider = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.4 }}
+            className="hidden md:block"
           >
             Elegant, minimalist invites that elevate your event seamlessly
             blending your event details, personalized message, and a touch of

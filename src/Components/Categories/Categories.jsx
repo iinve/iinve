@@ -8,7 +8,7 @@ const Categories = () => {
     <div className="categories !px-6 md:p-16">
       <div className="category_list bg-[#191b2882] rounded-3xl px-10 py-16 md:w-[80%] w-full mx-auto">
         <div className="category_item flex flex-col items-center md:flex-row gap-20 items-center justify-between mb-8 ">
-          <div className="category_content max-w-2xl text-center md:text-left">
+          <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4">
               Digital Invitation
             </h2>
@@ -30,7 +30,7 @@ const Categories = () => {
             />
           </div>
         </div>
-        <div className="category_item mt-6 md:mt-0 flex flex-col md:flex-row flex-col-reverse gap-20 items-center items-center justify-between  ">
+        <div className="category_item flex flex-col md:flex-row flex-col-reverse gap-20 items-center items-center justify-between  mt-24 md:mt-0">
           <div className="category_img w-full rounded-xl overflow-hidden shadow-lg">
             <Image
               src={Assets?.digital_wall}
@@ -40,7 +40,7 @@ const Categories = () => {
               height={500}
             />
           </div>
-          <div className="category_content max-w-2xl text-center md:text-left">
+          <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4">Digital Wall</h2>
             <p className="text-gray-400 leading-relaxed text-md md:text-lg">
               Digital Wall by iinve lets local shops and small businesses
