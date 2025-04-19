@@ -60,7 +60,7 @@ const handleClickDemo = () => {
             </motion.div>
           </motion.div>
           <motion.span className={Style.quote} variants={blurVariants}>
-          Let your invitations reflect the beauty of your event. With iinve, you can send personalized digital invites that are both stylish and eco-friendly.
+          Create stunning digital event invitations and bring your brand to life with magical digital walls that showcase offers, new arrivals, and announcements with style.
           </motion.span>
           <motion.div variants={blurVariants}>
             {/* <HomeInput /> */}

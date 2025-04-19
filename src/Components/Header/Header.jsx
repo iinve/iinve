@@ -33,7 +33,7 @@ const Header = () => {
       link: "#invitations",
     },
     {
-      name: "FAQ",
+      name: "FAQs",
       link: "#faq",
     },
   ];
