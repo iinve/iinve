@@ -8,6 +8,24 @@
   flex-direction: column;
   @media (max-width: 580px) {
     padding: 0 20px;
+    padding-top: 90px;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(112, 27, 27, 0.8),
+      transparent
+    );
+    pointer-events: none;
+  }
+  .spotlight_content{
+    text-align: left;
   }
   .mesh {
     position: absolute;
@@ -20,32 +38,32 @@
       opacity: 0.4;
       height: 500px;
       position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(112, 27, 27, 0.8),
-          transparent
-        );
-        pointer-events: none;
-      }
+      
     }
   }
 
   h3 {
     color: #fff;
     font-size: 50px;
+    line-height: 1em;
     font-weight: 600;
+    position: relative;
+    z-index: 99;
+    background: -webkit-linear-gradient(-45deg, #fff, #ffb300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     @media (max-width: 580px) {
-      font-size: 40px !important;
+      text-align: left;
+      font-size: 35px !important;
     }
   }
 
   .date_wrapper {
     display: flex;
     gap: 16px;
+    position: relative;
+    z-index: 99;
+    margin-top: 20px;
     @media (max-width: 480px) {
       width: 100%;
     }

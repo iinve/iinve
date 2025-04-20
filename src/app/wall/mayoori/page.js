@@ -1,17 +1,22 @@
+'use client'
 
 import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
 import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
 
 import Banner from "Components/DigitalWall/Galaxy/Banner/Banner";
-import GalexyGallery from "Components/DigitalWall/Galaxy/GalexyGallery/GalexyGallery";
 import Offer from "Components/DigitalWall/Galaxy/Offer/Offer";
 
 import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
 import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 import ImageMasonry from "Components/ImageMasonry/ImageMasonry";
+import LanguageSwitcher from "Components/LanguageSwitcher/LanguageSwitcher";
+import { getMayooriData } from "DB/DigitaWall/mayoori_data";
+import { useTranslation } from "react-i18next";
 
-const page = () => {
-  const data = [
+
+const Page = () => {
+  const { t } = useTranslation();
+  const Imagedata = [
     {
       id: 1,
       url: "https://i.pinimg.com/736x/07/02/14/0702143151b3d399754caaf3e515f641.jpg",
@@ -43,20 +48,19 @@ const page = () => {
       alt: "Gemstone Bangle",
     },
   ];
-
+  const data = getMayooriData(t);
   return (
     <WallLayout background="#922626">
-      <Spotlight />
-
-      <Slider />
-      <OfferContact />
-
-      <Banner />
-      <Offer />
-      <ImageMasonry data={data} />
-
+      <Spotlight data={data} />
+      <Offer data={data}/>
+      <Banner data={data}/>
+      <Slider data={data}/>
+      <OfferContact data={data}/>
+      <h2 className="text-center text-2xl mb-4">Our Showcase</h2>
+      <ImageMasonry data={Imagedata} />
+      <LanguageSwitcher />
     </WallLayout>
   );
 };
 
-export default page;
+export default Page;

@@ -1,8 +1,13 @@
 .WallLayout {
   background: var(--backgroundColor);
   height: auto;
-  font-family: "Times New Roman", Times, serif;
+  // font-family: "Times New Roman", Times, serif;
   position: relative;
+  padding-bottom: 200px;
+  
+  @media (max-width: 580px) {
+    padding-bottom: 250px;
+  }
 }
 .badge {
   background: linear-gradient(-45deg, #020717, #032a32);
@@ -14,7 +19,7 @@
   padding: 50px 0 20px 0;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  position: fixed;
+  position: absolute;
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
@@ -24,6 +29,9 @@
     @media (max-width: 580px) {
       width: 70px;
     }
+  }
+  @media (max-width: 580px) {
+    width: 90%;
   }
 }
 .footer {
@@ -37,6 +45,7 @@
   align-items: center;
   justify-content: space-between;
   left: 50%;
+  z-index: 99;
   transform: translateX(-50%);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 20px 40px;
@@ -47,20 +56,32 @@
     min-height: 160px !important;
   }
   @media (max-width: 600px) {
-    width: 60% !important;
     min-height: 150px !important;
     padding: 20px !important;
+    width: 100% !important;
   }
-  @media (max-width: 600px) {
-    width: 80% !important;
+  @media (max-width: 480px) {
     min-height: 140px !important;
+    flex-direction: column;
   }
 
   button {
-    background: var(--backgroundColor);
-    padding: 10px 20px;
+    background: #25D366;
+    padding: 10px 30px;
     border-radius: 30px;
     color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    span{
+      margin-left: 16px;
+    }
+    @media (max-width: 480px) {
+      width: 90%;
+      margin-top: 20px;
+    }
   }
 }
 .hidden {
