@@ -1,4 +1,4 @@
-import WallLayout from "Components/DigitalWall/WallLayout/WallLayout"
+import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 
 const page = () => {
   return (
