@@ -23,6 +23,7 @@ import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
 import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
+import galaxy_spot_mesh from "./images/galaxy_spot_mesh.png"
 
 export const Assets = {
   Logo,
@@ -49,6 +50,7 @@ export const Assets = {
   star,
   sreejitha_og_image,
   og_atheeq,
+  galaxy_spot_mesh,
   
   Logo: {
     light: "/assets/images/logo.png",
@@ -118,4 +120,5 @@ export const Assets = {
   },
   digital_wall: "/assets/images/Digtialwall.png",
   invitation: "/assets/images/invitation.png",
+  
 };

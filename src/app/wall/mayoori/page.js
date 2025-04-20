@@ -1,11 +1,12 @@
-import WallLayout from "Components/DigitalWall/WallLayout/WallLayout"
+import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
+import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 
 const page = () => {
   return (
     <WallLayout background="#922626">
-      <div className="h-screen w-full block"></div>
+      <Spotlight />
     </WallLayout>
-  )
-}
+  );
+};
 
-export default page
+export default page;
