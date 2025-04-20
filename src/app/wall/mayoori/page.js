@@ -6,7 +6,7 @@ import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 const page = () => {
   return (
     <WallLayout background="#922626">
-      {/* <Spotlight /> */}
+      <Spotlight />
       <Slider />
       <OfferContact />
     </WallLayout>
