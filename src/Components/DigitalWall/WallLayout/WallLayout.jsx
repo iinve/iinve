@@ -37,9 +37,15 @@ const WallLayout = ({ children, background, data }) => {
 
 
   const handleClickContact = () => {
-    window.open(data?.whatsApp, "_self");
-  }
+    window.open(userData?.whatsApp, "_self");
 
+  }
+  const handleClickPhone = () => {
+    const phoneNumber = userData?.phone;
+    const phoneUrl = `tel:${phoneNumber}`;
+    window.open(phoneUrl, "_blank");
+
+  }
   const currentFont =
     i18n.language === "ml" ? "'sans-serif', Times New Roman, serif" : "Times New Roman, serif";
 
@@ -63,8 +69,8 @@ const WallLayout = ({ children, background, data }) => {
           width={150}
         />
        <div className="flex justify-between items-center gap-2">
-       <button className="w-full" onClick={handleClickContact}><ProIcon name={'FaWhatsapp'} color="#fff" size={20} /></button>
-       <button className="!bg-blue-800" onClick={handleClickContact}><ProIcon name={'FaPhoneAlt'} color="#fff" size={20} /></button>
+       <button onClick={handleClickContact}><ProIcon name={'FaWhatsapp'} color="#fff" size={20} /></button>
+       <button className="!bg-blue-800" onClick={handleClickPhone}><ProIcon name={'FaPhoneAlt'} color="#fff" size={20} /></button>
        </div>
       </div>
     </div>
