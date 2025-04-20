@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { WallLogo } from "../WallLogo/WallLogo";
 import Style from "./WallLayout.module.scss";
+import Image from "next/image";
+import { Assets } from "assets/assets";
 
 const WallLayout = ({ children, background }) => {
   const [showUI, setShowUI] = useState(true);
@@ -36,7 +38,12 @@ const WallLayout = ({ children, background }) => {
       {children}
 
       <div className={`${Style.footer} ${!showUI ? Style.hidden : ""}`}>
-        <h1 className="text-black">Logo of the company</h1>
+        <Image
+          src={Assets.mayoori_logo}
+          alt="mayoori_logo"
+          height={100}
+          width={100}
+        />
         <button>Contact us</button>
       </div>
     </div>

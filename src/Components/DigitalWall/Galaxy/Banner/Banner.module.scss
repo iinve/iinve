@@ -1,0 +1,32 @@
+.banner {
+  position: relative;
+  background-image: url(../../../../assets/images/glaxy_banner.png);
+  height: 50vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #701b1b9e; // black overlay with 50% opacity
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2; // Make sure your content sits above the overlay
+  }
+  h5 {
+    font-size: 40px;
+    @media (max-width: 580px) {
+      font-size: 30px !important;
+    }
+  }
+}

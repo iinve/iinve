@@ -1,0 +1,21 @@
+.galexy_gallery {
+  .gallery_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .gallery_item {
+    width: 24%;
+    border-radius: 12px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+  }
+}
