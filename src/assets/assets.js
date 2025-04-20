@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import anil_og_image from "./coffeePremium/anil_og_image.jpg";
 import og_atheeq from "./coffeePremium/atheeq-hisana/og-atheeq.jpg";
 import divider from "./coffeePremium/divider.png";
@@ -23,7 +23,9 @@ import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
 import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
-import galaxy_spot_mesh from "./images/galaxy_spot_mesh.png"
+import galaxy_spot_mesh from "./images/galaxy_spot_mesh.png";
+import jwellery from "./images/jwels.jpeg";
+import mayoori_logo from "./images/mayoori_logo.png";
 
 export const Assets = {
   Logo,
@@ -51,7 +53,9 @@ export const Assets = {
   sreejitha_og_image,
   og_atheeq,
   galaxy_spot_mesh,
-  
+  jwellery,
+  mayoori_logo,
+
   Logo: {
     light: "/assets/images/logo.png",
     dark: "/assets/images/dark_logo.png",
@@ -59,8 +63,7 @@ export const Assets = {
     icon_dark: "/assets/images/icon.svg",
     digital_wall: "/assets/images/digital_wall_logo.png",
   },
-  tags:{
-    
+  tags: {
     digital_wall: "/assets/images/tags/digital-wall-tag.png",
     invitation: "/assets/images/tags/invitation-tag.png",
   },
@@ -120,5 +123,4 @@ export const Assets = {
   },
   digital_wall: "/assets/images/Digtialwall.png",
   invitation: "/assets/images/invitation.png",
-  
 };

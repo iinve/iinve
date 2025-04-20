@@ -12,7 +12,7 @@ const Spotlight = () => {
       <div className={Style.mesh}>
         <Image
           src={Assets.galaxy_spot_mesh}
-          height={300}
+          height={400}
           width={300}
           alt="mesh"
         />
