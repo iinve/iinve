@@ -5,12 +5,12 @@ import 'swiper/css';
 import SliderCard from './SliderCard/SliderCard';
 import { Autoplay, EffectCards } from "swiper/modules";
 
-// Dummy data for example
-const templateData = [1, 2, 3];
 
-function Slider() {
+
+function Slider({data}) {
     return (
-        <div >
+        <div className='mt-20'>
+          <h2 className='text-center text-2xl mb-4'>Best offers for you!</h2>
             <Swiper
                 spaceBetween={30}
                 loop={true}
@@ -37,12 +37,9 @@ function Slider() {
                     },
                   }} // Faster speed
             >
-                <SwiperSlide><SliderCard /></SwiperSlide>
-                <SwiperSlide><SliderCard /></SwiperSlide>
-                <SwiperSlide><SliderCard /></SwiperSlide>
-                <SwiperSlide><SliderCard /></SwiperSlide>
-                <SwiperSlide><SliderCard /></SwiperSlide>
-                <SwiperSlide><SliderCard /></SwiperSlide>
+              {data?.text_banner?.map((item, index) => (
+                <SwiperSlide key={index}><SliderCard data={item} /></SwiperSlide>
+              ))}
             </Swiper>
         </div>
     );

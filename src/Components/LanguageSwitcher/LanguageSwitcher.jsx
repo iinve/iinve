@@ -17,14 +17,13 @@ export default function LanguageSwitcher() {
   return (
     <div>
       <Select
-        className="w-[100px]"
-        label="Language"
-        style={{ colorScheme: 'dark' }}
+        className="w-[130px] mx-auto mt-6"
+        variant='underlined'
         onChange={(e) => handleLanguageChange(e.target.value)}
         defaultSelectedKeys={[i18n.language]}
       >
         {languages.map((language) => (
-          <SelectItem key={language.code} value={language.code}>
+          <SelectItem variant='underlined' key={language.code} value={language.code} style={{ color: '#000' }}>
             {language.label}
           </SelectItem>
         ))}

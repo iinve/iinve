@@ -55,6 +55,26 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Uroob';
+    src: url('../../public//fonts/uroob/Uroob-Regular.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Gauri';
+    src: url('../../public/fonts/Gauri/GauriHeavy.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Gauri';
+    src: url('../../public/fonts/Gauri/GauriHeavy.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
 
 
 * {
