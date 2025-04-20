@@ -3,7 +3,9 @@ import { HeroUIProvider } from "@heroui/react";
 import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
 import { Josefin_Sans } from "next/font/google";
+import '../i18n';
 import "../styles/global.css";
+
 
 // Setup font
 const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
