@@ -21,7 +21,7 @@ const Testimonials = () => {
 
       {/* First Row - Faster Speed */}
       <Swiper
-        spaceBetween={10}
+        // spaceBetween={10}
         grabCursor={true}
         freeMode={true}
         speed={8000} // Faster speed

@@ -1,6 +1,11 @@
+
+import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
+import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
+
 import Banner from "Components/DigitalWall/Galaxy/Banner/Banner";
 import GalexyGallery from "Components/DigitalWall/Galaxy/GalexyGallery/GalexyGallery";
 import Offer from "Components/DigitalWall/Galaxy/Offer/Offer";
+
 import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
 import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 import ImageMasonry from "Components/ImageMasonry/ImageMasonry";
@@ -42,9 +47,14 @@ const page = () => {
   return (
     <WallLayout background="#922626">
       <Spotlight />
+
+      <Slider />
+      <OfferContact />
+
       <Banner />
       <Offer />
       <ImageMasonry data={data} />
+
     </WallLayout>
   );
 };
