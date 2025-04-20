@@ -1,0 +1,40 @@
+.offer {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 700px) {
+    padding: 0 20px;
+  }
+  .offer_text {
+    width: 60%;
+    h6 {
+      color: #ffb300;
+      font-size: 30px;
+      text-align: center;
+      @media (max-width: 520px) {
+        font-size: 20px !important;
+      }
+    }
+  }
+  .offer_button {
+    width: 36%;
+    .offer_btn {
+      border: 1px solid #ffb300;
+      background-color: transparent;
+      padding: 18px 30px !important;
+      color: #ffb300;
+      border-radius: 50px;
+      font-size: 20px;
+      width: 60%;
+      margin: 0 auto;
+      @media (max-width: 700px) {
+        width: 90%;
+      }
+      @media (max-width: 520px) {
+        font-size: 14px;
+        padding: 14px 18px !important;
+      }
+    }
+  }
+}

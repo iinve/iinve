@@ -1,10 +1,10 @@
-.WallLayout{
+.WallLayout {
   background: var(--backgroundColor);
-  height: 100vh;
-  font-family: 'Times New Roman', Times, serif;
+  height: auto;
+  font-family: "Times New Roman", Times, serif;
   position: relative;
 }
-.badge{
+.badge {
   background: linear-gradient(-45deg, #020717, #032a32);
   width: 40%;
   margin: 0 auto;
@@ -12,21 +12,27 @@
   align-items: center;
   justify-content: center;
   padding: 50px 0 20px 0;
-  border-bottom-left-radius:50px ;
-  border-bottom-right-radius:50px ;
-  position: sticky;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: fixed;
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99;
+  img {
+    @media (max-width: 580px) {
+      width: 70px;
+    }
+  }
 }
-.footer{
+.footer {
   position: fixed;
   bottom: 0;
   width: 40%;
   background: #fff;
-  border-top-left-radius:50px ;
-  border-top-right-radius:50px ;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,13 +42,26 @@
   padding: 20px 40px;
   min-height: 200px;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  @media (max-width: 740px) {
+    width: 50% !important;
+    min-height: 160px !important;
+  }
+  @media (max-width: 600px) {
+    width: 60% !important;
+    min-height: 150px !important;
+    padding: 20px !important;
+  }
+  @media (max-width: 600px) {
+    width: 80% !important;
+    min-height: 140px !important;
+  }
 
-  button{
+  button {
     background: var(--backgroundColor);
     padding: 10px 20px;
     border-radius: 30px;
     color: #fff;
-    }
+  }
 }
 .hidden {
   opacity: 0;
