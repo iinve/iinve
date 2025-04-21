@@ -17,6 +17,7 @@
     "@vercel/analytics": "^1.5.0",
     "add-to-calendar-button": "^2.6.18",
     "add-to-calendar-button-react": "^2.6.18",
+    "canvas-confetti": "^1.9.3",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.18.2",
     "howler": "^2.2.4",

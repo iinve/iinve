@@ -8,11 +8,16 @@ import i18n from "i18n";
 import ProIcon from "ProUI/Icons/icons";
 import { getMayooriData } from "DB/DigitaWall/mayoori_data";
 import { useTranslation } from "react-i18next";
+import confetti from "canvas-confetti";
 
 const WallLayout = ({ children, background }) => {
   const [showUI, setShowUI] = useState(true);
   const [userData, setUserData] = useState(null);
   const { t } = useTranslation();
+
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
   useEffect(() => {
     const data = getMayooriData(t);
@@ -26,6 +31,13 @@ const WallLayout = ({ children, background }) => {
         setShowUI(true);
       }, 1000);
     };
+    // rebon-effect
+    confetti({
+      angle: randomInRange(55, 125),
+      spread: randomInRange(50, 70),
+      particleCount: randomInRange(50, 100),
+      origin: { y: 0.6 },
+    });
 
     window.addEventListener("scroll", handleScroll);
     return () => {
