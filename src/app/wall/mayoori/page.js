@@ -1,18 +1,15 @@
-'use client'
+"use client";
 
 import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
 import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
-
 import Banner from "Components/DigitalWall/Galaxy/Banner/Banner";
 import Offer from "Components/DigitalWall/Galaxy/Offer/Offer";
-
 import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
 import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 import ImageMasonry from "Components/ImageMasonry/ImageMasonry";
 import LanguageSwitcher from "Components/LanguageSwitcher/LanguageSwitcher";
 import { getMayooriData } from "DB/DigitaWall/mayoori_data";
 import { useTranslation } from "react-i18next";
-
 
 const Page = () => {
   const { t } = useTranslation();
@@ -51,11 +48,11 @@ const Page = () => {
   const data = getMayooriData(t);
   return (
     <WallLayout background="#922626">
+      <Banner data={data} />
+      <Offer data={data} />
       <Spotlight data={data} />
-      <Offer data={data}/>
-      <Banner data={data}/>
-      <Slider data={data}/>
-      <OfferContact data={data}/>
+      <Slider data={data} />
+      <OfferContact data={data} />
       <h2 className="text-center text-2xl mb-4">Our Showcase</h2>
       <ImageMasonry data={Imagedata} />
       <LanguageSwitcher />
