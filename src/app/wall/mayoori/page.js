@@ -1,10 +1,11 @@
 "use client";
 
-import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
-import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
 import Banner from "Components/DigitalWall/Galaxy/Banner/Banner";
 import Offer from "Components/DigitalWall/Galaxy/Offer/Offer";
+import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
+import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
 import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
+import ProductSlider from "Components/DigitalWall/ProductSlider/ProductSlider";
 import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 import ImageMasonry from "Components/ImageMasonry/ImageMasonry";
 import LanguageSwitcher from "Components/LanguageSwitcher/LanguageSwitcher";
@@ -50,6 +51,7 @@ const Page = () => {
     <WallLayout background="#922626">
       <Banner data={data} />
       <Offer data={data} />
+      <ProductSlider data={data}/>
       <Spotlight data={data} />
       <Slider data={data} />
       <OfferContact data={data} />

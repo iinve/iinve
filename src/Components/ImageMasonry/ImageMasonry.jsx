@@ -68,7 +68,7 @@ const ImageMasonry = ({ data }) => {
           {data?.map((image, index) => (
             <div
               key={index}
-              className="m-2 cursor-pointer"
+              className="cursor-pointer"
               onClick={() => handleSelectImage(image)}
             >
               <Image
