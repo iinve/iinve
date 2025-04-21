@@ -4,9 +4,9 @@ import Style from "./Spotlight.module.scss";
 import Image from "next/image";
 import { Assets } from "assets/assets";
 
-const Spotlight = () => {
-  const data = [26, 27, 28, 29];
+const Spotlight = ({data}) => {
 
+console.log(data?.dates)
   return (
     <div className={Style.spotlight}>
       <div className={Style.mesh}>
@@ -17,15 +17,15 @@ const Spotlight = () => {
           alt="mesh"
         />
       </div>
-
-      <h3>BIG OFFER SALE 2025</h3>
-
+      <div className={Style.spotlight_content}>
+      <h3 dangerouslySetInnerHTML={{ __html: data?.heading }}></h3>
       <div className={Style.date_wrapper}>
-        {data.map((item, index) => (
+        {data?.dates?.map((item, index) => (
           <div className={Style.date_box} key={index}>
-            {item}
+            {item.date}
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

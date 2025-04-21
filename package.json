@@ -32,6 +32,7 @@
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.10.3",
     "react-parallax-tilt": "^1.7.291",
+    "react-player": "^2.16.0",
     "react-responsive-masonry": "^2.7.1",
     "recoil": "^0.7.7",
     "sonner": "^1.5.0",

@@ -1,32 +1,45 @@
 .banner {
   position: relative;
-  background-image: url(../../../../assets/images/glaxy_banner.png);
-  height: 50vh;
   width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 50vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  z-index: 0;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #701b1b9e; // black overlay with 50% opacity
-    z-index: 1;
+  text-align: center;
+  @media (max-width: 580px) {
+    height: 200px !important;
   }
+  .video {
+    width: 100%;
+    position: absolute;
+    // ReactPlayer uses an iframe internally. To achieve "object-fit: cover" effect,
+    // we force it using transform
+    iframe {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      transform: scale(2); // Increase slightly to fill without letterboxing
+      filter: brightness(0.4);
+      
+    }
+    
+  }
+
+  
 
   > * {
     position: relative;
-    z-index: 2; // Make sure your content sits above the overlay
+    z-index: 1;
   }
+
   h5 {
-    font-size: 40px;
+    font-size: 50px;
+    font-weight: 700;
+
     @media (max-width: 580px) {
-      font-size: 30px !important;
+      font-size: 24px;
     }
   }
 }

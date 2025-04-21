@@ -4,11 +4,16 @@ import { WallLogo } from "../WallLogo/WallLogo";
 import Style from "./WallLayout.module.scss";
 import Image from "next/image";
 import { Assets } from "assets/assets";
+import i18n from "i18n";
+import ProIcon from "ProUI/Icons/icons";
+import { getMayooriData } from "DB/DigitaWall/mayoori_data";
+import { useTranslation } from "react-i18next";
 
-const WallLayout = ({ children, background }) => {
+const WallLayout = ({ children, background, data }) => {
   const [showUI, setShowUI] = useState(true);
+  const { t } = useTranslation();
+  const userData = getMayooriData(t);
   let scrollTimeout;
-
   useEffect(() => {
     const handleScroll = () => {
       setShowUI(false);
@@ -16,8 +21,11 @@ const WallLayout = ({ children, background }) => {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         setShowUI(true);
-      }, 200);
+      }, 1000);
     };
+    if (userData?.lang) {
+      i18n.changeLanguage(userData.lang);
+    }
 
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -26,12 +34,28 @@ const WallLayout = ({ children, background }) => {
     };
   }, []);
 
+
+
+  const handleClickContact = () => {
+    window.open(userData?.whatsApp, "_self");
+
+  }
+  const handleClickPhone = () => {
+    const phoneNumber = userData?.phone;
+    const phoneUrl = `tel:${phoneNumber}`;
+    window.open(phoneUrl, "_blank");
+
+  }
+  const currentFont =
+    i18n.language === "ml" ? "'sans-serif', Times New Roman, serif" : "Times New Roman, serif";
+
+
   return (
     <div
       className={Style.WallLayout}
-      style={{ "--backgroundColor": background }}
+      style={{ "--backgroundColor": background, fontFamily: currentFont, }}
     >
-      <div className={`${Style.badge} ${!showUI ? Style.hidden : ""}`}>
+      <div className={`${Style.badge}`}>
         <WallLogo width={120} height={120} />
       </div>
 
@@ -42,9 +66,12 @@ const WallLayout = ({ children, background }) => {
           src={Assets.mayoori_logo}
           alt="mayoori_logo"
           height={100}
-          width={100}
+          width={150}
         />
-        <button>Contact us</button>
+       <div className="flex justify-between items-center gap-2">
+       <button onClick={handleClickContact}><ProIcon name={'FaWhatsapp'} color="#fff" size={20} /></button>
+       <button className="!bg-blue-800" onClick={handleClickPhone}><ProIcon name={'FaPhoneAlt'} color="#fff" size={20} /></button>
+       </div>
       </div>
     </div>
   );
