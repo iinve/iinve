@@ -46,6 +46,7 @@ const WallLayout = ({ children, background }) => {
     };
   }, []);
 
+
   const handleClickContact = () => {
     if (userData?.whatsApp) {
       window.open(userData.whatsApp, "_self");
