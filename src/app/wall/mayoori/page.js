@@ -73,11 +73,11 @@ const Page = () => {
   const dailyPrice = [
     {
       label: "1 Gram",
-      price: rate?.oneGram || "000",
+      price: rate?.oneGram || "---",
     },
     {
       label: "8 Gram",
-      price: rate?.eightGram || "000",
+      price: rate?.eightGram || "---",
     },
   ];
 

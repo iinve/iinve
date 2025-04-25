@@ -11,12 +11,20 @@ export default function UpdateGoldRate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [rate, setRate] = useState({ oneGram: '', eightGram: '' });
   // Check login status from localStorage
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     if (loggedIn === 'true') setIsLoggedIn(true);
+    fetch('/api/gold-rate')
+      .then((res) => res.json())
+      .then((data) => {
+        setRate(data)
+        setOneGram(data.oneGram)
+        setEightGram(data.eightGram)
+      });
   }, []);
+ 
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -47,6 +55,15 @@ export default function UpdateGoldRate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(oneGram === '' || eightGram === '') {
+      addToast({
+        title: "Failed!",
+        description: "Please enter all rates.",
+        color: "danger",
+        variant: 'bordered'
+      });
+      return;
+    }
     const res = await fetch('/api/gold-rate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -61,8 +78,6 @@ export default function UpdateGoldRate() {
         color: "success",
         variant: 'bordered'
       });
-      setOneGram('');
-      setEightGram('');
     } else {
       setMessage('Failed to update rate.');
       addToast({
@@ -90,12 +105,18 @@ export default function UpdateGoldRate() {
                 value={oneGram}
                 onChange={(e) => setOneGram(e.target.value)}
                 label="1 Gram Rate"
+                variant='bordered'
+                style={{ color: '#000' }}
+                isRequired
               />
               <Input
                 type="text"
                 value={eightGram}
                 onChange={(e) => setEightGram(e.target.value)}
                 label="8 Gram Rate"
+                variant='bordered'
+                style={{ color: '#000' }}
+                isRequired
               />
               <Button type="submit" color='primary' style={{ padding: 10, width: '100%', marginTop: 10 }}>
                 Update Rates
@@ -112,20 +133,24 @@ export default function UpdateGoldRate() {
           </>
         ) : (
           <>
-            <div className='border border-gray-300 rounded-md p-10'>
-            <h2 className='mb-4 text-2xl font-bold text-center'>Login to Update Rates</h2>
+            <div className='border border-gray-600 rounded-md p-10'>
+            <h2 className='mb-4 text-2xl font-bold text-center text-gray-900'>Login to Update Rates</h2>
             <Form onSubmit={handleLogin}>
               <Input
                 type="text"
                 label="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                variant='bordered'
+                style={{ color: '#000' }}
               />
               <Input
                 type="password"
                 label="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                variant='bordered'
+                style={{ color: '#000' }}
               />
               <Button type="submit" color='primary' style={{ marginTop: 10, width: '100%' }}>
                 Login
