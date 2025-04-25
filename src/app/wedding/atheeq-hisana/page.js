@@ -1,5 +1,4 @@
 
-import { Assets } from "assets/assets";
 import { atheeq_hisana } from "DB/Atheeq-Hisana";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -20,7 +19,7 @@ const metadataBase = isProduction
         "Atheeq and Hisana are getting married and joyfully invite you to celebrate their wedding.",
       images: [
         {
-          url: `${metadataBase}${Assets.og_atheeq.src}`,
+          url: `${metadataBase}/assets/images/og-image/og-atheeq.jpg`,
           alt: "Atheeq & Hisana Wedding Invitation",
         },
       ],

@@ -1,5 +1,4 @@
 
-import { Assets } from "assets/assets";
 import { Nikil_Sreejitha } from "DB/Nikil_Sreejitha";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -20,7 +19,7 @@ export const metadata = {
       "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}${Assets.sreejitha_og_image.src}`,
+        url: `${metadataBase}/assets/images/og-image/sreejitha_og_image.jpg`,
         alt: "Nikil & Sreejitha Wedding Invitation",
       },
     ],
