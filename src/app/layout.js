@@ -39,7 +39,9 @@ export default function RootLayout({ children }) {
       <body className={JosefinSans.className}>
         <MainLayout>
           <ClientLayout>
-            <HeroUIProvider>{children}</HeroUIProvider>
+            <HeroUIProvider>
+              {children}
+              </HeroUIProvider>
           </ClientLayout>
         </MainLayout>
       </body>

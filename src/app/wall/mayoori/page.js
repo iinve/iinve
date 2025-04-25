@@ -11,11 +11,14 @@ import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 import HorizonImageSliderWithPreview from "Components/HorizonImageSliderWithPreview/HorizonImageSliderWithPreview";
 import LanguageSwitcher from "Components/LanguageSwitcher/LanguageSwitcher";
 import { getMayooriData } from "DB/DigitaWall/mayoori_data";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 
 const Page = () => {
   const { t } = useTranslation();
+  const [rate, setRate] = useState({ oneGram: '', eightGram: '' });
+  console.log(rate)
   const Imagedata = [
     {
       id: 1,
@@ -24,42 +27,42 @@ const Page = () => {
     },
     {
       id: 2,
-      url: "/assets/images/digital-wall/mayoori/wall-02.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-02.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 3,
-      url: "/assets/images/digital-wall/mayoori/wall-03.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-03.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 4,
-      url: "/assets/images/digital-wall/mayoori/wall-04.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-04.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 5,
-      url: "/assets/images/digital-wall/mayoori/wall-05.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-05.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 6,
-      url: "/assets/images/digital-wall/mayoori/wall-06.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-06.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 7,
-      url: "/assets/images/digital-wall/mayoori/wall-07.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-07.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 8,
-      url: "/assets/images/digital-wall/mayoori/wall-08.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-08.webp",
       alt: "Elegant Necklace",
     },
     {
       id: 9,
-      url: "/assets/images/digital-wall/mayoori/wall-09.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-09.webp",
       alt: "Elegant Necklace",
     },
 
@@ -70,13 +73,20 @@ const Page = () => {
   const dailyPrice = [
     {
       label: "1 Gram",
-      price: "9,009",
+      price: rate?.oneGram || "000",
     },
     {
       label: "8 Gram",
-      price: "72,040",
+      price: rate?.eightGram || "000",
     },
   ];
+
+  useEffect(() => {
+    fetch('/api/gold-rate')
+      .then((res) => res.json())
+      .then((data) => setRate(data));
+  }, []);
+
   return (
     <WallLayout background="#922626">
       <Banner data={data} />

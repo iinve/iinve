@@ -9,6 +9,8 @@ import ProIcon from "ProUI/Icons/icons";
 import { getMayooriData } from "DB/DigitaWall/mayoori_data";
 import { useTranslation } from "react-i18next";
 import confetti from "canvas-confetti";
+import { DigitalWallHeader } from "../DigitalWallHeader/DigitalWallHeader";
+
 
 const WallLayout = ({ children, background }) => {
   const [showUI, setShowUI] = useState(true);
@@ -75,9 +77,7 @@ const WallLayout = ({ children, background }) => {
       className={Style.WallLayout}
       style={{ "--backgroundColor": background, fontFamily: currentFont }}
     >
-      <div className={Style.badge}>
-        <WallLogo width={100} height={100} />
-      </div>
+     <DigitalWallHeader />
 
       {children}
 
