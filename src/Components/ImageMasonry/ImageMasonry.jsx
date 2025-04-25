@@ -63,7 +63,7 @@ const ImageMasonry = ({ data }) => {
 
   return (
     <div className="md:container md:mx-auto px-4">
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 3, 750: 3, 900: 4 }}>
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 2, 750: 2, 900: 4 }}>
         <Masonry>
           {data?.map((image, index) => (
             <div

@@ -1,13 +1,16 @@
-import React from 'react'
+import ProIcon from "ProUI/Icons/icons";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SliderCard from '../Galaxy/Slider/SliderCard/SliderCard';
 
 
 const ProductCard = ({ data }) => {
   return (
-    <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 w-full h-64 flex flex-col justify-between shadow-lg transition-transform duration-300 ease-in-out cursor-pointer">
-      <div className="w-full h-40 overflow-hidden rounded-xl mb-2">
+    <div className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer ">
+        <div className="flex justify-end items-center absolute -top-2 -right-2">
+        <span className="text-yellow-400 font-bold text-[12px] md:text-base bg-black/50 px-2 py-1 rounded-full w-fit">New</span>
+        <ProIcon name="heart" />
+        </div>
+      <div className="w-full h-40 overflow-hidden rounded-xl mb-2 ">
         <img
           src={data?.image}
           alt={data?.title}
@@ -15,8 +18,8 @@ const ProductCard = ({ data }) => {
         />
       </div>
       <div className="text-white">
-        <h3 className="text-base md:text-lg font-semibold truncate">{data?.title}</h3>
-        <p className="text-yellow-400 font-bold text-sm md:text-base mt-1">₹{data?.price}</p>
+        <h3 className="text-base md:text-lg font-semibold truncate text-center">{data?.title}</h3>
+        {/* <p className="text-yellow-400 font-bold text-sm md:text-base mt-1">₹{data?.price}</p> */}
       </div>
     </div>
   );
@@ -43,7 +46,7 @@ const ProductSlider = ({data}) => {
       },
     }}
     modules={[Autoplay]}
-    className='mb-8 !px-4'
+    className='mb-8 !px-4 !py-4'
   >
     {data?.products?.map((item, index) => (
       <SwiperSlide key={index}>

@@ -31,36 +31,6 @@ export const getMayooriData = (t) => ({
       image: "/assets/images/digital-wall/mayoori/2.jpg",
       price:"6,399",
     },
-    {
-      title:"Ring",
-      image: "/assets/images/digital-wall/mayoori/4.jpg",
-      price:"4,199",
-    },
-    {
-      title:"Ring",
-      image: "/assets/images/digital-wall/mayoori/5.jpg",
-      price:"3,990",
-    },
-    {
-      title:"Ring",
-      image: "/assets/images/digital-wall/mayoori/6.jpg",
-      price:"8,900",
-    },
-    {
-      title:"Ring",
-      image: "/assets/images/digital-wall/mayoori/7.jpg",
-      price:"10,000",
-    },
-    {
-      title:"Ring",
-      image: "/assets/images/digital-wall/mayoori/8.jpg",
-      price:"11,900",
-    },
-    {
-      title:"Ring",
-      image: "/assets/images/digital-wall/mayoori/9.jpg",
-      price:"2,900",
-    },
   ],
   semi_quote: t('semi_quote'),
   backgroundVideo: "https://res.cloudinary.com/viiewme/video/upload/v1745144929/WhatsApp_Video_2025-04-19_at_18.58.08_online-video-cutter.com_rqpwgd.mp4",

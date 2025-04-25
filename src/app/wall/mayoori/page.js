@@ -1,5 +1,6 @@
 "use client";
 
+import DailyPrice from "Components/DailyPrice/DailyPrice";
 import Banner from "Components/DigitalWall/Galaxy/Banner/Banner";
 import Offer from "Components/DigitalWall/Galaxy/Offer/Offer";
 import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
@@ -7,56 +8,97 @@ import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
 import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
 import ProductSlider from "Components/DigitalWall/ProductSlider/ProductSlider";
 import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
-import ImageMasonry from "Components/ImageMasonry/ImageMasonry";
+import HorizonImageSliderWithPreview from "Components/HorizonImageSliderWithPreview/HorizonImageSliderWithPreview";
 import LanguageSwitcher from "Components/LanguageSwitcher/LanguageSwitcher";
 import { getMayooriData } from "DB/DigitaWall/mayoori_data";
 import { useTranslation } from "react-i18next";
+
 
 const Page = () => {
   const { t } = useTranslation();
   const Imagedata = [
     {
       id: 1,
-      url: "https://i.pinimg.com/736x/07/02/14/0702143151b3d399754caaf3e515f641.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-01.jpg",
       alt: "Elegant Necklace",
     },
     {
       id: 2,
-      url: "https://i.pinimg.com/736x/11/49/c0/1149c0092d07b9208ac502e64218c25c.jpg",
-      alt: "Gold Ring",
+      url: "/assets/images/digital-wall/mayoori/wall-02.jpg",
+      alt: "Elegant Necklace",
     },
     {
       id: 3,
-      url: "https://i.pinimg.com/736x/f4/45/4b/f4454b925878c1fdaa82d76465e73e70.jpg",
-      alt: "Diamond Earrings",
+      url: "/assets/images/digital-wall/mayoori/wall-03.jpg",
+      alt: "Elegant Necklace",
     },
     {
       id: 4,
-      url: "https://i.pinimg.com/736x/98/ff/22/98ff22563cbaebc61f3b49aa1ea3c02a.jpg",
-      alt: "Luxury Bracelet",
+      url: "/assets/images/digital-wall/mayoori/wall-04.jpg",
+      alt: "Elegant Necklace",
     },
     {
       id: 5,
-      url: "https://i.pinimg.com/736x/30/64/d3/3064d3a12a663936255ba042acb31478.jpg",
-      alt: "Vintage Pendant",
+      url: "/assets/images/digital-wall/mayoori/wall-05.jpg",
+      alt: "Elegant Necklace",
     },
     {
       id: 6,
-      url: "https://i.pinimg.com/736x/7d/1a/89/7d1a89ef7c3ed249dc1356b9e50cde6a.jpg",
-      alt: "Gemstone Bangle",
+      url: "/assets/images/digital-wall/mayoori/wall-06.jpg",
+      alt: "Elegant Necklace",
     },
+    {
+      id: 7,
+      url: "/assets/images/digital-wall/mayoori/wall-07.jpg",
+      alt: "Elegant Necklace",
+    },
+    {
+      id: 8,
+      url: "/assets/images/digital-wall/mayoori/wall-08.jpg",
+      alt: "Elegant Necklace",
+    },
+    {
+      id: 9,
+      url: "/assets/images/digital-wall/mayoori/wall-09.jpg",
+      alt: "Elegant Necklace",
+    },
+
+    ,
+
   ];
   const data = getMayooriData(t);
+  const dailyPrice = [
+    {
+      label: "1 Gram",
+      price: "9,009",
+    },
+    {
+      label: "8 Gram",
+      price: "72,040",
+    },
+  ];
   return (
     <WallLayout background="#922626">
       <Banner data={data} />
+      <DailyPrice price={dailyPrice} />
       <Offer data={data} />
-      <ProductSlider data={data}/>
+      <ProductSlider data={data} />
       <Spotlight data={data} />
       <Slider data={data} />
       <OfferContact data={data} />
       <h2 className="text-center text-2xl mb-4">Our Showcase</h2>
-      <ImageMasonry data={Imagedata} />
+      {/* <ImageMasonry data={Imagedata} /> */}
+      <HorizonImageSliderWithPreview
+        images={Imagedata}
+        spaceBetween={10}
+        loop={true}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+        }}
+        speed={8000}
+        slidesPerView={1.5}
+      />
       <LanguageSwitcher />
     </WallLayout>
   );

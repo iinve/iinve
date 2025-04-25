@@ -76,7 +76,7 @@ const WallLayout = ({ children, background }) => {
       style={{ "--backgroundColor": background, fontFamily: currentFont }}
     >
       <div className={Style.badge}>
-        <WallLogo width={120} height={120} />
+        <WallLogo width={100} height={100} />
       </div>
 
       {children}
