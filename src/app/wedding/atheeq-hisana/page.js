@@ -20,7 +20,7 @@ const metadataBase = isProduction
         "Atheeq and Hisana are getting married and joyfully invite you to celebrate their wedding.",
       images: [
         {
-          url: `${metadataBase}${Assets.og_atheeq}`,
+          url: `${metadataBase}${Assets.og_atheeq.src}`,
           alt: "Atheeq & Hisana Wedding Invitation",
         },
       ],

@@ -20,7 +20,7 @@ export const metadata = {
       "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}${Assets.sreejitha_og_image}`,
+        url: `${metadataBase}${Assets.sreejitha_og_image.src}`,
         alt: "Nikil & Sreejitha Wedding Invitation",
       },
     ],
