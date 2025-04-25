@@ -47,23 +47,16 @@ const PageNotFound = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          Oh! You’ve Lost the viiew! 👀
+          Page not found! 👀
         </motion.h1>
-        <motion.p
-          className="text-base md:text-lg mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-        >
-          This page is out of the viiew’s showcase.
-        </motion.p>
+
         <ActionButton
           variant={"bordered"}
           size="lg"
           className="bg-dark_gray border border-primary !px-12 mt-4"
         >
           <Link href="/">
-          Go to Viiew
+          Go to Home
           </Link>
         </ActionButton>
       </motion.div>
