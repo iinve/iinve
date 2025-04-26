@@ -20,7 +20,7 @@ export default function ImageWithLoader({ src, alt, objectFit }) {
           <ProSkeleton height={400} />  
         </div>
       )}
-      {/* <Image
+      <Image
         src={src}
         alt={alt}
         fill
@@ -31,7 +31,7 @@ export default function ImageWithLoader({ src, alt, objectFit }) {
           transition: 'opacity 0.3s ease',
           opacity: isLoading ? 0 : 1,
         }}
-      /> */}
+      />
     </>
   );
 }
