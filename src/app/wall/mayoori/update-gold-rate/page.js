@@ -9,11 +9,12 @@ import { getGreeting } from 'utils/greetingUtils';
 export default function UpdateGoldRate() {
   const [oneGram, setOneGram] = useState('');
   const [eightGram, setEightGram] = useState('');
+  const [oneGram18K, setOneGram18K] = useState('');
   const [message, setMessage] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [rate, setRate] = useState({ oneGram: '', eightGram: '' });
+  const [rate, setRate] = useState({ oneGram: 0, eightGram: 0, oneGram18K: 0 });
   // Check login status from localStorage
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
@@ -24,6 +25,7 @@ export default function UpdateGoldRate() {
         setRate(data)
         setOneGram(data.oneGram)
         setEightGram(data.eightGram)
+        setOneGram18K(data.oneGram18K)
       });
   }, []);
  
@@ -57,7 +59,7 @@ export default function UpdateGoldRate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(oneGram === '' || eightGram === '') {
+    if(oneGram === 0 || eightGram === 0 || oneGram18K === 0) {
       addToast({
         title: "Failed!",
         description: "Please enter all rates.",
@@ -69,7 +71,7 @@ export default function UpdateGoldRate() {
     const res = await fetch('/api/gold-rate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ oneGram, eightGram }),
+      body: JSON.stringify({ oneGram: Number(oneGram), eightGram: Number(eightGram), oneGram18K: Number(oneGram18K) }),
     });
 
     if (res.ok) {
@@ -104,7 +106,7 @@ export default function UpdateGoldRate() {
             <h2 className='mb-4 text-lg font-bold text-gray-900'>Update Gold Rates</h2>
             <Form onSubmit={handleSubmit}>
               <Input
-                type="text"
+                type="number"
                 value={oneGram}
                 onChange={(e) => setOneGram(e.target.value)}
                 label="1 Gram Rate"
@@ -113,10 +115,19 @@ export default function UpdateGoldRate() {
                 isRequired
               />
               <Input
-                type="text"
+                type="number"
                 value={eightGram}
                 onChange={(e) => setEightGram(e.target.value)}
                 label="8 Gram Rate"
+                variant='bordered'
+                style={{ color: '#000' }}
+                isRequired
+              />
+              <Input
+                type="number"
+                value={oneGram18K}
+                onChange={(e) => setOneGram18K(e.target.value)}
+                label="1 Gram 18K"
                 variant='bordered'
                 style={{ color: '#000' }}
                 isRequired

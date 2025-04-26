@@ -17,7 +17,7 @@ import { useTranslation } from "react-i18next";
 
 const Page = () => {
   const { t } = useTranslation();
-  const [rate, setRate] = useState({ oneGram: '', eightGram: '' });
+  const [rate, setRate] = useState({ oneGram: '', eightGram: '', oneGram18K: '' });
   console.log(rate)
   const Imagedata = [
     {
@@ -78,6 +78,10 @@ const Page = () => {
     {
       label: "8 Gram",
       price: rate?.eightGram || "---",
+    },
+    {
+      label: "1 Gram 18K",
+      price: rate?.oneGram18K || "---",
     },
   ];
 
