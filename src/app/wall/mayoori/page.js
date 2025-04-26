@@ -22,7 +22,7 @@ const Page = () => {
   const Imagedata = [
     {
       id: 1,
-      url: "/assets/images/digital-wall/mayoori/wall-01.jpg",
+      url: "/assets/images/digital-wall/mayoori/wall-01.webp",
       alt: "Elegant Necklace",
     },
     {
