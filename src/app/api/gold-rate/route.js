@@ -1,24 +1,21 @@
-import fs from 'fs';
+import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
-import path from 'path';
 
-const filePath = path.join(process.cwd(), 'gold-rate.json');
-
-// GET = fetch gold rate
+// GET gold rate
 export async function GET() {
-  const data = fs.readFileSync(filePath, 'utf-8');
-  const goldRate = JSON.parse(data);
-  return NextResponse.json(goldRate);
+  const oneGram = await kv.get('goldrate:oneGram');
+  const eightGram = await kv.get('goldrate:eightGram');
+
+  return NextResponse.json({ oneGram, eightGram });
 }
 
-// POST = update both 1g and 8g rates
+// POST update gold rate
 export async function POST(req) {
   const body = await req.json();
-  const newRate = {
-    oneGram: body.oneGram,
-    eightGram: body.eightGram,
-  };
+  const { oneGram, eightGram } = body;
 
-  fs.writeFileSync(filePath, JSON.stringify(newRate, null, 2));
-  return NextResponse.json({ success: true, ...newRate });
+  await kv.set('goldrate:oneGram', oneGram);
+  await kv.set('goldrate:eightGram', eightGram);
+
+  return NextResponse.json({ success: true, oneGram, eightGram });
 }
