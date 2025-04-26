@@ -1,6 +1,8 @@
 'use client'
 import { addToast, Button, Form, Input } from '@heroui/react';
+import { Assets } from 'assets/assets';
 import { DigitalWallHeader } from 'Components/DigitalWall/DigitalWallHeader/DigitalWallHeader';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { getGreeting } from 'utils/greetingUtils';
 
@@ -92,8 +94,9 @@ export default function UpdateGoldRate() {
   return (
     <div className='h-screen pt-24 bg-gray-100'>
       <DigitalWallHeader />
-      <div className='flex justify-center items-center'>
-        <h2 className='mb-4 text-2xl font-bold text-center text-gray-900 tx'>{getGreeting()}, Mayoori!</h2>
+      <div className='flex flex-col justify-center items-center'>
+        <Image src={Assets.mayoori_logo} alt='mayoori' width={100} height={100} />  
+        <h2 className='my-4 text-2xl font-bold text-center text-gray-900 block'>{getGreeting()}, Mayoori!</h2>
       </div>
       <div style={{ maxWidth: 700, margin: '0 auto', padding: 20 }}>
         {isLoggedIn ? (
