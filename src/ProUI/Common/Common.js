@@ -50,8 +50,8 @@ export function ProColorPicker(props){
 
 export function ProSkeleton(props){
   const {height} = props;
-  return <Skeleton className="rounded-lg">
-  <div className={`h-[${height}px] w-full rounded-lg bg-default-300`} />
+  return <Skeleton className="rounded-lg w-full" >
+  <div className={`h-[${height}px] !w-full rounded-lg bg-default-300`} />
 </Skeleton>
 }
 

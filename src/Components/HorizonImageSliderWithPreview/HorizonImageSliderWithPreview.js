@@ -1,13 +1,13 @@
 
-import Image from "next/image";
+
+import ImageWithLoader from "Components/ImageWithLoader/ImageWithLoader";
+import ProIcon from "ProUI/Icons/icons";
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Autoplay, Keyboard, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import ProIcon from "ProUI/Icons/icons";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Autoplay, Keyboard, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const HorizonImageSliderWithPreview = ({ images, ...props }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -46,15 +46,7 @@ const HorizonImageSliderWithPreview = ({ images, ...props }) => {
                 cursor: "pointer",
               }}
             >
-              <Image
-                src={image.url}
-                alt={image.alt}
-                fill
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "10px",
-                }}
-              />
+             <ImageWithLoader src={image.url} alt={image.alt} objectFit="cover" />
             </div>
           </SwiperSlide>
         ))}
@@ -94,15 +86,7 @@ const HorizonImageSliderWithPreview = ({ images, ...props }) => {
           >
             {images?.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className="flex items-center justify-center h-full">
-                  <Image
-                    src={image.url}
-                    width={800}
-                    height={400}
-                    alt={`Selected Image ${index + 1}`}
-                    className="object-contain h-[650px] p-4"
-                  />
-                </div>
+                <ImageWithLoader src={image.url} alt={image.alt} objectFit="contain" />
               </SwiperSlide>
             ))}
           </Swiper>

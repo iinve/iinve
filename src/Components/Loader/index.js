@@ -1,16 +1,11 @@
-import React from "react";
-import "./Loader.scss";
+import Style from "./Loader.module.scss";
+
 
 const Loader = () => {
   return (
-    <div class="loader">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <div className={Style.loaderContainer}>
+    <div className={Style.loader}></div>
+  </div>
   );
 };
 

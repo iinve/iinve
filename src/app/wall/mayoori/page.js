@@ -108,6 +108,17 @@ const Page = () => {
         }}
         speed={8000}
         slidesPerView={1.5}
+        breakpoints={{
+          1280: {
+            slidesPerView: 3.5,
+          },
+          1024: {
+            slidesPerView: 2.5,
+          },
+          768: {
+            slidesPerView: 1.5,
+          },
+      }}
       />
       <LanguageSwitcher />
     </WallLayout>
