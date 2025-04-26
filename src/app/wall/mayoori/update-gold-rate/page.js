@@ -92,11 +92,11 @@ export default function UpdateGoldRate() {
   };
 
   return (
-    <div className='h-screen pt-24 bg-gray-100'>
+    <div className='h-screen bg-gray-100'>
       <DigitalWallHeader />
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center bg-blue-200 pt-24 rounded-b-3xl'>
         <Image src={Assets.mayoori_logo} alt='mayoori' width={100} height={100} />  
-        <h2 className='my-4 text-2xl font-bold text-center text-gray-900 block'>{getGreeting()}, Mayoori!</h2>
+        <h2 className='mt-2 mb-6 text-2xl font-bold text-center text-gray-900 block'>{getGreeting()}, Mayoori!</h2>
       </div>
       <div style={{ maxWidth: 700, margin: '0 auto', padding: 20 }}>
         {isLoggedIn ? (
