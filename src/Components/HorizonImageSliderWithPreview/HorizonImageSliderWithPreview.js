@@ -91,10 +91,10 @@ const HorizonImageSliderWithPreview = ({ images, ...props }) => {
             ))}
           </Swiper>
 
-          <div className="swiper-button-prev absolute left-4 top-1/2 transform -translate-y-1/2 z-50">
+          <div className="swiper-button-prev absolute left-4 top-1/2 transform -translate-y-1/2 z-50 !w-[30px] !h-[60px] flex items-center justify-center">
             <FaChevronLeft size={30} color="#fff" />
           </div>
-          <div className="swiper-button-next absolute right-4 top-1/2 transform -translate-y-1/2 z-50">
+          <div className="swiper-button-next absolute right-4 top-1/2 transform -translate-y-1/2 z-50 !w-[30px] !h-[60px] flex items-center justify-center">
             <FaChevronRight size={30} color="#fff" />
           </div>
         </div>
