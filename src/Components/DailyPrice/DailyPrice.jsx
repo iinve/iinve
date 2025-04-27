@@ -48,7 +48,7 @@ const DailyPrice = ({ price }) => {
             className="border border-[#ffb300] rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
           >
             <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(price[2].price)}</h2>
-            <span>{price[2].label}</span>
+            <span className='text-white'>{price[2].label}</span>
           </motion.div>
         )}
       </div>
