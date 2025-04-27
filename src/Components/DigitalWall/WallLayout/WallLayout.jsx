@@ -58,6 +58,7 @@ const WallLayout = ({ children, background }) => {
   const handleClickPhone = () => {
     if (userData?.phone1) {
       const phoneUrl = `tel:${userData.phone1}`;
+      window.open(phoneUrl, "_self");
     }
   };
 
