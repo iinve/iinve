@@ -17,7 +17,7 @@ export default function LanguageSwitcher() {
   return (
     <div>
       <Select
-        className="w-[130px] mx-auto mt-6"
+        className="w-[130px] mx-auto mt-6 text-white"
         variant='underlined'
         onChange={(e) => handleLanguageChange(e.target.value)}
         defaultSelectedKeys={[i18n.language]}
