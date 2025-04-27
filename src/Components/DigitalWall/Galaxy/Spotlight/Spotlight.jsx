@@ -17,7 +17,7 @@ const Spotlight = ({ data }) => {
         />
       </div>
       <div className={Style.spotlight_content}>
-        <h5 dangerouslySetInnerHTML={{ __html: data?.subHeading }}></h5>
+        <h5 dangerouslySetInnerHTML={{ __html: data?.subHeading }} className="text-white"></h5>
         {/* <h3 dangerouslySetInnerHTML={{ __html: data?.heading }}></h3> */}
         {/* <div className={Style.date_wrapper}>
         {data?.dates?.map((item, index) => (

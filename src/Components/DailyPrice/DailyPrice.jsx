@@ -8,7 +8,7 @@ const DailyPrice = ({ price }) => {
   
   return (
     <div className="rounded-lg p-4 w-[90%] mx-auto mt-4">
-      <h4 className="text-2xl text-center mb-4">{t("gold_rate")}</h4>
+      <h4 className="text-2xl text-center mb-4 text-white">{t("gold_rate")}</h4>
 
       <div className="grid grid-cols-2 gap-4 w-full md:w-[60%] mx-auto">
         {price?.slice(0, 2).map((item, index) => (
@@ -27,7 +27,7 @@ const DailyPrice = ({ price }) => {
             className="border border-[#ffb300] rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
           >
             <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(item.price)}</h2>
-            <span>{item.label}</span>
+            <span className='text-white'>{item.label}</span>
           </motion.div>
         ))}
       </div>

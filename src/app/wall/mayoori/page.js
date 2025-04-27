@@ -100,7 +100,7 @@ const Page = () => {
       <Spotlight data={data} />
       <Slider data={data} />
       <OfferContact data={data} />
-      <h2 className="text-center text-2xl mb-4">Our Showcase</h2>
+      <h2 className="text-center text-2xl mb-4 text-white">Our Showcase</h2>
       {/* <ImageMasonry data={Imagedata} /> */}
       <HorizonImageSliderWithPreview
         images={Imagedata}

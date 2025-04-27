@@ -9,7 +9,7 @@ import SliderCard from './SliderCard/SliderCard';
 function Slider({ data }) {
   return (
     <div className='mt-20'>
-      <h2 className='text-center text-2xl mb-4'>Best offers for you!</h2>
+      <h2 className='text-center text-2xl mb-4 text-white'>Best offers for you!</h2>
       <Swiper
         spaceBetween={20}
         loop={true}
