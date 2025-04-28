@@ -26,7 +26,7 @@ const Header = () => {
   const navItems = [
     {
       name: "Templates",
-      link: "#templates",
+      link: "/templates",
     },
     {
       name: "Invitations",
@@ -56,9 +56,9 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed lg:px-28 w-full flex justify-between items-center py-10  top-4 w-screen inset-x-0 z-50 transition-transform duration-300 ${
+        className={`fixed lg:px-28 w-full flex justify-between items-center md:py-10 py-6  top-4 w-screen inset-x-0 z-50 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
-        } h-[100px] px-6 md:px-14 sm:px-14`}
+        } md:h-[100px] h-[80px] px-6 md:px-14 sm:px-14`}
       >
         {isAuthPage ? (
           <div

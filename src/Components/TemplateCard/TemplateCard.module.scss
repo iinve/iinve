@@ -3,7 +3,7 @@
     position: relative;
     padding: 30px 60px;
     background: var(--background);
-    border: 1px solid var(--hover-primary);
+    border: 1px solid var(--primary);
     border-radius: 26px;
     width: fit-content;
     user-select: none;
@@ -11,9 +11,10 @@
     margin: 0 auto;
     @media(max-width: 620px){
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        padding: 20px 20px;
     }
     &:hover{
         transform: scale(1.05) translateY(-4px);
@@ -40,8 +41,10 @@
         display: block;
         width: 100%;
         transition: .3s ease-in-out;
+        border-radius: 8px;
         @media(max-width: 620px){
-            width: 50%;
+            width: 70%;
+            margin: 0 auto;
             
         }
         @media (max-width: 480px){
@@ -89,6 +92,9 @@
         margin: 20px auto 0;
         border: 1px solid var(--hover-primary) ;
         border-radius: 12px;
+        @media(max-width: 620px){
+            margin: 10px auto 0;
+        }
     }
     
 }

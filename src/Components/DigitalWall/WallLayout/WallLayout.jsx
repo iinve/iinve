@@ -62,6 +62,8 @@ const WallLayout = ({ children, background }) => {
     }
   };
 
+  
+
   const handleLanguageSwitch = (lang) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);

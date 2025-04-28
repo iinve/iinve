@@ -83,6 +83,43 @@ export const Assets = {
     galaxy: "/assets/images/templates/temp2.png",
     jupiter: "/assets/images/templates/temp3.png",
     stellar: "/assets/images/templates/temp4.png",
+    basic_01:{
+      full_template: "/assets/images/templates/basic_01_full.png",
+      preview: "/assets/images/templates/basic_01.png",
+    },
+    basic_02:{
+      full_template: "/assets/images/templates/basic_02_full.png",
+      preview: "/assets/images/templates/basic_02.png",
+    },
+    basic_03:{
+      full_template: "/assets/images/templates/basic_03_full.png",
+      preview: "/assets/images/templates/basic_03.png",
+    },
+    standard_01:{
+      full_template: "/assets/images/templates/standard_01_full.png",
+      preview: "/assets/images/templates/standard_01.png",
+    },
+    standard_02:{
+      full_template: "/assets/images/templates/standard_02_full.png",
+      preview: "/assets/images/templates/standard_02.png",
+    },
+    standard_03:{
+      full_template: "/assets/images/templates/standard_03_full.png",
+      preview: "/assets/images/templates/standard_03.png",
+    },
+    premium_01:{
+      full_template: "/assets/images/templates/premium_01_full.png",
+      preview: "/assets/images/templates/premium_01.png",
+    },
+    premium_02:{
+      full_template: "/assets/images/templates/premium_02_full.png",
+      preview: "/assets/images/templates/premium_02.png",
+    },
+    premium_03:{
+      full_template: "/assets/images/templates/premium_03_full.png",
+      preview: "/assets/images/templates/premium_03.png",
+    },
+
   },
   steps: {
     create_account: "/assets/images/wedding.png",

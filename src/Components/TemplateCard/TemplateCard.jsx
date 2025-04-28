@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { default as ProIcon } from '../../ProUI/Icons/icons';
 import Style from './TemplateCard.module.scss';
 import { ProChip } from 'ProUI/Common/Common';
+import useWindowDimensions from 'utils/useWindowDimensions';
 
 
 const TemplateCard = ({ template, selection, isSelected, onSelect }) => {
     const { image, name, price } = template;
+    const { isMobile } = useWindowDimensions();
     const [isLoading, setIsLoading] = useState(true);
 
     const handleClickTemplateCard = () => {
@@ -22,27 +24,19 @@ const TemplateCard = ({ template, selection, isSelected, onSelect }) => {
         >
             {/* Top Selling Badge */}
             {selection && template?.isTopSelling && (
-                <div className={Style.selling}>
-                    <ProChip color="danger" variant="faded">🔥 Top Selling</ProChip>
-                </div>
+                <div className={Style.price}>
+                <ProChip color="danger" variant="faded">🔥 Top Selling</ProChip>
+           </div>
             )}
             
-            {/* Price Tag */}
-            {selection && (
-                <div className={Style.price}>
-                    <ProChip color="success" variant="flat">
-                        {price === 0 ? 'Free' : `₹ ${price}`}
-                    </ProChip>
-                </div>
-            )}
 
             {/* Template Image */}
             <div className={Style.image_wrapper}>
                 {isLoading && <div className={Style.loading}>Loading...</div>} {/* Show while loading */}
                 <Image
                     src={image || '/fallback.png'} // Ensure fallback image
-                    height={80}
-                    width={110}
+                    height={100}
+                    width={120}
                     alt="template"
                     onLoad={() => setIsLoading(false)}
                     onError={() => setIsLoading(false)}
@@ -56,10 +50,10 @@ const TemplateCard = ({ template, selection, isSelected, onSelect }) => {
             <div className={Style.name_box}>
                 <div className={Style.devices}>
                     {['RxMobile', 'BsTablet', 'RxDesktop'].map((device, idx) => (
-                        <ProIcon name={device} size={20} key={`icon-${idx}`} color="#fff" />
+                        <ProIcon name={device} size={isMobile ? 15 : 20} key={`icon-${idx}`} color="#fff" />
                     ))}
                 </div>
-                <h3>{name}</h3>
+                <h3 className='text-center text-sm md:text-md '>{name}</h3>
                 {selection && (
                     <div className={Style.seclection}>
                         {isSelected && <ProIcon name="IoMdCheckmark" size={18} color="#fff" />}
