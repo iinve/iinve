@@ -2,7 +2,7 @@
 
 import { Tab, Tabs } from "@heroui/react"; // Import Hero UI components
 import TemplateCard from "Components/TemplateCard/TemplateCard";
-import { templateData } from "data/templateData";
+import { templateData } from "DB/templateData";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import Image from "next/image";
 import ActionButton from "ProUI/ActionButton/ActionButton";
