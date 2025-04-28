@@ -97,7 +97,7 @@ export const Assets = {
     },
     standard_01:{
       full_template: "/assets/images/templates/standard_01_full.png",
-      preview: "/assets/images/templates/standard_01.png",
+      preview: "/assets/images/templates/harmony.png",
     },
     standard_02:{
       full_template: "/assets/images/templates/standard_02_full.png",
