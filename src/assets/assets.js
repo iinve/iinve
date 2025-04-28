@@ -107,6 +107,10 @@ export const Assets = {
       full_template: "/assets/images/templates/standard_03_full.png",
       preview: "/assets/images/templates/standard_03.png",
     },
+    standard_04:{
+      full_template: "/assets/images/templates/standard_04_full.png",
+      preview: "/assets/images/templates/standard_04.png",
+    },
     premium_01:{
       full_template: "/assets/images/templates/premium_01_full.png",
       preview: "/assets/images/templates/premium_01.png",

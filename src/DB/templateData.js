@@ -110,6 +110,23 @@ export const templateData = [
   },
   {
     id: 7,
+    image: Assets.templates.standard_04.preview,
+    name: "Luna",
+    template_name: "luna",
+    price: 199,
+    type:"standard",
+    isTopSelling: false,
+    full_template: Assets.templates.standard_04.full_template,
+    features: [
+      'AVATAR', 'BANNER', 'NAME', 'BIO', 'ABOUT_INFO', 
+      'PORTFOLIO_LINKS', 'SOCIAL_LINKS', 'GALLERY'
+    ],
+    available_features: [
+      "Gallery", "Custom Links", "Social Media Links", "Banner"
+    ]
+  },
+  {
+    id: 8,
     image: Assets.templates.premium_01.preview,
     name: "Radiance",
     template_name: "radiance",
@@ -128,7 +145,7 @@ export const templateData = [
     ]
   },
   {
-    id: 8,
+    id: 9,
     image: Assets.templates.premium_02.preview,
     name: "Eternity",
     template_name: "eternity",
@@ -146,7 +163,7 @@ export const templateData = [
     ]
   },
   {
-    id: 9,
+    id: 10,
     image: Assets.templates.premium_03.preview,
     name: "Opaline",
     template_name: "Opaline",
