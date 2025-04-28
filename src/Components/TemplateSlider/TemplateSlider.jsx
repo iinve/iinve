@@ -7,6 +7,7 @@ import InfoChip from "../InfoChip/InfoChip";
 import TemplateSwiper from "../TemplateSwiper/TemplateSwiper";
 import Style from "./TemplateSlider.module.scss";
 import ActionButton from "ProUI/ActionButton/ActionButton";
+import Link from "next/link";
 
 const TemplateSlider = () => {
   const { ref: containerRef, inView } = useInView({ threshold: 0.6 });
