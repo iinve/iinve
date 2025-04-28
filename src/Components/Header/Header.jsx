@@ -66,7 +66,7 @@ const Header = () => {
               isClaimUserNamePage ? "justify-around" : "justify-center"
             }`}
           >
-            <Logo width={isMobile | isTablet ? 100 : 120} height={120} />
+            <Logo width={isMobile | isTablet ? 80 : 120} height={120} />
             {isClaimUserNamePage && (
               <Dropdown placement="bottom-end">
                 <DropdownTrigger>
