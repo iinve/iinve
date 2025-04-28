@@ -48,13 +48,13 @@ const TemplateSlider = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            {/* <ActionButton
+            <ActionButton
               variant={"bordered"}
               size="md"
               className="bg-primary border border-primary !px-10 !py-6"
             >
               <Link href={"/templates"}>Explore Showcase</Link>
-            </ActionButton> */}
+            </ActionButton>
           </motion.div>
         </motion.div>
 
