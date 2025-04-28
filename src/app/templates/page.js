@@ -140,11 +140,13 @@ const Page = () => {
 
       {/* Sheet for Template Details */}
       <div>
-        <Sheet isOpen={!!selectedTemplate} onClose={handleCancel} placement={"bottom"} size={isMobile ? 'full' : '5xl'} hideCloseButton>
+        <Sheet isOpen={!!selectedTemplate} onClose={handleCancel} placement={"bottom"} size={'full'} hideCloseButton>
           <SheetBody>
             <div className="flex justify-center items-center p-8">
-              <div className="w-full md:w-[400px] h-[540px] relative overflow-scroll border-2 border-white rounded-3xl">
-                <Image src={selectedTemplate?.full_template} alt={selectedTemplate?.name} width={1000} height={1000} className="object-cover" />
+              <div className="w-full md:w-[400px] md:h-[770px] h-[540px] relative overflow-scroll border-2 border-white rounded-3xl">
+                {selectedTemplate?.full_template ? <Image src={selectedTemplate?.full_template} alt={selectedTemplate?.name} width={1000} height={1000} className="object-cover" /> : <div className="flex justify-center items-center h-full">
+                  <span>Loading...</span>
+                  </div>}
               </div>
             </div>
           </SheetBody>
