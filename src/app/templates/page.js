@@ -40,7 +40,7 @@ const Page = () => {
 
   return (
     <div className="h-full min-h-screen pt-[100px]">
-      <h2 className="md:mb-10 md:mt-14 mb-2 mt-10 text-2xl text-center">Choose your favorite</h2>
+      <h2 className="md:mb-10 md:mt-14 mb-2 mt-10 text-center text-bold">Choose your favorite</h2>
       <p className="text-center text-sm md:text-md text-gray-500 w-[90%] mx-auto mb-6">You can choose your favorite invitation, and create yours</p>
       {/* Hero UI Tabs */}
       <div style={{ colorScheme: "dark" }} className="antialiased dark text-center md:px-20">
