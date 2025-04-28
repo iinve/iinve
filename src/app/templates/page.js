@@ -2,13 +2,13 @@
 
 import { Tab, Tabs } from "@heroui/react"; // Import Hero UI components
 import TemplateCard from "Components/TemplateCard/TemplateCard";
+import { templateData } from "data/templateData";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import Image from "next/image";
 import ActionButton from "ProUI/ActionButton/ActionButton";
 import { Sheet, SheetBody, SheetFooter } from "ProUI/Sheet/Sheet";
 import { useMemo, useState } from "react";
 import useWindowDimensions from "utils/useWindowDimensions";
-import { templateData } from "../../data/templateData";
 
 const Page = () => {
   const [selectedTemplate, setSelectedTemplate] = useState();
