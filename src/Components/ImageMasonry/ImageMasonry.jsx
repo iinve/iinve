@@ -72,7 +72,7 @@ const ImageMasonry = ({ data }) => {
               onClick={() => handleSelectImage(image)}
             >
               <Image
-                src={image?.url}
+                src={image?.url || image}
                 width={200}
                 height={300}
                 alt={`Image ${index + 1}`}
@@ -121,7 +121,7 @@ const ImageMasonry = ({ data }) => {
               <SwiperSlide key={index}>
                 <div className="flex items-center justify-center h-full">
                   <Image
-                    src={image?.url}
+                    src={image?.url || image}
                     width={800}
                     height={400}
                     alt={`Selected Image ${index + 1}`}
