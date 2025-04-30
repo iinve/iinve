@@ -102,7 +102,7 @@ let scrollTimeout = useRef(null);
 
       <audio
         ref={audioRef}
-        src="/audio/arabic.mp3" // change your music file path here
+        src="/audio/arabic.mp3"
       />
 
       <ActionButton
