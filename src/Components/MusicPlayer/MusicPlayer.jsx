@@ -60,7 +60,7 @@ let scrollTimeout = useRef(null);
     return () => {
       audioContext.close();
     };
-  }, []);
+  }, [isPlaying]);
 
   useEffect(() => {
     const handleScroll = () => {
