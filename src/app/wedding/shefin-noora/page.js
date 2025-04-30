@@ -12,14 +12,14 @@ const metadataBase = isProduction
   export const metadata = {
     title: "Shafin & Noora Yunus Wedding Invitation | iinve",
     description:
-      "Shafin and Yunus are getting married and joyfully invite you to celebrate their wedding.",
+      "Shafin and Noora Yunus are getting married and joyfully invite you to celebrate their wedding.",
     openGraph: {
-      title: "Atheeq & Hisana Wedding Invitation | iinve",
+      title: "Shafin and Noora Yunus Wedding Invitation | iinve",
       description:
-        "Shafin and Hisana are getting married and joyfully invite you to celebrate their wedding.",
+        "Shafin and Noora Yunus are getting married and joyfully invite you to celebrate their wedding.",
       images: [
         {
-          url: `${metadataBase}/assets/images/og-image/og-shefin.jpg`,
+          url: `${metadataBase}/assets/images/og-image/og-shefin.png`,
           alt: "Shafin & Noora Wedding Invitation",
         },
       ],
