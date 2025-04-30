@@ -59,7 +59,7 @@ const Quote = ({ data }) => {
           look forward to celebrating this special day with you.
         </p>
         <p className={Style.name}>
-          - By {data?.bride} and {data?.groom}
+          - By {data?.groom} and {data?.bride}
         </p>
       </motion.div>
       <div className={Style.button_box}>
