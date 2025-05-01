@@ -17,10 +17,16 @@ const metadataBase = isProduction
       title: "Shafin and Noora Yunus Wedding Invitation | iinve",
       description:
         "Shafin and Noora Yunus are getting married and joyfully invite you to celebrate their wedding.",
-      images: [
+    //   images: [
+    //     {
+    //       url: `${metadataBase}/assets/images/og-image/og-shefin.jpg`,
+    //       alt: "Shafin & Noora Wedding Invitation",
+    //     },
+    //   ],
+    images: [
         {
-          url: `${metadataBase}/public/assets/images/og-image/og-shefin.jpg`,
-          alt: "Shafin & Noora Wedding Invitation",
+          url: `${metadataBase}/assets/images/og-image/og-atheeq.jpg`,
+          alt: "Atheeq & Hisana Wedding Invitation",
         },
       ],
     },
