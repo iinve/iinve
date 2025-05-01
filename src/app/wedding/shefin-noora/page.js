@@ -19,7 +19,7 @@ const metadataBase = isProduction
         "Shafin and Noora Yunus are getting married and joyfully invite you to celebrate their wedding.",
       images: [
         {
-          url: `${metadataBase}/assets/images/og-image/og-shefin.jpg`,
+          url: `${metadataBase}/public/assets/images/og-image/og-shefin.jpg`,
           alt: "Shafin & Noora Wedding Invitation",
         },
       ],
