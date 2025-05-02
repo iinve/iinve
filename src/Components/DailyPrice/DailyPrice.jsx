@@ -26,7 +26,7 @@ const DailyPrice = ({ price }) => {
             }}
             className="border border-[#ffb300] rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
           >
-            <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(item.price)}</h2>
+            <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(item.amount)}</h2>
             <span className='text-white'>{item.label}</span>
           </motion.div>
         ))}
@@ -47,7 +47,7 @@ const DailyPrice = ({ price }) => {
             }}
             className="border border-[#ffb300] rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
           >
-            <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(price[2].price)}</h2>
+            <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(price[2].amount)}</h2>
             <span className='text-white'>{price[2].label}</span>
           </motion.div>
         )}

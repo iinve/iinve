@@ -21,7 +21,7 @@ function Slider({ data }) {
         slidesPerView={1.5}
         modules={[Autoplay]}
       >
-        {data?.text_banner?.map((item, index) => (
+        {data?.offers?.map((item, index) => (
           <SwiperSlide key={index}>
             <SliderCard data={item} />
           </SwiperSlide>
