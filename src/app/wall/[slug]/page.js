@@ -80,5 +80,6 @@ export const metadata = {
 
 
 export default function Page({ params }) {
-  return <DigitalWallRoot slug={params.slug} />;
+  const { slug } = params;
+  return <DigitalWallRoot slug={slug} />;
 }
