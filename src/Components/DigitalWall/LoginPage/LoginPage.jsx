@@ -28,6 +28,7 @@ const LoginPage = () => {
       if (error) {
         throw error
       }
+      window.location.href = '/wall/dashboard'
 
       // No need to store in localStorage - Supabase handles the session
       addToast({
@@ -37,7 +38,6 @@ const LoginPage = () => {
         color: 'success',
         variant: 'bordered',
       })
-      router.push('/wall/dashboard')
     } catch (error) {
       console.error('Login Failed:', error.message)
       addToast({
