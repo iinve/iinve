@@ -1,33 +1,43 @@
-'use client'
+'use client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { getTemplateComponent } from 'utils/getTemplateComponent';
 
 const DigitalWallRoot = ({ slug }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const supabase = createClientComponentClient()
 
-  console.log(slug,'==slug')
+
+  const supabase = useMemo(() => createClientComponentClient(), []);
+
   useEffect(() => {
-    async function fetchWall() {
-      if (!slug) return;
+    if (!slug) return;
+
+    const fetchWall = async () => {
       try {
-        const { data: digitalWall } = await supabase.from('digital_wall').select('*').eq('wall_slug', slug)
-        console.log(digitalWall, '==digitalWall')
-        setData(digitalWall?.[0] || null);
-      } catch (error) {
-        console.error("Error fetching user:", error);
+        const { data: digitalWall, error } = await supabase
+          .from('digital_wall')
+          .select('*')
+          .eq('wall_slug', slug)
+          .single(); // ✅ Ensure only one row is returned
+
+        if (error) {
+          console.error('Error fetching digital wall:', error);
+          setData(null);
+        } else {
+          setData(digitalWall || null);
+        }
+      } catch (err) {
+        console.error('Unexpected fetch error:', err);
       } finally {
         setIsLoading(false);
       }
-    }
+    };
+
     fetchWall();
-  }, [slug]);
+  }, [slug, supabase]);
 
-console.log(data, '==data')
+  return getTemplateComponent(data, data?.template, isLoading);
+};
 
-  return getTemplateComponent(data, data?.template, isLoading)
-}
-
-export default DigitalWallRoot
+export default DigitalWallRoot;

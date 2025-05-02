@@ -36,7 +36,16 @@ export default function DigitalWallDashboard() {
   useEffect(() => {
     const fetchUserData = async () => {
       const { data, error } = await supabase.auth.getSession();
-      const { data: digitalWall } = await supabase.from('digital_wall_users').select('*').eq('id', data.session?.user.id)
+      const session = data?.session;
+      if (!session?.user) {
+        console.warn('No user session found');
+        return null;
+      }
+      const { data: digitalWall } = await supabase
+        .from('digital_wall_users')
+        .select('*')
+        .eq('id', session.user.id);
+      // const { data: digitalWall } = await supabase.from('digital_wall_users').select('*').eq('id', data.session?.user.id)
       if (error) {
         console.error('Error fetching session:', error);
         return null;
@@ -53,10 +62,9 @@ export default function DigitalWallDashboard() {
 
     getUser();
   }, []); // This only runs once when component mounts
-  console.log(user, '==user')
+
   useEffect(() => {
     if (!user) return;
-
     const fetchWalls = async () => {
       try {
         const { data, error } = await supabase
@@ -196,7 +204,7 @@ export default function DigitalWallDashboard() {
       window.location.href = '/wall/login'; // or router.push('/')
     }
   };
-  
+
   const handleSave = async () => {
     setIsLoading(true)
     const formData = new FormData();
@@ -270,13 +278,13 @@ export default function DigitalWallDashboard() {
         <div className='flex justify-center items-center'>
           <Logo width={120} height={120} />
         </div>
-       <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
-        <div className='flex items-center gap-4'>
-        <ProAvatar color='primary' />
-        <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br/> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
+        <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
+          <div className='flex items-center gap-4'>
+            <ProAvatar color='primary' />
+            <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br /> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
+          </div>
+          <ActionButton isLoading={isLoading} isIconOnly onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /></ActionButton>
         </div>
-        <ActionButton isLoading={isLoading} isIconOnly onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /></ActionButton>
-       </div>
       </div>
       <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto">
         {/* Spotlight */}

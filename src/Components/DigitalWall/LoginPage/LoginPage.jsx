@@ -3,6 +3,7 @@ import { addToast, Button, Form, Input } from '@heroui/react'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { Logo } from 'Components/Logo/Logo'
 
 const LoginPage = () => {
   const router = useRouter()
@@ -52,8 +53,11 @@ const LoginPage = () => {
   }
 
   return (
-    <div className='flex justify-center items-center h-screen bg-white'>
-      <div className='border border-gray-600 rounded-2xl p-10 w-full max-w-md'>
+    <div className='flex flex-col justify-center items-center h-screen bg-white'>
+        <div className='flex justify-center items-center fixed top-6 left-0 right-0'>
+          <Logo width={100} height={100} />
+        </div>
+      <div className='md:border border-gray-600 rounded-2xl p-10 w-full max-w-md'>
         <h2 className='mb-2 text-2xl font-bold text-center text-gray-900'>Welcome back!</h2>
         <span className='mb-8 text-2xl font-bold text-center text-gray-400 block'>Login to your account</span>
         <Form onSubmit={handleLogin}>

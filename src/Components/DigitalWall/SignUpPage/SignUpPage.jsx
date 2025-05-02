@@ -1,6 +1,7 @@
 
 'use client'
 import { addToast, Button, Form, Input } from '@heroui/react'
+import { Logo } from 'Components/Logo/Logo';
 import React from 'react'
 
 const SignUpPage = () => {
@@ -38,7 +39,10 @@ const SignUpPage = () => {
 
   return (
     <div className='flex justify-center items-center h-screen bg-white'>
-      <div className='border border-gray-600 rounded-2xl p-10 w-1/2'>
+       <div className='flex justify-center items-center fixed top-6 left-0 right-0'>
+          <Logo width={100} height={100} />
+        </div>
+      <div className='md:border border-gray-600 rounded-2xl md:p-10 md:w-1/2 w-full p-6'>
         <h2 className='mb-2 text-2xl font-bold text-center text-gray-900'>Create Your Digital Wall</h2>
         <span className='mb-8 text-2xl font-bold text-center text-gray-400 block'>Register a new account</span>
         <Form onSubmit={handleCreateUser}>
