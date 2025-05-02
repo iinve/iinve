@@ -36,11 +36,6 @@ const LoginPage = () => {
         color: 'success',
         variant: 'bordered',
       })
-
-      // Refresh the page to ensure all auth state is updated
-      router.refresh()
-      
-      // Then navigate to dashboard
       router.push('/wall/dashboard')
     } catch (error) {
       console.error('Login Failed:', error.message)

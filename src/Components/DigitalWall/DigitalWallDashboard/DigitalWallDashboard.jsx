@@ -177,7 +177,26 @@ export default function DigitalWallDashboard() {
       setNewArrivals(newNewArrivals);
     }
   }
-  console.log(walls.id)
+  const handleLogout = async () => {
+    setIsLoading(true)
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      setIsLoading(false)
+      console.error('Error logging out:', error.message);
+    } else {
+      setIsLoading(false)
+      addToast({
+        title: 'Success',
+        description: 'Logged out successfully',
+        type: 'success',
+        color: 'success',
+        variant: 'bordered',
+      })
+      console.log('Logged out successfully');
+      window.location.href = '/wall/login'; // or router.push('/')
+    }
+  };
+  
   const handleSave = async () => {
     setIsLoading(true)
     const formData = new FormData();
@@ -251,9 +270,12 @@ export default function DigitalWallDashboard() {
         <div className='flex justify-center items-center'>
           <Logo width={120} height={120} />
         </div>
-       <div className='flex items-center justify-center gap-4 mt-6 mb-4'>
-       <ProAvatar color='danger' />
-       <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br/> <span className='font-bold text-danger'>{user?.shop_name}</span></h2>
+       <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
+        <div className='flex items-center gap-4'>
+        <ProAvatar color='primary' />
+        <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br/> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
+        </div>
+        <ActionButton isLoading={isLoading} isIconOnly onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /></ActionButton>
        </div>
       </div>
       <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto">
@@ -441,7 +463,7 @@ export default function DigitalWallDashboard() {
         </section>
 
         {/* Offers */}
-        <section className="mb-6">
+        <section className="mb-6 pb-14">
           <h2 className="text-xl font-semibold mb-2">Offer Texts</h2>
 
           {offers?.map((item, index) => (
@@ -468,8 +490,8 @@ export default function DigitalWallDashboard() {
         </section>
 
         {/* Save Button */}
-        <div className="text-center">
-          <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg'>Save All</ActionButton>
+        <div className="text-center w-full bg-white fixed bottom-0 left-0 right-0 p-4 shadow-lg">
+          <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
         </div>
       </div>
     </div>
