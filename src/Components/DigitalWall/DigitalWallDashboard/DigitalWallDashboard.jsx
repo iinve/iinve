@@ -6,6 +6,7 @@ import ProIcon from 'ProUI/Icons/icons';
 import { useEffect, useRef, useState } from 'react';
 import FileUploader, { ImagePreview } from '../FileUploader/FileUploader';
 import { fetchDigitalWallUserById, getWallDataByUserId } from 'utils/fetchDigitalWallData';
+import { getGreeting } from 'utils/greetingUtils';
 
 export default function DigitalWallDashboard() {
   const [digitalWallId, setDigitalWallId] = useState('your-digital-wall-id');
@@ -169,6 +170,10 @@ export default function DigitalWallDashboard() {
       const newBanners = banners.filter((_, i) => i !== idx);
       setBanners(newBanners);
     }
+    if (fieldName === 'newArrival') {
+      const newNewArrivals = newArrivals.filter((_, i) => i !== idx);
+      setNewArrivals(newNewArrivals);
+    }
   }
   console.log(walls.id)
   const handleSave = async () => {
@@ -241,7 +246,7 @@ export default function DigitalWallDashboard() {
   return (
     <div className="p-6 bg-white min-h-screen text-gray-900">
       <div className="p-10 w-1/2 mx-auto">
-        <h1 className="text-2xl font-bold mb-6 text-center">Digital Wall Dashboard</h1>
+        <h2 className="text-2xl text-center w-full block font-gray-200 mb-10 text-center">{getGreeting()}, {user?.shop_name}</h2>
 
         {/* Spotlight */}
         <section className="mb-8">
