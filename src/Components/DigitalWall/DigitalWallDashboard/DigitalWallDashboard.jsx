@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import FileUploader, { ImagePreview } from '../FileUploader/FileUploader';
 import { fetchDigitalWallUserById, getWallDataByUserId } from 'utils/fetchDigitalWallData';
 import { getGreeting } from 'utils/greetingUtils';
+import { Logo } from 'Components/Logo/Logo';
+import { ProAvatar } from 'ProUI/Common/Common';
 
 export default function DigitalWallDashboard() {
   const [digitalWallId, setDigitalWallId] = useState('your-digital-wall-id');
@@ -244,10 +246,17 @@ export default function DigitalWallDashboard() {
 
 
   return (
-    <div className="p-6 bg-white min-h-screen text-gray-900">
-      <div className="p-10 w-1/2 mx-auto">
-        <h2 className="text-2xl text-center w-full block font-gray-200 mb-10 text-center">{getGreeting()}, {user?.shop_name}</h2>
-
+    <div className="bg-white min-h-screen text-gray-900">
+      <div className='bg-blue-100 p-4 rounded-b-2xl'>
+        <div className='flex justify-center items-center'>
+          <Logo width={120} height={120} />
+        </div>
+       <div className='flex items-center justify-center gap-4 mt-6 mb-4'>
+       <ProAvatar color='danger' />
+       <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br/> <span className='font-bold text-danger'>{user?.shop_name}</span></h2>
+       </div>
+      </div>
+      <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto">
         {/* Spotlight */}
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
@@ -338,8 +347,8 @@ export default function DigitalWallDashboard() {
                     const newProducts = [...products];
                     console.log(e.target.value, '==e.target.value')
                     newProducts[idx].category = e.target.value;
-                    const selectedCategory = categories[e.target.value]; 
-                    newProducts[idx].category = selectedCategory ? selectedCategory.name : ""; 
+                    const selectedCategory = categories[e.target.value];
+                    newProducts[idx].category = selectedCategory ? selectedCategory.name : "";
                     setProducts(newProducts);
                   }}
                   className="w-full p-2 mb-2 text-black"

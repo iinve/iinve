@@ -13,7 +13,7 @@ const DigitalWallRoot = ({ slug }) => {
     async function fetchWall() {
       if (!slug) return;
       try {
-        const { data: digitalWall } = await supabase.from('digital_wall').select('*').eq('wall_slug', slug )
+        const { data: digitalWall } = await supabase.from('digital_wall').select('*').eq('wall_slug', slug)
         console.log(digitalWall, '==digitalWall')
         setData(digitalWall?.[0] || null);
       } catch (error) {
