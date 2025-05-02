@@ -1,27 +1,6 @@
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-import { mkdir, writeFile } from 'fs/promises';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { dirname, join } from 'path';
-import { cwd } from 'process';
-
-// Ensure directory exists
-async function ensureDirectoryExists(directory) {
-  try {
-    await mkdir(directory, { recursive: true });
-  } catch (error) {
-    if (error.code !== 'EEXIST') throw error;
-  }
-}
-
-// Save a file
-async function saveFile(file, uploadPath) {
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  await ensureDirectoryExists(dirname(uploadPath));
-  await writeFile(uploadPath, buffer);
-  return uploadPath;
-}
 
 export async function POST(request) {
   try {
@@ -33,25 +12,39 @@ export async function POST(request) {
     }
 
     const formData = await request.formData();
-    const uploadDir = join(cwd(), 'public', 'uploads');
-    await ensureDirectoryExists(uploadDir);
-
     const fileMap = {};
     const formValues = {};
 
     // Process form entries
     for (const [key, value] of formData.entries()) {
       if (typeof value === 'object' && 'arrayBuffer' in value) {
+        const bytes = await value.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+
         const uniqueName = `${Date.now()}-${Math.floor(Math.random() * 1e6)}-${value.name.replace(/\s+/g, '_')}`;
-        const uploadPath = join(uploadDir, uniqueName);
-        await saveFile(value, uploadPath);
-        fileMap[key] = `/uploads/${uniqueName}`;
+        const filePath = `uploads/${uniqueName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('digital-wall') // Your Supabase storage bucket name
+          .upload(filePath, buffer, {
+            contentType: value.type,
+            upsert: true,
+          });
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase
+          .storage
+          .from('digital-wall')
+          .getPublicUrl(filePath);
+
+        fileMap[key] = publicUrl;
       } else {
         formValues[key] = value;
       }
     }
 
-    // Structured data
+    // Structured parsing
     const digitalWallId = formValues.digitalWallId;
     const categories = JSON.parse(formValues.categories || '[]');
     const daily_prices = JSON.parse(formValues.daily_prices || '[]');
@@ -62,7 +55,6 @@ export async function POST(request) {
       image: fileMap['spotlight_image'] || null,
     };
 
-    // Parse array fields from JSON
     const productsRaw = JSON.parse(formValues.products || '[]');
     const bannersRaw = JSON.parse(formValues.banners || '[]');
     const newArrivalsRaw = JSON.parse(formValues.newArrivals || '[]');
@@ -81,8 +73,7 @@ export async function POST(request) {
       ...n,
       image: fileMap[`newArrivals[${i}][image]`] || null,
     }));
-    console.log(formValues, '==formValues')
-    // Prepare data
+
     const wallData = {
       spotlight,
       categories,
@@ -128,7 +119,7 @@ export async function POST(request) {
     const { data, error } = await dbOperation;
 
     if (error) {
-      console.error('Supabase error:', error);
+      console.error('Supabase DB error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
