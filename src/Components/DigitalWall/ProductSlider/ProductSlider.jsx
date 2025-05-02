@@ -1,9 +1,12 @@
+import { Card, CardBody, Tab, Tabs } from "@heroui/react";
 import ProIcon from "ProUI/Icons/icons";
+import { useState } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 const ProductCard = ({ data }) => {
+  
   return (
     <div className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer">
     <div className="flex justify-end items-center absolute -top-2 -right-2 !z-10">
@@ -14,7 +17,7 @@ const ProductCard = ({ data }) => {
   
     <div className="w-full h-40 overflow-hidden rounded-xl mb-2">
       <img
-        src={data?.image}
+        src={data?.imagePreview}
         alt={data?.title}
         className="w-full h-full object-cover"
       />
@@ -24,6 +27,7 @@ const ProductCard = ({ data }) => {
       <h3 className="text-base md:text-lg font-semibold truncate text-center">
         {data?.title}
       </h3>
+      <span className="text-sm  text-center block w-full text-white/60">{data?.weight}g</span>
     </div>
   </div>
   
@@ -32,8 +36,11 @@ const ProductCard = ({ data }) => {
 
 
 const ProductSlider = ({ data }) => {
+  const [selected, setSelected] = useState(data?.categories[0]?.name);
+  console.log(selected, '==selected')
   return (
-    <Swiper
+    <>
+    {/* <Swiper
       spaceBetween={20}
       loop={true}
       autoplay={{
@@ -58,7 +65,47 @@ const ProductSlider = ({ data }) => {
           <ProductCard data={item} />
         </SwiperSlide>
       ))}
-    </Swiper>
+    </Swiper> */}
+    <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color="danger" className="!px-4 !py-4 flex justify-center" radius="full">
+      {data.categories.map((category, idx) => (
+        <Tab key={category.name} title={category.name}>
+          {/* Filter products based on the selected tab */}
+          <Swiper
+            spaceBetween={20}
+            loop={true}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            speed={4000}
+            slidesPerView={4}
+            breakpoints={{
+              0: {
+                slidesPerView: 2, // mobile
+              },
+              640: {
+                slidesPerView: 4, // tablet and up
+              },
+              560: {
+                slidesPerView: 2, // tablet and up
+              },
+            }}
+            modules={[Autoplay]}
+            className='mb-8 !px-4 !py-4'
+          >
+            {data?.products
+              .filter((product) => product.category === category.name) 
+              .map((prod, index) => (
+                <SwiperSlide key={index}>
+                  <ProductCard data={prod} />
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </Tab>
+      ))}
+    </Tabs>
+
+  </>
   )
 }
 

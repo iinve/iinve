@@ -29,7 +29,7 @@ const Banner = ({ data }) => {
       {/* <h5 dangerouslySetInnerHTML={{ __html: data?.subHeading }}></h5> */}
       <div className={Style.spotlight_content}>
         {/* <h5 dangerouslySetInnerHTML={{ __html: data?.subHeading }}></h5> */}
-        <h3 dangerouslySetInnerHTML={{ __html: data?.heading }}></h3>
+        <h3 dangerouslySetInnerHTML={{ __html: data?.spotlight?.text }}></h3>
         <div className={Style.date_wrapper}>
           {data?.dates?.map((item, index) => (
             <div className={Style.date_box} key={index}>
