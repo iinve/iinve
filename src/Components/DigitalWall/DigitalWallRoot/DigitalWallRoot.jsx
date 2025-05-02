@@ -15,7 +15,7 @@ const DigitalWallRoot = ({ slug }) => {
       try {
         const { data: digitalWall } = await supabase.from('digital_wall').select('*').eq('wall_slug', slug )
         console.log(digitalWall, '==digitalWall')
-        setData(...digitalWall);
+        setData(digitalWall?.[0] || null);
       } catch (error) {
         console.error("Error fetching user:", error);
       } finally {
