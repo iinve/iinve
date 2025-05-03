@@ -14,7 +14,7 @@ function Slider({ data }) {
         spaceBetween={20}
         loop={true}
         autoplay={{
-          delay: 0,
+          delay: 1500,
           disableOnInteraction: false,
         }}
         speed={8000}
