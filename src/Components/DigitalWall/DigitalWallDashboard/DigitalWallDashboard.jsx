@@ -44,7 +44,7 @@ export default function DigitalWallDashboard() {
       const { data: digitalWall } = await supabase
         .from('digital_wall_users')
         .select('*')
-        .eq('id', session.user.id);
+        .eq('user_id', session.user.id);
       // const { data: digitalWall } = await supabase.from('digital_wall_users').select('*').eq('id', data.session?.user.id)
       if (error) {
         console.error('Error fetching session:', error);
@@ -70,11 +70,11 @@ export default function DigitalWallDashboard() {
         const { data, error } = await supabase
           .from('digital_wall')
           .select('*')
-          .eq('user_id', user.id)
-          .order('created_at', { ascending: false });
+          .eq('user_id', user.user_id)
 
         if (error) throw error;
         const currentWall = data?.[0]
+
         setWalls(currentWall || []);
         setCategories(currentWall?.categories || []);
         setProducts(currentWall?.products || []);
@@ -204,7 +204,7 @@ export default function DigitalWallDashboard() {
       window.location.href = '/wall/login'; // or router.push('/')
     }
   };
-
+  console.log(walls, '===user');
   const handleSave = async () => {
     setIsLoading(true)
     const formData = new FormData();
@@ -239,7 +239,7 @@ export default function DigitalWallDashboard() {
     formData.append('wall_slug', user?.wall_slug);
     formData.append('shop_name', user?.shop_name);
     formData.append('daily_prices', JSON.stringify(dailyPrices));
-    formData.append('template', 'hero_wall'); //TODO: make this dynamic
+    formData.append('template', user?.template || 'hero_wall'); 
 
     try {
       const res = await fetch('/api/digital-wall/dashboard/save', {

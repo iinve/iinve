@@ -2,7 +2,7 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 
 export async function POST(req) {
-  const { email, password, wall_slug, shop_name } = await req.json()
+  const { email, password, wall_slug, shop_name, template } = await req.json()
   
   // Log request data (remove in production)
   console.log('Sign-up request data:', { 
@@ -10,7 +10,8 @@ export async function POST(req) {
     passwordProvided: !!password, 
     passwordLength: password ? password.length : 0,
     wall_slug, 
-    shop_name 
+    shop_name,
+    template
   })
   
   // Validate password
@@ -49,7 +50,8 @@ export async function POST(req) {
       p_email: email, 
       p_wall_slug: wall_slug, 
       p_shop_name: shop_name,
-      p_password: password 
+      p_password: password,
+      p_template: template
     })
 
   if (fnError) {

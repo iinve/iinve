@@ -69,6 +69,7 @@ const LoginPage = () => {
             style={{ color: '#000' }}
             isRequired
             disabled={isLoading}
+            autoComplete='off'
           />
           <Input
             type="password"
@@ -78,6 +79,7 @@ const LoginPage = () => {
             style={{ color: '#000' }}
             isRequired
             disabled={isLoading}
+            autoComplete='off'
           />
           <Button 
             type="submit" 
@@ -85,6 +87,7 @@ const LoginPage = () => {
             style={{ marginTop: 10, width: '100%' }}
             isLoading={isLoading}
             disabled={isLoading}
+            
           >
             {isLoading ? 'Logging in...' : 'Login'}
           </Button>

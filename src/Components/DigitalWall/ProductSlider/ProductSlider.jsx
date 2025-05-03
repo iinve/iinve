@@ -1,6 +1,5 @@
-import { Card, CardBody, Tab, Tabs } from "@heroui/react";
-import ProIcon from "ProUI/Icons/icons";
-import { useState, useMemo } from "react";
+import { Tab, Tabs } from "@heroui/react";
+import { useMemo, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -35,10 +34,8 @@ const ProductCard = ({ data }) => {
 };
 
 
-const ProductSlider = ({ data }) => {
-  const [selected, setSelected] = useState(data?.categories[0]?.name);
-  console.log(selected, '==selected')
-
+const ProductSlider = ({ data, color = '#FFD700' }) => {
+  const [selected, setSelected] = useState(data?.categories?.[0]?.name);
   const filteredProducts = useMemo(() => {
     return data?.products.filter((product) => product.category === selected);
   }, [data?.products, selected]);
@@ -71,8 +68,9 @@ const ProductSlider = ({ data }) => {
         </SwiperSlide>
       ))}
     </Swiper> */}
-      <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color="danger" className="!px-4 !py-4 flex justify-center" radius="full">
-        {data.categories.map((category, idx) => {
+      <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color="warning" className="!px-4 !py-4 flex 
+      justify-center" radius="xl" >
+        {data?.categories?.map((category, idx) => {
           return (
             <Tab key={category.name} title={category.name}>
               {/* Filter products based on the selected tab */}
