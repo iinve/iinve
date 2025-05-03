@@ -1,23 +1,29 @@
 import ActionButton from "ProUI/ActionButton/ActionButton";
 import ProIcon from "ProUI/Icons/icons";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "rsuite";
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayer, setShowPlayer] = useState(true);
-let scrollTimeout = useRef(null);
+
+  const audioContextRef = useRef(null);
+  const analyserRef = useRef(null);
+  const sourceRef = useRef(null);
+  const animationIdRef = useRef(null);
+  const scrollTimeout = useRef(null);
 
   useEffect(() => {
-    if (!audioRef.current) return;
+    if (!audioRef.current || !canvasRef.current || audioContextRef.current) return;
 
+    // Initialize AudioContext and Analyser only once
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    const source = audioContext?.createMediaElementSource(audioRef.current);
-    const analyser = audioContext?.createAnalyser();
-    source?.connect(analyser);
-    analyser?.connect(audioContext?.destination);
+    const source = audioContext.createMediaElementSource(audioRef.current);
+    const analyser = audioContext.createAnalyser();
+
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
 
     analyser.fftSize = 256;
     const bufferLength = analyser.frequencyBinCount;
@@ -26,41 +32,43 @@ let scrollTimeout = useRef(null);
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-   const draw = () => {
-  requestAnimationFrame(draw);
+    const draw = () => {
+      animationIdRef.current = requestAnimationFrame(draw);
 
-  analyser.getByteFrequencyData(dataArray);
+      analyser.getByteFrequencyData(dataArray);
 
-  ctx.fillStyle = "#fff"; // Background
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fff"; // Background
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  const barWidth = (canvas.width / bufferLength) * 2;
-  let barHeight;
-  let x = 0;
-  const centerY = canvas.height / 2;
+      const barWidth = (canvas.width / bufferLength) * 6;
+      let x = 0;
+      const centerY = canvas.height / 2;
 
-  for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i];
+      for (let i = 0; i < bufferLength; i++) {
+        const barHeight = dataArray[i];
 
-    ctx.fillStyle = `rgb(${barHeight + 100},50,150)`;
+        ctx.fillStyle = `rgb(${barHeight}, ${Math.floor(barHeight * 0.4)}, ${255 - barHeight})`;
 
-    // Draw from center upwards
-    ctx.fillRect(x, centerY - barHeight / 9, barWidth, barHeight / 9);
+        // Draw from center upwards and downwards (mirror effect)
+        ctx.fillRect(x, centerY - barHeight / 9, barWidth, barHeight / 9);
+        ctx.fillRect(x, centerY, barWidth, barHeight / 9);
 
-    // Draw from center downwards (mirror effect)
-    ctx.fillRect(x, centerY, barWidth, barHeight / 9);
-
-    x += barWidth + 1;
-  }
-};
-
+        x += barWidth + 1;
+      }
+    };
 
     draw();
 
+    // Save references
+    audioContextRef.current = audioContext;
+    analyserRef.current = analyser;
+    sourceRef.current = source;
+
     return () => {
+      cancelAnimationFrame(animationIdRef.current);
       audioContext.close();
     };
-  }, [isPlaying]);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,50 +76,54 @@ let scrollTimeout = useRef(null);
       clearTimeout(scrollTimeout.current);
       scrollTimeout.current = setTimeout(() => {
         setShowPlayer(true);
-      }, 500); // 1.5 seconds after stopping scroll
+      }, 500);
     };
-  
+
     window.addEventListener("scroll", handleScroll);
-  
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(scrollTimeout.current);
     };
   }, []);
 
-  const togglePlay = () => {
-    
+  const togglePlay = async () => {
     if (!audioRef.current) return;
+
+    const audioContext = audioContextRef.current;
+    if (audioContext && audioContext.state === "suspended") {
+      await audioContext.resume(); // Required for autoplay policies
+    }
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {
       audioRef.current.play();
-      
     }
+
     setIsPlaying(!isPlaying);
   };
 
   return (
-    <div className={`flex items-center p-2 rounded-2xl shadow-lg w-fit bg-white/50 fixed bottom-0 right-0 m-4 z-[999] backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`flex items-center justify-between p-2 rounded-3xl shadow-lg w-[130px] bg-white/50 fixed bottom-0 right-0 m-4 z-[999] backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
       <canvas
         ref={canvasRef}
         width={50}
         height={50}
-        className="rounded-2xl"
+        className="rounded-full shadow-lg"
       ></canvas>
 
-      <audio
-        ref={audioRef}
-        src="/audio/arabic.mp3"
-      />
+      <audio ref={audioRef} src="/audio/arabic.mp3" />
 
       <ActionButton
         onClick={togglePlay}
-         className="bg-gradient-to-tr from-blue-500 to-cyan-500 text-white shadow-lg ml-2"
+        className="bg-gradient-to-tr from-blue-500 to-cyan-500 text-white shadow-lg ml-2"
         isIconOnly
-        color="warning" variant="faded"
+        color="warning"
+        variant="faded"
+        size="lg"
       >
-        <ProIcon name={isPlaying ? "FaPause" : "IoIosPlay"}  color="white" size={18}/>
+        <ProIcon name={isPlaying ? "FaPause" : "IoIosPlay"} color="white" size={18} />
       </ActionButton>
     </div>
   );
