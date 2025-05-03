@@ -105,19 +105,19 @@ export default function MusicPlayer() {
   };
 
   return (
-    <div className={`flex items-center justify-between p-2 rounded-3xl shadow-lg w-[130px] bg-white/50 fixed bottom-0 right-0 m-4 z-[999] backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`flex items-center justify-end p-2 rounded-full shadow-lg ${isPlaying ? 'w-[130px]' : 'w-[65px]'} bg-white/50 fixed bottom-0 right-0 m-4 z-[999] backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
       <canvas
         ref={canvasRef}
         width={50}
         height={50}
-        className="rounded-full shadow-lg"
-      ></canvas>
-
+        className={`rounded-full shadow-lg mr-4 absolute transition-all duration-500 left-2 
+              ${isPlaying ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-75'}`}
+      />
       <audio ref={audioRef} src="/audio/arabic.mp3" />
 
       <ActionButton
         onClick={togglePlay}
-        className="bg-gradient-to-tr from-blue-500 to-cyan-500 text-white shadow-lg ml-2"
+        className="bg-gradient-to-tr from-blue-500 to-cyan-500 text-white shadow-lg"
         isIconOnly
         color="warning"
         variant="faded"
