@@ -19,12 +19,10 @@ export const metadata = {
             "Shafin and Noora Yunus are getting married and joyfully invite you to celebrate their wedding.",
         images: [
             {
-                url: `${metadataBase}/assets/images/og-image/og-shefin.jpg`,
-                width: 500,
-                height: 200,
-                alt: "Shafin & Noora Wedding Invitation",
+              url: `${metadataBase}/assets/images/og-image/og-shefin.jpg`,
+              alt: "Shafin & Noora Wedding Invitation",
             },
-        ],
+          ],
 
     },
     metadataBase: metadataBase, // Add this line to set the metadataBase
