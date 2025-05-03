@@ -1,18 +1,17 @@
-import image08 from "../assets/coffeePremium/Shafin-Noora/one.jpeg";
-import image01 from "../assets/coffeePremium/Shafin-Noora/two.jpeg";
-import image02 from "../assets/coffeePremium/Shafin-Noora/three.jpeg";
-import image03 from "../assets/coffeePremium/Shafin-Noora/four.jpeg";
-import image04 from "../assets/coffeePremium/Shafin-Noora/five.jpeg";
-import image05 from "../assets/coffeePremium/Shafin-Noora/six.jpeg";
-import image06 from "../assets/coffeePremium/Shafin-Noora/seven.jpeg";
-import image07 from "../assets/coffeePremium/Shafin-Noora/one.jpeg";
 import Bride from "../assets/coffeePremium/Shafin-Noora/bride_avathar.jpeg";
+import image04 from "../assets/coffeePremium/Shafin-Noora/five.jpeg";
+import image03 from "../assets/coffeePremium/Shafin-Noora/four.jpeg";
 import Groom from "../assets/coffeePremium/Shafin-Noora/groom_avathar.jpeg";
+import { default as image07, default as image08 } from "../assets/coffeePremium/Shafin-Noora/one.jpeg";
+import image06 from "../assets/coffeePremium/Shafin-Noora/seven.jpeg";
+import image05 from "../assets/coffeePremium/Shafin-Noora/six.jpeg";
+import image02 from "../assets/coffeePremium/Shafin-Noora/three.jpeg";
+import image01 from "../assets/coffeePremium/Shafin-Noora/two.jpeg";
 
 export const shafin_noora = {
   bride: "Noora Younus",
   groom: "Shafin",
-  phone1: "",
+  phone1: "919747216415",
   theme:"#121212",
   default_color:"#FEF3E2",
   highlight_color:"#ddae6b",
