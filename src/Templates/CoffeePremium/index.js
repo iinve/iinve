@@ -109,7 +109,7 @@ function CoffeePremium({ data }) {
         setDrawerOpen={setDrawerOpen}
       />
       {comments && <Comments data={comments.slice().reverse()} />} */}
-      <MusicPlayer />
+      <MusicPlayer music={data?.music} />
       <Footer />
     </div>
   );

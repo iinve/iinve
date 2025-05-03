@@ -2,7 +2,7 @@ import ActionButton from "ProUI/ActionButton/ActionButton";
 import ProIcon from "ProUI/Icons/icons";
 import { useEffect, useRef, useState } from "react";
 
-export default function MusicPlayer() {
+export default function MusicPlayer({music}) {
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -110,10 +110,10 @@ export default function MusicPlayer() {
         ref={canvasRef}
         width={50}
         height={50}
-        className={`rounded-full shadow-lg mr-4 absolute transition-all duration-500 left-2 
+        className={`rounded-full shadow-lg mr-4 absolute transition-all duration-300 left-2 
               ${isPlaying ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-75'}`}
       />
-      <audio ref={audioRef} src="/audio/arabic.mp3" />
+      <audio ref={audioRef} src={music} />
 
       <ActionButton
         onClick={togglePlay}

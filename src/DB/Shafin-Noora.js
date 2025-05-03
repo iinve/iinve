@@ -17,6 +17,7 @@ export const shafin_noora = {
   highlight_color:"#ddae6b",
   phone2: "",
   begin_time: "11:30 AM",
+  music: "/audio/arabic.mp3",
   quote: "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ\n\n <br /> In the name of Allah, the Most Gracious, the Most Merciful. With hearts full of gratitude and joy, we request the honour of your presence as we unite in marriage by the will of Allah.",
   couples_data: [
     {
