@@ -83,14 +83,14 @@ function CoffeePremium({ data }) {
   return (
     <div className={Style.CoffeWrapper} style={{'--theme-color': data?.theme, '--content-color': data?.default_color, '--highlight-color': data?.highlight_color}}>
       <MeshMasonrySpotlight data={data} />
-      {data?.couples_data?.map((item, i) => (
+      {/* {data?.couples_data?.map((item, i) => (
         <CouplesDetails
           key={i}
           full_name={item?.full_name}
           bio={item?.bio}
           avatar={item?.avatar}
         />
-      ))}
+      ))} */}
       <Quote data={data} />
       <Calendar data={data} />
       <MeshMasonrySpotlight isNotSpotlight={true} />
