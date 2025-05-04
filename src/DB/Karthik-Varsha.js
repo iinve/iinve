@@ -4,6 +4,10 @@ import image03 from "../assets/coffeePremium/Karthik-Varsha/three.jpeg";
 import Groom from "../assets/coffeePremium/Karthik-Varsha/groom_avathar.jpeg";
 import image02 from "../assets/coffeePremium/Karthik-Varsha/two.jpeg";
 import image01 from "../assets/coffeePremium/Karthik-Varsha/one.jpeg";
+import image05 from "../assets/coffeePremium/Karthik-Varsha/five.jpeg";
+import image06 from "../assets/coffeePremium/Karthik-Varsha/six.jpeg";
+import image07 from "../assets/coffeePremium/Karthik-Varsha/seven.jpeg";
+import image08 from "../assets/coffeePremium/Karthik-Varsha/eight.jpeg";
 
 export const karthik_varsha = {
   bride: "Varsha",
@@ -31,10 +35,14 @@ couples_data: [
   ],
 
   images: [
-    image01,
+    image06,
     image03,
     image04,
     image02,
+    image05,
+    image01,
+    image08,
+    image07,
   ],
   dateData: [
     { date: "13", day: "Sun" },
