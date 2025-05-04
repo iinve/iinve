@@ -56,7 +56,7 @@ const Quote = ({ data }) => {
       >
         <p>
           Your presence will bring immense joy and blessings to our hearts. We
-          look forward to celebrating this special day with you.
+          look forward to celebrating this special day with you. <br /> Your prayers are with us.
         </p>
         <p className={Style.name}>
           - By {data?.groom} and {data?.bride}
