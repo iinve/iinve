@@ -1,13 +1,13 @@
 import Bride from "../assets/coffeePremium/Karthik-Varsha/bride_avathar.jpeg";
-import image04 from "../assets/coffeePremium/Karthik-Varsha/four.jpeg";
-import image03 from "../assets/coffeePremium/Karthik-Varsha/three.jpeg";
-import Groom from "../assets/coffeePremium/Karthik-Varsha/groom_avathar.jpeg";
-import image02 from "../assets/coffeePremium/Karthik-Varsha/two.jpeg";
-import image01 from "../assets/coffeePremium/Karthik-Varsha/one.jpeg";
-import image05 from "../assets/coffeePremium/Karthik-Varsha/five.jpeg";
-import image06 from "../assets/coffeePremium/Karthik-Varsha/six.jpeg";
-import image07 from "../assets/coffeePremium/Karthik-Varsha/seven.jpeg";
 import image08 from "../assets/coffeePremium/Karthik-Varsha/eight.jpeg";
+import image05 from "../assets/coffeePremium/Karthik-Varsha/five.jpeg";
+import image04 from "../assets/coffeePremium/Karthik-Varsha/four.jpeg";
+import Groom from "../assets/coffeePremium/Karthik-Varsha/groom_avathar.jpeg";
+import image01 from "../assets/coffeePremium/Karthik-Varsha/one.jpeg";
+import image07 from "../assets/coffeePremium/Karthik-Varsha/seven.jpeg";
+import image06 from "../assets/coffeePremium/Karthik-Varsha/six.jpeg";
+import image03 from "../assets/coffeePremium/Karthik-Varsha/three.jpeg";
+import image02 from "../assets/coffeePremium/Karthik-Varsha/two.jpeg";
 
 export const karthik_varsha = {
   bride: "Varsha",
