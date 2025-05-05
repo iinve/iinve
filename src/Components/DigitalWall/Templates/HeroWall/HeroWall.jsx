@@ -15,6 +15,7 @@ const HeroWall = ({ data }) => {
       {/* <Offer data={data} /> */}
       <ProductSlider data={data} />
       <Spotlight data={data} />
+      <div className='mt-20'></div>
       <Slider data={data} />
       {/* <OfferContact data={data} /> */}
       <h2 className="text-center text-2xl my-4 text-white">Our Showcase</h2>
