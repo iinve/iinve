@@ -24,12 +24,12 @@ export const karthik_varsha = {
 couples_data: [
     {
       full_name: "Karthik surya",
-      bio: "",
+      bio: "S/O Surya and Sangeetha",
       avatar: Groom,
     },
     {
       full_name: "Varsha",
-      bio: "",
+      bio: "D/O Surya and Sangeetha",
       avatar: Bride,
     },
   ],

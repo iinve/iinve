@@ -76,7 +76,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
           </div>
         )}
 
-        <div className={`${Style.masonry} flex items-center justify-center pt-10 mt-4`}>
+        <div className={`${Style.masonry} flex items-center justify-center mt-4`}>
           {[
             data?.images.slice(0, 1),
             data?.images.slice(1, 3),
