@@ -1,6 +1,5 @@
 import Bride from "../assets/coffeePremium/Shafin-Noora/bride_avathar.jpeg";
-import image04 from "../assets/coffeePremium/Shafin-Noora/eight.jpg";
-import image03 from "../assets/coffeePremium/Shafin-Noora/eight.jpg";
+import { default as image03, default as image04 } from "../assets/coffeePremium/Shafin-Noora/eight.jpg";
 import Groom from "../assets/coffeePremium/Shafin-Noora/groom_avathar.jpeg";
 import { default as image07, default as image08 } from "../assets/coffeePremium/Shafin-Noora/one.jpeg";
 import image06 from "../assets/coffeePremium/Shafin-Noora/seven.jpeg";
@@ -18,6 +17,7 @@ export const shafin_noora = {
   phone2: "",
   begin_time: "11:30 AM",
   music: "/audio/arabic.mp3",
+  hide_info: true,
   quote: "بركلاه لكما و بركة عليكم و جاما بينكما في خير\n\n <br /> In the name of Allah, the Most Gracious, the Most Merciful. With hearts full of gratitude and joy, we request the honour of your presence as we unite in marriage by the will of Allah.",
   couples_data: [
     {

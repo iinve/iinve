@@ -76,7 +76,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
           </div>
         )}
 
-        <div className={`${Style.masonry} flex items-center justify-center`}>
+        <div className={`${Style.masonry} flex items-center justify-center pt-10 mt-4`}>
           {[
             data?.images.slice(0, 1),
             data?.images.slice(1, 3),
@@ -86,11 +86,17 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
         </div>
 
         {!isNotSpotlight && (
-          <div className={Style.quote}>
-            <span>&quot;</span>
-            <p dangerouslySetInnerHTML={{ __html: data?.quote }}></p>
-          </div>
-        )}
+        <motion.div
+          ref={ref}
+          className={Style.quote}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <span>&quot;</span>
+          <p dangerouslySetInnerHTML={{ __html: data?.quote }}></p>
+        </motion.div>
+      )}
 
         <Image src={Assets?.flower} alt="Flower" className={Style.flower} />
       </div>

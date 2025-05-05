@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-
+/* @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap'); */
 :root {
     --background: #ffffff;
     --foreground: #1717178d;
@@ -62,21 +61,30 @@
     src: url('../../public//fonts/uroob/Uroob-Regular.woff') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
+}
+
 @font-face {
     font-family: 'Gauri';
     src: url('../../public/fonts/Gauri/GauriHeavy.woff') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
+}
+
 @font-face {
     font-family: 'Gauri';
     src: url('../../public/fonts/Gauri/GauriHeavy.woff2') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
-  
+}
 
+@font-face {
+    font-family: 'Fleur De Leah';
+    src: url('../../public/fonts/fleur/FleurDeLeah-Regular.woff2') format('woff2'),
+        url('../../public/fonts/fleur/FleurDeLeah-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 
 * {

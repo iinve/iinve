@@ -20,7 +20,7 @@ export const karthik_varsha = {
   begin_time: "11:30 AM",
   music: "/audio/christina.mp3",
   quote: "invite you to join us as we celebrate the beginning of our forever. Surrounded by the blessings of family, friends, and well-wishers, we step into a new chapter of life together and ur presence will make our day truly complete.",
-
+  hide_info: false,
 couples_data: [
     {
       full_name: "Karthik surya",
