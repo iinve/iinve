@@ -8,7 +8,7 @@ import image02 from "../assets/coffeePremium/Shafin-Noora/three.jpeg";
 import image01 from "../assets/coffeePremium/Shafin-Noora/two.jpeg";
 
 export const shafin_noora = {
-  bride: "Noora",
+  bride: "Noora Younus",
   groom: "Shafin",
   phone1: "919747216415",
   theme:"#121212",
