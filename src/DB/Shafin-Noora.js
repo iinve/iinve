@@ -9,7 +9,7 @@ import image01 from "../assets/coffeePremium/Shafin-Noora/two.jpeg";
 
 export const shafin_noora = {
   bride: "Noora",
-  groom: "Shafin S/O Dr PMA Vahab",
+  groom: "Shafin",
   phone1: "919747216415",
   theme:"#121212",
   default_color:"#FEF3E2",
@@ -18,7 +18,7 @@ export const shafin_noora = {
   begin_time: "11:30 AM",
   music: "/audio/arabic.mp3",
   hide_info: true,
-  quote: "بركلاه لكما و بركة عليكم و جاما بينكما في خير\n\n <br /> In the name of Allah, the Most Gracious, the Most Merciful. With hearts full of gratitude and joy, we request the honour of your presence as we unite in marriage by the will of Allah.",
+  quote: "بَارَكَ اللهُ لَكُماَ وَبَارَكَ عَلَيْكُماَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ\n\n <br /> In the name of Allah, the Most Gracious, the Most Merciful. With hearts full of gratitude and joy, we request the honour of your presence as we unite in marriage by the will of Allah.",
   couples_data: [
     {
       full_name: "Shafin",
