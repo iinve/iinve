@@ -10,8 +10,8 @@ const DailyPrice = ({ price, style, isLightTheme }) => {
       <div className="rounded-lg md:w-[500px] w-[90%] mx-auto mt-8">
         <h4 className={`text-2xl text-center mb-4 ${isLightTheme ? 'text-black' : 'text-white'}`}>Daily Price</h4>
         <div className={`${isLightTheme ? 'text-black' : 'text-white'}`}>
-          {price.map((item)=>(
-            <div className='flex justify-between border border-[#ffb300] rounded-lg p-2 mb-2'>
+          {price.map((item, idx)=>(
+            <div key={`card-${idx}`} className='flex justify-between border border-[#ffb300] rounded-lg p-2 mb-2'>
               <h4>{item.label}</h4>
               <h4>₹{formatPriceWithComma(item.amount)}</h4>
             </div>

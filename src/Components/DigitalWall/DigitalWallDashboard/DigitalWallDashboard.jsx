@@ -1,5 +1,5 @@
 'use client';
-import { addToast, Input, Select, SelectItem, Spinner, Textarea } from '@heroui/react';
+import { Accordion, AccordionItem, addToast, Input, Select, SelectItem, Spinner, Textarea } from '@heroui/react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import ActionButton from 'ProUI/ActionButton/ActionButton';
 import ProIcon from 'ProUI/Icons/icons';
@@ -309,262 +309,267 @@ export default function DigitalWallDashboard() {
 
       {isPageLoading ? <div className='flex items-center justify-center h-screen fixed inset-0 w-full'>
         <Spinner />
-      </div> : <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto">
-        {/* logo */}
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">Company Details</h2>
-          <div className="mb-2">
-            {companyDetails.logo ? (
-              <ImagePreview image={companyDetails.logo} onRemove={() => removeImage('logo')} />
-            ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
-          </div>
-          <Input type='text' placeholder='Shop Name' value={companyDetails.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
-          <Input
-            type="tel"
-            placeholder="Phone Number"
-            value={companyDetails.phone_number}
-            onChange={(e) => {
-              const phone = e.target.value.replace(/[^0-9]/g, '');
-              setCompanyDetails({ ...companyDetails, phone_number: phone });
-            }}
-            className='mb-2'
-          />
-          <Input
-            type="tel"
-            placeholder="WhatsApp Number"
-            value={companyDetails.whatsapp_number}
-            onChange={(e) => {
-              const whataspp = e.target.value.replace(/[^0-9]/g, '');
-              setCompanyDetails({ ...companyDetails, whatsapp_number: whataspp });
-            }}
-            className='mb-2'
-          />
-          <ProTextArea
-            type="text"
-            placeholder="WhatsApp Message"
-            value={companyDetails.whatsapp_message}
-            onChange={(e) => {
-              setCompanyDetails({ ...companyDetails, whatsapp_message: e.target.value });
-            }}
-          />
-        </section>
+      </div> :
 
-
-        {/* Spotlight */}
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
-          <div className="mb-2">
-            {spotlight.imagePreview ? (
-              <ImagePreview image={spotlight.imagePreview} onRemove={() => removeImage('spotlight')} />
-            ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'spotlight')} refs={refs} placeholder='Select Image' />}
-          </div>
-          <Textarea placeholder="Spotlight Text" value={spotlight.text} onChange={(e) => setSpotlight({ ...spotlight, text: e.target.value })} />
-        </section>
-
-        {/* Categories */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Categories</h2>
-          {categories.map((cat, idx) => (
-            <div key={idx} className='flex items-center gap-2'>
-              <Input
-                key={idx}
-                placeholder="Category Name"
-                className="mb-2"
-                value={cat.name}
-                onChange={(e) => {
-                  const newCategories = [...categories];
-                  newCategories[idx].name = e.target.value;
-                  setCategories(newCategories);
-                }}
-              />
-              {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'category')}>
-                <ProIcon name='CiTrash' size={18} color='white' />
-              </ActionButton>}
-            </div>
-          ))}
-          <button onClick={() => setCategories([...categories, { name: '' }])} className="text-blue-500">+ Add Category</button>
-        </section>
-
-        {/* Daily Price */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Daily Price</h2>
-          {dailyPrices.map((price, index) => (
-            <div key={index} className="flex gap-2 mb-2">
-              <Input
-                placeholder="Label"
-                value={price.label}
-                onChange={(e) => {
-                  const updated = [...dailyPrices];
-                  updated[index].label = e.target.value;
-                  setDailyPrices(updated);
-                }}
-              />
-              <Input
-                placeholder="Amount"
-                value={price.amount}
-                onChange={(e) => {
-                  const updated = [...dailyPrices];
-                  updated[index].amount = e.target.value;
-                  setDailyPrices(updated);
-                }}
-              />
-            </div>
-          ))}
-        </section>
-
-
-        {/* Products */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Products</h2>
-          {products.map((prod, idx) => (
-            <div key={idx} className='flex items-center gap-2'>
-              <div className="mb-4 p-2 border rounded w-full">
-                <Input placeholder="Product Title" value={prod.title} onChange={(e) => {
-                  const newProducts = [...products];
-                  newProducts[idx].title = e.target.value;
-                  setProducts(newProducts);
-                }} className="mb-2" />
-                <Input placeholder="Weight (g)" value={prod.weight} onChange={(e) => {
-                  const newProducts = [...products];
-                  newProducts[idx].weight = e.target.value;
-                  setProducts(newProducts);
-                }} className="mb-2" />
+        <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto !text-black">
+          {/* logo */}
+          <Accordion variant="splitted" className='mb-6' >
+            <AccordionItem key="1" aria-label="Company Details"title={<span className="text-black">Company Details</span>}>
+              <section className="mb-8">
                 <div className="mb-2">
-                  {prod.imagePreview ? (
-                    <ImagePreview image={prod.imagePreview} onRemove={() => removeImage('products', idx)} />
-                  ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'products', idx)} refs={refs} placeholder='Select Image' />}
+                  {companyDetails.logo ? (
+                   <div className='flex items-center justify-center'> <ImagePreview image={companyDetails.logo} onRemove={() => removeImage('logo')} /></div>
+                  ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
                 </div>
-                <Select
-                  value={prod.category || ""}
+                <Input type='text' placeholder='Shop Name' value={companyDetails.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
+                <Input
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={companyDetails.phone_number}
                   onChange={(e) => {
-                    const newProducts = [...products];
-                    console.log(e.target.value, '==e.target.value')
-                    newProducts[idx].category = e.target.value;
-                    const selectedCategory = categories[e.target.value];
-                    newProducts[idx].category = selectedCategory ? selectedCategory.name : "";
-                    setProducts(newProducts);
+                    const phone = e.target.value.replace(/[^0-9]/g, '');
+                    setCompanyDetails({ ...companyDetails, phone_number: phone });
                   }}
-                  className="w-full p-2 mb-2 text-black"
-                >
-                  <SelectItem value="" className='text-black'>Select Category</SelectItem>
-                  {categories.map((cat, catIdx) => (
-                    <SelectItem key={catIdx} value={cat.name} className='text-black'>
-                      {cat.name}
-                    </SelectItem>
-                  ))}
-                </Select>
-              </div>
-              {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'product')}>
-                <ProIcon name='CiTrash' size={18} color='white' />
-              </ActionButton>}
-            </div>
-          ))}
-          <button
-            onClick={() => setProducts([...products, { category: 0, title: '', weight: '', image: null, imagePreview: '' }])}
-            className="text-blue-500"
-          >
-            + Add Product
-          </button>
-        </section>
+                  className='mb-2'
+                />
+                <Input
+                  type="tel"
+                  placeholder="WhatsApp Number"
+                  value={companyDetails.whatsapp_number}
+                  onChange={(e) => {
+                    const whataspp = e.target.value.replace(/[^0-9]/g, '');
+                    setCompanyDetails({ ...companyDetails, whatsapp_number: whataspp });
+                  }}
+                  className='mb-2'
+                />
+                <ProTextArea
+                  type="text"
+                  placeholder="WhatsApp Message"
+                  value={companyDetails.whatsapp_message}
+                  onChange={(e) => {
+                    setCompanyDetails({ ...companyDetails, whatsapp_message: e.target.value });
+                  }}
+                />
+              </section>
 
-        {/* Banners */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Banners</h2>
-          {banners.map((ban, idx) => (
-            <div key={idx} className='flex items-center gap-2'>
-              <div className="mb-4 p-2 border rounded w-full">
-                <div className="mb-2">
-                  {ban.imagePreview ? (
-                    <ImagePreview image={ban.imagePreview} onRemove={() => removeImage('banners', idx)} />
-                  ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'banners', idx)} refs={refs} placeholder='Select Image' />}
+            </AccordionItem>
+          </Accordion>
+
+          {/* Spotlight */}
+          <section className="mb-8">
+            <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
+            <div className="mb-2">
+              {spotlight.imagePreview ? (
+                <ImagePreview image={spotlight.imagePreview} onRemove={() => removeImage('spotlight')} />
+              ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'spotlight')} refs={refs} placeholder='Select Image' />}
+            </div>
+            <Textarea placeholder="Spotlight Text" value={spotlight.text} onChange={(e) => setSpotlight({ ...spotlight, text: e.target.value })} />
+          </section>
+
+          {/* Categories */}
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">Categories</h2>
+            {categories.map((cat, idx) => (
+              <div key={idx} className='flex items-center gap-2'>
+                <Input
+                  key={idx}
+                  placeholder="Category Name"
+                  className="mb-2"
+                  value={cat.name}
+                  onChange={(e) => {
+                    const newCategories = [...categories];
+                    newCategories[idx].name = e.target.value;
+                    setCategories(newCategories);
+                  }}
+                />
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'category')}>
+                  <ProIcon name='CiTrash' size={18} color='white' />
+                </ActionButton>}
+              </div>
+            ))}
+            <button onClick={() => setCategories([...categories, { name: '' }])} className="text-blue-500">+ Add Category</button>
+          </section>
+
+          {/* Daily Price */}
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">Daily Price</h2>
+            {dailyPrices.map((price, index) => (
+              <div key={index} className="flex gap-2 mb-2">
+                <Input
+                  placeholder="Label"
+                  value={price.label}
+                  onChange={(e) => {
+                    const updated = [...dailyPrices];
+                    updated[index].label = e.target.value;
+                    setDailyPrices(updated);
+                  }}
+                />
+                <Input
+                  placeholder="Amount"
+                  value={price.amount}
+                  onChange={(e) => {
+                    const updated = [...dailyPrices];
+                    updated[index].amount = e.target.value;
+                    setDailyPrices(updated);
+                  }}
+                />
+              </div>
+            ))}
+          </section>
+
+
+          {/* Products */}
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">Products</h2>
+            {products.map((prod, idx) => (
+              <div key={idx} className='flex items-center gap-2'>
+                <div className="mb-4 p-2 border rounded w-full">
+                  <Input placeholder="Product Title" value={prod.title} onChange={(e) => {
+                    const newProducts = [...products];
+                    newProducts[idx].title = e.target.value;
+                    setProducts(newProducts);
+                  }} className="mb-2" />
+                  <Input placeholder="Weight (g)" value={prod.weight} onChange={(e) => {
+                    const newProducts = [...products];
+                    newProducts[idx].weight = e.target.value;
+                    setProducts(newProducts);
+                  }} className="mb-2" />
+                  <div className="mb-2">
+                    {prod.imagePreview ? (
+                      <ImagePreview image={prod.imagePreview} onRemove={() => removeImage('products', idx)} />
+                    ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'products', idx)} refs={refs} placeholder='Select Image' />}
+                  </div>
+                  <Select
+                    value={prod.category || ""}
+                    onChange={(e) => {
+                      const newProducts = [...products];
+                      console.log(e.target.value, '==e.target.value')
+                      newProducts[idx].category = e.target.value;
+                      const selectedCategory = categories[e.target.value];
+                      newProducts[idx].category = selectedCategory ? selectedCategory.name : "";
+                      setProducts(newProducts);
+                    }}
+                    className="w-full p-2 mb-2 text-black"
+                  >
+                    <SelectItem value="" className='text-black'>Select Category</SelectItem>
+                    {categories.map((cat, catIdx) => (
+                      <SelectItem key={catIdx} value={cat.name} className='text-black'>
+                        {cat.name}
+                      </SelectItem>
+                    ))}
+                  </Select>
                 </div>
-                <Input placeholder="Banner Text" value={ban.text} onChange={(e) => {
-                  const newBanners = [...banners];
-                  newBanners[idx].text = e.target.value;
-                  setBanners(newBanners);
-                }} />
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'product')}>
+                  <ProIcon name='CiTrash' size={18} color='white' />
+                </ActionButton>}
               </div>
-              {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
-                <ProIcon name='CiTrash' size={18} color='white' />
-              </ActionButton>}
-            </div>
-          ))}
+            ))}
+            <button
+              onClick={() => setProducts([...products, { category: 0, title: '', weight: '', image: null, imagePreview: '' }])}
+              className="text-blue-500"
+            >
+              + Add Product
+            </button>
+          </section>
 
-          <button
-            onClick={() => setBanners([...banners, { image: null, imagePreview: '', text: '' }])}
-            className="text-blue-500"
-          >
-            + Add Banner
-          </button>
-        </section>
-
-        {/* New Arrivals */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">New Arrivals</h2>
-          {newArrivals.map((item, idx) => (
-            <div key={idx} className='flex items-center gap-2'>
-              <div className="mb-4 p-2 border rounded w-full">
-                <Input placeholder="New Arrival Title" value={item.title} onChange={(e) => {
-                  const newItems = [...newArrivals];
-                  newItems[idx].title = e.target.value;
-                  setNewArrivals(newItems);
-                }} className="mb-2" />
-                <Input placeholder="Weight (g)" value={item.weight} onChange={(e) => {
-                  const newItems = [...newArrivals];
-                  newItems[idx].weight = e.target.value;
-                  setNewArrivals(newItems);
-                }} className="mb-2" />
-                <div className="mb-2">
-                  {item.imagePreview ? (
-                    <ImagePreview image={item.imagePreview} onRemove={() => removeImage('newArrivals', idx)} />
-                  ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'newArrivals', idx)} refs={refs} placeholder='Select Image' />}
+          {/* Banners */}
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">Banners</h2>
+            {banners.map((ban, idx) => (
+              <div key={idx} className='flex items-center gap-2'>
+                <div className="mb-4 p-2 border rounded w-full">
+                  <div className="mb-2">
+                    {ban.imagePreview ? (
+                      <ImagePreview image={ban.imagePreview} onRemove={() => removeImage('banners', idx)} />
+                    ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'banners', idx)} refs={refs} placeholder='Select Image' />}
+                  </div>
+                  <Input placeholder="Banner Text" value={ban.text} onChange={(e) => {
+                    const newBanners = [...banners];
+                    newBanners[idx].text = e.target.value;
+                    setBanners(newBanners);
+                  }} />
                 </div>
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
+                  <ProIcon name='CiTrash' size={18} color='white' />
+                </ActionButton>}
               </div>
-              {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'newArrival')}>
-                <ProIcon name='CiTrash' size={18} color='white' />
-              </ActionButton>}
-            </div>
-          ))}
-          <button
-            onClick={() => setNewArrivals([...newArrivals, { title: '', weight: '', image: null, imagePreview: '' }])}
-            className="text-blue-500"
-          >
-            + Add New Arrival
-          </button>
-        </section>
+            ))}
 
-        {/* Offers */}
-        <section className="mb-6 pb-14">
-          <h2 className="text-xl font-semibold mb-2">Offer Texts</h2>
+            <button
+              onClick={() => setBanners([...banners, { image: null, imagePreview: '', text: '' }])}
+              className="text-blue-500"
+            >
+              + Add Banner
+            </button>
+          </section>
 
-          {offers?.map((item, index) => (
-            <Input
-              key={index}
-              placeholder={`Offer ${index + 1}`}
-              value={item.offer}
-              onChange={(e) => {
-                const updatedOffers = [...offers];
-                updatedOffers[index].offer = e.target.value;
-                setOffers(updatedOffers);
-              }}
-              className="mb-2"
-            />
-          ))}
+          {/* New Arrivals */}
+          <section className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">New Arrivals</h2>
+            {newArrivals.map((item, idx) => (
+              <div key={idx} className='flex items-center gap-2'>
+                <div className="mb-4 p-2 border rounded w-full">
+                  <Input placeholder="New Arrival Title" value={item.title} onChange={(e) => {
+                    const newItems = [...newArrivals];
+                    newItems[idx].title = e.target.value;
+                    setNewArrivals(newItems);
+                  }} className="mb-2" />
+                  <Input placeholder="Weight (g)" value={item.weight} onChange={(e) => {
+                    const newItems = [...newArrivals];
+                    newItems[idx].weight = e.target.value;
+                    setNewArrivals(newItems);
+                  }} className="mb-2" />
+                  <div className="mb-2">
+                    {item.imagePreview ? (
+                      <ImagePreview image={item.imagePreview} onRemove={() => removeImage('newArrivals', idx)} />
+                    ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'newArrivals', idx)} refs={refs} placeholder='Select Image' />}
+                  </div>
+                </div>
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'newArrival')}>
+                  <ProIcon name='CiTrash' size={18} color='white' />
+                </ActionButton>}
+              </div>
+            ))}
+            <button
+              onClick={() => setNewArrivals([...newArrivals, { title: '', weight: '', image: null, imagePreview: '' }])}
+              className="text-blue-500"
+            >
+              + Add New Arrival
+            </button>
+          </section>
 
-          <button
-            type="button"
-            onClick={(e) => { e.preventDefault(); setOffers([...offers, { offer: '' }]) }}
-            className="text-blue-500"
-          >
-            + Add Offer
-          </button>
-        </section>
+          {/* Offers */}
+          <section className="mb-6 pb-14">
+            <h2 className="text-xl font-semibold mb-2">Offer Texts</h2>
 
-        {/* Save Button */}
-        <div className="text-center w-full bg-white fixed bottom-0 left-0 right-0 p-4 shadow-lg">
-          <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
-        </div>
-      </div>}
+            {offers?.map((item, index) => (
+              <Input
+                key={index}
+                placeholder={`Offer ${index + 1}`}
+                value={item.offer}
+                onChange={(e) => {
+                  const updatedOffers = [...offers];
+                  updatedOffers[index].offer = e.target.value;
+                  setOffers(updatedOffers);
+                }}
+                className="mb-2"
+              />
+            ))}
+
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); setOffers([...offers, { offer: '' }]) }}
+              className="text-blue-500"
+            >
+              + Add Offer
+            </button>
+          </section>
+
+          {/* Save Button */}
+          <div className="text-center w-full bg-white fixed bottom-0 left-0 right-0 p-4 shadow-lg">
+            <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
+          </div>
+        </div>}
     </div>
   );
 }
