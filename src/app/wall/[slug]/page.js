@@ -15,14 +15,14 @@ export async function generateMetadata({ params }) {
     const data = await res.json();
 
     const shopName = data?.shop_name || "Shop";
-    const ogImage = data?.og_image || defaultImage;
+    const ogImage = 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg' || data?.og_image || defaultImage;
     const description = data?.description || `Welcome to ${shopName}'s digital ad wall.`;
 
     return {
       title: `Discover ${shopName}'s Exclusive Deals - iinve`,
       description,
       openGraph: {
-        title: `${shopName} | iinve Wall`,
+        title: `Discover ${shopName}'s Exclusive Deals - iinve`,
         description,
         images: [
           { url: ogImage, alt: `${shopName} | iinve Wall` },
