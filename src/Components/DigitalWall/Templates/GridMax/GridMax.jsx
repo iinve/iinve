@@ -50,7 +50,7 @@ const GridMax = ({data}) => {
         <div className="relative rounded-3xl md:h-[400px] h-[200px] overflow-hidden">
           {/* Background image */}
           <div className={`absolute inset-0 bg-cover bg-center opacity-70`} />
-          <div className='h-full absolute inset-0'>
+          <div className='h-full absolute inset-0 opacity-60'>
             <Image src={data?.spotlight?.imagePreview} alt='Spotlight' className='object-cover' fill/>
           </div>
           {/* Content */}
