@@ -1,11 +1,11 @@
 "use client";
 
 import DailyPrice from "Components/DailyPrice/DailyPrice";
-import Banner from "Components/DigitalWall/Galaxy/Banner/Banner";
 import Offer from "Components/DigitalWall/Galaxy/Offer/Offer";
 import OfferContact from "Components/DigitalWall/Galaxy/OfferContact/OfferContact";
 import Slider from "Components/DigitalWall/Galaxy/Slider/Slider";
-import Spotlight from "Components/DigitalWall/Galaxy/Spotlight/Spotlight";
+import Banner from "Components/DigitalWall/Galaxy/VideoSpotlight/VideoSpotlight";
+import Spotlight from "Components/DigitalWall/Galaxy/WallBanner/WallBanner";
 import ProductSlider from "Components/DigitalWall/ProductSlider/ProductSlider";
 import WallLayout from "Components/DigitalWall/WallLayout/WallLayout";
 import HorizonImageSliderWithPreview from "Components/HorizonImageSliderWithPreview/HorizonImageSliderWithPreview";

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useWindowDimensions from "utils/useWindowDimensions";
 
 
-const ProductCard = ({ data, iswhiteBg = false }) => {
+const ProductCard = ({ data, isLightTheme = false }) => {
   const { isMobile } = useWindowDimensions();
   return (
     <div className="relative bg-white/50 backdrop-blur-lg border border-[#ffb300] rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer">
@@ -25,7 +25,7 @@ const ProductCard = ({ data, iswhiteBg = false }) => {
           height={270}
         />
       </div>
-      <div className={iswhiteBg ? 'text-black' : 'text-white'}>
+      <div className={isLightTheme ? 'text-black' : 'text-white'}>
         <h3 className="text-base md:text-lg font-semibold truncate">
           {data?.title}
         </h3>
@@ -37,7 +37,7 @@ const ProductCard = ({ data, iswhiteBg = false }) => {
 };
 
 
-const ProductSlider = ({ data, color = '#FFD700' }) => {
+const ProductSlider = ({ data, isLightTheme = false }) => {
   const [selected, setSelected] = useState(data?.categories?.[0]?.name);
   const filteredProducts = useMemo(() => {
     return data?.products.filter((product) => product.category === selected);
@@ -83,7 +83,7 @@ const ProductSlider = ({ data, color = '#FFD700' }) => {
                     console.log(filteredProducts, '==prod')
                     return (
                       <SwiperSlide key={index}>
-                        {filteredProducts ? <ProductCard data={prod} iswhiteBg /> : 'No products found'}
+                        {filteredProducts ? <ProductCard data={prod} isLightTheme={isLightTheme} /> : 'No products found'}
                       </SwiperSlide>
                     )
                   })}

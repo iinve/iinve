@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import Style from "./Spotlight.module.scss";
+import Style from "./WallBanner.module.scss";
 import Image from "next/image";
 import { Assets } from "assets/assets";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 
-const Spotlight = ({ data }) => {
+const WallBanner = ({ data, color = '#912626', isLightTheme }) => {
 
   return (
     <Swiper
@@ -23,7 +23,7 @@ const Spotlight = ({ data }) => {
     >
       {data?.banners?.map((banner, idx) => (
         <SwiperSlide key={idx}>
-          <div className={Style.spotlight}>
+          <div className={Style.spotlight} style={{'--color': color}}>
             <div className={Style.mesh}>
               <Image
                 src={banner?.imagePreview}
@@ -33,7 +33,7 @@ const Spotlight = ({ data }) => {
               />
             </div>
             <div className={Style.spotlight_content}>
-              <h5 dangerouslySetInnerHTML={{ __html: banner?.text }} className="text-white"></h5>
+              <h5 dangerouslySetInnerHTML={{ __html: banner?.text }} className={isLightTheme ? 'text-black' : 'text-white'}></h5>
             </div>
           </div>
 
@@ -44,4 +44,4 @@ const Spotlight = ({ data }) => {
   );
 };
 
-export default Spotlight;
+export default WallBanner;

@@ -2,132 +2,102 @@ import { Button } from '@heroui/react'
 import { Assets } from 'assets/assets'
 import DailyPrice from 'Components/DailyPrice/DailyPrice'
 import Slider from 'Components/DigitalWall/Galaxy/Slider/Slider'
+import WallBanner from 'Components/DigitalWall/Galaxy/WallBanner/WallBanner'
 import ProductSlider from 'Components/DigitalWall/ProductSlider/ProductSlider'
+import HorizonImageSliderWithPreview from 'Components/HorizonImageSliderWithPreview/HorizonImageSliderWithPreview'
 import Image from 'next/image'
-import ActionButton from 'ProUI/ActionButton/ActionButton'
 import ProIcon from 'ProUI/Icons/icons'
-import React from 'react'
 
-const GridMax = () => {
-  const data = {
-    categories: [
-      {
-        name: 'Category 1',
-      },
-      {
-        name: 'Category 2',
-      },
-      {
-        name: 'Category 3',
-      }
-    ],
-    products: [
-      {
-        name: 'Product 1',
-        imagePreview: Assets.Banner,
-        category: 'Category 1',
-      },
-      {
-        name: 'Product 2',
-        weight: '100g',
-        title: 'Product 2',
-        imagePreview: Assets.Banner,
-        category: 'Category 2',
-      },
-      {
-        name: 'Product 2',
-        weight: '100g',
-        title: 'Product 2',
-        imagePreview: Assets.Banner,
-        category: 'Category 2',
-      },
-      {
-        name: 'Product 2',
-        weight: '100g',
-        title: 'Product 2',
-        imagePreview: Assets.Banner,
-        category: 'Category 2',
-      },
-      {
-        name: 'Product 2',
-        weight: '100g',
-        title: 'Product 2',
-        imagePreview: Assets.Banner,
-        category: 'Category 2',
-      },
-      {
-        name: 'Product 2',
-        weight: '100g',
-        title: 'Product 2',
-        imagePreview: Assets.Banner,
-        category: 'Category 2',
-      },
-      {
-        name: 'Product 2',
-        weight: '100g',
-        title: 'Product 2',
-        imagePreview: Assets.Banner,
-        category: 'Category 2',
-      },
-      {
-        name: 'Product 3',
-        imagePreview: Assets.Banner,
-        category: 'Category 3',
-      }
-    ]
-  }
-  const offerz = {
-    offers: [
-      {
-        title: 'Offer 1',
-        offer: 'Offer 1 description',
-      },
-      {
-        title: 'Offer 1',
-        offer: 'Offer 1 description',
-      }
-    ]
-  }
-  const dailyPrice = [
-    {
-      amount: '100',
-      label: 'Daily Price',
-    },
-    {
-      amount: '100',
-      label: 'Daily Price',
-    },
-    {
-      amount: '100',
-      label: 'Daily Price',
+const GridMax = ({data}) => {
+  const handleSocialIcons = (icon) => {
+    if (!data?.company_details) return;
+  
+    let phoneNumber = '';
+    let message = '';
+  
+    if (icon === 'phone') {
+      phoneNumber = data.company_details.phone_number || '';
+    } else if (icon === 'whatsapp') {
+      phoneNumber = data.company_details.whatsapp_number || '';
+      message = data.company_details.whatsapp_message || ''; // <-- pull message from data
     }
-  ]
+  
+    if (!phoneNumber) return;
+  
+    // Ensure phone number has country code
+    if (!phoneNumber.startsWith('+')) {
+      phoneNumber = '+91' + phoneNumber; // Change country code if needed
+    }
+  
+    if (icon === 'whatsapp') {
+      const cleanNumber = phoneNumber.replace(/\D/g, '');
+  
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(message);
+  
+      // Build WhatsApp link
+      const whatsappLink = `https://wa.me/${cleanNumber}${message ? `?text=${encodedMessage}` : ''}`;
+  
+      window.open(whatsappLink, '_blank');
+    } else {
+      window.open(`tel:${phoneNumber}`, '_self');
+    }
+  };
+  
   return (
     <div className='min-h-screen bg-[#FFE4B3] py-6'>
       <div className='container mx-auto px-6'>
         <div className="relative rounded-3xl md:h-[400px] h-[200px] overflow-hidden">
           {/* Background image */}
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538947151057-dfe933d688d1?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-70" />
+          <div className={`absolute inset-0 bg-cover bg-center opacity-70`} />
+          <div className='h-full absolute inset-0'>
+            <Image src={data?.spotlight?.imagePreview} alt='Spotlight' className='object-cover' fill/>
+          </div>
           {/* Content */}
           <div className="relative z-10 p-4 h-full flex items-center justify-center">
             <div className="text-center">
               <div>
-                <Image src={Assets.Banner} alt="grid-max" width={120} height={120} />
+                <Image src={data.company_details.logo} alt="grid-max" width={80} height={80} className='rounded' />
               </div>
-              <h2 className="text-2xl font-bold mt-4 text-white">Grid Max</h2>
+              <h2 className="text-2xl font-bold mt-4 text-white">{data.company_details.name}</h2>
             </div>
           </div>
         </div>
       </div>
-      <DailyPrice price={dailyPrice} style='table' /> 
-      <ProductSlider data={data} color='#FFD700' />
-      {/* <Banner data={data} /> */}
-      <div className='flex flex-col gap-2 justify-center w-fit px-6 mx-auto fixed bottom-4 right-2 z-10'>
-        <Button color='warning' isIconOnly className='w-fit ml-2 text-black'><ProIcon name={'FaPhone'} color='#333' size={20} /></Button>
-        <Button color='warning' isIconOnly className='w-fit ml-2 text-black'><ProIcon name={'FaWhatsapp'} color='#333' size={20} /></Button>
+      <DailyPrice price={data.daily_prices} style='table' isLightTheme/> 
+      <ProductSlider data={data} color='#FFD700' isLightTheme/>
+      <div className='mb-8'>
+        <WallBanner data={data} color='#FFE4B3' isLightTheme/>
       </div>
-      <Slider data={offerz} type='card'/>
-
+      <div className='flex flex-col gap-2 justify-center w-fit px-6 mx-auto fixed bottom-4 right-2 z-10'>
+        <Button color='primary' isIconOnly className='w-fit ml-2 text-black' onPress={()=>handleSocialIcons('phone')}><ProIcon name={'FaPhone'} color='#fff' size={20} /></Button>
+        <Button color='success' isIconOnly className='w-fit ml-2 text-black' onPress={()=>handleSocialIcons('whatsapp')}><ProIcon name={'FaWhatsapp'} color='#fff' size={20} /></Button>
+      </div>
+      <Slider data={data} type='card' isLightTheme/>
+      <div className='mt-12'>
+      <HorizonImageSliderWithPreview
+        images={data?.new_arrivals}
+        spaceBetween={10}
+        loop={true}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+        }}
+        speed={8000}
+        slidesPerView={1.5}
+        breakpoints={{
+          1280: {
+            slidesPerView: 3.5,
+          },
+          1024: {
+            slidesPerView: 2.5,
+          },
+          768: {
+            slidesPerView: 1.5,
+          },
+        }}
+      />
+      </div>
     </div>
   )
 }

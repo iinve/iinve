@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { formatPriceWithComma } from 'utils/utils';
 
-const DailyPrice = ({ price, style }) => {
+const DailyPrice = ({ price, style, isLightTheme }) => {
   const { t } = useTranslation();
   if(style === 'table'){
     return (
       <div className="rounded-lg md:w-[500px] w-[90%] mx-auto mt-8">
-        <h4 className="text-2xl text-center mb-4 text-white">Daily Price</h4>
-        <div className='text-black'>
+        <h4 className={`text-2xl text-center mb-4 ${isLightTheme ? 'text-black' : 'text-white'}`}>Daily Price</h4>
+        <div className={`${isLightTheme ? 'text-black' : 'text-white'}`}>
           {price.map((item)=>(
             <div className='flex justify-between border border-[#ffb300] rounded-lg p-2 mb-2'>
               <h4>{item.label}</h4>

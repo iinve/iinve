@@ -1,5 +1,5 @@
 'use client';
-import { addToast, Input, Select, SelectItem, Textarea } from '@heroui/react';
+import { addToast, Input, Select, SelectItem, Spinner, Textarea } from '@heroui/react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import ActionButton from 'ProUI/ActionButton/ActionButton';
 import ProIcon from 'ProUI/Icons/icons';
@@ -9,8 +9,11 @@ import { fetchDigitalWallUserById, getWallDataByUserId } from 'utils/fetchDigita
 import { getGreeting } from 'utils/greetingUtils';
 import { Logo } from 'Components/Logo/Logo';
 import { ProAvatar } from 'ProUI/Common/Common';
+import { ProTextArea } from 'ProUI/Form/Form';
+import EditorLoader from 'Components/Editor/EditorLoader/EditorLoader';
 
 export default function DigitalWallDashboard() {
+  const [isPageLoading, setIsPageLoading] = useState(false)
   const [digitalWallId, setDigitalWallId] = useState('your-digital-wall-id');
   const [categories, setCategories] = useState([{ name: '' }]);
   const [products, setProducts] = useState([{ category: 0, title: '', weight: '', image: null, imagePreview: '' }]);
@@ -18,6 +21,13 @@ export default function DigitalWallDashboard() {
   const [newArrivals, setNewArrivals] = useState([{ title: '', weight: '', image: null, imagePreview: '' }]);
   const [offers, setOffers] = useState([{ offer: '' }, { offer: '' }, { offer: '' }]);
   const [spotlight, setSpotlight] = useState({ image: null, imagePreview: '', text: '' });
+  const [companyDetails, setCompanyDetails] = useState({
+    logo: "",
+    name: "",
+    phone_number: "",
+    whatsapp_number: "",
+    whatsapp_message: ""
+  })
   const [dailyPrices, setDailyPrices] = useState([
     { label: '', amount: '' },
     { label: '', amount: '' },
@@ -45,6 +55,7 @@ export default function DigitalWallDashboard() {
         .from('digital_wall_users')
         .select('*')
         .eq('user_id', session.user.id);
+
       // const { data: digitalWall } = await supabase.from('digital_wall_users').select('*').eq('id', data.session?.user.id)
       if (error) {
         console.error('Error fetching session:', error);
@@ -63,16 +74,19 @@ export default function DigitalWallDashboard() {
     getUser();
   }, []); // This only runs once when component mounts
 
+
   useEffect(() => {
     if (!user) return;
     const fetchWalls = async () => {
+      setIsPageLoading(true)
       try {
-        const { data, error } = await supabase
+        const { data, error, status } = await supabase
           .from('digital_wall')
           .select('*')
           .eq('user_id', user.user_id)
 
         if (error) throw error;
+        setIsPageLoading(false)
         const currentWall = data?.[0]
 
         setWalls(currentWall || []);
@@ -87,6 +101,7 @@ export default function DigitalWallDashboard() {
           { label: '', amount: '' },
           { label: '', amount: '' }
         ]);
+        setCompanyDetails(currentWall.company_details)
       } catch (error) {
         console.error('Error fetching walls:', error);
         addToast({
@@ -119,9 +134,8 @@ export default function DigitalWallDashboard() {
       const imagePreview = event.target.result;
 
       if (section === 'spotlight') {
-        setSpotlight({ ...spotlight, image: file, imagePreview: imagePreview });
+        setSpotlight({ ...spotlight, imagePreview: imagePreview });
       } else if (section === 'products') {
-
         const newProducts = [...products];
         newProducts[index].image = file;
         newProducts[index].imagePreview = imagePreview;
@@ -137,6 +151,8 @@ export default function DigitalWallDashboard() {
         newItems[index].image = file;
         newItems[index].imagePreview = imagePreview;
         setNewArrivals(newItems);
+      } else if (section === 'logo') {
+        setCompanyDetails({ ...companyDetails, logo: imagePreview })
       }
     };
     reader.readAsDataURL(file);
@@ -164,6 +180,8 @@ export default function DigitalWallDashboard() {
       newItems[index].imagePreview = '';
       setNewArrivals(newItems);
       if (refs.current.newArrivals[index]) refs.current.newArrivals[index].value = '';
+    } else if (section === 'logo') {
+      setCompanyDetails({ ...companyDetails, logo: '' })
     }
   };
 
@@ -204,7 +222,7 @@ export default function DigitalWallDashboard() {
       window.location.href = '/wall/login'; // or router.push('/')
     }
   };
-  console.log(walls, '===user');
+
   const handleSave = async () => {
     setIsLoading(true)
     const formData = new FormData();
@@ -231,15 +249,17 @@ export default function DigitalWallDashboard() {
         formData.append(`product_image_${idx}`, prod.image);
       }
     });
+    formData.append('spotlight', JSON.stringify(spotlight));
     formData.append('banners', JSON.stringify(banners));
     formData.append('newArrivals', JSON.stringify(newArrivals));
 
     formData.append('spotlight_text', spotlight.text);
-    formData.append('spotlight_image', spotlight.image);
+    formData.append('spotlight_image', spotlight.imagePreview);
     formData.append('wall_slug', user?.wall_slug);
     formData.append('shop_name', user?.shop_name);
     formData.append('daily_prices', JSON.stringify(dailyPrices));
-    formData.append('template', user?.template || 'hero_wall'); 
+    formData.append('template', user?.template || 'hero_wall');
+    formData.append('company_details', JSON.stringify(companyDetails));
 
     try {
       const res = await fetch('/api/digital-wall/dashboard/save', {
@@ -274,7 +294,7 @@ export default function DigitalWallDashboard() {
 
   return (
     <div className="bg-white min-h-screen text-gray-900">
-      <div className='bg-blue-100 p-4 rounded-b-2xl'>
+      <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
         <div className='flex justify-center items-center'>
           <Logo width={120} height={120} />
         </div>
@@ -286,7 +306,50 @@ export default function DigitalWallDashboard() {
           <ActionButton isLoading={isLoading} isIconOnly onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /></ActionButton>
         </div>
       </div>
-      <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto">
+
+      {isPageLoading ? <div className='flex items-center justify-center h-screen fixed inset-0 w-full'>
+        <Spinner />
+      </div> : <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto">
+        {/* logo */}
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-2">Company Details</h2>
+          <div className="mb-2">
+            {companyDetails.logo ? (
+              <ImagePreview image={companyDetails.logo} onRemove={() => removeImage('logo')} />
+            ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
+          </div>
+          <Input type='text' placeholder='Shop Name' value={companyDetails.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
+          <Input
+            type="tel"
+            placeholder="Phone Number"
+            value={companyDetails.phone_number}
+            onChange={(e) => {
+              const phone = e.target.value.replace(/[^0-9]/g, '');
+              setCompanyDetails({ ...companyDetails, phone_number: phone });
+            }}
+            className='mb-2'
+          />
+          <Input
+            type="tel"
+            placeholder="WhatsApp Number"
+            value={companyDetails.whatsapp_number}
+            onChange={(e) => {
+              const whataspp = e.target.value.replace(/[^0-9]/g, '');
+              setCompanyDetails({ ...companyDetails, whatsapp_number: whataspp });
+            }}
+            className='mb-2'
+          />
+          <ProTextArea
+            type="text"
+            placeholder="WhatsApp Message"
+            value={companyDetails.whatsapp_message}
+            onChange={(e) => {
+              setCompanyDetails({ ...companyDetails, whatsapp_message: e.target.value });
+            }}
+          />
+        </section>
+
+
         {/* Spotlight */}
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
@@ -501,7 +564,7 @@ export default function DigitalWallDashboard() {
         <div className="text-center w-full bg-white fixed bottom-0 left-0 right-0 p-4 shadow-lg">
           <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
