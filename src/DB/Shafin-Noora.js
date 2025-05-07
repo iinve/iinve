@@ -16,9 +16,9 @@ export const shafin_noora = {
   highlight_color:"#ddae6b",
   phone2: "",
   begin_time: "11:30 AM",
-  music: "/audio/arabic.mp3",
+  music: "/audio/arabic.mp3", 
   hide_info: true,
-  quote: "بَارَكَ اللهُ لَكُماَ وَبَارَكَ عَلَيْكُماَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ\n\n <br /> In the name of Allah, the Most Gracious, the Most Merciful. With hearts full of gratitude and joy, we request the honour of your presence as we unite in marriage by the will of Allah.",
+  quote: "<small dir='rtl' style='font-size:20px; line-height:2'>  وَمِنۡ ءَایَـٰتِهِۦۤ أَنۡ خَلَقَ لَكُم مِّنۡ أَنفُسِكُمۡ أَزۡوَ ٰ⁠جࣰا لِّتَسۡكُنُوۤا۟ إِلَیۡهَا وَجَعَلَ بَیۡنَكُم مَّوَدَّةࣰ وَرَحۡمَةًۚ إِنَّ فِی ذَ ٰ⁠لِكَ لَـَٔایَـٰتࣲ لِّقَوۡمࣲ یَتَفَكَّرُونَ  ﴿٢١﴾</small> <br /><br/> And among His signs is that He created for you mates from among yourselves, so that you may dwell in peace of mind with them, and he has placed love and compassion between you. Verily there are signs in this for those who reflect.<br/><br/> Ar-Rūm, Ayah 21",
   couples_data: [
     {
       full_name: "Shafin",
