@@ -46,7 +46,7 @@ export async function generateMetadata({ params }) {
         title: "Nambiyath | iinve wall",
         description: "Discover the latest offers, products, and promotions.",
         images: [{ url: 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg', alt: "iinve Digital Walls" }],
-        url: "https://iinve.com/wall",
+        url: "https://iinve.com/wall/nambiyath",
       },
       twitter: {
         card: 'summary_large_image',
