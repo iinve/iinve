@@ -1,40 +1,43 @@
-import { Tab, Tabs } from "@heroui/react";
+import { Card, CardBody, CardFooter, CardHeader, Tab, Tabs } from "@heroui/react";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useWindowDimensions from "utils/useWindowDimensions";
 
 
-const ProductCard = ({ data }) => {
-
+const ProductCard = ({ data, isLightTheme = false }) => {
+  const { isMobile } = useWindowDimensions();
   return (
-    <div className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer">
+    <div className="relative bg-white/50 backdrop-blur-lg border border-[#ffb300] rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer">
       <div className="flex justify-end items-center absolute -top-2 -right-2 !z-10">
         <div className="bg-[#ffb300] backdrop-blur-xl px-4 py-2 rounded-full">
           <span className="text-white font-bold text-[12px] md:text-base w-fit">New</span>
         </div>
       </div>
 
-      <div className="w-full h-40 overflow-hidden rounded-xl mb-2">
-        <img
+      <div className="w-full overflow-hidden rounded-xl mb-2">
+        <Image
           src={data?.imagePreview}
           alt={data?.title}
-          className="w-full h-full object-cover"
+          className="w-full object-cover h-[100px] md:h-[200px]"
+          width={270}
+          height={270}
         />
       </div>
-
-      <div className="text-white">
-        <h3 className="text-base md:text-lg font-semibold truncate text-center">
+      <div className={isLightTheme ? 'text-black' : 'text-white'}>
+        <h3 className="text-base md:text-lg font-semibold truncate">
           {data?.title}
         </h3>
-        <span className="text-sm  text-center block w-full text-white/60">{data?.weight}g</span>
+        <span className="text-sm block w-full">{data?.weight}g</span>
       </div>
     </div>
-
+  
   );
 };
 
 
-const ProductSlider = ({ data, color = '#FFD700' }) => {
+const ProductSlider = ({ data, isLightTheme = false }) => {
   const [selected, setSelected] = useState(data?.categories?.[0]?.name);
   const filteredProducts = useMemo(() => {
     return data?.products.filter((product) => product.category === selected);
@@ -42,34 +45,13 @@ const ProductSlider = ({ data, color = '#FFD700' }) => {
 
   return (
     <>
-      {/* <Swiper
-      spaceBetween={20}
-      loop={true}
-      autoplay={{
-        delay: 0,
-        disableOnInteraction: false,
-      }}
-      speed={4000}
-      slidesPerView={4}
-      breakpoints={{
-        0: {
-          slidesPerView: 2, // mobile
-        },
-        640: {
-          slidesPerView: 4, // tablet and up
-        },
-      }}
-      modules={[Autoplay]}
-      className='mb-8 !px-4 !py-4'
-    >
-      {data?.products?.map((item, index) => (
-        <SwiperSlide key={index}>
-          <ProductCard data={item} />
-        </SwiperSlide>
-      ))}
-    </Swiper> */}
-      <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color="warning" className="!px-4 !py-4 flex 
-      justify-center" radius="xl" >
+      <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color='warning' className="!px-4 !py-4 flex 
+      justify-center" radius="xl"classNames={{
+        tabList: "bg-gray-100 text-black",
+        tab: "",
+        // tabContent: "text-sm font-medium text-black",
+        
+      }} >
         {data?.categories?.map((category, idx) => {
           return (
             <Tab key={category.name} title={category.name}>
@@ -82,7 +64,7 @@ const ProductSlider = ({ data, color = '#FFD700' }) => {
                   disableOnInteraction: false,
                 }}
                 speed={4000}
-                slidesPerView={4}
+                slidesPerView={6}
                 breakpoints={{
                   0: {
                     slidesPerView: 2, // mobile
@@ -101,7 +83,7 @@ const ProductSlider = ({ data, color = '#FFD700' }) => {
                     console.log(filteredProducts, '==prod')
                     return (
                       <SwiperSlide key={index}>
-                        {filteredProducts ? <ProductCard data={prod} /> : 'No products found'}
+                        {filteredProducts ? <ProductCard data={prod} isLightTheme={isLightTheme} /> : 'No products found'}
                       </SwiperSlide>
                     )
                   })}

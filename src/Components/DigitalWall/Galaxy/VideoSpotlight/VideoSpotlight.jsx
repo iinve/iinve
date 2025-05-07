@@ -1,8 +1,8 @@
 import React from "react";
 import ReactPlayer from "react-player/vimeo";
-import Style from "./Banner.module.scss";
+import Style from "./VideoSpotlight.module.scss";
 
-const Banner = ({ data }) => {
+const VideoSpotlight = ({ data }) => {
   return (
     <div className={Style.banner}>
       <ReactPlayer
@@ -42,4 +42,4 @@ const Banner = ({ data }) => {
   );
 };
 
-export default Banner;
+export default VideoSpotlight;

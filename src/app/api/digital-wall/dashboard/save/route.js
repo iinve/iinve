@@ -70,15 +70,17 @@ export async function POST(request) {
     const daily_prices = JSON.parse(formValues.daily_prices || '[]');
     const offers = JSON.parse(formValues.offers || '{}');
 
-    const spotlight = {
-      text: formValues.spotlight_text || '',
-      image: fileMap['spotlight_image'] || null,
-    };
+    // const spotlight = {
+    //   text: formValues.spotlight_text || '',
+    //   image: fileMap['spotlight_image'] || null,
+    // };
+    const spotlight = JSON.parse(formValues.spotlight)
 
     // Parse array fields from JSON
     const productsRaw = JSON.parse(formValues.products || '[]');
     const bannersRaw = JSON.parse(formValues.banners || '[]');
     const newArrivalsRaw = JSON.parse(formValues.newArrivals || '[]');
+    const company_details = JSON.parse(formValues.company_details || '{}');
 
     const products = productsRaw.map((p, i) => ({
       ...p,
@@ -111,6 +113,7 @@ export async function POST(request) {
       shop_name: formValues.shop_name,
       template: formValues.template,
       daily_prices,
+      company_details
     };
 
     let dbOperation;
