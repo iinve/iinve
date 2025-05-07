@@ -2,7 +2,7 @@ import DigitalWallRoot from "Components/DigitalWall/DigitalWallRoot/DigitalWallR
 
 
 export async function generateMetadata({ params }) {
-  // const defaultImage = "https://iinve.com/assets/images/digital-wall/default.jpg";
+  const defaultImage = "https://iinve.com/assets/images/digital-wall/default.jpg";
 
   try {
     const { slug } = params;
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }) {
 }
 
 
-
+console.log(process.env.NEXT_PUBLIC_SITE_URL)
 
 // Your page
 export default function Page({ params }) {

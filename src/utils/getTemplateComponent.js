@@ -5,6 +5,8 @@ import PageNotFound from "Components/PageNotFound/PageNotFound";
 import { allDigitalWallTemplateSlugs } from "./templateUtils";
 
 export const getTemplateComponent = (data, templateName, isLoading = false) => {
+
+  
   if (isLoading) {
     return <PageLoader />;
   }

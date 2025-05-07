@@ -12,7 +12,7 @@ import confetti from "canvas-confetti";
 import { DigitalWallHeader } from "../DigitalWallHeader/DigitalWallHeader";
 
 
-const WallLayout = ({ children, background }) => {
+const WallLayout = ({ children, background, data }) => {
   const [showUI, setShowUI] = useState(true);
   const [userData, setUserData] = useState(null);
   const { t } = useTranslation();
@@ -22,7 +22,7 @@ const WallLayout = ({ children, background }) => {
   }
 
   useEffect(() => {
-    const data = getMayooriData(t);
+    // const data = getMayooriData(t);
     setUserData(data);
     i18n.changeLanguage("ml");
     localStorage.setItem("i18nextLng", "ml");
@@ -49,16 +49,51 @@ const WallLayout = ({ children, background }) => {
   }, []);
 
 
-  const handleClickContact = () => {
-    if (userData?.whatsApp) {
-      window.open(userData.whatsApp, "_self");
-    }
-  };
+  // const handleClickContact = () => {
+  //   if (userData?.whatsApp) {
+  //     window.open(userData.whatsApp, "_self");
+  //   }
+  // };
 
-  const handleClickPhone = () => {
-    if (userData?.phone1) {
-      const phoneUrl = `tel:${userData.phone1}`;
-      window.open(phoneUrl, "_self");
+  // const handleClickPhone = () => {
+  //   if (userData?.phone1) {
+  //     const phoneUrl = `tel:${userData.phone1}`;
+  //     window.open(phoneUrl, "_self");
+  //   }
+  // };
+
+  const handleSocialIcons = (icon) => {
+    if (!data?.company_details) return;
+
+    let phoneNumber = '';
+    let message = '';
+
+    if (icon === 'phone') {
+      phoneNumber = data.company_details.phone_number || '';
+    } else if (icon === 'whatsapp') {
+      phoneNumber = data.company_details.whatsapp_number || '';
+      message = data.company_details.whatsapp_message || ''; // <-- pull message from data
+    }
+
+    if (!phoneNumber) return;
+
+    // Ensure phone number has country code
+    if (!phoneNumber.startsWith('+')) {
+      phoneNumber = '+91' + phoneNumber; // Change country code if needed
+    }
+
+    if (icon === 'whatsapp') {
+      const cleanNumber = phoneNumber.replace(/\D/g, '');
+
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(message);
+
+      // Build WhatsApp link
+      const whatsappLink = `https://wa.me/${cleanNumber}${message ? `?text=${encodedMessage}` : ''}`;
+
+      window.open(whatsappLink, '_blank');
+    } else {
+      window.open(`tel:${phoneNumber}`, '_self');
     }
   };
 
@@ -85,16 +120,16 @@ const WallLayout = ({ children, background }) => {
 
       <div className={`${Style.footer} ${!showUI ? Style.hidden : ""}`}>
         <Image
-          src={Assets.mayoori_logo}
+          src={data?.company_details?.logo}
           alt="mayoori_logo"
           height={100}
           width={150}
         />
         <div className="flex justify-between items-center gap-2">
-          <button onClick={handleClickContact}>
+          <button onClick={()=>handleSocialIcons('whatsapp')}>
             <ProIcon name="FaWhatsapp" color="#fff" size={20} />
           </button>
-          <button className="!bg-blue-800" onClick={handleClickPhone}>
+          <button className="!bg-blue-800" onClick={()=>handleSocialIcons('phone')}>
             <ProIcon name="FaPhoneAlt" color="#fff" size={20} />
           </button>
         </div>

@@ -317,15 +317,15 @@ export default function DigitalWallDashboard() {
             <AccordionItem key="1" aria-label="Company Details"title={<span className="text-black">Company Details</span>}>
               <section className="mb-8">
                 <div className="mb-2">
-                  {companyDetails.logo ? (
-                   <div className='flex items-center justify-center'> <ImagePreview image={companyDetails.logo} onRemove={() => removeImage('logo')} /></div>
+                  {companyDetails?.logo ? (
+                   <div className='flex items-center justify-center'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
                   ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
                 </div>
-                <Input type='text' placeholder='Shop Name' value={companyDetails.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
+                <Input type='text' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
                 <Input
                   type="tel"
                   placeholder="Phone Number"
-                  value={companyDetails.phone_number}
+                  value={companyDetails?.phone_number}
                   onChange={(e) => {
                     const phone = e.target.value.replace(/[^0-9]/g, '');
                     setCompanyDetails({ ...companyDetails, phone_number: phone });
@@ -335,7 +335,7 @@ export default function DigitalWallDashboard() {
                 <Input
                   type="tel"
                   placeholder="WhatsApp Number"
-                  value={companyDetails.whatsapp_number}
+                  value={companyDetails?.whatsapp_number}
                   onChange={(e) => {
                     const whataspp = e.target.value.replace(/[^0-9]/g, '');
                     setCompanyDetails({ ...companyDetails, whatsapp_number: whataspp });
@@ -345,7 +345,7 @@ export default function DigitalWallDashboard() {
                 <ProTextArea
                   type="text"
                   placeholder="WhatsApp Message"
-                  value={companyDetails.whatsapp_message}
+                  value={companyDetails?.whatsapp_message}
                   onChange={(e) => {
                     setCompanyDetails({ ...companyDetails, whatsapp_message: e.target.value });
                   }}
