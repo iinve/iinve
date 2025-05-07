@@ -30,6 +30,7 @@ const WallBanner = ({ data, color = '#912626', isLightTheme }) => {
                 height={300}
                 width={300}
                 alt="mesh"
+                className="absolute inset-0"
               />
             </div>
             <div className={Style.spotlight_content}>

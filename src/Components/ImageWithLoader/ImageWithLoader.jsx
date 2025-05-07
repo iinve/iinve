@@ -22,7 +22,7 @@ export default function ImageWithLoader({ src, alt, objectFit }) {
       )}
       <Image
         src={src}
-        alt={alt}
+        alt={alt || 'Image'}
         fill
         onLoad={() => setIsLoading(false)}
         style={{

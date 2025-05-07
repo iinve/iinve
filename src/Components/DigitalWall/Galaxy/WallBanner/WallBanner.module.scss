@@ -24,11 +24,19 @@
   }
   .spotlight_content {
     text-align: left;
+    padding: 0 20px;
+    h5{
+      font-size: 22px;
+      @media(max-width: 560px){
+        font-size: 18px;
+      }
+    }
   }
   .mesh {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 50%;
+    transform: translateY(50%);
     overflow: hidden;
     width: 100%;
     img {

@@ -1,84 +1,67 @@
 import DigitalWallRoot from "Components/DigitalWall/DigitalWallRoot/DigitalWallRoot";
 
-// export async function generateMetadata({ params }) {
-//   const username = params.username;
-//   const defaultImage = "/assets/images/og-image.png";
 
-//   try {
-//     const res = await fetch(`${process.env.ROOT_URL}/api/user/${username}`, {
-//       cache: "no-store", // Disable caching
-//       next: { revalidate: 0 }, // Ensure fresh data
-//     });
+export async function generateMetadata({ params }) {
+  // const defaultImage = "https://iinve.com/assets/images/digital-wall/default.jpg";
 
+  try {
+    const { slug } = params;
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/digital-wall/${slug}`, {
+      cache: "no-store",
+    });
 
-//     if (!res.ok) throw new Error("Failed to fetch user");
+    if (!res.ok) throw new Error('Failed to fetch');
 
-//     const data = await res.json();
-//     const ogImage = data?.user?.og_image || defaultImage;
+    const data = await res.json();
 
-//     return {
-//       title: data?.user?.first_name ? `${data.user.first_name} | viiew.me` : "viiew.me | The next-gen portfolio creator",
-//       description: "A portfolio that tells your story with grace. Explore my viiew.me.",
-//       openGraph: {
-//         title: `${data?.user?.first_name} | viiew.me`,
-//         description: "A portfolio that tells your story with grace. Explore my viiew.me.",
-//         images: [ogImage],
-//         url: `https://www.viiew.me/${data?.user?.username}`,
-//       },
-//       twitter: {
-//         card: "summary_large_image",
-//         title: `${data?.user?.first_name} | viiew.me`,
-//         description: "A portfolio that tells your story with grace. Explore my viiew.me.",
-//         images: [ogImage],
-//       },
-//     };
-//   } 
-//   catch (e) {
-//     console.error("Error in metadata generation:", e); // Logs the error
-    
-//     return {
-//       title: "viiew.me | The next-gen portfolio creator",
-//       description: "A portfolio that tells your story with grace. Explore my viiew.me.",
-//       openGraph: {
-//         title: "viiew.me | The next-gen portfolio creator",
-//         description: "A portfolio that tells your story with grace. Explore my viiew.me.",
-//         images: ["/assets/images/og-image.png"],
-//         url: "https://www.viiew.me/",
-//       },
-//       twitter: {
-//         card: "summary_large_image",
-//         title: "viiew.me | The next-gen portfolio creator",
-//         description: "A portfolio that tells your story with grace. Explore my viiew.me.",
-//         images: ["/assets/images/og-image.png"],
-//       },
-//     };
-//   }
-  
-// }
-export const metadata = {
-  title: "Mayoori | Digital Wall - iinve",
-  description:
-    "Welcome to Mayoori's digital ad wall.",
-  openGraph: {
-    title: "Mayoori | Digital Wall - iinve",
-    description:
-      "Welcome to Mayoori's digital ad wall.",
-    images: [
-      {
-        url: "https://iinve.com/assets/images/digital-wall/mayoori.jpg",
-        alt: "Mayoori | Digital Wall - iinve",
+    const shopName = data?.shop_name || "Shop";
+    const ogImage = data?.og_image || defaultImage;
+    const description = data?.description || `Welcome to ${shopName}'s digital ad wall.`;
+
+    return {
+      title: `Discover ${shopName}'s Exclusive Deals - iinve`,
+      description,
+      openGraph: {
+        title: `${shopName} | iinve Wall`,
+        description,
+        images: [
+          { url: ogImage, alt: `${shopName} | iinve Wall` },
+        ],
+        url: `https://iinve.com/wall/${slug}`,
       },
-    ],
-    icons: {
-      icon: "https://iinve.com/favicon.ico", // or your custom path like "/icons/icon.svg"
-      shortcut: "https://iinve.com/favicon.ico",
-      apple: "https://iinve.com/apple-touch-icon.png",
-    },
-  },
-};
+      twitter: {
+        card: 'summary_large_image',
+        title: `${shopName} | iinve Wall`,
+        description,
+        images: [ogImage],
+      },
+    };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+
+    return {
+      title: "Nambiyath | iinve wall",
+      description: "Discover the latest offers, products, and promotions.",
+      openGraph: {
+        title: "Nambiyath | iinve wall",
+        description: "Discover the latest offers, products, and promotions.",
+        images: [{ url: 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg', alt: "iinve Digital Walls" }],
+        url: "https://iinve.com/wall",
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: "Nambiyath | iinve wall",
+        description: "Discover the latest offers, products, and promotions.",
+        images: 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg',
+      },
+    };
+  }
+}
 
 
 
+
+// Your page
 export default function Page({ params }) {
   const { slug } = params;
   return <DigitalWallRoot slug={slug} />;
