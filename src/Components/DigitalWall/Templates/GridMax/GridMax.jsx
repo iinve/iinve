@@ -91,8 +91,8 @@ const GridMax = ({ data }) => {
           <div className='absolute right-2 top-2 z-[999]'>
             <VideoControl toggleMute={toggleMute} isMuted={isMuted}/>
           </div>
-          <div className={`absolute inset-0 bg-cover bg-center opacity-70 w-full`} />
-          <div className={`h-full absolute inset-0 opacity-60 w-full`}>
+          <div className={`absolute inset-0 bg-cover bg-center opacity-90 w-full`} />
+          <div className={`h-full absolute inset-0 opacity-90 w-full`}>
             {/* <Image src={data?.spotlight?.imagePreview} alt='Spotlight' className='object-cover' fill /> */}
             {/* <video src={'https://res.cloudinary.com/viiewme/video/upload/v1746692702/WhatsApp_Video_2025-05-08_at_13.43.27_h14y4y.mp4'} autoPlay controls={false} loop/> */}
              <ReactPlayer
@@ -108,8 +108,8 @@ const GridMax = ({ data }) => {
               className={Style.video}
             />
           </div>
-          {/* Content */}
-          <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-transparent"> //TODO: add shadow future
+          {/* Content */} 
+          <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-transparent"> 
             <h2 className="text-xl md:text-3xl text-[#e39912] font-bold absolute bottom-4 w-3/4 mx-auto text-center z-10">{data?.spotlight?.text}</h2>
           </div>
         </div>
