@@ -9,8 +9,34 @@ import HorizonImageSliderWithPreview from 'Components/HorizonImageSliderWithPrev
 import Image from 'next/image'
 import Link from 'next/link'
 import ProIcon from 'ProUI/Icons/icons'
+import ReactPlayer from 'react-player'
+import Style from './GridMax.module.scss'
+import { useState } from 'react'
+
+
+function VideoControl({toggleMute, isMuted}){
+  return (
+    <Button
+    onPress={toggleMute} 
+    isIconOnly
+    color='primary'
+    variant='faded'
+    className='rounded-full'
+    size='sm'
+  >
+    {isMuted ? <ProIcon name={'FaVolumeMute'}  size={20}/>: <ProIcon name={'FaVolumeUp'} size={20}/>}
+  </Button>
+  )
+}
 
 const GridMax = ({ data }) => {
+  const [isMuted, setIsMuted] = useState(false);
+
+  const toggleMute = () => {
+    setIsMuted(prev => !prev);
+  };
+
+
   const handleSocialIcons = (icon) => {
     if (!data?.company_details) return;
 
@@ -57,9 +83,35 @@ const GridMax = ({ data }) => {
         </div>
         <div className="relative rounded-3xl md:h-[400px] h-[200px] overflow-hidden">
           {/* Background image */}
-          <div className={`absolute inset-0 bg-cover bg-center opacity-70`} />
-          <div className='h-full absolute inset-0 opacity-60'>
-            <Image src={data?.spotlight?.imagePreview} alt='Spotlight' className='object-cover' fill />
+          <div className='absolute right-2 top-2 z-[999]'>
+            <VideoControl toggleMute={toggleMute} isMuted={isMuted}/>
+          </div>
+          <div className={`absolute inset-0 bg-cover bg-center opacity-70 w-full`} />
+          <div className={`h-full absolute inset-0 opacity-60 w-full`}>
+            {/* <Image src={data?.spotlight?.imagePreview} alt='Spotlight' className='object-cover' fill /> */}
+            {/* <video src={'https://res.cloudinary.com/viiewme/video/upload/v1746692702/WhatsApp_Video_2025-05-08_at_13.43.27_h14y4y.mp4'} autoPlay controls={false} loop/> */}
+            <ReactPlayer
+              url="https://res.cloudinary.com/viiewme/video/upload/v1746692702/WhatsApp_Video_2025-05-08_at_13.43.27_h14y4y.mp4"
+              playing
+              muted={isMuted}
+              loop
+              playsinline
+              controls={false}
+              width="100%"
+              height="100%"
+              className={Style.video}
+              // className={Style.video}
+              // config={{
+              //   vimeo: {
+              //     playerOptions: {
+              //       title: 0,
+              //       byline: 0,
+              //       portrait: 0,
+              //       autopause: 0,
+              //     },
+              //   },
+              // }}
+            />
           </div>
           {/* Content */}
           <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-[#000]">
@@ -101,11 +153,11 @@ const GridMax = ({ data }) => {
           }}
         />
       </div>
-     <div className='flex items-center justify-center mt-10'>
-     <Link href={"/"}>
+      <div className='flex items-center justify-center mt-10'>
+        <Link href={"/"}>
           <Image src={Assets?.Created_by} alt="Logo" width={100} height={100} />
-      </Link>
-     </div>
+        </Link>
+      </div>
     </div>
   )
 }
