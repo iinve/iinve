@@ -109,7 +109,7 @@ const GridMax = ({ data }) => {
             />
           </div>
           {/* Content */}
-          <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-[#000]/70">
+          <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-transparent"> //TODO: add shadow future
             <h2 className="text-xl md:text-3xl text-[#e39912] font-bold absolute bottom-4 w-3/4 mx-auto text-center z-10">{data?.spotlight?.text}</h2>
           </div>
         </div>
