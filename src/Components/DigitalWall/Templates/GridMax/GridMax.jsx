@@ -11,7 +11,7 @@ import Link from 'next/link'
 import ProIcon from 'ProUI/Icons/icons'
 import ReactPlayer from 'react-player'
 import Style from './GridMax.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 function VideoControl({toggleMute, isMuted}){
@@ -30,7 +30,7 @@ function VideoControl({toggleMute, isMuted}){
 }
 
 const GridMax = ({ data }) => {
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const toggleMute = () => {
     setIsMuted(prev => !prev);
@@ -71,6 +71,11 @@ const GridMax = ({ data }) => {
       window.open(`tel:${phoneNumber}`, '_self');
     }
   };
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <div className='min-h-screen bg-[#FFE4B3] py-6'>
@@ -90,9 +95,10 @@ const GridMax = ({ data }) => {
           <div className={`h-full absolute inset-0 opacity-60 w-full`}>
             {/* <Image src={data?.spotlight?.imagePreview} alt='Spotlight' className='object-cover' fill /> */}
             {/* <video src={'https://res.cloudinary.com/viiewme/video/upload/v1746692702/WhatsApp_Video_2025-05-08_at_13.43.27_h14y4y.mp4'} autoPlay controls={false} loop/> */}
-            <ReactPlayer
+             <ReactPlayer
               url="https://res.cloudinary.com/viiewme/video/upload/v1746692702/WhatsApp_Video_2025-05-08_at_13.43.27_h14y4y.mp4"
               playing
+              autoplay
               muted={isMuted}
               loop
               playsinline
@@ -100,21 +106,10 @@ const GridMax = ({ data }) => {
               width="100%"
               height="100%"
               className={Style.video}
-              // className={Style.video}
-              // config={{
-              //   vimeo: {
-              //     playerOptions: {
-              //       title: 0,
-              //       byline: 0,
-              //       portrait: 0,
-              //       autopause: 0,
-              //     },
-              //   },
-              // }}
             />
           </div>
           {/* Content */}
-          <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-[#000]">
+          <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-[#000]/70">
             <h2 className="text-xl md:text-3xl text-[#e39912] font-bold absolute bottom-4 w-3/4 mx-auto text-center z-10">{data?.spotlight?.text}</h2>
           </div>
         </div>
