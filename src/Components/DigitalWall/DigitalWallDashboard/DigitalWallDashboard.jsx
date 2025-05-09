@@ -291,7 +291,7 @@ export default function DigitalWallDashboard() {
   };
 
 
-
+  console.log(products,"---")
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
@@ -445,11 +445,10 @@ export default function DigitalWallDashboard() {
                   <Select
                     value={prod.category || ""}
                     onChange={(e) => {
+                      const selectedValue = e.target.value;
                       const newProducts = [...products];
-                      console.log(e.target.value, '==e.target.value')
-                      newProducts[idx].category = e.target.value;
-                      const selectedCategory = categories[e.target.value];
-                      newProducts[idx].category = selectedCategory ? selectedCategory.name : "";
+                      // Set the category directly using the selected value (which is the name)
+                      newProducts[idx].category = selectedValue;
                       setProducts(newProducts);
                     }}
                     className="w-full p-2 mb-2 text-black"
