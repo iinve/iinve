@@ -29,7 +29,7 @@ const ProductCard = ({ data, isLightTheme = false }) => {
         <h3 className="text-base md:text-lg font-semibold truncate">
           {data?.title}
         </h3>
-        <span className="text-sm block w-full">{data?.weight}g</span>
+        <span className="text-sm block w-full">{data?.weight}</span>
       </div>
     </div>
   
