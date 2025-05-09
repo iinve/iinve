@@ -39,10 +39,8 @@ const ProductCard = ({ data, isLightTheme = false }) => {
 
 const ProductSlider = ({ data, isLightTheme = false }) => {
   const [selected, setSelected] = useState(data?.categories?.[0]?.name);
-  const filteredProducts = useMemo(() => {
-    return data?.products.filter((product) => product.category === selected);
-  }, [data?.products, selected]);
-
+  const filteredProducts = data?.products.filter((product) => product.category === selected);
+  console.log(data?.products)
   return (
     <>
       <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color='warning' className="!px-4 !py-4 flex 

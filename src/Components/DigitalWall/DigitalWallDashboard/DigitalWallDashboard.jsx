@@ -321,9 +321,10 @@ export default function DigitalWallDashboard() {
                    <div className='flex items-center justify-center'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
                   ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
                 </div>
-                <Input type='text' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
+                <Input type='text' label='Company Name' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
                 <Input
                   type="tel"
+                  label='Phone Number'
                   placeholder="Phone Number"
                   value={companyDetails?.phone_number}
                   onChange={(e) => {
@@ -334,6 +335,7 @@ export default function DigitalWallDashboard() {
                 />
                 <Input
                   type="tel"
+                  label='WhatsApp Number'
                   placeholder="WhatsApp Number"
                   value={companyDetails?.whatsapp_number}
                   onChange={(e) => {
@@ -344,6 +346,7 @@ export default function DigitalWallDashboard() {
                 />
                 <ProTextArea
                   type="text"
+                  label='Whataspp Message'
                   placeholder="WhatsApp Message"
                   value={companyDetails?.whatsapp_message}
                   onChange={(e) => {
@@ -450,10 +453,11 @@ export default function DigitalWallDashboard() {
                       setProducts(newProducts);
                     }}
                     className="w-full p-2 mb-2 text-black"
+                    label='Choose category'
                   >
                     <SelectItem value="" className='text-black'>Select Category</SelectItem>
                     {categories.map((cat, catIdx) => (
-                      <SelectItem key={catIdx} value={cat.name} className='text-black'>
+                      <SelectItem key={cat.name} value={cat.name} className='text-black'>
                         {cat.name}
                       </SelectItem>
                     ))}
