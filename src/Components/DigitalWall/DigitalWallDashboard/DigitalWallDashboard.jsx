@@ -1,5 +1,5 @@
 'use client';
-import { Accordion, AccordionItem, addToast, Input, Select, SelectItem, Spinner, Textarea } from '@heroui/react';
+import { Accordion, AccordionItem, addToast, Button, Input, Select, SelectItem, Spinner, Textarea } from '@heroui/react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import ActionButton from 'ProUI/ActionButton/ActionButton';
 import ProIcon from 'ProUI/Icons/icons';
@@ -134,7 +134,7 @@ export default function DigitalWallDashboard() {
       const imagePreview = event.target.result;
 
       if (section === 'spotlight') {
-        setSpotlight({ ...spotlight, imagePreview: imagePreview });
+        setSpotlight({ ...spotlight, imagePreview: imagePreview, image:file });
       } else if (section === 'products') {
         const newProducts = [...products];
         newProducts[index].image = file;
@@ -201,6 +201,10 @@ export default function DigitalWallDashboard() {
     if (fieldName === 'newArrival') {
       const newNewArrivals = newArrivals.filter((_, i) => i !== idx);
       setNewArrivals(newNewArrivals);
+    }
+    if(fieldName === 'offer'){
+      const updatedOffer = offers.filter((_, i) => i !== idx);
+      setOffers(updatedOffer);
     }
   }
   const handleLogout = async () => {
@@ -291,7 +295,6 @@ export default function DigitalWallDashboard() {
   };
 
 
-  console.log(products,"---")
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
@@ -300,10 +303,10 @@ export default function DigitalWallDashboard() {
         </div>
         <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
           <div className='flex items-center gap-4'>
-            <ProAvatar color='primary' />
+            <ProAvatar color='primary' url={companyDetails?.logo || ''}/>
             <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br /> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
           </div>
-          <ActionButton isLoading={isLoading} isIconOnly onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /></ActionButton>
+          <ActionButton isLoading={isLoading} onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /> Logout</ActionButton>
         </div>
       </div>
 
@@ -311,14 +314,14 @@ export default function DigitalWallDashboard() {
         <Spinner />
       </div> :
 
-        <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto !text-black">
+        <div className="p-6 md:p-10 w-full md:w-2/3 xl:w-1/2 mx-auto !text-black">
           {/* logo */}
           <Accordion variant="splitted" className='mb-6' >
             <AccordionItem key="1" aria-label="Company Details"title={<span className="text-black">Company Details</span>}>
               <section className="mb-8">
                 <div className="mb-2">
                   {companyDetails?.logo ? (
-                   <div className='flex items-center justify-center'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
+                   <div className='flex items-center justify-center w-1/2 mx-auto'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
                   ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
                 </div>
                 <Input type='text' label='Company Name' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
@@ -363,10 +366,10 @@ export default function DigitalWallDashboard() {
             <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
             <div className="mb-2">
               {spotlight.imagePreview ? (
-                <ImagePreview image={spotlight.imagePreview} onRemove={() => removeImage('spotlight')} />
+                <div className='w-1/2 mx-auto'><ImagePreview image={spotlight.imagePreview} onRemove={() => removeImage('spotlight')} /></div>
               ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'spotlight')} refs={refs} placeholder='Select Image' />}
             </div>
-            <Textarea placeholder="Spotlight Text" value={spotlight.text} onChange={(e) => setSpotlight({ ...spotlight, text: e.target.value })} />
+            <Textarea label='Spotlight Content' value={spotlight.text} onChange={(e) => setSpotlight({ ...spotlight, text: e.target.value })} />
           </section>
 
           {/* Categories */}
@@ -376,8 +379,8 @@ export default function DigitalWallDashboard() {
               <div key={idx} className='flex items-center gap-2'>
                 <Input
                   key={idx}
-                  placeholder="Category Name"
                   className="mb-2"
+                  label='Category'
                   value={cat.name}
                   onChange={(e) => {
                     const newCategories = [...categories];
@@ -390,7 +393,10 @@ export default function DigitalWallDashboard() {
                 </ActionButton>}
               </div>
             ))}
-            <button onClick={() => setCategories([...categories, { name: '' }])} className="text-blue-500">+ Add Category</button>
+            <Button 
+            color='primary'
+            variant='faded' 
+            onPress={() => setCategories([...categories, { name: '' }])} className="text-blue-500">+ Add Category</Button>
           </section>
 
           {/* Daily Price */}
@@ -399,8 +405,8 @@ export default function DigitalWallDashboard() {
             {dailyPrices.map((price, index) => (
               <div key={index} className="flex gap-2 mb-2">
                 <Input
-                  placeholder="Label"
                   value={price.label}
+                  label='Text'
                   onChange={(e) => {
                     const updated = [...dailyPrices];
                     updated[index].label = e.target.value;
@@ -408,7 +414,7 @@ export default function DigitalWallDashboard() {
                   }}
                 />
                 <Input
-                  placeholder="Amount"
+                  label="Amount"
                   value={price.amount}
                   onChange={(e) => {
                     const updated = [...dailyPrices];
@@ -424,22 +430,23 @@ export default function DigitalWallDashboard() {
           {/* Products */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Products</h2>
+            <div className='grid grid-cols-2 gap-2'>
             {products.map((prod, idx) => (
-              <div key={idx} className='flex items-center gap-2'>
+              <div key={idx} className='flex items-center gap-2 relative' >
                 <div className="mb-4 p-2 border rounded w-full">
-                  <Input placeholder="Product Title" value={prod.title} onChange={(e) => {
+                  <Input label="Name" value={prod.title} onChange={(e) => {
                     const newProducts = [...products];
                     newProducts[idx].title = e.target.value;
                     setProducts(newProducts);
                   }} className="mb-2" />
-                  <Input placeholder="Weight (g)" value={prod.weight} onChange={(e) => {
+                  <Input label="Price / info" value={prod.weight} onChange={(e) => {
                     const newProducts = [...products];
                     newProducts[idx].weight = e.target.value;
                     setProducts(newProducts);
                   }} className="mb-2" />
                   <div className="mb-2">
                     {prod.imagePreview ? (
-                      <ImagePreview image={prod.imagePreview} onRemove={() => removeImage('products', idx)} />
+                      <div className='w-1/2 mx-auto h-24'><ImagePreview image={prod.imagePreview} onRemove={() => removeImage('products', idx)} height={80} /></div>
                     ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'products', idx)} refs={refs} placeholder='Select Image' />}
                   </div>
                   <Select
@@ -462,93 +469,106 @@ export default function DigitalWallDashboard() {
                     ))}
                   </Select>
                 </div>
-                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'product')}>
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'product')}>
                   <ProIcon name='CiTrash' size={18} color='white' />
                 </ActionButton>}
               </div>
             ))}
-            <button
-              onClick={() => setProducts([...products, { category: 0, title: '', weight: '', image: null, imagePreview: '' }])}
+            </div>
+            <Button
+              onPress={() => setProducts([...products, { category: 0, title: '', weight: '', image: null, imagePreview: '' }])}
               className="text-blue-500"
+              color='primary'
+              variant='faded'
             >
               + Add Product
-            </button>
+            </Button>
           </section>
 
           {/* Banners */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Banners</h2>
+            <div className='grid grid-cols-2 gap-2'>
             {banners.map((ban, idx) => (
-              <div key={idx} className='flex items-center gap-2'>
-                <div className="mb-4 p-2 border rounded w-full">
+              <div key={idx} className='flex items-center gap-2 relative'>
+                <div className="mb-4 p-2 border rounded w-full ">
                   <div className="mb-2">
                     {ban.imagePreview ? (
-                      <ImagePreview image={ban.imagePreview} onRemove={() => removeImage('banners', idx)} />
+                      <ImagePreview image={ban.imagePreview} onRemove={() => removeImage('banners', idx)}  />
                     ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'banners', idx)} refs={refs} placeholder='Select Image' />}
                   </div>
-                  <Input placeholder="Banner Text" value={ban.text} onChange={(e) => {
+                  <Input label="Banner Text" value={ban.text} onChange={(e) => {
                     const newBanners = [...banners];
                     newBanners[idx].text = e.target.value;
                     setBanners(newBanners);
                   }} />
                 </div>
-                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
                   <ProIcon name='CiTrash' size={18} color='white' />
                 </ActionButton>}
               </div>
             ))}
+            </div>
 
-            <button
-              onClick={() => setBanners([...banners, { image: null, imagePreview: '', text: '' }])}
+            <Button
+              color='primary'
+              variant='faded' 
+              onPress={() => setBanners([...banners, { image: null, imagePreview: '', text: '' }])}
               className="text-blue-500"
             >
               + Add Banner
-            </button>
+            </Button>
           </section>
 
           {/* New Arrivals */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">New Arrivals</h2>
-            {newArrivals.map((item, idx) => (
-              <div key={idx} className='flex items-center gap-2'>
+              <div className='grid grid-cols-2 gap-2'>
+              {newArrivals.map((item, idx) => (
+              <div key={idx} className='flex items-center gap-2 relative'>
                 <div className="mb-4 p-2 border rounded w-full">
-                  <Input placeholder="New Arrival Title" value={item.title} onChange={(e) => {
+                  <Input label="Name" value={item.title} onChange={(e) => {
                     const newItems = [...newArrivals];
                     newItems[idx].title = e.target.value;
                     setNewArrivals(newItems);
                   }} className="mb-2" />
-                  <Input placeholder="Weight (g)" value={item.weight} onChange={(e) => {
+                  <Input label="Price / Info" value={item.weight} onChange={(e) => {
                     const newItems = [...newArrivals];
                     newItems[idx].weight = e.target.value;
                     setNewArrivals(newItems);
                   }} className="mb-2" />
                   <div className="mb-2">
                     {item.imagePreview ? (
-                      <ImagePreview image={item.imagePreview} onRemove={() => removeImage('newArrivals', idx)} />
+                      <div className='w-3/4 mx-auto'><ImagePreview image={item.imagePreview} onRemove={() => removeImage('newArrivals', idx)} /></div>
                     ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'newArrivals', idx)} refs={refs} placeholder='Select Image' />}
                   </div>
                 </div>
-                {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'newArrival')}>
+                {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] cursor-pointer' size='md' onPress={() => handleRemoveField(idx, 'newArrival')}>
                   <ProIcon name='CiTrash' size={18} color='white' />
                 </ActionButton>}
               </div>
             ))}
-            <button
-              onClick={() => setNewArrivals([...newArrivals, { title: '', weight: '', image: null, imagePreview: '' }])}
+              </div>
+            <Button
+              color='primary'
+              variant='faded' 
+              onPress={() => setNewArrivals([...newArrivals, { title: '', weight: '', image: null, imagePreview: '' }])}
               className="text-blue-500"
             >
               + Add New Arrival
-            </button>
+            </Button>
           </section>
 
           {/* Offers */}
           <section className="mb-6 pb-14">
             <h2 className="text-xl font-semibold mb-2">Offer Texts</h2>
 
+            <div className='grid lg:grid-cols-2 gap-2'>
             {offers?.map((item, index) => (
+              <div  key={index} className='relative'>
               <Input
                 key={index}
-                placeholder={`Offer ${index + 1}`}
+                label={`Offer ${index + 1}`}
                 value={item.offer}
                 onChange={(e) => {
                   const updatedOffers = [...offers];
@@ -557,19 +577,26 @@ export default function DigitalWallDashboard() {
                 }}
                 className="mb-2"
               />
+              {index > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[10px] -right-[10px] z-10 cursor-pointer' size='sm' onPress={() => handleRemoveField(index, 'offer')}>
+              <ProIcon name='CiTrash' size={18} color='white' />
+            </ActionButton>}
+            </div>
             ))}
+            </div>
 
-            <button
+            <Button
               type="button"
-              onClick={(e) => { e.preventDefault(); setOffers([...offers, { offer: '' }]) }}
+              color='primary'
+            variant='faded' 
+            onPress={(e) => {setOffers([...offers, { offer: '' }]) }}
               className="text-blue-500"
             >
               + Add Offer
-            </button>
+            </Button>
           </section>
 
           {/* Save Button */}
-          <div className="text-center w-full bg-white fixed bottom-0 left-0 right-0 p-4 shadow-lg">
+          <div className="text-center w-full bg-white fixed bottom-0 left-0 right-0 p-4 shadow-t-lg z-10 border border-t border-gray-300 ">
             <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
           </div>
         </div>}

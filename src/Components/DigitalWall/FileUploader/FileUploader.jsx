@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import ActionButton from 'ProUI/ActionButton/ActionButton'
 import ProIcon from 'ProUI/Icons/icons'
 import React from 'react'
@@ -20,15 +21,22 @@ const FileUploader = ({ onUpload, refs, placeholder }) => {
 export default FileUploader
 
 
-export const ImagePreview = ({ image, onRemove }) => {
-  return <div className="relative inline-block mt-2">
-    <img
-      src={image}
-      alt="Spotlight Preview"
-      className="h-24 object-contain rounded border relative"
-    />
-    <ActionButton isIconOnly color='danger' className='absolute -top-2 -right-2' size='sm' onPress={() => onRemove()}>
-      <ProIcon name='CiTrash' size={18} color='white' />
-    </ActionButton>
-  </div>
+export const ImagePreview = ({ image, onRemove}) => {
+  return <div className="relative w-full md:w-1/2 mx-auto">
+  <Image
+    src={image}
+    alt="Spotlight Preview"
+    width={500}   // use actual or max width
+    height={300}  // use actual height to preserve aspect ratio
+    className="rounded border object-contain"
+  />
+  <ActionButton
+    color="danger"
+    className="absolute -top-2 -right-2 text-[8px] p-2 cursor-pointer"
+    size="xs"
+    onPress={onRemove}
+  >
+    Remove
+  </ActionButton>
+</div>
 }
