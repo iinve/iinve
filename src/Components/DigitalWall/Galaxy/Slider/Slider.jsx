@@ -6,7 +6,7 @@ import { Autoplay, EffectCoverflow } from 'swiper/modules';
 
 export function SliderCard({data, color}) {
   return (
-    <div className='flex items-center justify-center bg-white/50 backdrop-blur-lg border w-full text-sm md:text-base h-28 md:h-40 overflow-hidden rounded-3xl mx-2' style={{borderColor:color?.highlight_color, color: color?.content_color}}>
+    <div className='flex items-center justify-center bg-white/50 backdrop-blur-lg border w-full text-sm md:text-base h-28 md:h-40 overflow-hidden rounded-3xl mx-2 p-4' style={{borderColor:color?.highlight_color, color: color?.content_color}}>
       <p className='' dangerouslySetInnerHTML={{ __html: data?.offer }}></p>
     </div>
   )
