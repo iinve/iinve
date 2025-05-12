@@ -19,7 +19,7 @@
     height: 100%;
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, var(--color), rgba(114, 124, 89, 0) 50%, var(--color));
+    // background: linear-gradient(90deg, var(--color), rgba(114, 124, 89, 0) 50%, var(--color));
     pointer-events: none;
   }
   .spotlight_content {
@@ -42,7 +42,7 @@
     img {
       width: 100%;
       display: block;
-      opacity: 0.4;
+      opacity: 0.8;
       position: relative;
     }
   }

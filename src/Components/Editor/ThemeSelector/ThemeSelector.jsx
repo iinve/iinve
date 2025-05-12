@@ -42,7 +42,7 @@ const ThemeSelector = ({ colors,setAllColors, selectedTheme, selectedHighlighted
             .map((color, idx) => (
               <div
                 key={`color_${idx}`}
-                className={`border-2 ${color?.hex === selectedTheme.theme_color ? 'border-blue-600' : 'border-gray-300'} p-1 rounded-2xl`}
+                className={`border-2 ${color?.hex === selectedTheme?.theme_color ? 'border-blue-600' : 'border-gray-300'} p-1 rounded-2xl`}
               >
                 <span
                   key={color.hex}
