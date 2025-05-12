@@ -108,6 +108,7 @@ const GridMax = ({ data }) => {
               className={Style.video}
             />
           </div>
+          
           {/* Content */} 
           <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-transparent"> 
             <h2 className="text-xl md:text-3xl font-bold absolute bottom-4 w-3/4 mx-auto text-center z-10" style={{color:data?.theme?.highlight_color}}>{data?.spotlight?.text}</h2>
