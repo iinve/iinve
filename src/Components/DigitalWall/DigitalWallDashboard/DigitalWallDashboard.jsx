@@ -11,6 +11,8 @@ import { Logo } from 'Components/Logo/Logo';
 import { ProAvatar } from 'ProUI/Common/Common';
 import { ProTextArea } from 'ProUI/Form/Form';
 import EditorLoader from 'Components/Editor/EditorLoader/EditorLoader';
+import { compressImage } from 'utils/imageUtils';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function DigitalWallDashboard() {
   const [isPageLoading, setIsPageLoading] = useState(false)
@@ -125,37 +127,55 @@ export default function DigitalWallDashboard() {
     banners: {},
     newArrivals: {}
   });
-  const handleImageUpload = (e, section, index = null) => {
-    const file = e.target.files[0];
+  // const handleImageUpload = async (e, section, index = null) => {
+  //   const rawFile = e.target.files[0];
+  //   const file = await compressImage(rawFile);
+  //   if (!file) return;
+  
+  //   if (section === 'spotlight') {
+  //     setSpotlight({ ...spotlight, image: file });
+  //   } else if (section === 'products') {
+  //     const updated = [...products];
+  //     updated[index].image = file;
+  //     setProducts(updated);
+  //   } else if (section === 'banners') {
+  //     const updated = [...banners];
+  //     updated[index].image = file;
+  //     setBanners(updated);
+  //   } else if (section === 'newArrivals') {
+  //     const updated = [...newArrivals];
+  //     updated[index].image = file;
+  //     setNewArrivals(updated);
+  //   }
+  // };
+  const handleImageUpload = async (e, section, index = null) => {
+    const rawFile = e.target.files[0];
+    const file = await compressImage(rawFile);
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const imagePreview = event.target.result;
+  //  const {data}= await supabase.storage.from('digital-wall-assets').upload(`image_${uuidv4()}`,file)
 
-      if (section === 'spotlight') {
-        setSpotlight({ ...spotlight, imagePreview: imagePreview, image:file });
-      } else if (section === 'products') {
-        const newProducts = [...products];
-        newProducts[index].image = file;
-        newProducts[index].imagePreview = imagePreview;
-        console.log(newProducts, '==file')
-        setProducts(newProducts);
-      } else if (section === 'banners') {
-        const newBanners = [...banners];
-        newBanners[index].image = file;
-        newBanners[index].imagePreview = imagePreview;
-        setBanners(newBanners);
-      } else if (section === 'newArrivals') {
-        const newItems = [...newArrivals];
-        newItems[index].image = file;
-        newItems[index].imagePreview = imagePreview;
-        setNewArrivals(newItems);
-      } else if (section === 'logo') {
-        setCompanyDetails({ ...companyDetails, logo: imagePreview })
-      }
-    };
-    reader.readAsDataURL(file);
+    // Add a local preview using URL.createObjectURL (optional enhancement)
+    const localPreview = URL.createObjectURL(file);
+    console.log(file)
+    if (section === 'spotlight') {
+      setSpotlight({ ...spotlight, image: file,  });
+    } else if (section === 'products') {
+      const updated = [...products];
+      updated[index].image = file;
+      updated[index].imagePreview = localPreview;
+      setProducts(updated);
+    } else if (section === 'banners') {
+      const updated = [...banners];
+      updated[index].image = file;
+      updated[index].imagePreview = localPreview;
+      setBanners(updated);
+    } else if (section === 'newArrivals') {
+      const updated = [...newArrivals];
+      updated[index].image = file;
+      updated[index].imagePreview = localPreview;
+      setNewArrivals(updated);
+    }
   };
 
   const removeImage = (section, index = null) => {
@@ -227,73 +247,145 @@ export default function DigitalWallDashboard() {
     }
   };
 
-  const handleSave = async () => {
-    setIsLoading(true)
-    const formData = new FormData();
+  // const handleSave = async () => {
+  //   setIsLoading(true)
+  //   const formData = new FormData();
 
-    // Only include digitalWallId if you're updating
+  //   // Only include digitalWallId if you're updating
+  //   if (walls.id) {
+  //     formData.append('digitalWallId', walls.id);
+  //   }
+
+  //   // Append structured data as JSON
+  //   formData.append('categories', JSON.stringify(categories));
+  //   formData.append('offers', JSON.stringify(offers));
+  //   // formData.append('products', JSON.stringify(products));
+  //   const cleanProducts = products.map((prod, idx) => ({
+  //     ...prod,
+  //     imageKey: `product_image_${idx}` // for mapping in backend
+  //   }));
+
+  //   formData.append('products', JSON.stringify(cleanProducts));
+
+  //   // Then, add each image file separately
+  //   products.forEach((prod, idx) => {
+  //     if (prod.image) {
+  //       formData.append(`product_image_${idx}`, prod.image);
+  //     }
+  //   });
+  //   formData.append('spotlight', JSON.stringify(spotlight));
+  //   formData.append('banners', JSON.stringify(banners));
+  //   formData.append('newArrivals', JSON.stringify(newArrivals));
+
+  //   formData.append('spotlight_text', spotlight.text);
+  //   formData.append('spotlight_image', spotlight.imagePreview);
+  //   formData.append('wall_slug', user?.wall_slug);
+  //   formData.append('shop_name', user?.shop_name);
+  //   formData.append('daily_prices', JSON.stringify(dailyPrices));
+  //   formData.append('template', user?.template || 'hero_wall');
+  //   formData.append('company_details', JSON.stringify(companyDetails));
+
+  //   try {
+  //     const res = await fetch('/api/digital-wall/dashboard/save', {
+  //       method: 'POST',
+  //       body: formData,
+  //     });
+
+  //     const data = await res.json();
+  //     console.log('Save response:', data);
+
+  //     if (res.ok) {
+  //       addToast({
+  //         title: 'Success',
+  //         description: `Digital wall ${digitalWallId ? 'updated' : 'created'} successfully!`,
+  //         type: 'success',
+  //         color: 'success',
+  //         variant: 'flat',
+  //       });
+  //       setIsLoading(false)
+  //     } else {
+  //       alert(data.error || 'Failed to save digital wall');
+  //       setIsLoading(false)
+  //     }
+  //   } catch (error) {
+  //     setIsLoading
+  //     console.error('Error saving digital wall:', error);
+  //     alert('Failed to save digital wall');
+  //   }
+  // };
+  const handleSave = async () => {
+    setIsLoading(true);
+    const formData = new FormData();
+  
     if (walls.id) {
       formData.append('digitalWallId', walls.id);
     }
-
-    // Append structured data as JSON
+  
     formData.append('categories', JSON.stringify(categories));
     formData.append('offers', JSON.stringify(offers));
-    // formData.append('products', JSON.stringify(products));
-    const cleanProducts = products.map((prod, idx) => ({
-      ...prod,
-      imageKey: `product_image_${idx}` // for mapping in backend
-    }));
-
-    formData.append('products', JSON.stringify(cleanProducts));
-
-    // Then, add each image file separately
-    products.forEach((prod, idx) => {
-      if (prod.image) {
-        formData.append(`product_image_${idx}`, prod.image);
-      }
-    });
-    formData.append('spotlight', JSON.stringify(spotlight));
+    formData.append('products', JSON.stringify(products));
     formData.append('banners', JSON.stringify(banners));
     formData.append('newArrivals', JSON.stringify(newArrivals));
+    formData.append('spotlight', JSON.stringify(spotlight));
 
-    formData.append('spotlight_text', spotlight.text);
-    formData.append('spotlight_image', spotlight.imagePreview);
     formData.append('wall_slug', user?.wall_slug);
     formData.append('shop_name', user?.shop_name);
     formData.append('daily_prices', JSON.stringify(dailyPrices));
     formData.append('template', user?.template || 'hero_wall');
     formData.append('company_details', JSON.stringify(companyDetails));
-
+  
+    // Attach image files (without imageKey)
+    products.forEach((prod, idx) => {
+      if (prod.image) {
+        formData.append(`products[${idx}][image]`, prod.image);
+      }
+    });
+  
+    banners.forEach((banner, idx) => {
+      if (banner.image) {
+        formData.append(`banners[${idx}][image]`, banner.image);
+      }
+    });
+  
+    newArrivals.forEach((item, idx) => {
+      if (item.image) {
+        formData.append(`newArrivals[${idx}][image]`, item.image);
+      }
+    });
+  
+    if (spotlight.image) {
+      formData.append('spotlight_image', spotlight.image);
+    }
+  
     try {
       const res = await fetch('/api/digital-wall/dashboard/save', {
         method: 'POST',
         body: formData,
       });
-
+  
       const data = await res.json();
       console.log('Save response:', data);
-
+  
       if (res.ok) {
         addToast({
           title: 'Success',
-          description: `Digital wall ${digitalWallId ? 'updated' : 'created'} successfully!`,
+          description: `Digital wall ${walls.id ? 'updated' : 'created'} successfully!`,
           type: 'success',
           color: 'success',
           variant: 'flat',
         });
-        setIsLoading(false)
       } else {
         alert(data.error || 'Failed to save digital wall');
-        setIsLoading(false)
       }
     } catch (error) {
-      setIsLoading
       console.error('Error saving digital wall:', error);
       alert('Failed to save digital wall');
+    } finally {
+      setIsLoading(false);
     }
   };
-
+  
+  
 
   return (
     <div className="bg-white min-h-screen text-gray-900">

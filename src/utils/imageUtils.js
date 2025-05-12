@@ -1,3 +1,5 @@
+import imageCompression from 'browser-image-compression';
+
 export async function blobUrlToFile(blobUrl, fileName = "image.png") {
   try {
       const response = await fetch(blobUrl); // Fetch the blob
@@ -39,15 +41,10 @@ export const getImagePreviewUrl = (inputFileOrUrl) => {
 };
 
 
-import imageCompression from 'browser-image-compression';
 
-async function handleImageCompression(base64String) {
-  const mimeType = base64String.match(/data:(.*?);base64,/)[1]; // Extract MIME type
-  const imageBlob = base64ToBlob(base64String, mimeType);
-  const imageFile = new File([imageBlob], "image.jpg", { type: mimeType });
-
+export async function compressImage(imageFile) {
   const options = {
-    maxSizeMB: 1,
+    maxSizeMB: 2,
     maxWidthOrHeight: 1920,
     useWebWorker: true,
   };
@@ -55,10 +52,16 @@ async function handleImageCompression(base64String) {
   try {
     const compressedFile = await imageCompression(imageFile, options);
 
-    const compressedBase64 = await fileToBase64(compressedFile);
-    return compressedBase64; // Return compressed Base64 string
+    // Use original file extension
+    const extension = imageFile.type.split('/')[1];
+    const renamedFile = new File([compressedFile], imageFile.name || `image.${extension}`, {
+      type: compressedFile.type,
+      lastModified: Date.now(),
+    });
+
+    return renamedFile;
   } catch (error) {
-    console.error(error);
+    console.error('Image compression failed:', error);
     return null;
   }
 }
@@ -75,5 +78,5 @@ function base64ToBlob(base64, mimeType) {
 }
 
 
-export { base64ToBlob, handleImageCompression };
+export { base64ToBlob };
 

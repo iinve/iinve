@@ -2,36 +2,36 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-// Helper function to upload file to Supabase Storage
 async function uploadFileToSupabase(supabase, file, bucket, folder) {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
+  console.log(file, "======checking...")
+  // Get file extension from original filename
+  const fileExtension = file.name.split('.').pop().toLowerCase();
   
-  // Generate a unique file name
-  const uniqueName = `${Date.now()}-${Math.floor(Math.random() * 1e6)}-${file.name.replace(/\s+/g, '_')}`;
+  // Create a cleaner filename with timestamp
+  const timestamp = Date.now();
+  const randomString = Math.floor(Math.random() * 1e6).toString(36);
+  const uniqueName = `${timestamp}-${randomString}.${fileExtension}`;
   const filePath = folder ? `${folder}/${uniqueName}` : uniqueName;
-  
-  // Upload to Supabase Storage
-  const { data, error } = await supabase
-    .storage
-    .from(bucket)
-    .upload(filePath, buffer, {
-      contentType: file.type,
-      upsert: false
-    });
-  
+
+  // Upload to Supabase
+  const { error } = await supabase.storage.from(bucket).upload(filePath, buffer, {
+    contentType: file.type,
+    upsert: false
+  });
+
   if (error) {
     console.error('Storage upload error:', error);
     throw new Error(`Failed to upload file: ${error.message}`);
   }
+
+  // Get Supabase URL
+  const { data: { publicUrl } } = supabase.storage.from(bucket).getPublicUrl(filePath);
   
-  // Get public URL for the uploaded file
-  const { data: { publicUrl } } = supabase
-    .storage
-    .from(bucket)
-    .getPublicUrl(filePath);
-    
-  return publicUrl;
+  // Create custom URL with proper extension
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  return `${publicUrl}/assets/uploads/${uniqueName}`;
 }
 
 export async function POST(request) {
@@ -44,43 +44,42 @@ export async function POST(request) {
     }
 
     const formData = await request.formData();
-    const storageBucket = 'digital-wall-assets'; // Define your Supabase storage bucket name
+    const storageBucket = 'digital-wall-assets';
     const fileMap = {};
     const formValues = {};
 
-    // Process form entries
+    // Log the formData to check keys and values
     for (const [key, value] of formData.entries()) {
       if (typeof value === 'object' && 'arrayBuffer' in value) {
-        // Upload file to Supabase storage
         try {
           const publicUrl = await uploadFileToSupabase(supabase, value, storageBucket, 'uploads');
-          fileMap[key] = publicUrl;
+          fileMap[key] = publicUrl; // ✅ This must be the correct URL
         } catch (error) {
-          console.error(`Failed to upload file for ${key}:`, error);
           fileMap[key] = null;
         }
       } else {
         formValues[key] = value;
       }
     }
+    
 
-    // Structured data
+    console.log('File map:', fileMap);
+
     const digitalWallId = formValues.digitalWallId;
     const categories = JSON.parse(formValues.categories || '[]');
     const daily_prices = JSON.parse(formValues.daily_prices || '[]');
     const offers = JSON.parse(formValues.offers || '{}');
-
-    // const spotlight = {
-    //   text: formValues.spotlight_text || '',
-    //   image: fileMap['spotlight_image'] || null,
-    // };
-    const spotlight = JSON.parse(formValues.spotlight)
-
-    // Parse array fields from JSON
+    const spotlightRaw = JSON.parse(formValues.spotlight || '{}');
     const productsRaw = JSON.parse(formValues.products || '[]');
     const bannersRaw = JSON.parse(formValues.banners || '[]');
     const newArrivalsRaw = JSON.parse(formValues.newArrivals || '[]');
     const company_details = JSON.parse(formValues.company_details || '{}');
+    const spotlight_image = JSON.parse(formValues.spotlight_image || '{}');
+
+    const spotlight = {
+      ...spotlightRaw,
+      image: fileMap['spotlight_image'] || spotlightRaw.image || null,
+    };
 
     const products = productsRaw.map((p, i) => ({
       ...p,
@@ -97,9 +96,6 @@ export async function POST(request) {
       image: fileMap[`newArrivals[${i}][image]`] || null,
     }));
 
-    console.log(formValues, '==formValues');
-    
-    // Prepare data
     const wallData = {
       spotlight,
       categories,
@@ -113,7 +109,7 @@ export async function POST(request) {
       shop_name: formValues.shop_name,
       template: formValues.template,
       daily_prices,
-      company_details
+      company_details,
     };
 
     let dbOperation;
@@ -146,7 +142,7 @@ export async function POST(request) {
     const { data, error } = await dbOperation;
 
     if (error) {
-      console.error('Supabase error:', error);
+      console.error('Supabase DB error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
