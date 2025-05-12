@@ -627,7 +627,7 @@ export default function DigitalWallDashboard() {
             <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
           </div>
         </div>}
-        <SuccessSheet isSuccess={isWallUpdated} user={user} />
+        <SuccessSheet isSuccess={isWallUpdated} user={user} closeSheet={()=> setIsWallUpdated(false)} />
     </div>
 
   );
