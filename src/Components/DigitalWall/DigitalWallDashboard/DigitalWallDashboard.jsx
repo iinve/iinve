@@ -144,7 +144,13 @@ export default function DigitalWallDashboard() {
         setSelectedContentColor(currentWall.theme?.content_color)
         setSelectedThemeColor(currentWall.theme?.theme_color)
         setSelectedThemeColor(currentWall.theme?.highlight_color)
-        setColorFromImage([...colorFromImage, { hex: currentWall.theme?.content_color }, { hex: currentWall.theme?.theme_color }, { hex: currentWall.theme?.highlight_color }])
+        setColorFromImage([
+          ...(Array.isArray(colorFromImage) ? colorFromImage : []),
+          { hex: currentWall.theme?.content_color },
+          { hex: currentWall.theme?.theme_color },
+          { hex: currentWall.theme?.highlight_color },
+        ]);
+        
       } catch (error) {
         console.error('Error fetching walls:', error);
         addToast({
