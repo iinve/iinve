@@ -6,12 +6,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useWindowDimensions from "utils/useWindowDimensions";
 
 
-const ProductCard = ({ data, isLightTheme = false }) => {
+const ProductCard = ({ data, isLightTheme = false, color }) => {
   const { isMobile } = useWindowDimensions();
   return (
-    <div className="relative bg-white/50 backdrop-blur-lg border border-[#ffb300] rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer">
+    <div className="relative bg-white/50 backdrop-blur-lg border rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer" style={{ borderColor: color.highlight_color }}>
       <div className="flex justify-end items-center absolute -top-2 -right-2 !z-10">
-        <div className="bg-[#ffb300] backdrop-blur-xl px-4 py-2 rounded-full">
+        <div className="backdrop-blur-xl px-4 py-2 rounded-full" style={{ background: color?.highlight_color }}>
           <span className="text-white font-bold text-[12px] md:text-base w-fit">New</span>
         </div>
       </div>
@@ -26,30 +26,31 @@ const ProductCard = ({ data, isLightTheme = false }) => {
         />
       </div>
       <div className={isLightTheme ? 'text-black' : 'text-white'}>
-        <h3 className="text-base md:text-lg font-semibold truncate">
+        <h3 className="text-base md:text-lg font-semibold truncate"  style={{color:color?.content_color}}>
           {data?.title}
         </h3>
-        <span className="text-sm block w-full">{data?.weight}</span>
+        <span className="text-sm block w-full opacity-70" style={{color:color?.content_color}}>{data?.weight}</span>
       </div>
     </div>
-  
+
   );
 };
 
 
-const ProductSlider = ({ data, isLightTheme = false }) => {
+const ProductSlider = ({ data, color, isLightTheme = false }) => {
   const [selected, setSelected] = useState(data?.categories?.[0]?.name);
   const filteredProducts = data?.products.filter((product) => product.category === selected);
   console.log(data?.products)
   return (
     <>
-      <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} color='warning' className="!px-4 !py-4 flex 
-      justify-center" radius="xl"classNames={{
-        tabList: "bg-gray-100 text-black",
-        tab: "",
-        // tabContent: "text-sm font-medium text-black",
-        
-      }} >
+      <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} className="!px-4 !py-4 flex 
+      justify-center" radius="xl" classNames={{
+          // tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider",
+          cursor: `w-full bg-[#fff]`,
+          tab: "max-w-fit",
+          tabContent: `group-data-[selected=true]:text-[#333]`,
+        }}
+      >
         {data?.categories?.map((category, idx) => {
           return (
             <Tab key={category.name} title={category.name}>
@@ -78,13 +79,13 @@ const ProductSlider = ({ data, isLightTheme = false }) => {
                 className='mb-8 !px-4 !py-4'
               >
                 {filteredProducts.map((prod, index) => {
-                    console.log(filteredProducts, '==prod')
-                    return (
-                      <SwiperSlide key={index}>
-                        {filteredProducts ? <ProductCard data={prod} isLightTheme={isLightTheme} /> : 'No products found'}
-                      </SwiperSlide>
-                    )
-                  })}
+                  console.log(filteredProducts, '==prod')
+                  return (
+                    <SwiperSlide key={index}>
+                      {filteredProducts ? <ProductCard data={prod} isLightTheme={isLightTheme} color={color} /> : 'No products found'}
+                    </SwiperSlide>
+                  )
+                })}
               </Swiper>
             </Tab>
           )

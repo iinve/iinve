@@ -1,16 +1,22 @@
 'use client';
 import 'swiper/css';
-import SliderCard from './SliderCard/SliderCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 
 
+export function SliderCard({data, color}) {
+  return (
+    <div className='flex items-center justify-center bg-white/50 backdrop-blur-lg border w-full text-sm md:text-base h-28 md:h-40 overflow-hidden rounded-3xl mx-2' style={{borderColor:color?.highlight_color, color: color?.content_color}}>
+      <p className='' dangerouslySetInnerHTML={{ __html: data?.offer }}></p>
+    </div>
+  )
+}
 
 function Slider({ data, type, isLightTheme = false }) {
   if (type === 'card') {
     return (
       <div className='w-full md:w-1/2 mx-auto'>
-        <h2 className={`text-center text-2xl mb-4 ${isLightTheme ? 'text-black' : 'text-white'}`}>Best offers for you!</h2>
+        <h2 className={`text-center text-2xl mb-4  font-bold `} style={{color: data?.theme?.highlight_color}}>Best offers for you!</h2>
         <Swiper
         effect="coverflow"
         grabCursor={true}
@@ -33,7 +39,7 @@ function Slider({ data, type, isLightTheme = false }) {
       >
         {data?.offers?.map((src, index) => (
           <SwiperSlide key={index} className="!w-full md:w-[250px] px-6">
-            <SliderCard data={src} />
+            <SliderCard data={src} color={data?.theme} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -43,7 +49,7 @@ function Slider({ data, type, isLightTheme = false }) {
   }
   return (
     <div>
-      <h2 className='text-center text-2xl mb-4 text-white'>Best offers for you!</h2>
+      <h2 className='text-center text-2xl mb-4' style={{color: data?.theme?.highlight_color}} >Best offers for you!</h2>
       <Swiper
         spaceBetween={20}
         loop={true}
@@ -57,7 +63,7 @@ function Slider({ data, type, isLightTheme = false }) {
       >
         {data?.offers?.map((item, index) => (
           <SwiperSlide key={index}>
-            <SliderCard data={item} />
+            <SliderCard data={item} color={data?.theme} />
           </SwiperSlide>
         ))}
       </Swiper>
