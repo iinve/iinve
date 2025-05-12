@@ -8,12 +8,12 @@ import HorizonImageSliderWithPreview from 'Components/HorizonImageSliderWithPrev
 
 const HeroWall = ({ data }) => {
   return (
-    <WallLayout background="#922626" data={data}>
+    <WallLayout background={data?.theme?.theme_color} data={data}>
       <VideoSpotlight data={data} />
-      <DailyPrice price={data.daily_prices} />
+      <DailyPrice price={data.daily_prices} color={data?.theme} />
       {/* <Offer data={data} /> */}
-      <ProductSlider data={data} />
-      <WallBanner data={data} />
+      <ProductSlider data={data} color={data?.theme}/>
+      <WallBanner data={data} color={data?.theme}/>
       <div className='mt-20'></div>
       <Slider data={data} />
       {/* <OfferContact data={data} /> */}

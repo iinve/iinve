@@ -40,9 +40,9 @@ const DailyPrice = ({ price, style, isLightTheme, theme }) => {
               delay: index * 0.5,
             }}
             className="border rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
-            style={{borderColor: color?.content_color}}
+            style={{borderColor: theme?.content_color}}
           >
-            <h2 className="text-2xl font-bold " style={{color: color?.content_color}}>₹{formatPriceWithComma(item.amount)}</h2>
+            <h2 className="text-2xl font-bold " style={{color: theme?.content_color}}>₹{formatPriceWithComma(item.amount)}</h2>
             <span className='text-white'>{item.label}</span>
           </motion.div>
         ))}
@@ -62,9 +62,9 @@ const DailyPrice = ({ price, style, isLightTheme, theme }) => {
               delay: 1,
             }}
             className="border rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
-            style={{borderColor: color?.content_color}}
+            style={{borderColor: theme?.content_color}}
           >
-            <h2 className="text-2xl font-bold"  style={{color: color?.content_color}}>₹{formatPriceWithComma(price[2].amount)}</h2>
+            <h2 className="text-2xl font-bold"  style={{color: theme?.content_color}}>₹{formatPriceWithComma(price[2].amount)}</h2>
             <span className='text-white'>{price[2].label}</span>
           </motion.div>
         )}
