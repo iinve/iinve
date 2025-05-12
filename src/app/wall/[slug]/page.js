@@ -59,7 +59,6 @@ export async function generateMetadata({ params }) {
 }
 
 
-console.log(process.env.NEXT_PUBLIC_SITE_URL)
 
 // Your page
 export default function Page({ params }) {

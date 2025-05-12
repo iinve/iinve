@@ -11,7 +11,7 @@ export function Section({ onClose, children, className }) {
 }
 
 export function ProSnippet({ symbol, text, ...rest }) {
-  return <Snippet symbol={symbol} variant="bordered" {...rest}>{text}</Snippet>
+  return <Snippet symbol={symbol} color="default" {...rest}>{text}</Snippet>
 }
 
 export function ProLink({ color, to, children }) {

@@ -10,7 +10,6 @@ export const getTemplateComponent = (data, templateName, isLoading = false) => {
   if (isLoading) {
     return <PageLoader />;
   }
- console.log(data, '==data')
   switch (templateName) {
     case allDigitalWallTemplateSlugs.heroWall:
       return <HeroWall data={data} />;

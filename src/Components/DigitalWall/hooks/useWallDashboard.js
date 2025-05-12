@@ -8,7 +8,6 @@ export const useWallDashboard = (image) => {
     if (imageUrl) {
       const fetchColors = async () => {
         const extractedColors = await extractColorFromUserImage(imageUrl);
-        console.log(extractedColors, 'extractedColors')
         const notIncludeWhite = !extractedColors.some(color => color.hex === "#ffffff");
         const notIncludeBlack = !extractedColors.some(color => color.hex === "#000000");
         if (notIncludeWhite && notIncludeBlack) {

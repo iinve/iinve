@@ -18,7 +18,6 @@ import { useTranslation } from "react-i18next";
 const Page = () => {
   const { t } = useTranslation();
   const [rate, setRate] = useState({ oneGram: '', eightGram: '', oneGram18K: '' });
-  console.log(rate)
   const Imagedata = [
     {
       id: 1,

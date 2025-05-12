@@ -76,7 +76,6 @@ const GridMax = ({ data }) => {
   useEffect(() => {
     setIsClient(true);
   }, []);
-   console.log(data, '==data')
   return (
     <div className='min-h-screen py-6' style={{background:data?.theme?.theme_color}}>
       <div className='container mx-auto px-6'>

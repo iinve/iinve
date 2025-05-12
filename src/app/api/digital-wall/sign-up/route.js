@@ -4,16 +4,7 @@ import { cookies } from 'next/headers'
 export async function POST(req) {
   const { email, password, wall_slug, shop_name, template } = await req.json()
   
-  // Log request data (remove in production)
-  console.log('Sign-up request data:', { 
-    email, 
-    passwordProvided: !!password, 
-    passwordLength: password ? password.length : 0,
-    wall_slug, 
-    shop_name,
-    template
-  })
-  
+
   // Validate password
   if (!password || password.length < 6) {
     return Response.json({ 
@@ -41,7 +32,6 @@ export async function POST(req) {
   }
 
   const user_id = data.user.id
-  console.log('User created in auth system:', user_id)
 
   // Call the database function to create user profile
   const { data: fnData, error: fnError } = await supabase

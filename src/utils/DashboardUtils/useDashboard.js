@@ -82,7 +82,6 @@ const useDashboard = () => {
   const formattedCommentsLength =
     comments.length < 10 ? `0${comments.length}` : comments.length.toString();
 
-  console.log(isLoading);
 
   return {
     handleSidebar,

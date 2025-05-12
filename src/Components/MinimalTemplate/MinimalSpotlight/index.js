@@ -38,7 +38,6 @@ const MinimalSpotlight = ({
     show: { opacity: 1, y: 0 },
   };
 
-  console.log(slideData, "data");
   return (
     <div className="minimal">
       <section className="spotlight">

@@ -11,6 +11,8 @@ import { useEffect, useRef, useState } from 'react';
 import { getGreeting } from 'utils/greetingUtils';
 import FileUploader, { ImagePreview } from '../FileUploader/FileUploader';
 import { useWallDashboard } from '../hooks/useWallDashboard';
+import PaymentStatusSheet from 'Components/PaymentSuccess/PaymentSuccess';
+import SuccessSheet from '../SuccessSheet/SuccessSheet';
 
 export default function DigitalWallDashboard() {
   const [isPageLoading, setIsPageLoading] = useState(false)
@@ -48,8 +50,8 @@ export default function DigitalWallDashboard() {
     content_color: "#000",
     highlight_color: "#eebc1d"
   })
+  const [isWallUpdated, setIsWallUpdated] = useState(false)
 
-  console.log(allColors, 'allColors')
   const handleChooseThemeColor = (color, mode) => {
     if (mode === 'theme') {
       // Set the selected color for theme
@@ -188,7 +190,6 @@ export default function DigitalWallDashboard() {
         const newProducts = [...products];
         newProducts[index].image = file;
         newProducts[index].imagePreview = imagePreview;
-        console.log(newProducts, '==file')
         setProducts(newProducts);
       } else if (section === 'banners') {
         const newBanners = [...banners];
@@ -267,7 +268,6 @@ export default function DigitalWallDashboard() {
         color: 'success',
         variant: 'bordered',
       })
-      console.log('Logged out successfully');
       window.location.href = '/wall/login'; // or router.push('/')
     }
   };
@@ -318,7 +318,6 @@ export default function DigitalWallDashboard() {
       });
 
       const data = await res.json();
-      console.log('Save response:', data);
 
       if (res.ok) {
         addToast({
@@ -328,6 +327,7 @@ export default function DigitalWallDashboard() {
           color: 'success',
           variant: 'flat',
         });
+        setIsWallUpdated(true)
         setIsLoading(false)
       } else {
         alert(data.error || 'Failed to save digital wall');
@@ -341,7 +341,6 @@ export default function DigitalWallDashboard() {
   };
 
 
-  console.log(products, "---")
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
@@ -628,8 +627,7 @@ export default function DigitalWallDashboard() {
             <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
           </div>
         </div>}
-
-
+        <SuccessSheet isSuccess={isWallUpdated} user={user} />
     </div>
 
   );

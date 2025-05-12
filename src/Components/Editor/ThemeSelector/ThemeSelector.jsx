@@ -25,7 +25,6 @@ const ThemeSelector = ({ colors,setAllColors, selectedTheme, selectedHighlighted
     }
   };
   
-  console.log(color, '====color')
   return <>
     <div className={`p-8 border border-dashed border-[#333] rounded-2xl mb-6 w-full`}>
       <div className='flex items-center justify-between'>

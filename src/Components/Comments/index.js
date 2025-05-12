@@ -10,7 +10,6 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 const Comments = ({ data }) => {
-  console.log("iinve | create your elegant invitation");
   return (
     <div className={Style.Comments}>
       <div className={Style.commentBox}>

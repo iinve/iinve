@@ -40,7 +40,6 @@ const ProductCard = ({ data, isLightTheme = false, color }) => {
 const ProductSlider = ({ data, color, isLightTheme = false }) => {
   const [selected, setSelected] = useState(data?.categories?.[0]?.name);
   const filteredProducts = data?.products.filter((product) => product.category === selected);
-  console.log(data?.products)
   return (
     <>
       <Tabs aria-label="Options" selectedKey={selected} onSelectionChange={setSelected} className="!px-4 !py-4 flex 
@@ -79,7 +78,6 @@ const ProductSlider = ({ data, color, isLightTheme = false }) => {
                 className='mb-8 !px-4 !py-4'
               >
                 {filteredProducts.map((prod, index) => {
-                  console.log(filteredProducts, '==prod')
                   return (
                     <SwiperSlide key={index}>
                       {filteredProducts ? <ProductCard data={prod} isLightTheme={isLightTheme} color={color} /> : 'No products found'}

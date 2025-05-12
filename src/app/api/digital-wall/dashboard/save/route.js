@@ -98,7 +98,6 @@ export async function POST(request) {
       image: fileMap[`newArrivals[${i}][image]`] || null,
     }));
 
-    console.log(formValues, '==formValues');
     
     // Prepare data
     const wallData = {

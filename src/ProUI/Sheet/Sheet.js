@@ -13,7 +13,7 @@ export const SheetFooter = ({children}) => {
 export const Sheet = (props) => {
   const { isOpen, onClose,children, placement, onOpenChange, hideCloseButton, size, ...rest } = props;
   return (
-    <Drawer isOpen={isOpen} placement={placement} onOpenChange={onOpenChange} className='!bg-[#141414]' hideCloseButton={hideCloseButton} size={size} onClose={onClose} isDismissable {...rest}>
+    <Drawer isOpen={isOpen} placement={placement} onOpenChange={onOpenChange} className='!bg-[#fff]' hideCloseButton={hideCloseButton} size={size} onClose={onClose} isDismissable {...rest}>
         <DrawerContent>
           {() => children}
         </DrawerContent>
