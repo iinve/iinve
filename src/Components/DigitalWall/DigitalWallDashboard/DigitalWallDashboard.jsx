@@ -356,8 +356,6 @@ export default function DigitalWallDashboard() {
       </div> :
         <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto !text-black">
           <Accordion variant="splitted" className='mb-6' >
-
-            {/* Company Details */}
             <AccordionItem key="1" aria-label="Company Details" title={<div className="text-black flex items-center">
               <ProIcon name={'RiHomeOfficeLine'} size={24} color='#485ddc' /> <span className='font-semibold ml-2'>Company Information</span>
             </div>}>
@@ -401,8 +399,6 @@ export default function DigitalWallDashboard() {
                 />
               </section>
             </AccordionItem>
-
-            /* Customization */
             <AccordionItem key="2" aria-label="Customization" title={<div className="text-black flex items-center">
               <ProIcon name={'RiColorFilterAiLine'} size={24} color='#485ddc' /> <span className='font-semibold ml-2'>Customization</span>
             </div>}>
