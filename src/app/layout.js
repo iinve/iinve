@@ -14,24 +14,70 @@ const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "iinve - Create magic for you",
   description:
-    "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner.",
+    "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner for stunning e-invitations and impactful e-walls.",
+  keywords: [
+    "iinve",
+    "iinve invite",
+    "iinve wall",
+    "digital invitations",
+    "digital invites",
+    "e-invite",
+    "e-invitation",
+    "online invitation",
+    "custom invitation design",
+    "wedding e-invite",
+    "engagement e-invite",
+    "event e-invite",
+    "birthday e-invite",
+    "digital event card",
+    "e-wall",
+    "business wall",
+    "digital wall for shop",
+    "shop wall",
+    "event wall",
+    "event announcement",
+    "digital presence",
+    "online business presence",
+    "digital invitation platform",
+    "personalized invite",
+    "interactive invitation",
+    "digital flyer",
+    "shop promotions online"
+  ],
+  robots: "index, follow",
+  canonical: "https://iinve.com",
   openGraph: {
     title: "iinve - Create magic for you",
     description:
-      "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner.",
+      "Explore e-invitations and create engaging business walls. iinve is your creative partner for events and digital shop presence.",
+    url: "https://iinve.com",
+    type: "website",
+    siteName: "iinve",
     images: [
       {
         url: "https://iinve.com/assets/images/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "iinve - Create magic for you",
       },
     ],
-    icons: {
-      icon: "https://iinve.com/favicon.ico", // or your custom path like "/icons/icon.svg"
-      shortcut: "https://iinve.com/favicon.ico",
-      apple: "https://iinve.com/apple-touch-icon.png",
-    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "iinve - Create magic for you",
+    description:
+      "Create stylish e-invites and business e-walls with iinve. The future of invitations and customer engagement is here.",
+    images: ["https://iinve.com/assets/images/og-image.jpg"],
+    creator: "@iinve_official",
+  },
+  icons: {
+    icon: "https://iinve.com/favicon.ico",
+    shortcut: "https://iinve.com/favicon.ico",
+    apple: "https://iinve.com/apple-touch-icon.png",
   },
 };
+
+
 
 export default function RootLayout({ children }) {
   return (

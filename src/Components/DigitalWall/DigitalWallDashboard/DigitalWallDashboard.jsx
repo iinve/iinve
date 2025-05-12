@@ -1,16 +1,16 @@
 'use client';
 import { Accordion, AccordionItem, addToast, Input, Select, SelectItem, Spinner, Textarea } from '@heroui/react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import ActionButton from 'ProUI/ActionButton/ActionButton';
-import ProIcon from 'ProUI/Icons/icons';
-import { useEffect, useRef, useState } from 'react';
-import FileUploader, { ImagePreview } from '../FileUploader/FileUploader';
-import { fetchDigitalWallUserById, getWallDataByUserId } from 'utils/fetchDigitalWallData';
-import { getGreeting } from 'utils/greetingUtils';
+import ThemeSelector from 'Components/Editor/ThemeSelector/ThemeSelector';
 import { Logo } from 'Components/Logo/Logo';
+import ActionButton from 'ProUI/ActionButton/ActionButton';
 import { ProAvatar } from 'ProUI/Common/Common';
 import { ProTextArea } from 'ProUI/Form/Form';
-import EditorLoader from 'Components/Editor/EditorLoader/EditorLoader';
+import ProIcon from 'ProUI/Icons/icons';
+import { useEffect, useRef, useState } from 'react';
+import { getGreeting } from 'utils/greetingUtils';
+import FileUploader, { ImagePreview } from '../FileUploader/FileUploader';
+import { useWallDashboard } from '../hooks/useWallDashboard';
 
 export default function DigitalWallDashboard() {
   const [isPageLoading, setIsPageLoading] = useState(false)
@@ -38,10 +38,48 @@ export default function DigitalWallDashboard() {
   const [walls, setWalls] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const supabase = createClientComponentClient()
+  const { colorFromImage, setColorFromImage } = useWallDashboard(companyDetails?.logo)
+  const [selectedThemeColor, setSelectedThemeColor] = useState()
+  const [selectedContentColor, setSelectedContentColor] = useState()
+  const [selectedHighlightedColor, setSelectedHighlightedColor] = useState()
+  const [allColors, setAllColors] = useState()
+  const [themeColor, setThemeColor] = useState({
+    theme_color: "#fff",
+    content_color: "#000",
+    highlight_color: "#eebc1d"
+  })
 
+  console.log(allColors, 'allColors')
+  const handleChooseThemeColor = (color, mode) => {
+    if (mode === 'theme') {
+      // Set the selected color for theme
+      setSelectedThemeColor(color);
+      setThemeColor({ ...themeColor, theme_color: color?.hex });
 
+      // Ensure that the selected theme color is hidden from the content section
+      if (color?.hex === selectedContentColor?.hex) {
+        setSelectedContentColor(null); // Clear content color if it's the same as theme color
+      }
+    } else if (mode === 'content') {
+      // Set the selected color for content
+      setSelectedContentColor(color);
+      setThemeColor({ ...themeColor, content_color: color?.hex });
 
+      // Ensure that the selected content color is hidden from the theme section
+      if (color?.hex === selectedThemeColor?.hex) {
+        setSelectedThemeColor(null); // Clear theme color if it's the same as content color
+      }
+    } else {
+      setSelectedHighlightedColor(color);
+      setThemeColor({ ...themeColor, highlight_color: color?.hex });
 
+      // Ensure that the selected theme color is hidden from the content section
+      if (color?.hex === selectedHighlightedColor?.hex) {
+        setSelectedHighlightedColor(null); // Clear content color if it's the same as theme color
+      }
+      setSelectedHighlightedColor
+    }
+  }
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -102,6 +140,11 @@ export default function DigitalWallDashboard() {
           { label: '', amount: '' }
         ]);
         setCompanyDetails(currentWall.company_details)
+        setThemeColor(currentWall.theme)
+        setSelectedContentColor(currentWall.theme?.content_color)
+        setSelectedThemeColor(currentWall.theme?.theme_color)
+        setSelectedThemeColor(currentWall.theme?.highlight_color)
+        setColorFromImage([...colorFromImage, { hex: currentWall.theme?.content_color }, { hex: currentWall.theme?.theme_color }, { hex: currentWall.theme?.highlight_color }])
       } catch (error) {
         console.error('Error fetching walls:', error);
         addToast({
@@ -260,6 +303,7 @@ export default function DigitalWallDashboard() {
     formData.append('daily_prices', JSON.stringify(dailyPrices));
     formData.append('template', user?.template || 'hero_wall');
     formData.append('company_details', JSON.stringify(companyDetails));
+    formData.append('theme', JSON.stringify(themeColor));
 
     try {
       const res = await fetch('/api/digital-wall/dashboard/save', {
@@ -291,7 +335,7 @@ export default function DigitalWallDashboard() {
   };
 
 
-  console.log(products,"---")
+  console.log(products, "---")
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
@@ -310,15 +354,15 @@ export default function DigitalWallDashboard() {
       {isPageLoading ? <div className='flex items-center justify-center h-screen fixed inset-0 w-full'>
         <Spinner />
       </div> :
-
         <div className="p-6 md:p-10 w-full md:w-1/2 mx-auto !text-black">
-          {/* logo */}
           <Accordion variant="splitted" className='mb-6' >
-            <AccordionItem key="1" aria-label="Company Details"title={<span className="text-black">Company Details</span>}>
+            <AccordionItem key="1" aria-label="Company Details" title={<div className="text-black flex items-center">
+              <ProIcon name={'RiHomeOfficeLine'} size={24} color='#485ddc' /> <span className='font-semibold ml-2'>Company Information</span>
+            </div>}>
               <section className="mb-8">
                 <div className="mb-2">
                   {companyDetails?.logo ? (
-                   <div className='flex items-center justify-center'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
+                    <div className='flex items-center justify-center'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
                   ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
                 </div>
                 <Input type='text' label='Company Name' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
@@ -354,9 +398,14 @@ export default function DigitalWallDashboard() {
                   }}
                 />
               </section>
-
+            </AccordionItem>
+            <AccordionItem key="2" aria-label="Customization" title={<div className="text-black flex items-center">
+              <ProIcon name={'RiColorFilterAiLine'} size={24} color='#485ddc' /> <span className='font-semibold ml-2'>Customization</span>
+            </div>}>
+              <ThemeSelector colors={colorFromImage} setAllColors={setAllColors} selectedTheme={themeColor} selectedHighlightedColor={selectedHighlightedColor} selectedContentColor={selectedContentColor} selectedThemeColor={selectedThemeColor} handleChooseThemeColor={handleChooseThemeColor} />
             </AccordionItem>
           </Accordion>
+
 
           {/* Spotlight */}
           <section className="mb-8">
@@ -573,6 +622,9 @@ export default function DigitalWallDashboard() {
             <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
           </div>
         </div>}
+
+
     </div>
+
   );
 }
