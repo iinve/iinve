@@ -10,7 +10,7 @@ function Slider({ data, type, isLightTheme = false }) {
   if (type === 'card') {
     return (
       <div className='w-full md:w-1/2 mx-auto'>
-        <h2 className={`text-center text-2xl mb-4 ${isLightTheme ? 'text-black' : 'text-white'}`}>Best offers for you!</h2>
+        <h2 className={`text-center text-2xl mb-4 text-white ${isLightTheme ? 'text-black' : 'text-white'}`}>Best offers for you!</h2>
         <Swiper
         effect="coverflow"
         grabCursor={true}

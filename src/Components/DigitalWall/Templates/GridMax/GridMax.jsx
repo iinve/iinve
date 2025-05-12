@@ -78,7 +78,7 @@ const GridMax = ({ data }) => {
   }, []);
 
   return (
-    <div className='min-h-screen bg-[#FFE4B3] py-6'>
+    <div className='min-h-screen bg-[#CB0404] py-6'>
       <div className='container mx-auto px-6'>
         <div className="text-center flex justify-center items-center mb-10">
           <div>
