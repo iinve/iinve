@@ -34,7 +34,7 @@ const WallBanner = ({ data, isLightTheme, color }) => {
               />
             </div>
             <div className={Style.spotlight_content}>
-              <h5 dangerouslySetInnerHTML={{ __html: banner?.text }} style={{color: color.content_color}}></h5>
+              <h5 dangerouslySetInnerHTML={{ __html: banner?.text }} style={{color: color?.content_color}}></h5>
             </div>
           </div>
 

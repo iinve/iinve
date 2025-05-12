@@ -9,7 +9,7 @@ import useWindowDimensions from "utils/useWindowDimensions";
 const ProductCard = ({ data, isLightTheme = false, color }) => {
   const { isMobile } = useWindowDimensions();
   return (
-    <div className="relative bg-white/50 backdrop-blur-lg border rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer" style={{ borderColor: color.highlight_color }}>
+    <div className="relative bg-white/50 backdrop-blur-lg border rounded-2xl p-4 w-full h-fit flex flex-col justify-even shadow-lg transition-transform duration-300 ease-in-out cursor-pointer" style={{ borderColor: color?.highlight_color }}>
       <div className="flex justify-end items-center absolute -top-2 -right-2 !z-10">
         <div className="backdrop-blur-xl px-4 py-2 rounded-full" style={{ background: color?.highlight_color }}>
           <span className="text-white font-bold text-[12px] md:text-base w-fit">New</span>
