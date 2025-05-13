@@ -2,7 +2,7 @@ import DigitalWallRoot from "Components/DigitalWall/DigitalWallRoot/DigitalWallR
 
 
 export async function generateMetadata({ params }) {
-  const defaultImage = "https://iinve.com/assets/images/digital-wall/default.jpg";
+  const defaultImage = "https://iinve.com/assets/images/og-image.jpg";
 
   try {
     const { slug } = params;
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
     const data = await res.json();
 
     const shopName = data?.shop_name || "Shop";
-    const ogImage = 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg' || data?.og_image || defaultImage;
+    const ogImage = `https://iinve.com/api/og?slug=${slug}` || data?.og_image || defaultImage;
     const description = data?.description || `Welcome to ${shopName}'s digital ad wall.`;
 
     return {
@@ -40,19 +40,19 @@ export async function generateMetadata({ params }) {
     console.error("Error generating metadata:", error);
 
     return {
-      title: "Nambiyath | iinve wall",
+      title: "iinve wall",
       description: "Discover the latest offers, products, and promotions.",
       openGraph: {
-        title: "Nambiyath | iinve wall",
+        title: "iinve wall",
         description: "Discover the latest offers, products, and promotions.",
-        images: [{ url: 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg', alt: "iinve Digital Walls" }],
-        url: "https://iinve.com/wall/nambiyath",
+        images: [{ url: defaultImage, alt: "iinve Digital Walls" }],
+        url: "https://iinve.com/wall",
       },
       twitter: {
         card: 'summary_large_image',
-        title: "Nambiyath | iinve wall",
+        title: "iinve wall",
         description: "Discover the latest offers, products, and promotions.",
-        images: 'https://iinve.com/assets/images/digital-wall/nambiyath.jpg',
+        images: defaultImage,
       },
     };
   }

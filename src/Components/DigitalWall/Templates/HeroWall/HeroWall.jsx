@@ -17,7 +17,7 @@ const HeroWall = ({ data }) => {
       <div className='mt-20'></div>
       <Slider data={data} />
       {/* <OfferContact data={data} /> */}
-      <h2 className="text-center text-2xl my-4 text-white">Our Showcase</h2>
+      <h2 className="text-center text-2xl my-4 text-white font-bold">Our Showcase</h2>
       {/* <ImageMasonry data={Imagedata} /> */}
       <HorizonImageSliderWithPreview
         images={data?.new_arrivals}

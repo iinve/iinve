@@ -27,6 +27,7 @@ import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
 
+
 export const Assets = {
   Logo,
   icon,
@@ -78,6 +79,7 @@ export const Assets = {
     cube: "/assets/images/cube.png",
     crown: "/assets/images/crown.png",
   },
+  og_background:"/assets/images/og-image/og_background.png",
   templates: {
     hero_me: "/assets/images/templates/temp1.png",
     galaxy: "/assets/images/templates/temp2.png",

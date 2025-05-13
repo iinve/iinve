@@ -23,7 +23,7 @@ const DailyPrice = ({ price, style, isLightTheme, theme }) => {
 
   return (
     <div className="rounded-lg p-4 w-[90%] mx-auto mt-4">
-      <h4 className="text-2xl text-center mb-4 text-white" style={{color: theme?.highlight_color}}>Daily Price</h4>
+      <h4 className="text-2xl text-center mb-4 text-white font-bold" style={{color: theme?.highlight_color}}>Daily Price</h4>
 
       <div className="grid grid-cols-2 gap-4 w-full md:w-[60%] mx-auto">
         {price?.slice(0, 2).map((item, index) => (

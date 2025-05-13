@@ -49,7 +49,7 @@ function Slider({ data, type, isLightTheme = false }) {
   }
   return (
     <div>
-      <h2 className='text-center text-2xl mb-4' style={{color: data?.theme?.highlight_color}} >Best offers for you!</h2>
+      <h2 className='text-center text-2xl mb-4 font-bold' style={{color: data?.theme?.highlight_color}} >Best offers for you!</h2>
       <Swiper
         spaceBetween={20}
         loop={true}
