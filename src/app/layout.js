@@ -1,8 +1,10 @@
 // src/app/layout.tsx
+import { faqData } from "@/data/faqData";
 import { HeroUIProvider } from "@heroui/react";
 import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
 import { Josefin_Sans } from "next/font/google";
+import Head from "next/head";
 import '../i18n';
 import "../styles/global.css";
 
@@ -78,16 +80,74 @@ export const metadata = {
 };
 
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "iinve.com",
+  "url": "https://iinve.com",
+  "description": "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner for stunning e-invitations and impactful e-walls.",
+  "keywords": [
+   "iinve",
+    "iinve invite",
+    "iinve wall",
+    "digital invitations",
+    "digital invites",
+    "e-invite",
+    "e-invitation",
+    "online invitation",
+    "custom invitation design",
+    "wedding e-invite",
+    "engagement e-invite",
+    "event e-invite",
+    "birthday e-invite",
+    "digital event card",
+    "e-wall",
+    "business wall",
+    "digital wall for shop",
+    "shop wall",
+    "event wall",
+    "event announcement",
+    "digital presence",
+    "online business presence",
+    "digital invitation platform",
+    "personalized invite",
+    "interactive invitation",
+    "digital flyer",
+    "shop promotions online",
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://iinve.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "mainEntityOfPage": {
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
+  },
+};
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      </Head>
       <body className={JosefinSans.className}>
         <MainLayout>
           <ClientLayout>
             <HeroUIProvider>
               {children}
-              </HeroUIProvider>
+            </HeroUIProvider>
           </ClientLayout>
         </MainLayout>
       </body>
