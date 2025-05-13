@@ -37,6 +37,7 @@ export default function MainLayout({ children }) {
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=G-K5WW4JWD7J`}
           />
+          <meta name="google-site-verification" content="JN_fsI_iOK1i78YW1IT847atzJhUc9cEgQ5bKjQKx1g" />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
             window.dataLayer = window.dataLayer || [];
