@@ -10,7 +10,7 @@ const Categories = () => {
         <div className="category_item flex flex-col items-center md:flex-row gap-20 items-center justify-between mb-8 ">
           <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4">
-              Digital Invitation
+              iinve e-invitation
             </h2>
             <p className="text-gray-400 text-md md:text-lg leading-relaxed">
               Say goodbye to paper waste and hello to stylish digital
@@ -41,9 +41,9 @@ const Categories = () => {
             />
           </div>
           <div className="category_content max-w-2xl text-left">
-            <h2 className="text-xl md:text-4xl font-bold mb-4">Digital Wall</h2>
+            <h2 className="text-xl md:text-4xl font-bold mb-4">iinve wall</h2>
             <p className="text-gray-400 leading-relaxed text-md md:text-lg">
-              Digital Wall by iinve lets local shops and small businesses
+              iinve Wall lets local shops and small businesses
               showcase their latest products, offers, and updates all in one
               sleek, shareable webpage. No app, no clutter. Just smart, simple
               visibility.
