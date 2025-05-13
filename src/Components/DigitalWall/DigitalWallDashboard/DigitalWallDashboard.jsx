@@ -50,6 +50,11 @@ export default function DigitalWallDashboard() {
     content_color: "#000",
     highlight_color: "#eebc1d"
   })
+  const [socialDetails, setSocialDetails] = useState({
+    instagram: '',
+    facebook: '',
+    x: '',
+  });
   const [isWallUpdated, setIsWallUpdated] = useState(false)
 
   const handleChooseThemeColor = (color, mode) => {
@@ -82,6 +87,8 @@ export default function DigitalWallDashboard() {
       setSelectedHighlightedColor
     }
   }
+
+  console.log(socialDetails,'social_links')
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -152,7 +159,7 @@ export default function DigitalWallDashboard() {
           { hex: currentWall.theme?.theme_color },
           { hex: currentWall.theme?.highlight_color },
         ]);
-        
+
       } catch (error) {
         console.error('Error fetching walls:', error);
         addToast({
@@ -310,6 +317,7 @@ export default function DigitalWallDashboard() {
     formData.append('template', user?.template || 'hero_wall');
     formData.append('company_details', JSON.stringify(companyDetails));
     formData.append('theme', JSON.stringify(themeColor));
+    formData.append('social_links', JSON.stringify(socialDetails));
 
     try {
       const res = await fetch('/api/digital-wall/dashboard/save', {
@@ -408,6 +416,43 @@ export default function DigitalWallDashboard() {
               <ProIcon name={'RiColorFilterAiLine'} size={24} color='#485ddc' /> <span className='font-semibold ml-2'>Customization</span>
             </div>}>
               <ThemeSelector colors={colorFromImage} setAllColors={setAllColors} selectedTheme={themeColor} selectedHighlightedColor={selectedHighlightedColor} selectedContentColor={selectedContentColor} selectedThemeColor={selectedThemeColor} handleChooseThemeColor={handleChooseThemeColor} />
+            </AccordionItem>
+            <AccordionItem key="3" aria-label="Social Media" title={<div className="text-black flex items-center">
+              <ProIcon name={'IoIosAt'} size={24} color='#485ddc' /> <span className='font-semibold ml-2'>Social Media Links</span>
+            </div>}>
+              <Input
+                type="text"
+                label="Instagram URL"
+                placeholder="https://instagram.com/yourpage"
+                value={socialDetails.instagram}
+                onChange={(e) =>
+                  setSocialDetails({ ...socialDetails, instagram: e.target.value })
+                }
+                className="mb-2"
+              />
+
+              <Input
+                type="text"
+                label="Facebook URL"
+                placeholder="https://facebook.com/yourpage"
+                value={socialDetails.facebook}
+                onChange={(e) =>
+                  setSocialDetails({ ...socialDetails, facebook: e.target.value })
+                }
+                className="mb-2"
+              />
+
+              <Input
+                type="text"
+                label="X (Twitter) URL"
+                placeholder="https://x.com/yourhandle"
+                value={socialDetails.x}
+                onChange={(e) =>
+                  setSocialDetails({ ...socialDetails, x: e.target.value })
+                }
+                className="mb-2"
+              />
+
             </AccordionItem>
           </Accordion>
 
@@ -627,7 +672,7 @@ export default function DigitalWallDashboard() {
             <ActionButton onClick={handleSave} variant='solid' color='primary' isLoading={isLoading} size='lg' className='md:w-[200px] w-full'>Save All</ActionButton>
           </div>
         </div>}
-        <SuccessSheet isSuccess={isWallUpdated} user={user} closeSheet={()=> setIsWallUpdated(false)} />
+      <SuccessSheet isSuccess={isWallUpdated} user={user} closeSheet={() => setIsWallUpdated(false)} />
     </div>
 
   );

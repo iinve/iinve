@@ -82,6 +82,7 @@ export async function POST(request) {
     const newArrivalsRaw = JSON.parse(formValues.newArrivals || '[]');
     const company_details = JSON.parse(formValues.company_details || '{}');
     const theme = JSON.parse(formValues.theme || '{}');
+    const social_links = JSON.parse(formValues.social_links || '{}');
 
     const products = productsRaw.map((p, i) => ({
       ...p,
@@ -114,7 +115,8 @@ export async function POST(request) {
       template: formValues.template,
       daily_prices,
       company_details,
-      theme
+      theme,
+      social_links
     };
 
     let dbOperation;

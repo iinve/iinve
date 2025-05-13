@@ -12,6 +12,7 @@ import ProIcon from 'ProUI/Icons/icons'
 import ReactPlayer from 'react-player'
 import Style from './GridMax.module.scss'
 import { useEffect, useState } from 'react'
+import SocialLinks from 'Components/SocialLinks/SocialLinks'
 
 
 function VideoControl({toggleMute, isMuted}){
@@ -147,6 +148,9 @@ const GridMax = ({ data }) => {
             },
           }}
         />
+      </div>
+      <div className='flex justify-center mb-4'>
+      <SocialLinks socialDetails={data.social_links} color={data?.theme}/>
       </div>
       <div className='flex items-center justify-center mt-10'>
         <Link href={"/"}>

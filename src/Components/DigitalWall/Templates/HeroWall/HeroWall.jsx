@@ -5,6 +5,10 @@ import WallBanner from 'Components/DigitalWall/Galaxy/WallBanner/WallBanner'
 import ProductSlider from 'Components/DigitalWall/ProductSlider/ProductSlider'
 import WallLayout from 'Components/DigitalWall/WallLayout/WallLayout'
 import HorizonImageSliderWithPreview from 'Components/HorizonImageSliderWithPreview/HorizonImageSliderWithPreview'
+import SocialLinks from 'Components/SocialLinks/SocialLinks'
+import Link from 'next/link'
+import { Assets } from 'assets/assets'
+import Image from 'next/image'
 
 const HeroWall = ({ data }) => {
   return (
@@ -42,6 +46,14 @@ const HeroWall = ({ data }) => {
         }}
       />
       {/* <LanguageSwitcher /> */}
+      <div className='flex justify-center mb-4'>
+      <SocialLinks socialDetails={data.social_links} color={data?.theme}/>
+      </div>
+      <div className='flex items-center justify-center mt-10'>
+        <Link href={"/"}>
+          <Image src={Assets?.Created_by} alt="Logo" width={100} height={100} />
+        </Link>
+      </div>
     </WallLayout>
   )
 }
