@@ -1,11 +1,12 @@
-import React from 'react'
+import DigitalWall from "Components/DigitalWall/DigitalWall";
+import React from "react";
 
 const page = () => {
   return (
     <div>
-      
+      <DigitalWall />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
