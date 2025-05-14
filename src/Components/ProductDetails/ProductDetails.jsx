@@ -88,9 +88,11 @@ const ProductDetails = ({ data }) => {
                 </li>
               ))}
             </ul>
-            <ActionButton size="lg" color="primary" onClick={()=>{}} className='mt-8'>
+           <div className="flex justify-center md:justify-start">
+           <ActionButton size="lg" color="primary" onClick={()=>{}} className='w-1/2 mt-8'>
                 Create wall
               </ActionButton>
+           </div>
           </div>
         </div>
 
