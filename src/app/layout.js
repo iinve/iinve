@@ -1,8 +1,9 @@
 // src/app/layout.tsx
-import { faqData } from "@/data/faqData";
+
 import { HeroUIProvider } from "@heroui/react";
 import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
+import { faqData } from "DB/faqData";
 import { Josefin_Sans } from "next/font/google";
 import Head from "next/head";
 import '../i18n';
