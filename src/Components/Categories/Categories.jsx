@@ -21,7 +21,9 @@ const Categories = () => {
               through iinve.
             </p>
 
+            <ActionButton color='primary' className='mt-4'>
             <Link href="/e-invite">Learn More</Link>
+            </ActionButton>
           </div>
 
           <div className="category_img w-full w-full rounded-xl overflow-hidden shadow-lg">

@@ -166,4 +166,8 @@ export const Assets = {
   digital_wall: "/assets/images/Digtialwall.png",
   invitation: "/assets/images/invitation.png",
   galaxy_spotlight_mesh: "/assets/images/digital-wall/gold-bg.jpg",
+  abstracts:{
+    blue_wave_1:"/assets/images/abstract-1.png",
+    blue_wave_2:"/assets/images/abstract-2.png",
+  }
 };

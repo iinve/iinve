@@ -1,9 +1,9 @@
 "use client";
 import ProductDetails from "Components/ProductDetails/ProductDetails";
-import { eInvitationContent } from "DB/eInvitationContent";
+import { eWallContent } from "DB/eWallContent";
 
 const page = () => {
-  return <ProductDetails data={eInvitationContent} />;
+  return <ProductDetails data={eWallContent} />;
 };
 
 export default page;
