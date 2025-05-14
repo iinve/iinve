@@ -2,6 +2,8 @@
 
 import { Assets } from "assets/assets";
 import Image from "next/image";
+import Link from "next/link";
+import ActionButton from "ProUI/ActionButton/ActionButton";
 
 const Categories = () => {
   return (
@@ -12,12 +14,14 @@ const Categories = () => {
             <h2 className="text-xl md:text-4xl font-bold mb-4">
               iinve e-invitation
             </h2>
-            <p className="text-gray-400 text-md md:text-lg leading-relaxed">
+            <p className="text-gray-400 text-md md:text-lg leading-relaxed mb-4">
               Say goodbye to paper waste and hello to stylish digital
               invitations. Whether it’s a birthday, wedding, housewarming, or
               corporate event create and share beautiful invites instantly
               through iinve.
             </p>
+
+            <Link href="/e-invite">Learn More</Link>
           </div>
 
           <div className="category_img w-full w-full rounded-xl overflow-hidden shadow-lg">
@@ -42,12 +46,14 @@ const Categories = () => {
           </div>
           <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4">iinve wall</h2>
-            <p className="text-gray-400 leading-relaxed text-md md:text-lg">
-              iinve Wall lets local shops and small businesses
-              showcase their latest products, offers, and updates all in one
-              sleek, shareable webpage. No app, no clutter. Just smart, simple
-              visibility.
+            <p className="text-gray-400 leading-relaxed text-md md:text-lg mb-4">
+              iinve Wall lets local shops and small businesses showcase their
+              latest products, offers, and updates all in one sleek, shareable
+              webpage. No app, no clutter. Just smart, simple visibility.
             </p>
+            <ActionButton size="lg" color="primary">
+              Learn More
+            </ActionButton>
           </div>
         </div>
       </div>
