@@ -28,7 +28,7 @@ const MainWallBanner = () => {
         modules={[EffectFade, Autoplay, Pagination]}
       >
         <SwiperSlide>
-          <div className="w-full h-[170px] md:h-auto max-w-7xl relative aspect-[3/1]">
+          <div className="w-full h-[170px] md:h-[300px] relative aspect-[3/1]">
             <Image
               src={BannerImg}
               alt="Grocery Shopping Sale"
@@ -40,7 +40,7 @@ const MainWallBanner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="w-full h-[170px] md:h-auto max-w-7xl relative aspect-[3/1]">
+          <div className="w-full h-[170px] md:h-[300px] relative aspect-[3/1]">
             <Image
               src={BannerImg}
               alt="Grocery Shopping Sale"
