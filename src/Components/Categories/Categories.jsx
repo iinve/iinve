@@ -54,7 +54,7 @@ const Categories = () => {
               webpage. No app, no clutter. Just smart, simple visibility.
             </p>
             <ActionButton size="lg" color="primary">
-              Learn More
+            <Link href="/e-wall">Learn More</Link>
             </ActionButton>
           </div>
         </div>
