@@ -74,7 +74,7 @@ const ProductDetails = ({ data }) => {
               priority
             />
           </div>
-          <div className="w-full md:w-1/2 pt-10">
+          <div className="w-full md:w-1/2 pt-10 px-4 md:px-0">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
               {data.whyChoose.heading}
             </h3>
