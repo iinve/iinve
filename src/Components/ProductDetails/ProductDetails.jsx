@@ -6,11 +6,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import ActionButton from "ProUI/ActionButton/ActionButton";
 
 const ProductDetails = ({ data }) => {
-  if (!data) return;
   const { scrollY } = useScroll();
   const scale = useTransform(scrollY, [0, 400], [1, 2]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
+  
+  if (!data) return;
   return (
     <>
       <div className="w-full px-4 md:px-8 lg:px-16 py-10 text-gray-800">
