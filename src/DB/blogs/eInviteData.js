@@ -3,7 +3,7 @@ const eInviteBlogData = {
   title: "Introducing Digital E-Invites by iinve: Make Every Event Unforgettable",
   description:"Your events deserve more than a plain WhatsApp message. With iinve's Digital e-invites, you can turn every moment into a branded experience — easily, affordably, and beautifully.",
   slug:'digital-e-invites',
-  og_image:'/assets/images/blogs/e-invite-og.jpg',
+  og_image:'/assets/images/og-image/blogs/e-invite-og.jpg',
   date: "May 15, 2025",
   author: "iinve",
   cta: {
