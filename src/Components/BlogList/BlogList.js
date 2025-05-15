@@ -35,8 +35,9 @@ const BlogList = () => {
       <div className="text-center lg:text-left">  <InfoChip icon={<ProIcon name='FaRegStar' size={18} color='#fff' />} name={"Blogs"} className={"chip"} isLeft />
         <ProHeading>Latest Blogs</ProHeading></div>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-6 my-[80px] px-4 lg:px-0">
-        {blogData.map((blog) => (
+        {blogData.map((blog, idx) => (
           <BlogCard
+            key={idx}
             title={blog.title}
             description={blog.description}
             image={blog.og_image}
