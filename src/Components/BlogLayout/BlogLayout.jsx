@@ -30,7 +30,7 @@ export default function BlogLayout({ blog }) {
             className="absolute inset-0 flex items-center justify-center"
           >
             <div className='text-center'>
-              <h1 className="text-white text-2xl md:text-3xl font-bold text-center w-full md:w-1/2 mx-auto px-2 mb-6">
+              <h1 className="text-white text-xl md:text-3xl font-bold text-center w-full md:w-1/2 mx-auto px-4 mb-6">
                 {blog.title}
               </h1>
               <ActionButton color='primary' className='mx-auto' size='lg'>
@@ -54,14 +54,14 @@ export default function BlogLayout({ blog }) {
             {section.list && section.type === "ol" ? (
               <ol className="list-decimal pl-5 mb-6 space-y-2">
                 {section.list.map((item, i) => (
-                  <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                  <li className="list-disc" key={i} dangerouslySetInnerHTML={{ __html: item }} />
                 ))}
               </ol>
             ) : (
               section.list && (
                 <ul className="list-disc pl-5 mb-6 space-y-2">
                   {section.list.map((item, i) => (
-                    <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                    <li className="list-disc" key={i} dangerouslySetInnerHTML={{ __html: item }} />
                   ))}
                 </ul>
               )

@@ -27,11 +27,11 @@ const eInviteBlogData = {
     {
       heading: "Why Use IINVE for E-Invites?",
       list: [
-        "**Easy to Create:** Choose from elegant templates and customize in minutes",
-        "**Share Instantly:** Send the invite link to hundreds of customers instantly",
-        "**Professional Look:** Clean, minimal designs that reflect your brand",
-        "**Google Maps Integration:** Add your shop location for easy navigation",
-        "**Event Reminders:** Let customers save the date and RSVP if needed",
+        "<b>Easy to Create:</b> Choose from elegant templates and customize in minutes",
+        "<b>Share Instantly:</b> Send the invite link to hundreds of customers instantly",
+        "<b>Professional Look:</b> Clean, minimal designs that reflect your brand",
+        "<b>Google Maps Integration:</b> Add your shop location for easy navigation",
+        "<b>Event Reminders:</b> Let customers save the date and RSVP if needed",
       ],
     },
     {
