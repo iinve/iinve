@@ -45,7 +45,13 @@ export const metadata = {
     "personalized invite",
     "interactive invitation",
     "digital flyer",
-    "shop promotions online"
+    "shop promotions online",
+    "free e invitations",
+    "wedding invitations",
+    "wedding invitation templates",
+    "wedding invitations near me",
+    "event invitation",
+
   ],
   robots: "index, follow",
   canonical: "https://iinve.com",
