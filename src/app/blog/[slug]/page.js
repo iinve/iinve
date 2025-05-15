@@ -13,7 +13,9 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${blog.title} | iinve`,
-    description: blog.description || "Read more about digital innovation, e-invites, and customer engagement with iinve.",
+    description:
+      blog.description ||
+      "Read more about digital innovation, e-invites, and customer engagement with iinve.",
     openGraph: {
       title: blog.title,
       description: blog.description || blog.title,
@@ -36,12 +38,12 @@ export async function generateMetadata({ params }) {
 
 const page = ({ params }) => {
   const { slug } = params;
-  const blog = blogData.find((b)=> b.slug === slug)
+  const blog = blogData.find((b) => b.slug === slug);
   return (
     <div>
       <BlogLayout blog={blog} />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
