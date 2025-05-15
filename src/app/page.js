@@ -18,9 +18,9 @@ export default function Home() {
       <StepContainer />
       <TemplateSlider />
       {/* <Pricing/> */}
+      <BlogList/>
       <FAQs />
       {/* <Testimonials /> */}
-      <BlogList/>
       <GetADemo />
       {/* <GetADemoSheet
         isOpen={sheetsVisibility?.[SHEETS.GET_DEMO] || false}

@@ -30,7 +30,7 @@ export default function BlogLayout({ blog }) {
             className="absolute inset-0 flex items-center justify-center"
           >
             <div className='text-center'>
-              <h1 className="text-white text-xl md:text-3xl font-bold text-center w-full md:w-1/2 mx-auto px-4 mb-6">
+              <h1 className="text-white text-xl md:text-3xl font-bold text-center w-full mx-auto px-4 mb-6">
                 {blog.title}
               </h1>
               <ActionButton color='primary' className='mx-auto' size='lg'>

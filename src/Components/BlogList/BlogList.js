@@ -1,13 +1,19 @@
-import { Assets } from "assets/assets";
+import { Link } from "@heroui/react";
+import InfoChip from "Components/InfoChip/InfoChip";
+import { blogData } from "DB/blogs/blogData";
 import Image from "next/image";
+import ProIcon from "ProUI/Icons/icons";
+import ProHeading from "ProUI/ProHeading/ProHeading";
 
-export const BlogCard = ({ title, description }) => {
+export const BlogCard = ({ title, description, image, slug }) => {
   return (
-    <div className="relative rounded-3xl  border border-[1px] border-solid border-[#1444a8] overflow-hidden shadow-lg text-white w-full h-[400px] mx-auto">
+    <div className="relative rounded-3xl  border border-[1px] border-solid border-[#1444a8] overflow-hidden shadow-lg text-white w-full min-h-[425px] mx-auto flex items-center justify-between flex-col">
       <Image
-        src={Assets.Banner_mob}
+        src={image}
         alt={title}
-        className="h-[220px] w-full object-cover"
+        height={200}
+        width={200}
+        className="h-[200px] w-full object-cover"
       />
 
       <div className="rounded-b-3xl w-full bg-[#000]  p-5 space-y-3">
@@ -15,9 +21,9 @@ export const BlogCard = ({ title, description }) => {
           <h3 className="text-xl font-semibold">{title}</h3>
         </div>
         <p className="text-sm text-white/80">{description}</p>
-        <button className="w-full mt-3 bg-[#1444a8] text-white py-2 rounded-full font-medium">
-          Book now
-        </button>
+        <Link href={`/blog/${slug}`} color='primary' size="lg" className="font-bold w-full !mt-6 block text-right">
+          Read more
+        </Link>
       </div>
     </div>
   );
@@ -25,24 +31,18 @@ export const BlogCard = ({ title, description }) => {
 
 const BlogList = () => {
   return (
-    <div>
-      <div className="grid grid-cols-4 gap-6 px-6 my-6">
-        <BlogCard
-          title="Bali Jungle Villa"
-          description="Escape to a peaceful retreat tucked in Ubud’s lush jungle, perfect for a slow, mindful reset."
-        />
-        <BlogCard
-          title="Santorini Sunset Loft"
-          description="Experience a cliffside loft with iconic white walls, blue domes, and magical sunset views."
-        />
-        <BlogCard
-          title="Dubai Skyline Suite"
-          description="Romantic views of the Burj Khalifa with floor-to-ceiling windows and a private balcony."
-        />
-        <BlogCard
-          title="Bali Jungle Villa"
-          description="Escape to a peaceful retreat tucked in Ubud’s lush jungle, perfect for a slow, mindful reset."
-        />
+    <div className="container mx-auto " id="blogs">
+      <div className="text-center lg:text-left">  <InfoChip icon={<ProIcon name='FaRegStar' size={18} color='#fff' />} name={"Blogs"} className={"chip"} isLeft />
+        <ProHeading>Latest Blogs</ProHeading></div>
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-6 my-[80px] px-4 lg:px-0">
+        {blogData.map((blog) => (
+          <BlogCard
+            title={blog.title}
+            description={blog.description}
+            image={blog.og_image}
+            slug={blog.slug}
+          />
+        ))}
       </div>
     </div>
   );
