@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import ActionButton from 'ProUI/ActionButton/ActionButton'
 import ProIcon from 'ProUI/Icons/icons'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getImagePreviewUrl } from 'utils/imageUtils'
 
 const FileUploader = ({ onUpload, refs, placeholder }) => {
   return (
@@ -21,22 +22,39 @@ const FileUploader = ({ onUpload, refs, placeholder }) => {
 export default FileUploader
 
 
-export const ImagePreview = ({ image, onRemove}) => {
-  return <div className="relative w-full md:w-1/2 mx-auto">
-  <Image
-    src={image}
-    alt="Spotlight Preview"
-    width={500}   // use actual or max width
-    height={300}  // use actual height to preserve aspect ratio
-    className="rounded border object-contain"
-  />
-  <ActionButton
-    color="danger"
-    className="absolute -top-2 -right-2 text-[8px] p-2 cursor-pointer"
-    size="xs"
-    onPress={onRemove}
-  >
-    Remove
-  </ActionButton>
-</div>
-}
+export const ImagePreview = ({ image, onRemove }) => {
+  const [previewUrl, setPreviewUrl] = useState("");
+
+  useEffect(() => {
+    const loadImageUrl = async () => {
+      const url = await getImagePreviewUrl(image);
+      setPreviewUrl(url);
+    };
+
+    if (image) {
+      loadImageUrl();
+    }
+  }, [image]);
+
+  return (
+    <div className="relative w-full md:w-1/2 mx-auto">
+      {previewUrl && (
+        <Image
+          src={previewUrl}
+          alt="Spotlight Preview"
+          width={500}
+          height={300}
+          className="rounded border object-contain"
+        />
+      )}
+      <ActionButton
+        color="danger"
+        className="absolute -top-2 -right-2 text-[8px] p-2 cursor-pointer"
+        size="xs"
+        onPress={onRemove}
+      >
+        Remove
+      </ActionButton>
+    </div>
+  );
+};

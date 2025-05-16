@@ -150,7 +150,7 @@ const GridMax = ({ data }) => {
         />
       </div>
       <div className='flex justify-center mb-4'>
-      <SocialLinks socialDetails={data.social_links} color={data?.theme}/>
+      <SocialLinks socialDetails={data?.social_links} color={data?.theme}/>
       </div>
       <div className='flex items-center justify-center mt-10'>
         <Link href={"/"}>

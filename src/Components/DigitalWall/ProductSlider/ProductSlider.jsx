@@ -19,7 +19,7 @@ const ProductCard = ({ data, isLightTheme = false, color }) => {
 
       <div className="w-full overflow-hidden rounded-xl mb-2">
         <Image
-          src={data?.imagePreview}
+          src={data?.image || data?.imagePreview}
           alt={data?.title}
           className="w-full object-cover h-[100px] md:h-[200px]"
           width={270}

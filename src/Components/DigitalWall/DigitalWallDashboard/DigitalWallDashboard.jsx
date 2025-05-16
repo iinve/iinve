@@ -90,7 +90,7 @@ export default function DigitalWallDashboard() {
     }
   }
 
-  console.log(socialDetails,'social_links')
+  console.log(socialDetails, 'social_links')
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -155,12 +155,24 @@ export default function DigitalWallDashboard() {
         setSelectedContentColor(currentWall.theme?.content_color)
         setSelectedThemeColor(currentWall.theme?.theme_color)
         setSelectedThemeColor(currentWall.theme?.highlight_color)
-        setColorFromImage([
-          ...(Array.isArray(colorFromImage) ? colorFromImage : []),
-          { hex: currentWall.theme?.content_color },
-          { hex: currentWall.theme?.theme_color },
-          { hex: currentWall.theme?.highlight_color },
-        ]);
+        setColorFromImage((prev) => {
+          const safePrev = Array.isArray(prev) ? prev : [];
+        
+          if (!currentWall?.theme) return safePrev;
+        
+          const newColors = [
+            { hex: currentWall.theme.content_color },
+            { hex: currentWall.theme.theme_color },
+            { hex: currentWall.theme.highlight_color },
+          ];
+        
+          const filteredNewColors = newColors.filter(
+            (newColor) =>
+              newColor?.hex && !safePrev.some((existing) => existing?.hex === newColor?.hex)
+          );
+        
+          return [...safePrev, ...filteredNewColors];
+        });
 
       } catch (error) {
         console.error('Error fetching walls:', error);
@@ -189,7 +201,7 @@ export default function DigitalWallDashboard() {
   //   const rawFile = e.target.files[0];
   //   const file = await compressImage(rawFile);
   //   if (!file) return;
-  
+
   //   if (section === 'spotlight') {
   //     setSpotlight({ ...spotlight, image: file });
   //   } else if (section === 'products') {
@@ -208,30 +220,30 @@ export default function DigitalWallDashboard() {
   // };
   const handleImageUpload = async (e, section, index = null) => {
     const rawFile = e.target.files[0];
-    const file = await compressImage(rawFile);
+    const file =
+    rawFile.size > 2 * 1024 * 1024
+      ? await compressImage(rawFile)
+      : rawFile;
     if (!file) return;
 
-  //  const {data}= await supabase.storage.from('digital-wall-assets').upload(`image_${uuidv4()}`,file)
+    //  const {data}= await supabase.storage.from('digital-wall-assets').upload(`image_${uuidv4()}`,file)
 
     // Add a local preview using URL.createObjectURL (optional enhancement)
     const localPreview = URL.createObjectURL(file);
     console.log(file)
     if (section === 'spotlight') {
-      setSpotlight({ ...spotlight, image: file,  });
+      setSpotlight({ ...spotlight, image: file, });
     } else if (section === 'products') {
       const updated = [...products];
       updated[index].image = file;
-      updated[index].imagePreview = localPreview;
       setProducts(updated);
     } else if (section === 'banners') {
       const updated = [...banners];
       updated[index].image = file;
-      updated[index].imagePreview = localPreview;
       setBanners(updated);
     } else if (section === 'newArrivals') {
       const updated = [...newArrivals];
       updated[index].image = file;
-      updated[index].imagePreview = localPreview;
       setNewArrivals(updated);
     }
   };
@@ -280,7 +292,7 @@ export default function DigitalWallDashboard() {
       const newNewArrivals = newArrivals.filter((_, i) => i !== idx);
       setNewArrivals(newNewArrivals);
     }
-    if(fieldName === 'offer'){
+    if (fieldName === 'offer') {
       const updatedOffer = offers.filter((_, i) => i !== idx);
       setOffers(updatedOffer);
     }
@@ -373,11 +385,11 @@ export default function DigitalWallDashboard() {
   const handleSave = async () => {
     setIsLoading(true);
     const formData = new FormData();
-  
+
     if (walls.id) {
       formData.append('digitalWallId', walls.id);
     }
-  
+
     formData.append('categories', JSON.stringify(categories));
     formData.append('offers', JSON.stringify(offers));
     formData.append('products', JSON.stringify(products));
@@ -392,38 +404,38 @@ export default function DigitalWallDashboard() {
     formData.append('company_details', JSON.stringify(companyDetails));
     formData.append('theme', JSON.stringify(themeColor));
     formData.append('social_links', JSON.stringify(socialDetails));
-  
+
     // Attach image files (without imageKey)
     products.forEach((prod, idx) => {
       if (prod.image) {
         formData.append(`products[${idx}][image]`, prod.image);
       }
     });
-  
+
     banners.forEach((banner, idx) => {
       if (banner.image) {
         formData.append(`banners[${idx}][image]`, banner.image);
       }
     });
-  
+
     newArrivals.forEach((item, idx) => {
       if (item.image) {
         formData.append(`newArrivals[${idx}][image]`, item.image);
       }
     });
-  
+
     if (spotlight.image) {
       formData.append('spotlight_image', spotlight.image);
     }
-  
+
     try {
       const res = await fetch('/api/digital-wall/dashboard/save', {
         method: 'POST',
         body: formData,
       });
-  
+
       const data = await res.json();
-  
+
       if (res.ok) {
         addToast({
           title: 'Success',
@@ -454,7 +466,7 @@ export default function DigitalWallDashboard() {
         </div>
         <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
           <div className='flex items-center gap-4'>
-            <ProAvatar color='primary' url={companyDetails?.logo || ''}/>
+            <ProAvatar color='primary' url={companyDetails?.logo || ''} className='object-contain' />
             <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br /> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
           </div>
           <ActionButton isLoading={isLoading} onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /> Logout</ActionButton>
@@ -558,8 +570,8 @@ export default function DigitalWallDashboard() {
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
             <div className="mb-2">
-              {spotlight.imagePreview ? (
-                <div className='w-1/2 mx-auto'><ImagePreview image={spotlight.imagePreview} onRemove={() => removeImage('spotlight')} /></div>
+              {spotlight.image ? (
+                <div className='w-1/2 mx-auto'><ImagePreview image={spotlight.image} onRemove={() => removeImage('spotlight')} /></div>
               ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'spotlight')} refs={refs} placeholder='Select Image' />}
             </div>
             <Textarea label='Spotlight Content' value={spotlight.text} onChange={(e) => setSpotlight({ ...spotlight, text: e.target.value })} />
@@ -586,10 +598,10 @@ export default function DigitalWallDashboard() {
                 </ActionButton>}
               </div>
             ))}
-            <Button 
-            color='primary'
-            variant='faded' 
-            onPress={() => setCategories([...categories, { name: '' }])} className="text-blue-500">+ Add Category</Button>
+            <Button
+              color='primary'
+              variant='faded'
+              onPress={() => setCategories([...categories, { name: '' }])} className="text-blue-500">+ Add Category</Button>
           </section>
 
           {/* Daily Price */}
@@ -624,49 +636,49 @@ export default function DigitalWallDashboard() {
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Products</h2>
             <div className='grid grid-cols-2 gap-2'>
-            {products.map((prod, idx) => (
-              <div key={idx} className='flex items-center gap-2 relative' >
-                <div className="mb-4 p-2 border rounded w-full">
-                  <Input label="Name" value={prod.title} onChange={(e) => {
-                    const newProducts = [...products];
-                    newProducts[idx].title = e.target.value;
-                    setProducts(newProducts);
-                  }} className="mb-2" />
-                  <Input label="Price / info" value={prod.weight} onChange={(e) => {
-                    const newProducts = [...products];
-                    newProducts[idx].weight = e.target.value;
-                    setProducts(newProducts);
-                  }} className="mb-2" />
-                  <div className="mb-2">
-                    {prod.imagePreview ? (
-                      <div className='w-1/2 mx-auto h-24'><ImagePreview image={prod.imagePreview} onRemove={() => removeImage('products', idx)} height={80} /></div>
-                    ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'products', idx)} refs={refs} placeholder='Select Image' />}
-                  </div>
-                  <Select
-                    value={prod.category || ""}
-                    onChange={(e) => {
-                      const selectedValue = e.target.value;
+              {products.map((prod, idx) => (
+                <div key={idx} className='flex items-center gap-2 relative' >
+                  <div className="mb-4 p-2 border rounded w-full">
+                    <Input label="Name" value={prod.title} onChange={(e) => {
                       const newProducts = [...products];
-                      // Set the category directly using the selected value (which is the name)
-                      newProducts[idx].category = selectedValue;
+                      newProducts[idx].title = e.target.value;
                       setProducts(newProducts);
-                    }}
-                    className="w-full p-2 mb-2 text-black"
-                    label='Choose category'
-                  >
-                    <SelectItem value="" className='text-black'>Select Category</SelectItem>
-                    {categories.map((cat, catIdx) => (
-                      <SelectItem key={cat.name} value={cat.name} className='text-black'>
-                        {cat.name}
-                      </SelectItem>
-                    ))}
-                  </Select>
+                    }} className="mb-2" />
+                    <Input label="Price / info" value={prod.weight} onChange={(e) => {
+                      const newProducts = [...products];
+                      newProducts[idx].weight = e.target.value;
+                      setProducts(newProducts);
+                    }} className="mb-2" />
+                    <div className="mb-2">
+                      {prod.image ? (
+                        <div className='w-1/2 mx-auto h-24'><ImagePreview image={prod.image} onRemove={() => removeImage('products', idx)} height={80} /></div>
+                      ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'products', idx)} refs={refs} placeholder='Select Image' />}
+                    </div>
+                    <Select
+                      value={prod.category || ""}
+                      onChange={(e) => {
+                        const selectedValue = e.target.value;
+                        const newProducts = [...products];
+                        // Set the category directly using the selected value (which is the name)
+                        newProducts[idx].category = selectedValue;
+                        setProducts(newProducts);
+                      }}
+                      className="w-full p-2 mb-2 text-black"
+                      label='Choose category'
+                    >
+                      <SelectItem value="" className='text-black'>Select Category</SelectItem>
+                      {categories.map((cat, catIdx) => (
+                        <SelectItem key={cat.name} value={cat.name} className='text-black'>
+                          {cat.name}
+                        </SelectItem>
+                      ))}
+                    </Select>
+                  </div>
+                  {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'product')}>
+                    <ProIcon name='CiTrash' size={18} color='white' />
+                  </ActionButton>}
                 </div>
-                {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'product')}>
-                  <ProIcon name='CiTrash' size={18} color='white' />
-                </ActionButton>}
-              </div>
-            ))}
+              ))}
             </div>
             <Button
               onPress={() => setProducts([...products, { category: 0, title: '', weight: '', image: null, imagePreview: '' }])}
@@ -682,30 +694,30 @@ export default function DigitalWallDashboard() {
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Banners</h2>
             <div className='grid grid-cols-2 gap-2'>
-            {banners.map((ban, idx) => (
-              <div key={idx} className='flex items-center gap-2 relative'>
-                <div className="mb-4 p-2 border rounded w-full ">
-                  <div className="mb-2">
-                    {ban.imagePreview ? (
-                      <ImagePreview image={ban.imagePreview} onRemove={() => removeImage('banners', idx)}  />
-                    ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'banners', idx)} refs={refs} placeholder='Select Image' />}
+              {banners.map((ban, idx) => (
+                <div key={idx} className='flex items-center gap-2 relative'>
+                  <div className="mb-4 p-2 border rounded w-full ">
+                    <div className="mb-2">
+                      {ban.image ? (
+                        <ImagePreview image={ban.image} onRemove={() => removeImage('banners', idx)} />
+                      ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'banners', idx)} refs={refs} placeholder='Select Image' />}
+                    </div>
+                    <Input label="Banner Text" value={ban.text} onChange={(e) => {
+                      const newBanners = [...banners];
+                      newBanners[idx].text = e.target.value;
+                      setBanners(newBanners);
+                    }} />
                   </div>
-                  <Input label="Banner Text" value={ban.text} onChange={(e) => {
-                    const newBanners = [...banners];
-                    newBanners[idx].text = e.target.value;
-                    setBanners(newBanners);
-                  }} />
+                  {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
+                    <ProIcon name='CiTrash' size={18} color='white' />
+                  </ActionButton>}
                 </div>
-                {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
-                  <ProIcon name='CiTrash' size={18} color='white' />
-                </ActionButton>}
-              </div>
-            ))}
+              ))}
             </div>
 
             <Button
               color='primary'
-              variant='faded' 
+              variant='faded'
               onPress={() => setBanners([...banners, { image: null, imagePreview: '', text: '' }])}
               className="text-blue-500"
             >
@@ -716,35 +728,35 @@ export default function DigitalWallDashboard() {
           {/* New Arrivals */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">New Arrivals</h2>
-              <div className='grid grid-cols-2 gap-2'>
+            <div className='grid grid-cols-2 gap-2'>
               {newArrivals.map((item, idx) => (
-              <div key={idx} className='flex items-center gap-2 relative'>
-                <div className="mb-4 p-2 border rounded w-full">
-                  <Input label="Name" value={item.title} onChange={(e) => {
-                    const newItems = [...newArrivals];
-                    newItems[idx].title = e.target.value;
-                    setNewArrivals(newItems);
-                  }} className="mb-2" />
-                  <Input label="Price / Info" value={item.weight} onChange={(e) => {
-                    const newItems = [...newArrivals];
-                    newItems[idx].weight = e.target.value;
-                    setNewArrivals(newItems);
-                  }} className="mb-2" />
-                  <div className="mb-2">
-                    {item.imagePreview ? (
-                      <div className='w-3/4 mx-auto'><ImagePreview image={item.imagePreview} onRemove={() => removeImage('newArrivals', idx)} /></div>
-                    ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'newArrivals', idx)} refs={refs} placeholder='Select Image' />}
+                <div key={idx} className='flex items-center gap-2 relative'>
+                  <div className="mb-4 p-2 border rounded w-full">
+                    <Input label="Name" value={item.title} onChange={(e) => {
+                      const newItems = [...newArrivals];
+                      newItems[idx].title = e.target.value;
+                      setNewArrivals(newItems);
+                    }} className="mb-2" />
+                    <Input label="Price / Info" value={item.weight} onChange={(e) => {
+                      const newItems = [...newArrivals];
+                      newItems[idx].weight = e.target.value;
+                      setNewArrivals(newItems);
+                    }} className="mb-2" />
+                    <div className="mb-2">
+                      {item.image ? (
+                        <div className='w-3/4 mx-auto'><ImagePreview image={item.image} onRemove={() => removeImage('newArrivals', idx)} /></div>
+                      ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'newArrivals', idx)} refs={refs} placeholder='Select Image' />}
+                    </div>
                   </div>
+                  {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] cursor-pointer' size='md' onPress={() => handleRemoveField(idx, 'newArrival')}>
+                    <ProIcon name='CiTrash' size={18} color='white' />
+                  </ActionButton>}
                 </div>
-                {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] cursor-pointer' size='md' onPress={() => handleRemoveField(idx, 'newArrival')}>
-                  <ProIcon name='CiTrash' size={18} color='white' />
-                </ActionButton>}
-              </div>
-            ))}
-              </div>
+              ))}
+            </div>
             <Button
               color='primary'
-              variant='faded' 
+              variant='faded'
               onPress={() => setNewArrivals([...newArrivals, { title: '', weight: '', image: null, imagePreview: '' }])}
               className="text-blue-500"
             >
@@ -757,31 +769,31 @@ export default function DigitalWallDashboard() {
             <h2 className="text-xl font-semibold mb-2">Offer Texts</h2>
 
             <div className='grid lg:grid-cols-2 gap-2'>
-            {offers?.map((item, index) => (
-              <div  key={index} className='relative'>
-              <Input
-                key={index}
-                label={`Offer ${index + 1}`}
-                value={item.offer}
-                onChange={(e) => {
-                  const updatedOffers = [...offers];
-                  updatedOffers[index].offer = e.target.value;
-                  setOffers(updatedOffers);
-                }}
-                className="mb-2"
-              />
-              {index > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[10px] -right-[10px] z-10 cursor-pointer' size='sm' onPress={() => handleRemoveField(index, 'offer')}>
-              <ProIcon name='CiTrash' size={18} color='white' />
-            </ActionButton>}
-            </div>
-            ))}
+              {offers?.map((item, index) => (
+                <div key={index} className='relative'>
+                  <Input
+                    key={index}
+                    label={`Offer ${index + 1}`}
+                    value={item.offer}
+                    onChange={(e) => {
+                      const updatedOffers = [...offers];
+                      updatedOffers[index].offer = e.target.value;
+                      setOffers(updatedOffers);
+                    }}
+                    className="mb-2"
+                  />
+                  {index > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[10px] -right-[10px] z-10 cursor-pointer' size='sm' onPress={() => handleRemoveField(index, 'offer')}>
+                    <ProIcon name='CiTrash' size={18} color='white' />
+                  </ActionButton>}
+                </div>
+              ))}
             </div>
 
             <Button
               type="button"
               color='primary'
-            variant='faded' 
-            onPress={(e) => {setOffers([...offers, { offer: '' }]) }}
+              variant='faded'
+              onPress={(e) => { setOffers([...offers, { offer: '' }]) }}
               className="text-blue-500"
             >
               + Add Offer

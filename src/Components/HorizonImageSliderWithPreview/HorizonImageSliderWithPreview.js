@@ -46,7 +46,7 @@ const HorizonImageSliderWithPreview = ({ images, ...props }) => {
                 cursor: "pointer",
               }}
             >
-             <ImageWithLoader src={image.imagePreview} alt={image.alt} objectFit="cover" />
+             <ImageWithLoader src={image.image || image.imagePreview} alt={image.alt} objectFit="cover" />
             </div>
           </SwiperSlide>
         ))}
@@ -58,7 +58,7 @@ const HorizonImageSliderWithPreview = ({ images, ...props }) => {
           <div className="absolute top-4 right-4 flex justify-center items-center">
             <div
               className="flex items-center justify-center p-2 rounded-full cursor-pointer border border-[#fff] w-[40px] h-[40px] z-50 mr-4 hover:opacity-50 transition-all"
-              onClick={() => downloadImage(selectedImage.imagePreview)}
+              onClick={() => downloadImage(selectedImage.image|| selectedImage.imagePreview)}
             >
               <ProIcon name="LuDownload" size={20} color="#fff" />
             </div>
@@ -86,7 +86,7 @@ const HorizonImageSliderWithPreview = ({ images, ...props }) => {
           >
             {images?.map((image, index) => (
               <SwiperSlide key={index}>
-                <ImageWithLoader src={image.imagePreview} alt={image.alt} objectFit="contain" />
+                <ImageWithLoader src={image?.image || image.imagePreview} alt={image.alt} objectFit="contain" />
               </SwiperSlide>
             ))}
           </Swiper>

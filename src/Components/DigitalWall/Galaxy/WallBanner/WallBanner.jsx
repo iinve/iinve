@@ -8,7 +8,7 @@ import { Autoplay } from "swiper/modules";
 
 
 const WallBanner = ({ data, isLightTheme, color }) => {
-
+  console.log(data, 'banner')
   return (
     <Swiper
     spaceBetween={20}
@@ -26,7 +26,7 @@ const WallBanner = ({ data, isLightTheme, color }) => {
           <div className={Style.spotlight}>
             <div className={Style.mesh}>
               <Image
-                src={banner?.imagePreview}
+                src={banner?.image || banner?.imagePreview}
                 height={300}
                 width={300}
                 alt="mesh"

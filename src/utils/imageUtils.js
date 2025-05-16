@@ -24,23 +24,29 @@ export async function fileToBase64(file) {
 
 
 
-export const getImagePreviewUrl = (inputFileOrUrl) => {
+export const getImagePreviewUrl = async (inputFileOrUrl) => {
   if (!inputFileOrUrl) return ""; // Return empty if no image is provided
-
   // If it's already a URL (backend-stored image), return it
   if (typeof inputFileOrUrl === "string" && inputFileOrUrl.startsWith("http")) {
     return inputFileOrUrl;
   }
 
   // If it's a File object, create a temporary Blob URL for preview
-  if (inputFileOrUrl instanceof File) {
-    return URL.createObjectURL(inputFileOrUrl);
+  if (inputFileOrUrl instanceof File ||  inputFileOrUrl instanceof Blob) {
+    return await blobToBase64(inputFileOrUrl);
   }
 
-  return ""; // Return empty if it's neither a File nor a URL
+  return inputFileOrUrl; // Return empty if it's neither a File nor a URL
 };
 
-
+const blobToBase64 = (blob) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+};
 
 export async function compressImage(imageFile) {
   const options = {

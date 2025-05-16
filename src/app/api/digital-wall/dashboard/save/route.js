@@ -31,7 +31,7 @@ async function uploadFileToSupabase(supabase, file, bucket, folder) {
   
   // Create custom URL with proper extension
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  return `${publicUrl}/assets/uploads/${uniqueName}`;
+  return `${publicUrl}`;
 }
 
 export async function POST(request) {
@@ -76,7 +76,7 @@ export async function POST(request) {
     const company_details = JSON.parse(formValues.company_details || '{}');
     const theme = JSON.parse(formValues.theme || '{}');
     const social_links = JSON.parse(formValues.social_links || '{}');
-    const spotlight_image = JSON.parse(formValues.spotlight_image || '{}');
+
 
     const spotlight = {
       ...spotlightRaw,
