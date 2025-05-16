@@ -6,7 +6,11 @@ import { NextResponse } from 'next/server';
 
 export async function GET(request, { params }) {
   // Get the full filename with extension
-  const filename = Array.isArray(params.filename) 
+  if (!params?.filename) {
+    return new NextResponse('Filename is required', { status: 400 });
+  }
+  
+  const filename = Array.isArray(params?.filename) 
     ? params.filename.join('/') 
     : params.filename;
   

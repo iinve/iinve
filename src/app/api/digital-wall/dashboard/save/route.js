@@ -5,7 +5,6 @@ import { NextResponse } from 'next/server';
 async function uploadFileToSupabase(supabase, file, bucket, folder) {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  console.log(file, "======checking...")
   // Get file extension from original filename
   const fileExtension = file.name.split('.').pop().toLowerCase();
   
