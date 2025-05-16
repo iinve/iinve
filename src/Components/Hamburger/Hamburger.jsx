@@ -29,7 +29,7 @@ const Hamburger = ({ navItems }) => {
   return (
     <div className={Style.Hamburger}>
       <div className={Style.nav} onClick={handleClickHamburger}>
-        <input type="checkbox" checked={isActive} />
+        <input type="checkbox" checked={isActive} onChange={handleClickHamburger}/>
         <svg>
           <use href="#menu" />
           <use href="#menu" />

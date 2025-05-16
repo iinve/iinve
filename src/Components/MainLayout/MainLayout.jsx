@@ -49,7 +49,7 @@ export default function MainLayout({ children }) {
           `}
           </Script>
         </head>
-        <body className="antialiased dark" style={{ colorScheme: 'dark' }} suppressHydrationWarning={true}>
+        <body className="antialiased dark" suppressHydrationWarning={true}>
           <ClientOnly>
             <HeroUIProvider>
               <ToastProvider placement="top-center" />
