@@ -37,23 +37,24 @@ export const ImagePreview = ({ image, onRemove }) => {
   }, [image]);
 
   return (
-    <div className="relative w-full md:w-1/2 mx-auto">
+    <div className="relative w-full mx-auto">
       {previewUrl && (
         <Image
           src={previewUrl}
           alt="Spotlight Preview"
           width={500}
-          height={300}
-          className="rounded border object-contain"
+          height={100}
+          className="w-full h-[150px] rounded border object-cover"
         />
       )}
       <ActionButton
         color="danger"
-        className="absolute -top-2 -right-2 text-[8px] p-2 cursor-pointer"
+        className="absolute -top-2 -left-2 text-[8px] p-2 cursor-pointer"
         size="xs"
         onPress={onRemove}
+        isIconOnly
       >
-        Remove
+       <ProIcon name='IoMdClose' color='#fff' size={12} />
       </ActionButton>
     </div>
   );

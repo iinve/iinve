@@ -32,6 +32,8 @@ export default function DigitalWallDashboard() {
     whatsapp_number: "",
     whatsapp_message: ""
   })
+
+
   const [dailyPrices, setDailyPrices] = useState([
     { label: '', amount: '' },
     { label: '', amount: '' },
@@ -42,7 +44,16 @@ export default function DigitalWallDashboard() {
   const [walls, setWalls] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const supabase = createClientComponentClient()
-  const { colorFromImage, setColorFromImage } = useWallDashboard(companyDetails?.logo)
+  const { colorFromImage, setColorFromImage } = useWallDashboard(companyDetails?.logo);
+  const [errors, setErrors] = useState({
+    companyDetails: {},
+    spotlight: {},
+    categories: [],
+    products: [],
+    banners: [],
+    newArrivals: [],
+    socialDetails: {}
+  });
   const [selectedThemeColor, setSelectedThemeColor] = useState()
   const [selectedContentColor, setSelectedContentColor] = useState()
   const [selectedHighlightedColor, setSelectedHighlightedColor] = useState()
@@ -90,7 +101,6 @@ export default function DigitalWallDashboard() {
     }
   }
 
-  console.log(socialDetails, 'social_links')
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -157,20 +167,20 @@ export default function DigitalWallDashboard() {
         setSelectedThemeColor(currentWall.theme?.highlight_color)
         setColorFromImage((prev) => {
           const safePrev = Array.isArray(prev) ? prev : [];
-        
+
           if (!currentWall?.theme) return safePrev;
-        
+
           const newColors = [
             { hex: currentWall.theme.content_color },
             { hex: currentWall.theme.theme_color },
             { hex: currentWall.theme.highlight_color },
           ];
-        
+
           const filteredNewColors = newColors.filter(
             (newColor) =>
               newColor?.hex && !safePrev.some((existing) => existing?.hex === newColor?.hex)
           );
-        
+
           return [...safePrev, ...filteredNewColors];
         });
 
@@ -197,6 +207,90 @@ export default function DigitalWallDashboard() {
     banners: {},
     newArrivals: {}
   });
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      companyDetails: {},
+      spotlight: {},
+      categories: [],
+      products: [],
+      banners: [],
+      newArrivals: [],
+      socialDetails: {}
+    };
+
+    // Company details validation
+    if (!companyDetails.name?.trim()) {
+      newErrors.companyDetails.name = "Company name is required";
+      isValid = false;
+    }
+
+    if (companyDetails.phone_number && !/^\d{10,15}$/.test(companyDetails.phone_number)) {
+      newErrors.companyDetails.phone_number = "Please enter a valid phone number";
+      isValid = false;
+    }
+
+    if (companyDetails.whatsapp_number && !/^\d{10,15}$/.test(companyDetails.whatsapp_number)) {
+      newErrors.companyDetails.whatsapp_number = "Please enter a valid WhatsApp number";
+      isValid = false;
+    }
+
+    // Social media URL validation
+    const urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+([/?].*)?$/;
+
+    // if (socialDetails.instagram && !urlRegex.test(socialDetails.instagram)) {
+    //   newErrors.socialDetails.instagram = "Please enter a valid URL";
+    //   isValid = false;
+    // }
+
+    // if (socialDetails.facebook && !urlRegex.test(socialDetails.facebook)) {
+    //   newErrors.socialDetails.facebook = "Please enter a valid URL";
+    //   isValid = false;
+    // }
+
+    // if (socialDetails.x && !urlRegex.test(socialDetails.x)) {
+    //   newErrors.socialDetails.x = "Please enter a valid URL";
+    //   isValid = false;
+    // }
+
+    // Categories validation
+    categories.forEach((category, idx) => {
+      if (!category.name?.trim()) {
+        if (!newErrors.categories[idx]) newErrors.categories[idx] = {};
+        newErrors.categories[idx].name = "Category name is required";
+        isValid = false;
+      }
+    });
+
+    // Products validation
+    products.forEach((product, idx) => {
+      if (!newErrors.products[idx]) newErrors.products[idx] = {};
+
+      if (!product.title?.trim()) {
+        newErrors.products[idx].title = "Product name is required";
+        isValid = false;
+      }
+
+      if (!product.category) {
+        newErrors.products[idx].category = "Category is required";
+        isValid = false;
+      }
+    });
+    banners.forEach((banner, idx) => {
+      if (!newErrors.banners) newErrors.banners = [];
+      if (!newErrors.banners[idx]) newErrors.banners[idx] = {};
+
+      if (!banner.title?.trim()) {
+        newErrors.banners[idx].name = "Banner name is required";
+        isValid = false;
+      }
+    });
+
+    // Set the errors
+    setErrors(newErrors);
+    return isValid;
+  };
   // const handleImageUpload = async (e, section, index = null) => {
   //   const rawFile = e.target.files[0];
   //   const file = await compressImage(rawFile);
@@ -221,9 +315,9 @@ export default function DigitalWallDashboard() {
   const handleImageUpload = async (e, section, index = null) => {
     const rawFile = e.target.files[0];
     const file =
-    rawFile.size > 2 * 1024 * 1024
-      ? await compressImage(rawFile)
-      : rawFile;
+      rawFile.size > 2 * 1024 * 1024
+        ? await compressImage(rawFile)
+        : rawFile;
     if (!file) return;
 
     //  const {data}= await supabase.storage.from('digital-wall-assets').upload(`image_${uuidv4()}`,file)
@@ -384,6 +478,18 @@ export default function DigitalWallDashboard() {
   // };
   const handleSave = async () => {
     setIsLoading(true);
+    if (!validateForm()) {
+      addToast({
+        title: 'Fill required fields',
+        description: 'Please fill required fields',
+        type: 'error',
+        color: 'danger',
+        variant: 'bordered',
+      });
+      setIsLoading(false);
+
+      return;
+    }
     const formData = new FormData();
 
     if (walls.id) {
@@ -466,7 +572,7 @@ export default function DigitalWallDashboard() {
         </div>
         <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
           <div className='flex items-center gap-4'>
-            <ProAvatar color='primary' url={companyDetails?.logo || ''} className='object-contain' />
+            <ProAvatar color='primary' url={companyDetails?.logo || ''} className='object-contain' size='lg' />
             <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br /> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
           </div>
           <ActionButton isLoading={isLoading} onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /> Logout</ActionButton>
@@ -487,7 +593,10 @@ export default function DigitalWallDashboard() {
                     <div className='flex items-center justify-center w-1/2 mx-auto'> <ImagePreview image={companyDetails?.logo} onRemove={() => removeImage('logo')} /></div>
                   ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'logo')} refs={refs} placeholder='Select Logo' />}
                 </div>
-                <Input type='text' label='Company Name' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2' />
+                <Input type='text' label='Company Name' placeholder='Shop Name' value={companyDetails?.name} onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })} className='mb-2'
+                  isInvalid={!!errors.companyDetails.name}
+                  errorMessage={errors.companyDetails.name}
+                />
                 <Input
                   type="tel"
                   label='Phone Number'
@@ -498,6 +607,10 @@ export default function DigitalWallDashboard() {
                     setCompanyDetails({ ...companyDetails, phone_number: phone });
                   }}
                   className='mb-2'
+                  isRequired
+                  required
+                  isInvalid={!!errors.companyDetails.phone_number}
+                  errorMessage={errors.companyDetails.phone_number}
                 />
                 <Input
                   type="tel"
@@ -509,6 +622,8 @@ export default function DigitalWallDashboard() {
                     setCompanyDetails({ ...companyDetails, whatsapp_number: whataspp });
                   }}
                   className='mb-2'
+                  isInvalid={!!errors.companyDetails.whatsapp_number}
+                  errorMessage={errors.companyDetails.whatsapp_number}
                 />
                 <ProTextArea
                   type="text"
@@ -518,6 +633,8 @@ export default function DigitalWallDashboard() {
                   onChange={(e) => {
                     setCompanyDetails({ ...companyDetails, whatsapp_message: e.target.value });
                   }}
+                  isInvalid={!!errors.companyDetails.whatsapp_message}
+                  errorMessage={errors.companyDetails.whatsapp_message}
                 />
               </section>
             </AccordionItem>
@@ -571,7 +688,7 @@ export default function DigitalWallDashboard() {
             <h2 className="text-xl font-semibold mb-2">Spotlight Banner</h2>
             <div className="mb-2">
               {spotlight.image ? (
-                <div className='w-1/2 mx-auto'><ImagePreview image={spotlight.image} onRemove={() => removeImage('spotlight')} /></div>
+                <div className='w-full mx-auto'><ImagePreview image={spotlight.image} onRemove={() => removeImage('spotlight')} /></div>
               ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'spotlight')} refs={refs} placeholder='Select Image' />}
             </div>
             <Textarea label='Spotlight Content' value={spotlight.text} onChange={(e) => setSpotlight({ ...spotlight, text: e.target.value })} />
@@ -592,6 +709,9 @@ export default function DigitalWallDashboard() {
                     newCategories[idx].name = e.target.value;
                     setCategories(newCategories);
                   }}
+                  isRequired
+                  isInvalid={errors.categories[idx]?.name}
+                  errorMessage={errors.categories[idx]?.name}
                 />
                 {idx > 0 && <ActionButton isIconOnly color='danger' className='' size='md' onPress={() => handleRemoveField(idx, 'category')}>
                   <ProIcon name='CiTrash' size={18} color='white' />
@@ -643,7 +763,12 @@ export default function DigitalWallDashboard() {
                       const newProducts = [...products];
                       newProducts[idx].title = e.target.value;
                       setProducts(newProducts);
-                    }} className="mb-2" />
+                    }}
+                      className="mb-2"
+                      isInvalid={errors.products[idx]?.name}
+                      errorMessage={errors.products[idx]?.name}
+                      isRequired
+                    />
                     <Input label="Price / info" value={prod.weight} onChange={(e) => {
                       const newProducts = [...products];
                       newProducts[idx].weight = e.target.value;
@@ -651,7 +776,7 @@ export default function DigitalWallDashboard() {
                     }} className="mb-2" />
                     <div className="mb-2">
                       {prod.image ? (
-                        <div className='w-1/2 mx-auto h-24'><ImagePreview image={prod.image} onRemove={() => removeImage('products', idx)} height={80} /></div>
+                        <div><ImagePreview image={prod.image} onRemove={() => removeImage('products', idx)} height={80} /></div>
                       ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'products', idx)} refs={refs} placeholder='Select Image' />}
                     </div>
                     <Select
@@ -662,7 +787,11 @@ export default function DigitalWallDashboard() {
                         // Set the category directly using the selected value (which is the name)
                         newProducts[idx].category = selectedValue;
                         setProducts(newProducts);
+
                       }}
+                      isRequired
+                      isInvalid={errors.products[idx]?.category}
+                      errorMessage={errors.products[idx]?.category}
                       className="w-full p-2 mb-2 text-black"
                       label='Choose category'
                     >
@@ -706,7 +835,11 @@ export default function DigitalWallDashboard() {
                       const newBanners = [...banners];
                       newBanners[idx].text = e.target.value;
                       setBanners(newBanners);
-                    }} />
+                    }}
+                      isRequired
+                      isInvalid={errors.banners.name}
+                      errorMessage={errors.banners.name}
+                    />
                   </div>
                   {idx > 0 && <ActionButton isIconOnly color='danger' className='absolute -top-[20px] -right-[20px] z-10' size='md' onPress={() => handleRemoveField(idx, 'banner')}>
                     <ProIcon name='CiTrash' size={18} color='white' />
@@ -744,7 +877,7 @@ export default function DigitalWallDashboard() {
                     }} className="mb-2" />
                     <div className="mb-2">
                       {item.image ? (
-                        <div className='w-3/4 mx-auto'><ImagePreview image={item.image} onRemove={() => removeImage('newArrivals', idx)} /></div>
+                        <div><ImagePreview image={item.image} onRemove={() => removeImage('newArrivals', idx)} /></div>
                       ) : <FileUploader onUpload={(e) => handleImageUpload(e, 'newArrivals', idx)} refs={refs} placeholder='Select Image' />}
                     </div>
                   </div>
