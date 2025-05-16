@@ -221,20 +221,20 @@ export default function DigitalWallDashboard() {
     };
 
     // Company details validation
-    if (!companyDetails.name?.trim()) {
-      newErrors.companyDetails.name = "Company name is required";
-      isValid = false;
-    }
+    // if (!companyDetails.name?.trim()) {
+    //   newErrors.companyDetails.name = "Company name is required";
+    //   isValid = false;
+    // }
 
-    if (companyDetails.phone_number && !/^\d{10,15}$/.test(companyDetails.phone_number)) {
-      newErrors.companyDetails.phone_number = "Please enter a valid phone number";
-      isValid = false;
-    }
+    // if (companyDetails.phone_number && !/^\d{10,15}$/.test(companyDetails.phone_number)) {
+    //   newErrors.companyDetails.phone_number = "Please enter a valid phone number";
+    //   isValid = false;
+    // }
 
-    if (companyDetails.whatsapp_number && !/^\d{10,15}$/.test(companyDetails.whatsapp_number)) {
-      newErrors.companyDetails.whatsapp_number = "Please enter a valid WhatsApp number";
-      isValid = false;
-    }
+    // if (companyDetails.whatsapp_number && !/^\d{10,15}$/.test(companyDetails.whatsapp_number)) {
+    //   newErrors.companyDetails.whatsapp_number = "Please enter a valid WhatsApp number";
+    //   isValid = false;
+    // }
 
     // Social media URL validation
     const urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+([/?].*)?$/;
@@ -255,37 +255,37 @@ export default function DigitalWallDashboard() {
     // }
 
     // Categories validation
-    categories.forEach((category, idx) => {
-      if (!category.name?.trim()) {
-        if (!newErrors.categories[idx]) newErrors.categories[idx] = {};
-        newErrors.categories[idx].name = "Category name is required";
-        isValid = false;
-      }
-    });
+    // categories.forEach((category, idx) => {
+    //   if (!category.name?.trim()) {
+    //     if (!newErrors.categories[idx]) newErrors.categories[idx] = {};
+    //     newErrors.categories[idx].name = "Category name is required";
+    //     isValid = false;
+    //   }
+    // });
 
-    // Products validation
-    products.forEach((product, idx) => {
-      if (!newErrors.products[idx]) newErrors.products[idx] = {};
+    // // Products validation
+    // products.forEach((product, idx) => {
+    //   if (!newErrors.products[idx]) newErrors.products[idx] = {};
 
-      if (!product.title?.trim()) {
-        newErrors.products[idx].title = "Product name is required";
-        isValid = false;
-      }
+    //   if (!product.title?.trim()) {
+    //     newErrors.products[idx].title = "Product name is required";
+    //     isValid = false;
+    //   }
 
-      if (!product.category) {
-        newErrors.products[idx].category = "Category is required";
-        isValid = false;
-      }
-    });
-    banners.forEach((banner, idx) => {
-      if (!newErrors.banners) newErrors.banners = [];
-      if (!newErrors.banners[idx]) newErrors.banners[idx] = {};
+    //   if (!product.category) {
+    //     newErrors.products[idx].category = "Category is required";
+    //     isValid = false;
+    //   }
+    // });
+    // banners.forEach((banner, idx) => {
+    //   if (!newErrors.banners) newErrors.banners = [];
+    //   if (!newErrors.banners[idx]) newErrors.banners[idx] = {};
 
-      if (!banner.title?.trim()) {
-        newErrors.banners[idx].name = "Banner name is required";
-        isValid = false;
-      }
-    });
+    //   if (!banner.title?.trim()) {
+    //     newErrors.banners[idx].name = "Banner name is required";
+    //     isValid = false;
+    //   }
+    // });
 
     // Set the errors
     setErrors(newErrors);
