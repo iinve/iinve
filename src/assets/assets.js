@@ -27,6 +27,7 @@ import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
 
+
 export const Assets = {
   Logo,
   icon,
@@ -78,6 +79,7 @@ export const Assets = {
     cube: "/assets/images/cube.png",
     crown: "/assets/images/crown.png",
   },
+  og_background:"/assets/images/og-image/og_background.png",
   templates: {
     hero_me: "/assets/images/templates/temp1.png",
     galaxy: "/assets/images/templates/temp2.png",
@@ -164,4 +166,8 @@ export const Assets = {
   digital_wall: "/assets/images/Digtialwall.png",
   invitation: "/assets/images/invitation.png",
   galaxy_spotlight_mesh: "/assets/images/digital-wall/gold-bg.jpg",
+  abstracts:{
+    blue_wave_1:"/assets/images/abstract-1.png",
+    blue_wave_2:"/assets/images/abstract-2.png",
+  }
 };

@@ -7,7 +7,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 
-const WallBanner = ({ data, color = '#912626', isLightTheme }) => {
+const WallBanner = ({ data, isLightTheme, color }) => {
 
   return (
     <Swiper
@@ -23,7 +23,7 @@ const WallBanner = ({ data, color = '#912626', isLightTheme }) => {
     >
       {data?.banners?.map((banner, idx) => (
         <SwiperSlide key={idx}>
-          <div className={Style.spotlight} style={{'--color': color}}>
+          <div className={Style.spotlight}>
             <div className={Style.mesh}>
               <Image
                 src={banner?.imagePreview}
@@ -34,7 +34,7 @@ const WallBanner = ({ data, color = '#912626', isLightTheme }) => {
               />
             </div>
             <div className={Style.spotlight_content}>
-              <h5 dangerouslySetInnerHTML={{ __html: banner?.text }} className={isLightTheme ? 'text-black' : 'text-white'}></h5>
+              <h5 dangerouslySetInnerHTML={{ __html: banner?.text }} style={{color: color?.content_color}}></h5>
             </div>
           </div>
 

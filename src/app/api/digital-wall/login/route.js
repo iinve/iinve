@@ -5,10 +5,7 @@ export async function POST(req) {
   const { email, password } = await req.json()
   
   // Log request data (remove in production)
-  console.log('Login request:', { 
-    email, 
-    passwordProvided: !!password
-  })
+  
   
   // Validate input
   if (!email || !password) {
@@ -36,7 +33,6 @@ export async function POST(req) {
     return Response.json({ error: 'Invalid login credentials' }, { status: 401 })
   }
 
-  console.log('User logged in:', data.user.id)
 
   // Get user profile data
   const { data: userData, error: userError } = await supabase

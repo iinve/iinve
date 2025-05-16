@@ -7,14 +7,12 @@ export const useQuotes = (data) => {
     const message = encodeURIComponent(
       "Wishing you both a lifetime filled with love, laughter, and endless happiness. May your journey together be as beautiful as this special day."
     );
-    console.log("Sending to:", phone);
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
   };
   
 
   const handleWishes = () => {
     const phoneNumbers = [data?.phone1, data?.phone2];
-    console.log(phoneNumbers)
     phoneNumbers.forEach(sendMessage);
   };
   return { handleWishes };

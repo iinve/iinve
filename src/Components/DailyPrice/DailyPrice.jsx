@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { formatPriceWithComma } from 'utils/utils';
 
-const DailyPrice = ({ price, style, isLightTheme }) => {
+const DailyPrice = ({ price, style, isLightTheme, theme }) => {
   const { t } = useTranslation();
   if(style === 'table'){
     return (
       <div className="rounded-lg md:w-[500px] w-[90%] mx-auto mt-8">
-        <h4 className={`text-2xl text-center mb-4 ${isLightTheme ? 'text-black' : 'text-white'}`}>Daily Price</h4>
+        <h4 className={`text-2xl text-center mb-4 font-bold`} style={{color: theme?.highlight_color}}>Daily Price</h4>
         <div className={`${isLightTheme ? 'text-black' : 'text-white'}`}>
           {price.map((item, idx)=>(
-            <div key={`card-${idx}`} className='flex justify-between border border-[#ffb300] rounded-lg p-2 mb-2'>
+            <div key={`card-${idx}`} className='flex justify-between border rounded-lg p-2 mb-2' style={{color: theme?.content_color, borderColor:theme?.highlight_color}}>
               <h4>{item.label}</h4>
               <h4>₹{formatPriceWithComma(Number(item.amount))}</h4>
             </div>
@@ -23,7 +23,7 @@ const DailyPrice = ({ price, style, isLightTheme }) => {
 
   return (
     <div className="rounded-lg p-4 w-[90%] mx-auto mt-4">
-      <h4 className="text-2xl text-center mb-4 text-white">Daily Price</h4>
+      <h4 className="text-2xl text-center mb-4 text-white font-bold" style={{color: theme?.highlight_color}}>Daily Price</h4>
 
       <div className="grid grid-cols-2 gap-4 w-full md:w-[60%] mx-auto">
         {price?.slice(0, 2).map((item, index) => (
@@ -39,9 +39,10 @@ const DailyPrice = ({ price, style, isLightTheme }) => {
               ease: "easeInOut",
               delay: index * 0.5,
             }}
-            className="border border-[#ffb300] rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
+            className="border rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
+            style={{borderColor: theme?.content_color}}
           >
-            <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(item.amount)}</h2>
+            <h2 className="text-2xl font-bold " style={{color: theme?.content_color}}>₹{formatPriceWithComma(item.amount)}</h2>
             <span className='text-white'>{item.label}</span>
           </motion.div>
         ))}
@@ -60,9 +61,10 @@ const DailyPrice = ({ price, style, isLightTheme }) => {
               ease: "easeInOut",
               delay: 1,
             }}
-            className="border border-[#ffb300] rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
+            className="border rounded-lg p-4 bg-white/10 backdrop-blur-lg text-center"
+            style={{borderColor: theme?.content_color}}
           >
-            <h2 className="text-2xl font-bold text-[#ffb300]">₹{formatPriceWithComma(price[2].amount)}</h2>
+            <h2 className="text-2xl font-bold"  style={{color: theme?.content_color}}>₹{formatPriceWithComma(price[2].amount)}</h2>
             <span className='text-white'>{price[2].label}</span>
           </motion.div>
         )}

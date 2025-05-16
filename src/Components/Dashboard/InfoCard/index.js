@@ -6,7 +6,6 @@ import Style from "./InfoCard.module.scss";
 const InfoCard = ({ info }) => {
   const cardRef = useRef();
 
-  console.log(cardRef?.current?.clientWidth);
   return (
     <div
       className={Style.infocard}

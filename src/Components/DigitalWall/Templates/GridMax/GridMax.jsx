@@ -12,6 +12,7 @@ import ProIcon from 'ProUI/Icons/icons'
 import ReactPlayer from 'react-player'
 import Style from './GridMax.module.scss'
 import { useEffect, useState } from 'react'
+import SocialLinks from 'Components/SocialLinks/SocialLinks'
 
 
 function VideoControl({toggleMute, isMuted}){
@@ -76,9 +77,8 @@ const GridMax = ({ data }) => {
   useEffect(() => {
     setIsClient(true);
   }, []);
-
   return (
-    <div className='min-h-screen bg-[#FFE4B3] py-6'>
+    <div className='min-h-screen py-6' style={{background:data?.theme?.theme_color}}>
       <div className='container mx-auto px-6'>
         <div className="text-center flex justify-center items-center mb-10">
           <div>
@@ -108,16 +108,17 @@ const GridMax = ({ data }) => {
               className={Style.video}
             />
           </div>
+          
           {/* Content */} 
           <div className="relative z-10 p-4 h-full flex items-center justify-center bg-gradient-to-b  from-transparent to-transparent"> 
-            <h2 className="text-xl md:text-3xl text-[#e39912] font-bold absolute bottom-4 w-3/4 mx-auto text-center z-10">{data?.spotlight?.text}</h2>
+            <h2 className="text-xl md:text-3xl font-bold absolute bottom-4 w-3/4 mx-auto text-center z-10" style={{color:data?.theme?.highlight_color}}>{data?.spotlight?.text}</h2>
           </div>
         </div>
       </div>
-      <DailyPrice price={data.daily_prices} style='table' isLightTheme />
-      <ProductSlider data={data} color='#FFD700' isLightTheme />
+      <DailyPrice price={data.daily_prices} style='table' isLightTheme theme={data?.theme} />
+      <ProductSlider data={data} color={data?.theme} isLightTheme />
       <div className='mb-8'>
-        <WallBanner data={data} color='#FFE4B3' isLightTheme />
+        <WallBanner data={data} isLightTheme color={data?.theme} />
       </div>
       <div className='flex flex-col gap-2 justify-center w-fit px-6 mx-auto fixed bottom-4 right-2 z-10'>
         <Button color='primary' isIconOnly className='w-fit ml-2 text-black' onPress={() => handleSocialIcons('phone')}><ProIcon name={'FaPhone'} color='#fff' size={20} /></Button>
@@ -147,6 +148,9 @@ const GridMax = ({ data }) => {
             },
           }}
         />
+      </div>
+      <div className='flex justify-center mb-4'>
+      <SocialLinks socialDetails={data.social_links} color={data?.theme}/>
       </div>
       <div className='flex items-center justify-center mt-10'>
         <Link href={"/"}>

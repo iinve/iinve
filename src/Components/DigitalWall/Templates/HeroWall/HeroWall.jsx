@@ -5,19 +5,23 @@ import WallBanner from 'Components/DigitalWall/Galaxy/WallBanner/WallBanner'
 import ProductSlider from 'Components/DigitalWall/ProductSlider/ProductSlider'
 import WallLayout from 'Components/DigitalWall/WallLayout/WallLayout'
 import HorizonImageSliderWithPreview from 'Components/HorizonImageSliderWithPreview/HorizonImageSliderWithPreview'
+import SocialLinks from 'Components/SocialLinks/SocialLinks'
+import Link from 'next/link'
+import { Assets } from 'assets/assets'
+import Image from 'next/image'
 
 const HeroWall = ({ data }) => {
   return (
-    <WallLayout background="#922626" data={data}>
+    <WallLayout background={data?.theme?.theme_color} data={data}>
       <VideoSpotlight data={data} />
-      <DailyPrice price={data.daily_prices} />
+      <DailyPrice price={data.daily_prices} color={data?.theme} />
       {/* <Offer data={data} /> */}
-      <ProductSlider data={data} />
-      <WallBanner data={data} />
+      <ProductSlider data={data} color={data?.theme}/>
+      <WallBanner data={data} color={data?.theme}/>
       <div className='mt-20'></div>
       <Slider data={data} />
       {/* <OfferContact data={data} /> */}
-      <h2 className="text-center text-2xl my-4 text-white">Our Showcase</h2>
+      <h2 className="text-center text-2xl my-4 text-white font-bold">Our Showcase</h2>
       {/* <ImageMasonry data={Imagedata} /> */}
       <HorizonImageSliderWithPreview
         images={data?.new_arrivals}
@@ -42,6 +46,14 @@ const HeroWall = ({ data }) => {
         }}
       />
       {/* <LanguageSwitcher /> */}
+      <div className='flex justify-center mb-4'>
+      <SocialLinks socialDetails={data.social_links} color={data?.theme}/>
+      </div>
+      <div className='flex items-center justify-center mt-10'>
+        <Link href={"/"}>
+          <Image src={Assets?.Created_by} alt="Logo" width={100} height={100} />
+        </Link>
+      </div>
     </WallLayout>
   )
 }

@@ -74,6 +74,8 @@ export async function POST(request) {
     const bannersRaw = JSON.parse(formValues.banners || '[]');
     const newArrivalsRaw = JSON.parse(formValues.newArrivals || '[]');
     const company_details = JSON.parse(formValues.company_details || '{}');
+    const theme = JSON.parse(formValues.theme || '{}');
+    const social_links = JSON.parse(formValues.social_links || '{}');
     const spotlight_image = JSON.parse(formValues.spotlight_image || '{}');
 
     const spotlight = {
@@ -96,6 +98,8 @@ export async function POST(request) {
       image: fileMap[`newArrivals[${i}][image]`] || null,
     }));
 
+    
+    // Prepare data
     const wallData = {
       spotlight,
       categories,
@@ -110,6 +114,8 @@ export async function POST(request) {
       template: formValues.template,
       daily_prices,
       company_details,
+      theme,
+      social_links,
     };
 
     let dbOperation;

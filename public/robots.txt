@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://iinve.com
+
+# Sitemaps
+Sitemap: https://iinve.com/sitemap.xml
