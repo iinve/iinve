@@ -568,7 +568,7 @@ export default function DigitalWallDashboard() {
     <div className="bg-white min-h-screen text-gray-900">
       <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
         <div className='flex justify-between items-center'>
-          <Logo width={120} height={120} />
+          <Logo width={90} height={120} />
           <ActionButton isLoading={isLoading} onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /> Logout</ActionButton>
         </div>
         
