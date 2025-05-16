@@ -567,15 +567,16 @@ export default function DigitalWallDashboard() {
   return (
     <div className="bg-white min-h-screen text-gray-900">
       <div className='bg-blue-100 p-4 rounded-b-2xl relative z-10'>
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-between items-center'>
           <Logo width={120} height={120} />
+          <ActionButton isLoading={isLoading} onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /> Logout</ActionButton>
         </div>
+        
         <div className='flex items-center justify-between gap-4 mt-6 mb-4 px-4'>
           <div className='flex items-center gap-4'>
-            <ProAvatar color='primary' url={companyDetails?.logo || ''} className='object-contain' size='lg' />
+            <ProAvatar color='primary' url={companyDetails?.logo || ''} className='object-contain' size='md' />
             <h2 className="text-xl text-left block font-gray-200 text-blue-900 font-italic">{getGreeting()},<br /> <span className='font-bold text-blue-900'>{user?.shop_name}</span></h2>
           </div>
-          <ActionButton isLoading={isLoading} onClick={handleLogout} variant='solid' color='danger' size='md'><ProIcon name='IoMdLogOut' size={18} color='white' /> Logout</ActionButton>
         </div>
       </div>
 
@@ -755,7 +756,7 @@ export default function DigitalWallDashboard() {
           {/* Products */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Products</h2>
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-2'>
               {products.map((prod, idx) => (
                 <div key={idx} className='flex items-center gap-2 relative' >
                   <div className="mb-4 p-2 border rounded w-full">
@@ -822,7 +823,7 @@ export default function DigitalWallDashboard() {
           {/* Banners */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Banners</h2>
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-2'>
               {banners.map((ban, idx) => (
                 <div key={idx} className='flex items-center gap-2 relative'>
                   <div className="mb-4 p-2 border rounded w-full ">
@@ -861,7 +862,7 @@ export default function DigitalWallDashboard() {
           {/* New Arrivals */}
           <section className="mb-6">
             <h2 className="text-xl font-semibold mb-2">New Arrivals</h2>
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-2'>
               {newArrivals.map((item, idx) => (
                 <div key={idx} className='flex items-center gap-2 relative'>
                   <div className="mb-4 p-2 border rounded w-full">
