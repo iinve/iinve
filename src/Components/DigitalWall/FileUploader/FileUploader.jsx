@@ -1,6 +1,8 @@
+import Image from 'next/image'
 import ActionButton from 'ProUI/ActionButton/ActionButton'
 import ProIcon from 'ProUI/Icons/icons'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getImagePreviewUrl } from 'utils/imageUtils'
 
 const FileUploader = ({ onUpload, refs, placeholder }) => {
   return (
@@ -21,14 +23,39 @@ export default FileUploader
 
 
 export const ImagePreview = ({ image, onRemove }) => {
-  return <div className="relative inline-block mt-2">
-    <img
-      src={image}
-      alt="Spotlight Preview"
-      className="h-24 object-contain rounded border relative"
-    />
-    <ActionButton isIconOnly color='danger' className='absolute -top-2 -right-2' size='sm' onPress={() => onRemove()}>
-      <ProIcon name='CiTrash' size={18} color='white' />
-    </ActionButton>
-  </div>
-}
+  const [previewUrl, setPreviewUrl] = useState("");
+
+  useEffect(() => {
+    const loadImageUrl = async () => {
+      const url = await getImagePreviewUrl(image);
+      setPreviewUrl(url);
+    };
+
+    if (image) {
+      loadImageUrl();
+    }
+  }, [image]);
+
+  return (
+    <div className="relative w-full mx-auto">
+      {previewUrl && (
+        <Image
+          src={previewUrl}
+          alt="Spotlight Preview"
+          width={500}
+          height={100}
+          className="w-full h-[150px] rounded border object-cover"
+        />
+      )}
+      <ActionButton
+        color="danger"
+        className="absolute -top-2 -left-2 text-[8px] p-2 cursor-pointer"
+        size="xs"
+        onPress={onRemove}
+        isIconOnly
+      >
+       <ProIcon name='IoMdClose' color='#fff' size={12} />
+      </ActionButton>
+    </div>
+  );
+};

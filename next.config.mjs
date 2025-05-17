@@ -18,6 +18,7 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // Your existing CSP header
       {
         source: "/(.*)",
         headers: [
@@ -25,6 +26,14 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: "frame-ancestors 'self';",
           },
+        ],
+      },
+      // New CORS headers for assets
+      {
+        source: '/assets/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Methods', value: 'GET' },
         ],
       },
     ];
