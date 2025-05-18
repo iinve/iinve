@@ -5,18 +5,17 @@ import image03 from "../assets/coffeePremium/Ashmil-Munshida/image03.jpg";
 import Groom from "../assets/coffeePremium/Ashmil-Munshida/groom.jpg";
 import image04 from "../assets/coffeePremium/Ashmil-Munshida/image04.jpg";
 import image05 from "../assets/coffeePremium/Ashmil-Munshida/image05.jpg";
-import image06 from "../assets/coffeePremium/Karthik-Varsha/six.jpeg";
 
 export const ashmil_munshida = {
   bride: "Munshida",
   groom: "Ashmil",
-  phone1: "",
+  phone1: "9072305492",
   theme: "#3c4028",
   default_color: "#FEF3E2",
   highlight_color: "#ddae6b",
-  phone2: "",
+  phone2: "9072305492",
   begin_time: "11:30 AM",
-  music: "/audio/christina.mp3",
+  music: "/audio/audio1.mp3",
   quote:
     "invite you to join us as we celebrate the beginning of our forever. Surrounded by the blessings of family, friends, and well-wishers, we step into a new chapter of life together and your presence will make our day truly complete.",
   hide_info: false,
@@ -33,7 +32,16 @@ export const ashmil_munshida = {
     },
   ],
 
-  images: [image01, image02, image03, image04, image01, image05, image06],
+  images: [
+    image02,
+    image01,
+    image03,
+    image04,
+    image02,
+    image05,
+    image01,
+    image03,
+  ],
   dateData: [
     { date: "22", day: "Thu" },
     { date: "23", day: "Fri" },
