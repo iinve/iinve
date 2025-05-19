@@ -13,6 +13,7 @@ export const metadata = {
   title: "Nikil & Sreejitha Wedding Invitation | iinve",
   description:
     "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
+    robots: "noindex, nofollow",
   openGraph: {
     title: "Nikil & Sreejitha Wedding Invitation | iinve",
     description:

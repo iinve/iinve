@@ -12,6 +12,7 @@ export const metadata = {
   title: "Ashmil & Munshida Wedding Invitation | iinve",
   description:
     "Ashmil and Munshida are getting married and joyfully invite you to celebrate their wedding.",
+    robots: "noindex, nofollow",
   openGraph: {
     title: "Ashmil and Munshida Wedding Invitation | iinve",
     description:

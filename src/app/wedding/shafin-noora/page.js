@@ -13,6 +13,7 @@ export const metadata = {
     title: "Shafin & Noora Yunus Wedding Invitation | iinve",
     description:
         "Shafin and Noora Yunus are getting married and joyfully invite you to celebrate their wedding.",
+        robots: "noindex, nofollow",
     openGraph: {
         title: "Shafin and Noora Yunus Wedding Invitation | iinve",
         description:

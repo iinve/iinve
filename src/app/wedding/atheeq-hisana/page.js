@@ -13,6 +13,7 @@ const metadataBase = isProduction
     title: "Atheeq & Hisana Wedding Invitation | iinve",
     description:
       "Atheeq and Hisana are getting married and joyfully invite you to celebrate their wedding.",
+      robots: "noindex, nofollow",
     openGraph: {
       title: "Atheeq & Hisana Wedding Invitation | iinve",
       description:

@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
     return {
       title: `Discover ${shopName}'s Exclusive Deals - iinve`,
       description,
+      robots: "noindex, nofollow",
       openGraph: {
         title: `Discover ${shopName}'s Exclusive Deals - iinve`,
         description,
@@ -42,6 +43,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "iinve wall",
       description: "Discover the latest offers, products, and promotions.",
+      robots: "noindex, nofollow",
       openGraph: {
         title: "iinve wall",
         description: "Discover the latest offers, products, and promotions.",

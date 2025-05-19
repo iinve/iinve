@@ -13,6 +13,7 @@ export const metadata = {
     title: "Karthik & Varsha Wedding Invitation | iinve",
     description:
         "Karthik and Varsha are getting married and joyfully invite you to celebrate their wedding.",
+        robots: "noindex, nofollow",
     openGraph: {
         title: "Karthik and Varsha Wedding Invitation | iinve",
         description:
