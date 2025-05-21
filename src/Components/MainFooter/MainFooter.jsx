@@ -8,7 +8,7 @@ const MainFooter = () => {
   const { width } = useWindowDimensions();
   const navItems = [
     {
-      name: "Privecy and policy",
+      name: "Privacy and policy",
       link: "/privacy-policy",
     },
     {
