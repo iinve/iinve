@@ -148,6 +148,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
+        
       </Head>
       <body className={JosefinSans.className}>
         <MainLayout>

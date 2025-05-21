@@ -3,7 +3,7 @@
 import { useAuthHandler } from "hooks/useAuthHandler";
 import { allRoutes } from "utils/pagesUtils";
 import { HeroUIProvider, ToastProvider } from "@heroui/react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
@@ -22,11 +22,27 @@ const ClientOnly = ({ children }) => {
   return <>{children}</>;
 };
 
+const GA_MEASUREMENT_ID = 'G-1FQFWSZL9B'
+
 export default function MainLayout({ children }) {
   const { isAuthPage } = useAuthHandler()
   const pathName = usePathname();
   const isViiewMe = !allRoutes.includes(pathName);
   const isEditor = pathName === '/editor';
+
+  const router = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_path: url,
+      })
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
 
   return (
@@ -34,20 +50,20 @@ export default function MainLayout({ children }) {
       <html lang="en">
         <head>
           <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=G-K5WW4JWD7J`}
           />
-          <meta name="google-site-verification" content="JN_fsI_iOK1i78YW1IT847atzJhUc9cEgQ5bKjQKx1g" />
-          <Script id="google-analytics" strategy="afterInteractive">
+          {/* Initialize gtag */}
+          <Script id="gtag-init" strategy="afterInteractive">
             {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-K5WW4JWD7J', {
-              page_path: window.location.pathname,
-            });
-          `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
           </Script>
+          <meta name="google-site-verification" content="JN_fsI_iOK1i78YW1IT847atzJhUc9cEgQ5bKjQKx1g" />
+
         </head>
         <body className="antialiased dark" suppressHydrationWarning={true}>
           <ClientOnly>
@@ -55,13 +71,13 @@ export default function MainLayout({ children }) {
               <ToastProvider placement="top-center" />
               <RecoilProvider>
                 {!isViiewMe && !isEditor && <Header />}
-                  {children}
+                {children}
               </RecoilProvider>
               {!isAuthPage && !isViiewMe && <MainFooter />}
             </HeroUIProvider>
           </ClientOnly>
         </body>
-      </html> 
+      </html>
     </>
   );
 }
