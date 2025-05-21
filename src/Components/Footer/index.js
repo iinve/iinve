@@ -18,7 +18,7 @@ const Footer = ({ data }) => {
       </div>
       <footer
         className={Style.footer}
-        style={{ "--theme": data.highlight_color }}
+        style={{ "--theme": data?.highlight_color }}
       >
         <div className={Style.iinve}>
           <Link href={"/"}>
