@@ -38,9 +38,11 @@ export default function MainLayout({ children }) {
         page_path: url,
       })
     }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
+    if (router?.events?.on) {
+      router.events.on('routeChangeComplete', handleRouteChange)
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange)
+      }
     }
   }, [router.events])
 
