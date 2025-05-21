@@ -1,32 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
-.footer {
+.thanks {
   text-align: center;
-  padding: 50px 0 10px 0;
-  position: relative;
-  background-repeat: no-repeat;
-
-  .thanks {
-    text-align: center;
-    h3 {
-      color: #ddae6b;
-      font-family: "Fleur De Leah", cursive !important;
-      font-size: 50px;
-      margin-bottom: 40px;
-      @media (max-width: 560px) {
-        font-size: 36px;
-      }
+  h3 {
+    color: #ddae6b;
+    font-family: "Fleur De Leah", cursive !important;
+    font-size: 50px;
+    margin-bottom: 40px;
+    @media (max-width: 560px) {
+      font-size: 36px;
     }
   }
+}
+.footer {
+  text-align: center;
+  padding: 40px 0 30px 0;
+  //   position: relative;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background: #000;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  //   border: 1px solid var(--theme);
+
   .iinve {
     img {
       width: 100px;
       display: block;
       margin: auto;
-      filter: invert(1);
-      @media (max-width: 480px) {
-        width: 70px;
-      }
     }
   }
   .flower {
