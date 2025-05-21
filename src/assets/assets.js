@@ -12,7 +12,7 @@ import Banner_mob from "./images/banner-mob.png";
 import Banner from "./images/banner.jpg";
 import Bokehads from "./images/bokeads-logo.jpg";
 import calendar from "./images/calendar-icon.png";
-import Created_by from "./images/create-tag.png";
+import Created_by from "./images/created-byNew.svg";
 import gradient from "./images/gradient.png";
 import icon from "./images/icon.png";
 import jwellery from "./images/jwels.jpeg";
@@ -26,7 +26,6 @@ import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
 import couples from "./MinimalTemplate/couples.JPG";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
-
 
 export const Assets = {
   Logo,
@@ -79,53 +78,52 @@ export const Assets = {
     cube: "/assets/images/cube.png",
     crown: "/assets/images/crown.png",
   },
-  og_background:"/assets/images/og-image/og_background.png",
+  og_background: "/assets/images/og-image/og_background.png",
   templates: {
     hero_me: "/assets/images/templates/temp1.png",
     galaxy: "/assets/images/templates/temp2.png",
     jupiter: "/assets/images/templates/temp3.png",
     stellar: "/assets/images/templates/temp4.png",
-    basic_01:{
+    basic_01: {
       full_template: "/assets/images/templates/basic_01_full.png",
       preview: "/assets/images/templates/basic_01.png",
     },
-    basic_02:{
+    basic_02: {
       full_template: "/assets/images/templates/basic_02_full.png",
       preview: "/assets/images/templates/basic_02.png",
     },
-    basic_03:{
+    basic_03: {
       full_template: "/assets/images/templates/basic_03_full.png",
       preview: "/assets/images/templates/basic_03.png",
     },
-    standard_01:{
+    standard_01: {
       full_template: "/assets/images/templates/standard_01_full.png",
       preview: "/assets/images/templates/harmony.png",
     },
-    standard_02:{
+    standard_02: {
       full_template: "/assets/images/templates/standard_02_full.png",
       preview: "/assets/images/templates/standard_02.png",
     },
-    standard_03:{
+    standard_03: {
       full_template: "/assets/images/templates/standard_03_full.png",
       preview: "/assets/images/templates/standard_03.png",
     },
-    standard_04:{
+    standard_04: {
       full_template: "/assets/images/templates/standard_04_full.png",
       preview: "/assets/images/templates/standard_04.png",
     },
-    premium_01:{
+    premium_01: {
       full_template: "/assets/images/templates/premium_01_full.png",
       preview: "/assets/images/templates/premium_01.png",
     },
-    premium_02:{
+    premium_02: {
       full_template: "/assets/images/templates/premium_02_full.png",
       preview: "/assets/images/templates/premium_02.png",
     },
-    premium_03:{
+    premium_03: {
       full_template: "/assets/images/templates/premium_03_full.png",
       preview: "/assets/images/templates/premium_03.png",
     },
-
   },
   steps: {
     create_account: "/assets/images/wedding.png",
@@ -166,8 +164,8 @@ export const Assets = {
   digital_wall: "/assets/images/Digtialwall.png",
   invitation: "/assets/images/invitation.png",
   galaxy_spotlight_mesh: "/assets/images/digital-wall/gold-bg.jpg",
-  abstracts:{
-    blue_wave_1:"/assets/images/abstract-1.png",
-    blue_wave_2:"/assets/images/abstract-2.png",
-  }
+  abstracts: {
+    blue_wave_1: "/assets/images/abstract-1.png",
+    blue_wave_2: "/assets/images/abstract-2.png",
+  },
 };
