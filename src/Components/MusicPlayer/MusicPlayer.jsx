@@ -1,8 +1,9 @@
 import ActionButton from "ProUI/ActionButton/ActionButton";
 import ProIcon from "ProUI/Icons/icons";
 import { useEffect, useRef, useState } from "react";
+import Style from './MusicPlayer.module.scss'
 
-export default function MusicPlayer({music}) {
+export default function MusicPlayer({ music }) {
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -105,26 +106,29 @@ export default function MusicPlayer({music}) {
   };
 
   return (
-    <div className={`flex items-center justify-end p-2 rounded-full shadow-lg ${isPlaying ? 'w-[130px]' : 'w-[65px]'} bg-white/50 fixed bottom-0 right-0 m-4 z-[999] backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
-      <canvas
-        ref={canvasRef}
-        width={50}
-        height={50}
-        className={`rounded-full shadow-lg mr-4 absolute transition-all duration-300 left-2 
+    <div className='fixed bottom-0 right-0 m-4 z-[999]'>
+      <div className={`flex items-center justify-end p-2 rounded-full shadow-lg ${isPlaying ? 'w-[130px]' : 'w-[65px]'} bg-white/50 backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
+        <canvas
+          ref={canvasRef}
+          width={50}
+          height={50}
+          className={`rounded-full shadow-lg mr-4 absolute transition-all duration-300 left-2 
               ${isPlaying ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-75'}`}
-      />
-      <audio ref={audioRef} src={music} />
+        />
+        <audio ref={audioRef} src={music} />
 
-      <ActionButton
-        onClick={togglePlay}
-        className="bg-gradient-to-tr from-blue-500 to-cyan-500 text-white shadow-lg"
-        isIconOnly
-        color="warning"
-        variant="faded"
-        size="lg"
-      >
-        <ProIcon name={isPlaying ? "FaPause" : "IoIosPlay"} color="white" size={18} />
-      </ActionButton>
+        <ActionButton
+          onClick={togglePlay}
+          className="bg-gradient-to-tr from-blue-500 to-cyan-500 text-white shadow-lg"
+          isIconOnly
+          color="warning"
+          variant="faded"
+          size="lg"
+        >
+          <ProIcon name={isPlaying ? "FaPause" : "IoIosPlay"} color="white" size={18} />
+        </ActionButton>
+      </div>
+     {!isPlaying && showPlayer && <div className={Style.pulseRing}></div>}
     </div>
   );
 }
