@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Style from "./Calendar.module.scss";
 import { useCalendar } from "./useCalendar";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
 
 const Calendar = ({ data }) => {
   const CalendarData =
@@ -55,21 +56,22 @@ const Calendar = ({ data }) => {
 
       <div className="p-4 flex justify-center flex-col items-center ">
         <h5 className={Style.addEventHead}>Add to your calendar</h5>
-        <add-to-calendar-button
+        <AddToCalendarButton
           name={`${data?.bride} & ${data?.groom}'s Wedding Ceremony`}
           title={`${data?.bride} & ${data?.groom}'s Wedding Ceremony`}
           startDate={data?.date}
+          endDate={data?.date}
           location={`${data?.place}`}
           startTime={data?.begin_time}
           endTime="20:00"
           timeZone="Asia/Calcutta"
           description={`Celebrate the wedding of ${data?.bride} & ${data?.groom}`}
-          options="'Apple','Google','iCal','Outlook.com','Yahoo'"
+        options={['Apple','Google']}
           buttonsList
           hideTextLabelButton
           buttonStyle="round"
           lightMode="bodyScheme"
-        ></add-to-calendar-button>
+        ></AddToCalendarButton>
       </div>
     </div>
   );

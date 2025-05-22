@@ -9,14 +9,15 @@ import image05 from "../assets/coffeePremium/Azhar-Fasna/five.webp";
 import image06 from "../assets/coffeePremium/Azhar-Fasna/six.webp";
 
 export const azhar_fasna = {
-  bride: "Azhar",
   groom: "Azhar",
-  phone1: "9072305492",
+  bride: "Fasna",
+  phone1: "",
+  send_wishes: false ,
   theme: "#181C14",
   default_color: "#FEF3E2",
   highlight_color: "#ddae6b",
-  phone2: "9072305492",
-  begin_time: "5 PM",
+  phone2: "",
+  begin_time: "05:00 PM",
   music: "/audio/audio1.mp3",
   quote:
     "invite you to join us as we celebrate the beginning of our forever. Surrounded by the blessings of family, friends, and well-wishers, we step into a new chapter of life together and your presence will make our day truly complete.",

@@ -10,57 +10,6 @@ import Quote from "Components/Quotes/index.js";
 import Style from "./CoffeePremium.module.scss";
 
 function CoffeePremium({ data }) {
-
-  // const play = () => {
-  //   if (playerRef.current && !playerRef.current.playing()) {
-  //     playerRef.current.play();
-  //   }
-  // };
-
-  // const pause = () => {
-  //   if (playerRef.current && playerRef.current.playing()) {
-  //     playerRef.current.pause();
-  //   }
-  // };
-
-  // const playerRef = useRef(null);
-  // const [hasInteracted, setHasInteracted] = useState(false);
-
-  // const handleUserGesture = async () => {
-  //   await SoundUtils.resumeAudioContext();
-  //   if (!playerRef.current) {
-  //     playerRef.current = SoundUtils.initPlayer("/audio/arabic.mp3", {
-  //       loop: true,
-  //       autoplay: true,
-  //       volume: 0.5,
-  //     });
-  //   } else {
-  //     playerRef.current.play();
-  //   }
-
-  //   setHasInteracted(true);
-  //   removeListeners();
-  // };
-
-  // const removeListeners = () => {
-  //   window.removeEventListener("click", handleUserGesture);
-  //   window.removeEventListener("touchstart", handleUserGesture);
-  //   window.removeEventListener("scroll", handleUserGesture);
-  // };
-
-  // useEffect(() => {
-  //   play();
-  //   window.addEventListener("click", handleUserGesture);
-  //   window.addEventListener("touchstart", handleUserGesture);
-  //   window.addEventListener("scroll", handleUserGesture);
-
-  //   return () => {
-  //     SoundUtils.stopAllSongs();
-  //     removeListeners();
-  //     pause();
-  //   };
-  // }, []);
-
   return (
     <div
       className={Style.CoffeWrapper}

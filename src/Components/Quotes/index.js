@@ -62,13 +62,13 @@ const Quote = ({ data }) => {
           - By {data?.groom} and {data?.bride}
         </p>
       </motion.div>
-      <div className={Style.button_box}>
-        <CommonButton
-          text={"Send Wishes"}
-          icon={<LuMessagesSquare />}
-          onClick={handleWishes}
-        />
-      </div>
+    {data?.send_wishes && <div className={Style.button_box}>
+      <CommonButton
+        text={"Send Wishes"}
+        icon={<LuMessagesSquare />}
+        onClick={handleWishes}
+      />
+    </div>}
     </div>
   );
 };
