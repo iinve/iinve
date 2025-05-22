@@ -61,7 +61,7 @@ const Footer = ({ data }) => {
         <p className=" w-[60%] md:w-full mx-auto text-base text-white mb-4">
           Are you loved? Let’s Create one for your event
         </p>
-        <ActionButton size="lg" color="primary" onClick={handleClickDemo}>
+        <ActionButton className='bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] text-white shadow-lg px-6' size="md" color="primary" onClick={handleClickDemo}>
           Create Yours
         </ActionButton>
       </footer>
