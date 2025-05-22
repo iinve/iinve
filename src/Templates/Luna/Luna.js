@@ -13,8 +13,8 @@ import React from "react";
 
 const Luna = () => {
   return (
-    <div>
-      <div className="relative z-10 bg-white">
+    <div className="bg-black">
+      <div className="relative z-10 bg-white rounded-b-[40px] mb-[200px]">
         <LunaSpotlight />
         <LunaDateCard />
         <LunaCoupleDetails />

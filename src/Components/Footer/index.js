@@ -22,7 +22,7 @@ const Footer = ({ data }) => {
       >
         <div className={Style.iinve}>
           <Link href={"/"}>
-            <Image src={Assets?.Created_by} alt="Logo" />
+            <Image src={Assets?.Created_by} alt="Logo" priority />
           </Link>
         </div>
         <div className="flex gap-4 items-center justify-center mt-4 mb-4">

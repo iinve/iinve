@@ -7,24 +7,9 @@ import Map from "Components/Map/index.js";
 import MeshMasonrySpotlight from "Components/MeshMasonrySpotlight/index.js";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import Quote from "Components/Quotes/index.js";
-import { useComment } from "utils/CoffeePremiumUtils/useComment.js";
 import Style from "./CoffeePremium.module.scss";
 
 function CoffeePremium({ data }) {
-  const {
-    handleComments,
-    formData,
-    handleSubmit,
-    selected,
-    setSelected,
-    handleSuggestion,
-    loading,
-    isNotValid,
-    drawerOpen,
-    setDrawerOpen,
-    comments,
-    setLoading,
-  } = useComment();
 
   // const play = () => {
   //   if (playerRef.current && !playerRef.current.playing()) {
