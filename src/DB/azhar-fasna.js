@@ -14,6 +14,7 @@ export const azhar_fasna = {
   phone1: "",
   send_wishes: false ,
   theme: "#181C14",
+  event_type:"reception",
   default_color: "#FEF3E2",
   highlight_color: "#ddae6b",
   phone2: "",
