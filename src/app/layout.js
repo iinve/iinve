@@ -93,6 +93,26 @@ const jsonLd = {
   "name": "iinve.com",
   "url": "https://iinve.com",
   "description": "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner for stunning e-invitations and impactful e-walls.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://iinve.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Digital Invitations ( e-invitations )",
+      "item": "https://iinve.com/e-invite"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Digital Wall ( e-walls for shop / brands )",
+      "item": "https://iinve.com/e-wall"
+    }
+  ],
   "keywords": [
    "iinve",
     "iinve invite",
@@ -138,6 +158,7 @@ const jsonLd = {
       },
     })),
   },
+  
 };
 
 
