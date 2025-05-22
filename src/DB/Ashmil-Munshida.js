@@ -13,6 +13,7 @@ export const ashmil_munshida = {
   theme: "#3c4028",
   default_color: "#FEF3E2",
   send_wishes : true ,
+  event_type:"wedding",
   highlight_color: "#ddae6b",
   phone2: "9072305492",
   begin_time: "11:30 AM",
