@@ -61,6 +61,8 @@ export const Assets = {
     icon_light: "/assets/images/icon_light.svg",
     icon_dark: "/assets/images/icon.svg",
     digital_wall: "/assets/images/digital_wall_logo.png",
+    icon_outline: "/assets/images/iinve-icon.svg",
+    icon_outline_lg: "/assets/images/iinve-icon-lg.svg",
   },
   tags: {
     digital_wall: "/assets/images/tags/digital-wall-tag.png",

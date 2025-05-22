@@ -12,6 +12,7 @@ import * as PiIcons from "react-icons/pi";
 import * as RiIcons from "react-icons/ri";
 import * as RxIcons from "react-icons/rx";
 import * as TbIcons from "react-icons/tb";
+import * as WiIcons from "react-icons/wi";
 
 
 
@@ -30,7 +31,8 @@ const iconLibraries = {
   Bi: BiIcons,
   Lu: LuIcons,
   Tb: TbIcons,
-  Pi: PiIcons
+  Pi: PiIcons,
+  Wi: WiIcons
 };
 
 const ProIcon = ({ name, color = "black", size = 48 }) => {

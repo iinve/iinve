@@ -31,6 +31,16 @@ const Footer = ({ data }) => {
         </li> */}
           <ActionButton isIconOnly>
             <Link
+              href="https://iinve.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* <ProIcon name="BsStars" size={22} color="#000" /> */}
+              <Image src={Assets?.Logo?.icon_outline_lg} alt="Logo"  height={20} width={20}/>
+            </Link>
+          </ActionButton>
+          <ActionButton isIconOnly>
+            <Link
               href="https://www.instagram.com/hi.iinve"
               target="_blank"
               rel="noopener noreferrer"
