@@ -111,6 +111,12 @@ const jsonLd = {
       "position": 3,
       "name": "Digital Wall ( e-walls for shop / brands )",
       "item": "https://iinve.com/e-wall"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Blogs",
+      "item": "https://iinve.com/#blogs"
     }
   ],
   "keywords": [
