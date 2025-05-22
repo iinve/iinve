@@ -12,7 +12,7 @@ export const azhar_fasna = {
   bride: "Azhar",
   groom: "Azhar",
   phone1: "9072305492",
-  theme: "#3c4028",
+  theme: "#181C14",
   default_color: "#FEF3E2",
   highlight_color: "#ddae6b",
   phone2: "9072305492",
