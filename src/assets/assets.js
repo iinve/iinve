@@ -12,7 +12,7 @@ import Banner_mob from "./images/banner-mob.png";
 import Banner from "./images/banner.jpg";
 import Bokehads from "./images/bokeads-logo.jpg";
 import calendar from "./images/calendar-icon.png";
-import Created_by from "./images/created-byNew.svg";
+import Created_by from "./images/created-byNew.png";
 import gradient from "./images/gradient.png";
 import icon from "./images/icon.png";
 import jwellery from "./images/jwels.jpeg";
