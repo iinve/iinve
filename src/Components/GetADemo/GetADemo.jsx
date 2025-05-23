@@ -5,13 +5,12 @@ import ActionButton from '../../ProUI/ActionButton/ActionButton';
 import GradientHeading from '../../ProUI/ProHeading/ProHeading';
 import Style from './Contact.module.scss';
 import useWindowDimensions from 'utils/useWindowDimensions';
+import { useWhatsAppMessage } from 'hooks/useWhatsAppMessage';
 
 const GetADemo = () => {
   const { toggleSheetVisibility } = useToggleVisibility()
   const { isMobile } = useWindowDimensions()
-  const handleClickDemo = () => {
-    window.location.href = 'https://api.whatsapp.com/send?phone=918075952456&text=Hello%2C%0A%0AI+hope+this+message+finds+you+well.+I+am+interested+in+creating+a+wedding+invitation+website+for+my+upcoming+wedding.+Could+you+please+provide+me+with+more+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you';
-  };
+  const {handleSendWhatsAppMessage} = useWhatsAppMessage()
   
 
     return (<div className={Style.contact_container}>
@@ -21,7 +20,7 @@ const GetADemo = () => {
             <span className={Style.content}>Whether you&lsquo;re preparing for your big day or building stronger customer connections —
             iinve is your digital partner.</span>
             <div className={Style.messege}>
-               <ActionButton className={Style.button} color="primary" size="lg" onClick={handleClickDemo}>Book a Demo</ActionButton>
+               <ActionButton className={Style.button} color="primary" size="lg" onClick={()=>handleSendWhatsAppMessage('demo')}>Book a Demo</ActionButton>
             </div>
         </div>
     </div>

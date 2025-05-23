@@ -1,3 +1,4 @@
+import { useWhatsAppMessage } from "hooks/useWhatsAppMessage";
 import Style from "./Footer.module.scss";
 
 import { Assets } from "assets/assets";
@@ -7,10 +8,7 @@ import ActionButton from "ProUI/ActionButton/ActionButton";
 import ProIcon from "ProUI/Icons/icons";
 
 const Footer = ({ data }) => {
-  const handleClickDemo = () => {
-    window.location.href =
-      "https://api.whatsapp.com/send?phone=918075952456&text=Hello%2C%0A%0AI+hope+this+message+finds+you+well.+I+am+interested+in+creating+a+wedding+invitation+website+for+my+upcoming+wedding.+Could+you+please+provide+me+with+more+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you";
-  };
+  const {handleSendWhatsAppMessage} = useWhatsAppMessage()
   return (
     <>
       <div className={Style.thanks}>
@@ -61,7 +59,7 @@ const Footer = ({ data }) => {
         <p className=" w-[60%] md:w-full mx-auto text-base text-white mb-4">
           Are you loved? Let’s Create one for your event
         </p>
-        <ActionButton className='bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] text-white shadow-lg px-6' size="md" color="primary" onClick={handleClickDemo}>
+        <ActionButton className='bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] text-white shadow-lg px-6' size="md" color="primary" onClick={()=>handleSendWhatsAppMessage('invite')}>
           Create Yours
         </ActionButton>
       </footer>

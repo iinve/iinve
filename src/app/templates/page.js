@@ -20,7 +20,7 @@ const Page = () => {
   };
 
   const handleCreateNow = () => {
-    const message = `Hello! 👋 \nI would like to place an order for the "*${selectedTemplate?.name}*" digital invitation.`;
+    const message = `Hello! \nI would like to place an order for the "*${selectedTemplate?.name}*" digital invitation.`;
     const whatsappNumber = "918075952456";
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

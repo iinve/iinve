@@ -56,9 +56,9 @@ export const Assets = {
   mayoori_logo,
 
   Logo: {
-    light: "/assets/images/logo.png",
-    dark: "/assets/images/dark_logo.png",
-    icon_light: "/assets/images/icon_light.svg",
+    main: "/assets/images/logo/logo.png",
+    white: "/assets/images/logo/logo-white.png",
+    icon_white: "/assets/images/logo/icon-white.png",
     icon_dark: "/assets/images/icon.svg",
     digital_wall: "/assets/images/digital_wall_logo.png",
     icon_outline: "/assets/images/iinve-icon.svg",

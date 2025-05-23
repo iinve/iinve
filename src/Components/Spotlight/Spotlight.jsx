@@ -12,6 +12,7 @@ import ProHeading from "ProUI/ProHeading/ProHeading";
 import { useToggleVisibility } from "utils/sheetUtils";
 import useWindowDimensions from "utils/useWindowDimensions";
 import Style from "./Spotlight.module.scss";
+import { useWhatsAppMessage } from "hooks/useWhatsAppMessage";
 // import { addToast } from '@heroui/react'
 
 const blurVariants = {
@@ -29,21 +30,8 @@ const blurVariants = {
 
 const Spotlight = () => {
   const { isMobile } = useWindowDimensions();
-  //   const [isLoading, setIsLoading] = useState(false);
-  const { toggleSheetVisibility } = useToggleVisibility();
-  const router = useRouter();
-  //   const handleClick = () => {
-  //     setIsLoading(true)
-  //     router.push('/auth')
-  //   }
-  const handleClickDemo = () => {
-    window.location.href =
-      "https://api.whatsapp.com/send?phone=918075952456&text=Hello%2C%0A%0AI+hope+this+message+finds+you+well.+I+am+interested+in+creating+a+wedding+invitation+website+for+my+upcoming+wedding.+Could+you+please+provide+me+with+more+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you";
-  };
-  const handleClickWall = () => {
-    window.location.href =
-      "https://api.whatsapp.com/send?phone=918075952456&text=Hello%2C%0A%0AI+hope+this+message+finds+you+well.+I+am+interested+in+creating+a+digital+wall+for+my+business.+Could+you+please+provide+me+with+more+details+about+your+services%2C+features%2C+and+pricing%3F%0A%0AThank+you";
-  };
+  const { handleSendWhatsAppMessage } = useWhatsAppMessage()
+
 
   return (
     <HeroHighlight>
@@ -72,11 +60,10 @@ const Spotlight = () => {
           <motion.div variants={blurVariants}>
             {/* <HomeInput /> */}
             <div className="flex md:justify-start justify-center gap-4">
-              {/* <ActionButton color='primary' size='lg' className='mr-4' onClick={handleClick} isLoading={isLoading}>Create Yours</ActionButton> */}
-              <ActionButton size="lg" color="primary" onClick={handleClickDemo}>
+              <ActionButton size="lg" color="primary" onPress={() => handleSendWhatsAppMessage('invite')}>
                 Create invitation
               </ActionButton>
-              <ActionButton size="lg" color="primary" onClick={handleClickWall}>
+              <ActionButton size="lg" color="primary" onPress={() => handleSendWhatsAppMessage('wall')}>
                 Create wall
               </ActionButton>
             </div>
