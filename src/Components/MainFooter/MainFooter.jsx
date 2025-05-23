@@ -49,7 +49,7 @@ const MainFooter = () => {
           </ActionButton>
         </div>
         <div>
-        <nav className={`flex gap-10 px-10 py-6 text-base text-center relative z-10`}>
+        <nav className={`flex flex-col md:flex-row gap-4 md:gap-10 px-10 py-6 text-base text-center relative z-10`}>
           {navItems.map((item, index) => (
             <Link
               href={item.link}
@@ -60,13 +60,13 @@ const MainFooter = () => {
             </Link>
           ))}
         </nav>
-        <span className="w-full flex justify-center">
+        <span className="w-full flex justify-center mb-10">
           &copy; iinve {new Date().getFullYear()} | All Right Reserved.
         </span>
       </div>
-        <div className="logo-box -mb-[40px] opacity-25 mt-6">
+        <div className={`logo-box md:-mb-[20px] -mb-[20px] md:opacity-30 opacity-40 `}>
           <Link href={"/"}>
-            <Image src={Assets?.Logo.white} alt="Logo" priority width={isMobile ? 500 : 600} height={400} />
+            <Image src={Assets?.Logo.logo_outlined} alt="Logo" priority width={isMobile ? 300 : 500} height={400} />
           </Link>
       </div>
       
