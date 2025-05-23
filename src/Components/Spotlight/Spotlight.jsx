@@ -48,7 +48,8 @@ const Spotlight = () => {
             {/* <TemplateChip /> */}
             <motion.div variants={blurVariants}>
               <ProHeading className={Style.heading}>
-                Create <span>Magic</span> for You!{!isMobile && <br />}
+              Unveil the <span>Magic</span> of {!isMobile && <br />}
+              Your Special Day! 
               </ProHeading>
             </motion.div>
           </motion.div>
