@@ -8,23 +8,16 @@ const LunaCoupleDetails = ({ data }) => {
           {data?.groom} & {data?.bride}
         </h2>
 
-        <div className="mb-10">
-          <h3 className="text-xl md:text-2xl font-semibold mb-2 text-[#50545c]">
-            {data?.groom}
-          </h3>
-          <p className="text-base md:text-lg">
-            The daughter of Mrs. Renna James & Mr. James
-            <br />
-            Parakkal House, Kochi
-          </p>
-          <p className="mt-2 text-base md:text-lg">
-            Grand daughter of Mr. Peter & Mrs. Jolly Peter,
-            <br />
-            Thrissur
-          </p>
-        </div>
+        {data?.couples_data.map((item, index) => (
+          <div key={index} className="mb-10">
+            <h3 className="text-xl md:text-2xl font-semibold mb-2 text-[#50545c]">
+              {item.full_name}
+            </h3>
+            <p className="text-base md:text-lg">{item.bio}</p>
+          </div>
+        ))}
 
-        <div>
+        {/* <div>
           <h3 className="text-xl md:text-2xl font-semibold mb-2 text-[#50545c]">
             {data?.bride}
           </h3>
@@ -33,12 +26,7 @@ const LunaCoupleDetails = ({ data }) => {
             <br />
             Parakkal House, Kochi
           </p>
-          <p className="mt-2 text-base md:text-lg">
-            Grand daughter of Mr. Peter & Mrs. Jolly Peter,
-            <br />
-            Thrissur
-          </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -21,7 +21,12 @@ export const BlogCard = ({ title, description, image, slug }) => {
           <h3 className="text-xl font-semibold">{title}</h3>
         </div>
         <p className="text-sm text-white/80">{description}</p>
-        <Link href={`/blog/${slug}`} color='primary' size="lg" className="font-bold w-full !mt-6 block text-right">
+        <Link
+          href={`/blog/${slug}`}
+          color="primary"
+          size="lg"
+          className="font-bold w-full !mt-6 block text-right"
+        >
           Read more
         </Link>
       </div>
@@ -32,8 +37,16 @@ export const BlogCard = ({ title, description, image, slug }) => {
 const BlogList = () => {
   return (
     <div className="container mx-auto " id="blogs">
-      <div className="text-center lg:text-left">  <InfoChip icon={<ProIcon name='FaRegStar' size={18} color='#fff' />} name={"Blogs"} className={"chip"} isLeft />
-        <ProHeading>Latest Blogs</ProHeading></div>
+      <div className="text-center lg:text-left">
+        {" "}
+        <InfoChip
+          icon={<ProIcon name="FaRegStar" size={18} color="#fff" />}
+          name={"Blogs"}
+          className={"chip"}
+          isLeft
+        />
+        <ProHeading>Latest Blogs</ProHeading>
+      </div>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-6 my-[80px] px-4 lg:px-0">
         {blogData.map((blog, idx) => (
           <BlogCard

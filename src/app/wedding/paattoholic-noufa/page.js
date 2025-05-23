@@ -10,17 +10,17 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Nikil & Sreejitha Wedding Invitation | iinve",
+  title: "Paattoholic & Noufa Wedding Invitation | iinve",
   description:
-    "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
+    "Paattoholic and Noufa are getting married and joyfully invite you to celebrate their wedding.",
   openGraph: {
-    title: "Nikil & Sreejitha Wedding Invitation | iinve",
+    title: "Paattoholic & Noufa Wedding Invitation | iinve",
     description:
-      "Nikil and Sreejitha are getting married and joyfully invite you to celebrate their wedding.",
+      "Paattoholic and Noufa are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
         url: `${metadataBase}/assets/images/og-image/sreejitha_og_image.jpg`,
-        alt: "Nikil & Sreejitha Wedding Invitation",
+        alt: "Paattoholic & Noufa Wedding Invitation",
       },
     ],
   },

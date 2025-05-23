@@ -50,7 +50,7 @@ const LunaGallerySlider = ({ data }) => {
             alt={`Image ${i}`}
             width={800}
             height={800}
-            onLoad={() => setIsLoaded(true)}
+            // onLoad={() => setIsLoaded(true)}
           />
         </SwiperSlide>
       ))}
