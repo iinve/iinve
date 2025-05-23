@@ -8,7 +8,7 @@ import GetADemo from "Components/GetADemo/GetADemo";
 import Spotlight from "Components/Spotlight/Spotlight";
 import StepContainer from "Components/StepContainer/StepContainer";
 import TemplateSlider from "Components/TemplateSlider/TemplateSlider";
-
+import "../styles/global.css";
 export default function Home() {
   return (
     <>
@@ -18,7 +18,7 @@ export default function Home() {
       <StepContainer />
       <TemplateSlider />
       {/* <Pricing/> */}
-      <BlogList/>
+      <BlogList />
       <FAQs />
       {/* <Testimonials /> */}
       <GetADemo />

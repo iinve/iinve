@@ -7,11 +7,11 @@ import ActionButton from "ProUI/ActionButton/ActionButton";
 
 const Categories = () => {
   return (
-    <div className="categories !px-6 md:p-16">
+    <div className="categories !px-6 md:p-16 bg-black">
       <div className="category_list bg-[#191b2882] rounded-3xl px-10 py-16 md:w-[80%] w-full mx-auto">
         <div className="category_item flex flex-col items-center md:flex-row gap-20 items-center justify-between mb-8 ">
           <div className="category_content max-w-2xl text-left">
-            <h2 className="text-xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl md:text-4xl font-bold mb-4 text-white">
               iinve e-invitation
             </h2>
             <p className="text-gray-400 text-md md:text-lg leading-relaxed mb-4">
@@ -21,8 +21,8 @@ const Categories = () => {
               through iinve.
             </p>
 
-            <ActionButton color='primary' className='mt-4' size='lg'>
-            <Link href="/e-invite">Learn More</Link>
+            <ActionButton color="primary" className="mt-4" size="lg">
+              <Link href="/e-invite">Learn More</Link>
             </ActionButton>
           </div>
 
@@ -47,14 +47,16 @@ const Categories = () => {
             />
           </div>
           <div className="category_content max-w-2xl text-left">
-            <h2 className="text-xl md:text-4xl font-bold mb-4">iinve wall</h2>
+            <h2 className="text-xl md:text-4xl font-bold mb-4 text-white">
+              iinve wall
+            </h2>
             <p className="text-gray-400 leading-relaxed text-md md:text-lg mb-4">
               iinve Wall lets local shops and small businesses showcase their
               latest products, offers, and updates all in one sleek, shareable
               webpage. No app, no clutter. Just smart, simple visibility.
             </p>
             <ActionButton size="lg" color="primary">
-            <Link href="/e-wall">Learn More</Link>
+              <Link href="/e-wall">Learn More</Link>
             </ActionButton>
           </div>
         </div>
