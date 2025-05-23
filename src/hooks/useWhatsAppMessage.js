@@ -3,7 +3,7 @@ export const useWhatsAppMessage = () => {
   const handleSendWhatsAppMessage = (mode) => {
     if (mode === 'invite') {
       window.location.href =
-        "https://api.whatsapp.com/send?phone=918075952456&text=Hi%2C%0A%0AI%27m+interested+in+creating+an+e-invitation+for+my+wedding.+Could+you+please+share+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you%21";
+        "https://api.whatsapp.com/send?phone=918075952456&text=Hi%2C%0A%0AI%27m+interested+in+creating+an+e-invitation+for+my+event.+Could+you+please+share+details+about+your+services%2C+packages%2C+and+pricing%3F%0A%0AThank+you%21";
     } else if (mode === 'demo') {
       window.location.href =
         "https://api.whatsapp.com/send?phone=918075952456&text=Hi%2C%0A%0AI%27m+interested+in+booking+a+demo+for+your+e-invitation+service.+Could+you+please+let+me+know+the+next+available+slot+and+how+to+proceed%3F%0A%0AThank+you%21";
