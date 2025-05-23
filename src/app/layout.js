@@ -103,13 +103,13 @@ const jsonLd = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Digital Invitations ( e-invitations )",
+      "name": "E-Invitations",
       "item": "https://iinve.com/e-invite"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Digital Wall ( e-walls for shop / brands )",
+      "name": "Digital E-Wall",
       "item": "https://iinve.com/e-wall"
     },
     {
