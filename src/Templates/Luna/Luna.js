@@ -8,13 +8,11 @@ import LunaShareWhishes from "Components/Luna/LunaShareWhishes/LunaShareWhishes"
 import LunaSpotlight from "Components/Luna/LunaSpotlight/LunaSpotlight";
 import LunaWeddingMessage from "Components/Luna/LunaWeddingMessage/LunaWeddingMessage";
 import Map from "Components/Map";
-import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
-import React from "react";
 
 const Luna = () => {
   return (
     <div className="bg-black">
-      <div className="relative z-10 bg-white rounded-b-[40px] mb-[200px]">
+      <div className="relative z-10 bg-white rounded-b-[40px] mb-[250px]">
         <LunaSpotlight />
         <LunaDateCard />
         <LunaCoupleDetails />
