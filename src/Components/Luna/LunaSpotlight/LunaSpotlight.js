@@ -8,7 +8,7 @@ const LunaSpotlight = ({ data }) => {
       <div className="min-h-screen flex items-center justify-center bg-black">
         <div className="w-[100%] h-[100dvh] relative rounded-lg overflow-hidden">
           <Image
-            src={bgImage}
+            src={data.images[0]}
             alt="Wedding couple"
             layout="fill"
             objectFit="cover"
