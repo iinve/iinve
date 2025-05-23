@@ -25,6 +25,9 @@ const MainFooter = () => {
   ];
   return (
     <footer className={`${Style.footer} flex justify-center flex-col items-center py-10 relative overflow-hidden`}>
+       <Link href={"/"} className="mb-8">
+            <Image src={Assets?.Logo.icon} alt="Logo" priority width={60} height={400} />
+          </Link>
       <div className="flex gap-4 items-center justify-center mt-4 mb-4 relative z-10">
           <ActionButton isIconOnly onPress={()=>handleSendWhatsAppMessage('contact')}>
               <ProIcon name="FaWhatsapp" size={22} color="#000" />
@@ -64,7 +67,7 @@ const MainFooter = () => {
           &copy; iinve {new Date().getFullYear()} | All Right Reserved.
         </span>
       </div>
-        <div className={`logo-box md:-mb-[20px] -mb-[20px] md:opacity-30 opacity-40 `}>
+        <div className={`logo-box md:-mb-[50px] -mb-[40px] md:opacity-30 opacity-40 ml-[20px] `}>
           <Link href={"/"}>
             <Image src={Assets?.Logo.logo_outlined} alt="Logo" priority width={isMobile ? 300 : 500} height={400} />
           </Link>
