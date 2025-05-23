@@ -1,5 +1,3 @@
-
-
 import { Accordion, AccordionItem } from "@heroui/react";
 
 const faqData = [
@@ -24,7 +22,8 @@ const faqData = [
   {
     id: 4,
     question: "What kind of events can I create invites for?",
-    answer: "Weddings, engagements, birthdays, baby showers, corporate events, housewarmings — you name it! iinve supports all kinds of celebrations.",
+    answer:
+      "Weddings, engagements, birthdays, baby showers, corporate events, housewarmings — you name it! iinve supports all kinds of celebrations.",
   },
   {
     id: 5,
@@ -33,7 +32,6 @@ const faqData = [
       "Yes, iinve pages are fully responsive and work well on all devices, including smartphones.",
   },
 ];
-
 
 const AccordionContainer = () => {
   return (
@@ -44,9 +42,11 @@ const AccordionContainer = () => {
             key={i}
             aria-label={data.question}
             title={data.question}
-            className="w-full overflow-hidden "
+            className="w-full overflow-hidden text-white"
           >
-            <div className="text-text_gray text-sm md:text-md">{data.answer}</div>
+            <div className="text-text_gray text-sm md:text-md">
+              {data.answer}
+            </div>
           </AccordionItem>
         ))}
       </Accordion>

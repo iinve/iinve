@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import bgImage from "../../../assets/images/Luna.png";
 
-const LunaSpotlight = () => {
+const LunaSpotlight = ({ data }) => {
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-black">
@@ -19,8 +19,10 @@ const LunaSpotlight = () => {
 
           {/* Content */}
           <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
-            <h1 className="text-3xl font-semibold mb-2">Hanan &amp; Hanan</h1>
-            <p className="text-lg">Feb 31 Monday</p>
+            <h1 className="text-3xl font-semibold mb-2">
+              {data?.groom} & {data?.bride}
+            </h1>
+            <p className="text-lg">{data?.date}</p>
           </div>
         </div>
       </div>

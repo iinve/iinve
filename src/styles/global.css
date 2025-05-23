@@ -4,8 +4,8 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap'); */
 :root {
-    --background: #ffffff;
-    --foreground: #1717178d;
+    --background: #0a0a0a;
+    --foreground: #fff;
     --primary: #1444a8;
     --hover-primary: #698be8;
     --light-primary: #141724;
@@ -102,21 +102,21 @@ html {
 }
 
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
         --foreground: #ededed;
     }
-}
+} */
 
 body {
-    color: var(--foreground);
-    background: var(--background);
+    background: var(--background) !important;
     background-repeat: no-repeat;
     font-family: 'Afacad';
     -webkit-font-smoothing: antialiased;
     user-select: none;
     overflow-x: hidden;
+    color: #fff;
 
 }
 

@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import { EffectCoverflow } from "swiper/modules";
 import styles from "./LunaGallerySlider.module.scss";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
 
 const images = [
   "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
@@ -14,7 +15,7 @@ const images = [
   "https://images.unsplash.com/photo-1487412912498-0447578fcca8",
 ];
 
-const LunaGallerySlider = () => {
+const LunaGallerySlider = ({ data }) => {
   return (
     <Swiper
       effect="coverflow"
@@ -42,9 +43,15 @@ const LunaGallerySlider = () => {
         1024: { slidesPerView: 3 },
       }}
     >
-      {images.map((img, index) => (
-        <SwiperSlide key={index} className={styles.swiperSlide}>
-          <img src={img} alt={`Slide ${index}`} />
+      {data.images.map((item, i) => (
+        <SwiperSlide key={i} className={styles.swiperSlide}>
+          <Image
+            src={item}
+            alt={`Image ${i}`}
+            width={800}
+            height={800}
+            onLoad={() => setIsLoaded(true)}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

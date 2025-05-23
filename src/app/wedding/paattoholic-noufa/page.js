@@ -1,5 +1,5 @@
-import { Nikil_Sreejitha } from "DB/Nikil_Sreejitha";
-import dynamic from "next/dynamic";
+import { paattoholic_noufa } from "DB/paattoholic_noufa";
+
 import Head from "next/head";
 import Luna from "Templates/Luna";
 
@@ -27,7 +27,7 @@ export const metadata = {
   metadataBase: metadataBase, // Add this line to set the metadataBase
 };
 
-// const Luna = dynamic(() => import("Templates/Luna"), {
+// const Luna = dynamic(() => import("../../../../Templates/Luna"), {
 //   ssr: false, // Ensure it only loads on the client side
 // });
 
@@ -51,7 +51,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <Luna data={Nikil_Sreejitha} />
+      <Luna data={paattoholic_noufa} />
     </div>
   );
 };
