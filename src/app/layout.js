@@ -175,7 +175,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
-        
+        <meta name="apple-mobile-web-app-title" content="iinve" />
       </Head>
       <body className={JosefinSans.className}>
         <MainLayout>
