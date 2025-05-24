@@ -1,13 +1,13 @@
 "use client";
 
 import "add-to-calendar-button";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { Assets } from "assets/assets";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Style from "./Calendar.module.scss";
 import { useCalendar } from "./useCalendar";
-import { AddToCalendarButton } from "add-to-calendar-button-react";
 
 const Calendar = ({ data }) => {
   const CalendarData =
@@ -41,7 +41,7 @@ const Calendar = ({ data }) => {
         ))}
       </ul>
       <div className={Style.exactTime}>
-        {data?.muhurtham &&<span className={Style.time}>Muhurtham - {data?.muhurtham}</span>}
+        {data?.muhurtham && <span className={Style.time}>Muhurtham - {data?.muhurtham}</span>}
         <Image src={Assets?.divider} alt="Divider" />
       </div>
 
