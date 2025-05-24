@@ -7,8 +7,8 @@ import ActionButton from "ProUI/ActionButton/ActionButton";
 
 const Categories = () => {
   return (
-    <div className="categories !px-6 md:p-16 bg-black">
-      <div className="category_list bg-[#191b2882] rounded-3xl px-10 py-16 md:w-[80%] w-full mx-auto">
+    <div className="categories !md:px-6 px-0 md:p-16 bg-black">
+      <div className="category_list bg-[#00] rounded-3xl px-10 py-16 md:w-[80%] w-full mx-auto">
         <div className="category_item flex flex-col items-center md:flex-row gap-20 items-center justify-between mb-8 ">
           <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4 text-white">
