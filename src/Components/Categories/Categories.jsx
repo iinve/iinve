@@ -12,7 +12,7 @@ const Categories = () => {
         <div className="category_item flex flex-col items-center md:flex-row gap-20 items-center justify-between mb-8 ">
           <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4 text-white">
-              iinve e-invitation
+             E-Invitation
             </h2>
             <p className="text-gray-400 text-md md:text-lg leading-relaxed mb-4">
               Say goodbye to paper waste and hello to stylish digital
@@ -48,7 +48,7 @@ const Categories = () => {
           </div>
           <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4 text-white">
-              iinve wall
+              E-Wall
             </h2>
             <p className="text-gray-400 leading-relaxed text-md md:text-lg mb-4">
               iinve Wall lets local shops and small businesses showcase their
