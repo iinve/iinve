@@ -54,7 +54,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
         grabCursor
         centeredSlides
         
-        slidesPerView={'auto'}
+        slidesPerView={3}
         loop={true}
         autoplay={{
           delay: 3000,
