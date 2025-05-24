@@ -33,7 +33,7 @@ const TemplateSwiper = ({ inView }) => {
   };
 
   return (
-    <div className='w-full md:w-[60%] overflow-hidden px-10 md:px-0'>
+    <div className='w-[90%] mx-auto md:w-[60%] overflow-hidden px-10 md:px-0'>
       <Swiper
         spaceBetween={10}
         loop={true}
