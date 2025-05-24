@@ -1,10 +1,10 @@
 import Bride from "../assets/coffeePremium/Juliet-Nathaniel/bride-one.webp";
-import image01 from "../assets/coffeePremium/Juliet-Nathaniel/one.webp";
-import image02 from "../assets/coffeePremium/Juliet-Nathaniel/two.webp";
-import image03 from "../assets/coffeePremium/Juliet-Nathaniel/three.webp";
-import Groom from "../assets/coffeePremium/Juliet-Nathaniel/groom.webp";
-import image04 from "../assets/coffeePremium/Juliet-Nathaniel/four.webp";
 import image05 from "../assets/coffeePremium/Juliet-Nathaniel/five.webp";
+import image04 from "../assets/coffeePremium/Juliet-Nathaniel/four.webp";
+import Groom from "../assets/coffeePremium/Juliet-Nathaniel/groom.webp";
+import image01 from "../assets/coffeePremium/Juliet-Nathaniel/one.webp";
+import image03 from "../assets/coffeePremium/Juliet-Nathaniel/three.webp";
+import image02 from "../assets/coffeePremium/Juliet-Nathaniel/two.webp";
 
 export const juliet_nathaniel = {
   groom: "Juliet",
@@ -53,7 +53,7 @@ export const juliet_nathaniel = {
     { date: "27", day: "Tue" },
     { date: "28", day: "Wed" },
   ],
-  month: "October",
+  month: "Oct",
   //   muhurtham: "11:50 AM",
   venue: "Las Vegas Convention Center ",
   place: "Las Vegas , America ",
