@@ -18,7 +18,7 @@ const randomStyle = (i) => ({
   zIndex: 10 - i,
 });
 
-export default function PhotoSwiperMessy({ delay = 3000 }) {
+export default function PhotoMessSwiper({ delay = 3000 }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -35,27 +35,25 @@ export default function PhotoSwiperMessy({ delay = 3000 }) {
       <AnimatePresence initial={false}>
         {stack.map((src, i) => (
           <motion.div
-            key={src}
-            initial={{
-              y: -100,
-              opacity: 0,
-              scale: 0.8,
-              rotate: -10,
-            }}
-            animate={randomStyle(i)}
-            exit={{
-              y: 100,
-              opacity: 0,
-              scale: 0.6,
-              rotate: 10,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: 'easeInOut',
-            }}
-            className="absolute top-0 left-0 w-full h-full"
-            style={{ zIndex: images.length - i }}
-          >
+          key={src}
+          initial={{
+            opacity: 0,
+            scale: 0.9,
+            rotate: -5,
+          }}
+          animate={randomStyle(i)}
+          exit={{
+            opacity: 0,
+            scale: 0.8,
+            rotate: 5,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeInOut',
+          }}
+          className="absolute top-0 left-0 w-full h-full"
+          style={{ zIndex: images.length - i }}
+        >
             <Image
               src={src}
               alt={`photo-${i}`}
