@@ -53,7 +53,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
         effect="coverflow"
         grabCursor
         centeredSlides
-        slidesPerView="auto"
+        slidesPerView={3}
         loop={true}
         autoplay={{
           delay: 3000,
