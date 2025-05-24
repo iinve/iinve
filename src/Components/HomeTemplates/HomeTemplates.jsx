@@ -53,8 +53,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
         effect="coverflow"
         grabCursor
         centeredSlides
-        
-        slidesPerView={3}
+        slidesPerView="auto"
         loop={true}
         autoplay={{
           delay: 3000,
@@ -64,18 +63,18 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
           rotate: 10,
           stretch: 0,
           depth: 150,
-          // modifier: 2,
-          // slideShadows: false,
+          modifier: 2,
+          slideShadows: true,
         }}
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className='w-full'
       >
         {templateSet.map((src, i) => (
-          <SwiperSlide key={i} className='w-fit mx-auto'>
+          <SwiperSlide key={i} className='w-[110px]'>
             <Image
               src={src}
               alt={`Image ${i}`}
-              width={150}
+              width={110}
               height={150}
               className='rounded-2xl shadow-2xl'
             // onLoad={() => setIsLoaded(true)}
@@ -114,7 +113,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
           >
             <Image
               src={src}
-              width={390}
+              width={400}
               height={600}
               priority
               className="w-[400px] lg:w-[300px] lg:h-[450px] md:w-[200px] md:h-[375px] max-sm:w-[140px] max-sm:h-[250px] rounded-3xl"
