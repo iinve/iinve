@@ -6,7 +6,6 @@ import Footer from "Components/Footer/index.js";
 import Map from "Components/Map/index.js";
 import MeshMasonrySpotlight from "Components/MeshMasonrySpotlight/index.js";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
-import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Quote from "Components/Quotes/index.js";
 import Style from "./CoffeePremium.module.scss";
 
@@ -35,9 +34,7 @@ function CoffeePremium({ data }) {
         <Calendar data={data} />
         <MeshMasonrySpotlight isNotSpotlight />
         <Map data={data} />
-        <main className="min-h-screen bg-[#b0b896] flex items-center justify-center">
-          <PhotoMessSwiper />
-        </main>
+
         {/* <DrawerSheet
         handleComments={handleComments}
         formData={formData}
