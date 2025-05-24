@@ -95,6 +95,7 @@ const Spotlight = () => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
+                className="mb-6 pt-6"
               >
                 <HomeTemplates type={currentSpotlight} isHorizontal={isMobile} />
               </motion.div>

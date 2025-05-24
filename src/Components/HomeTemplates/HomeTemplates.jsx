@@ -114,7 +114,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
           >
             <Image
               src={src}
-              width={400}
+              width={390}
               height={600}
               priority
               className="w-[400px] lg:w-[300px] lg:h-[450px] md:w-[200px] md:h-[375px] max-sm:w-[140px] max-sm:h-[250px] rounded-3xl"
