@@ -172,4 +172,8 @@ export const Assets = {
     blue_wave_1: "/assets/images/abstract-1.png",
     blue_wave_2: "/assets/images/abstract-2.png",
   },
+  walls:{
+    wall_01:'/assets/images/wall/wall_01.png',
+    wall_02:'/assets/images/wall/wall_02.png',
+  }
 };

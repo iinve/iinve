@@ -31,6 +31,21 @@ const blurVariants = {
   },
 };
 
+const homeTemplatesVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
+  exit: {
+    opacity: 0,
+    x: -50,
+    transition: { duration: 0.4, ease: "easeIn" }
+  },
+};
+
+
 const slides = [
   {
     heading: (
@@ -45,7 +60,7 @@ const slides = [
   {
     heading: (
       <>
-        Your Shop, Digitally Framed<br />  on <span>Every Wall</span>
+        Your Shop, Digitally Framed on <span>Every Wall</span>
       </>
     ),
     description:
@@ -57,20 +72,33 @@ const slides = [
 const Spotlight = () => {
   const { isMobile } = useWindowDimensions();
   const { handleSendWhatsAppMessage } = useWhatsAppMessage();
+  const [currentSpotlight, setCurrentSpotlight] = useState("invitation");
   const [index, setIndex] = useState(0);
 
-  // Autoplay every 6s
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 6000);
+      setCurrentSpotlight(currentSpotlight === 'invitation' ? 'wall' : 'invitation')
+    }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSpotlight]);
 
   return (
     <HeroHighlight>
       <div id="spotlight" className={Style.spotlight}>
-        {isMobile && <SpotlightTags />}
+        {/* {isMobile && <SpotlightTags />} */}
+        {/* {isMobile && <HomeTemplates type={currentSpotlight} style='slider-row' />} */}
+        {isMobile && <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={currentSpotlight}
+                variants={homeTemplatesVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <HomeTemplates type={currentSpotlight} isHorizontal={isMobile} />
+              </motion.div>
+            </AnimatePresence>}
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -78,17 +106,40 @@ const Spotlight = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            variants={blurVariants}
           >
-            <motion.div variants={blurVariants}>
+            {/* Heading */}
+            <motion.div
+              variants={blurVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
               <ProHeading className={Style.heading}>
                 {slides[index].heading}
               </ProHeading>
             </motion.div>
-            <motion.span className={Style.quote} variants={blurVariants} transition={{ delay: 0.2 }}>
+
+            {/* Description */}
+            <motion.span
+              className={Style.quote}
+              variants={blurVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+            >
               {slides[index].description}
             </motion.span>
-            <motion.div variants={blurVariants} transition={{ delay: 0.3 }}>
+
+            {/* Buttons */}
+            <motion.div
+              variants={blurVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
+            >
               <div className="flex md:justify-start justify-center gap-4">
                 {slides[index].buttons.map((btn, i) => (
                   <ActionButton
@@ -104,7 +155,21 @@ const Spotlight = () => {
             </motion.div>
           </motion.div>
         </AnimatePresence>
-        <div className="w-[150px]">{!isMobile && <HomeTemplates />}</div>
+        <div className="w-[150px]">
+          {!isMobile && (
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={currentSpotlight}
+                variants={homeTemplatesVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <HomeTemplates type={currentSpotlight}  />
+              </motion.div>
+            </AnimatePresence>
+          )}
+        </div>
       </div>
     </HeroHighlight>
   );
