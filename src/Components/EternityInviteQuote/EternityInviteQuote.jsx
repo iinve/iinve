@@ -11,7 +11,7 @@ const EternityInviteQuote = ({ data }) => {
 
         {/* Quote Icon */}
         <div className="flex justify-center  mb-4">
-          <span className="text-5xl font-serif">"</span>
+          <span className="text-5xl font-serif">&quot;</span>
         </div>
 
         {/* Invitation Text */}
