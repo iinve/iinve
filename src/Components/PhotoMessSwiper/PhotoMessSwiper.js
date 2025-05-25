@@ -1,24 +1,17 @@
-// components/PhotoSwiper.js
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const images = [
-  'https://images.unsplash.com/photo-1726137065519-c9a1b9eca951?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1747886803344-5c5d24f859b5?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-];
-const randomStyle = (i) => ({
-  x: Math.sin(i) * 15 + (Math.random() - 0.5) * 20,
-  y: Math.cos(i) * 15 + (Math.random() - 0.5) * 20,
-  rotate: (Math.random() - 0.5) * 20,
-  scale: 1,
-  opacity: 1,
-  zIndex: 10 - i,
+const randomOffset = () => ({
+  x: (Math.random() - 0.5) * 30,
+  y: (Math.random() - 0.5) * 30,
+  rotate: (Math.random() - 0.5) * 15,
 });
 
-export default function PhotoMessSwiper({ delay = 3000 }) {
+export default function PhotoMessSwiper({ data, delay = 3000 }) {
+  const { images } = data;
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -26,44 +19,78 @@ export default function PhotoMessSwiper({ delay = 3000 }) {
       setIndex((prev) => (prev + 1) % images.length);
     }, delay);
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length, delay]);
 
-  const stack = [...images.slice(index)];
+  const stack = [...images.slice(index), ...images.slice(0, index)];
 
   return (
-    <div className="relative w-[320px] aspect-[3/2] mx-auto mt-10">
-      <AnimatePresence initial={false}>
-        {stack.map((src, i) => (
-          <motion.div
-          key={src}
-          initial={{
-            opacity: 0,
-            scale: 0.9,
-            rotate: -5,
-          }}
-          animate={randomStyle(i)}
-          exit={{
-            opacity: 0,
-            scale: 0.8,
-            rotate: 5,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: 'easeInOut',
-          }}
-          className="absolute top-0 left-0 w-full h-full"
-          style={{ zIndex: images.length - i }}
-        >
-            <Image
-              src={src}
-              alt={`photo-${i}`}
-              fill
-              className="rounded-xl shadow-xl object-cover"
-            />
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    </div>
+    <div className="relative h-[300px] w-[200px] mx-auto mt-10">
+      {stack.map((src, i) => {
+        const zIndex = stack.length - i;
+        const isTop = i === 0;
+        const offset = randomOffset();
 
+        return (
+          <AnimatePresence key={i}>
+            <motion.div
+              key={i}
+              initial={{
+                opacity: 0,
+                scale: 0.9,
+                x: 0,
+                y: 0,
+                rotate: 0,
+                filter: 'brightness(0.7)',
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                x: offset.x,
+                y: offset.y,
+                rotate: isTop ? [0, -5, 5, -5, 5, 0] : offset.rotate,
+                filter: isTop ? 'brightness(1)' : 'brightness(0.5)',
+                transition: {
+                  rotate: isTop
+                    ? { type: 'spring', stiffness: 300, damping: 10, duration: 0.6 }
+                    : { type: 'spring', stiffness: 120, damping: 20 },
+                  filter: { duration: 0.5 },
+                  x: { type: 'spring', stiffness: 120, damping: 20 },
+                  y: { type: 'spring', stiffness: 120, damping: 20 },
+                  scale: { type: 'spring', stiffness: 120, damping: 20 },
+                  opacity: { duration: 0.3 },
+                },
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.8,
+                x: 0,
+                y: 0,
+                rotate: 0,
+                filter: 'brightness(0.7)',
+                transition: {
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 15,
+                },
+              }}
+              className="absolute top-0 left-0 w-full h-full"
+              style={{
+                zIndex,
+              }}
+            >
+
+              <div className="w-full h-full shadow-xl rounded-md overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`photo-${i}`}
+                  fill
+                  className="object-cover rounded-md border-[10px] border-white"
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        );
+      })}
+    </div>
   );
 }

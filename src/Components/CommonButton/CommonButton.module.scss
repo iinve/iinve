@@ -1,7 +1,7 @@
 .button {
-  background: linear-gradient(to right, #e8c694, #dfb273);
+  background: var(--content-color);
   font-size: 20px;
-  color: #704900;
+  color:var(--highlight-color) ;
   padding: 12px 30px;
   @media (max-width: 560px) {
     font-size: 16px;
@@ -17,7 +17,7 @@
   .divider {
     width: 1.5px;
     border-radius: 30px;
-    background-color: #704900;
+    background:var(--highlight-color) ;
     @media (max-width: 560px) {
       width: 1px;
     }

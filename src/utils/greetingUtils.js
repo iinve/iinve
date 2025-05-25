@@ -11,3 +11,15 @@ export function getGreeting() {
     return 'Good night';
   }
 }
+
+
+export const getHeading = (data) => {
+  switch (data.event_type) {
+    case 'reception':
+      return 'The Wedding Reception of';
+    case 'nikkah':
+      return 'The Nikkah of';
+    default:
+      return 'The Wedding of';
+  }
+};

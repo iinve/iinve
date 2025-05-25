@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import aom from "../../assets/images/aoom1.png";
+import { getHeading } from "utils/greetingUtils";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -12,13 +12,15 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const EternitySpotlight = ({ data }) => {
+const EternitySpotlight = ({ data, shuffle = false }) => {
 
   const [images, setImages] = useState(data.images);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setImages(shuffleArray(data.images));
+      if(shuffle){
+        setImages(shuffleArray(data.images));
+      }
     }, 8000); // shuffle every 8s
     return () => clearInterval(interval);
   }, [data.images]);
@@ -32,13 +34,13 @@ const EternitySpotlight = ({ data }) => {
 
 
   return (
-    <div className="  bg-[#BDC8AB] flex items-center justify-center flex-col h-screen relative">
-      <div className="absolute h-screen inset-0 bg-gradient-to-t from-[#BDC8AB]/50 to-[#E4FFE5]/0 z-10 pointer-events-none" ></div>
+    <div className="flex items-center justify-center flex-col h-screen relative">
+      <div className="absolute h-screen inset-0 z-10 pointer-events-none" style={{background: `linear-gradient(to top, ${data.theme}, rgba(228, 255, 229, 0))`,}}></div>
       <div className="w-full h-screen">
         <div className="shadow-md overflow-hidden">
           <div className="relative h-screen w-full">
             <Image
-              src={images[1]}
+              src={images[2]}
               alt="Couple"
               layout="fill"
               objectFit="cover"
@@ -56,7 +58,7 @@ const EternitySpotlight = ({ data }) => {
               height={300}
             />
             <Image
-              src={images[2]}
+              src={images[4]}
               alt="Image 2"
               className="w-full h-1/2 object-cover"
               width={500}
@@ -78,7 +80,7 @@ const EternitySpotlight = ({ data }) => {
           {/* Right Column (2 stacked images) */}
           <div className="w-1/3 flex flex-col pt-[100px]">
             <Image
-              src={images[4]}
+              src={images[1]}
               alt="Image 4"
               className="w-full h-1/2 object-cover"
               width={500}
@@ -95,9 +97,9 @@ const EternitySpotlight = ({ data }) => {
 
         </div>
 
-        <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 text-center w-full z-10">
-          <p className="text-sm text-black">The Engagement of</p>
-          <h1 className="text-2xl text-black md:text-3xl font-bold">
+      <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 text-center w-full z-10" style={{color:'#fff' }}>
+          <p className="text-md mb-1">{getHeading(data)}</p>
+          <h1 className="text-4xl md:text-3xl" style={{fontFamily: "Fleur De Leah"}}>
             {data?.groom} & {data?.bride}
           </h1>
         </div>

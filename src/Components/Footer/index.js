@@ -1,3 +1,4 @@
+'use client'
 import { useWhatsAppMessage } from "hooks/useWhatsAppMessage";
 import Style from "./Footer.module.scss";
 
@@ -8,14 +9,15 @@ import ActionButton from "ProUI/ActionButton/ActionButton";
 import ProIcon from "ProUI/Icons/icons";
 import useWindowDimensions from "utils/useWindowDimensions";
 
+
 const Footer = ({ data }) => {
   const { handleSendWhatsAppMessage } = useWhatsAppMessage()
   const { isMobile } = useWindowDimensions()
   return (
     <>
-      <div className={Style.thanks}>
+      {/* <div className={Style.thanks}>
         <h3>Thank You</h3>
-      </div>
+      </div> */}
       <footer
         className={Style.footer}
         style={{ "--theme": data?.highlight_color }}

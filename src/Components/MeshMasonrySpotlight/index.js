@@ -64,23 +64,12 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
     </div>
   );
 
-
-  const getHeading = () => {
-  switch (data.event_type) {
-    case 'reception':
-      return 'The Wedding Reception of';
-    case 'nikkah':
-      return 'The Nikkah of';
-    default:
-      return 'The Wedding of';
-  }
-};
   return (
     <div className={Style.spotlight}>
       <div className="wrapper">
         {!isNotSpotlight && (
           <div className={Style.nameBox}>
-            <span>{getHeading()}</span>
+            <span>{getHeading(data)}</span>
             <h4>
               {data?.groom} & {data?.bride}
             </h4>
