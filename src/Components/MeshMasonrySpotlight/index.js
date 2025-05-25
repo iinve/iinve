@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { getHeading } from "utils/greetingUtils";
 import Style from "./MeshMasonrySpotlight.module.scss";
 
 const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
