@@ -19,7 +19,7 @@ function CoffeePremium({ data }) {
         "--highlight-color": data?.highlight_color,
       }}
     >
-      <div className={`relative z-10 `} style={{ background: data.theme, borderBottomLeftRadius: '40px', borderBottomRightRadius: '40px', marginBottom: '250px' }}>
+      <div className={`relative z-10 `} style={{ background: data.theme, borderBottomLeftRadius: '40px', borderBottomRightRadius: '40px', marginBottom: '350px' }}>
         <MeshMasonrySpotlight data={data} />
         {!data?.hide_info &&
           data?.couples_data?.map((item, i) => (
