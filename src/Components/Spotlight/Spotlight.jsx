@@ -55,7 +55,7 @@ const slides = [
     ),
     description:
       "Create stunning digital event invitations and bring your brand to life with magical digital walls that showcase offers, new arrivals, and announcements with style.",
-    buttons: [{ label: "Create invitation", action: "invite" }],
+    buttons: [{ label: "Create Invitation", action: "invite" }],
   },
   {
     heading: (
@@ -65,7 +65,7 @@ const slides = [
     ),
     description:
       "Display offers, new arrivals, and updates on a branded digital wall. Perfect for local shops & events.",
-    buttons: [{ label: "Create wall", action: "wall" }],
+    buttons: [{ label: "Create Wall", action: "wall" }],
   },
 ];
 
@@ -147,6 +147,7 @@ const Spotlight = () => {
                     key={i}
                     size="lg"
                     color="primary"
+                    className='bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] px-8'
                     onPress={() => handleSendWhatsAppMessage(btn.action)}
                   >
                     {btn.label}

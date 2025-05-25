@@ -20,7 +20,7 @@ const GetADemo = () => {
             <span className={Style.content}>Whether you&lsquo;re preparing for your big day or building stronger customer connections —
             iinve is your digital partner.</span>
             <div className={Style.messege}>
-               <ActionButton className={Style.button} color="primary" size="lg" onClick={()=>handleSendWhatsAppMessage('demo')}>Book a Demo</ActionButton>
+               <ActionButton className={`${Style.button} bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] px-10`} color="primary" size="lg" onClick={()=>handleSendWhatsAppMessage('demo')}>Book a Demo</ActionButton>
             </div>
         </div>
     </div>

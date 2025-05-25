@@ -21,7 +21,7 @@ const Categories = () => {
               through iinve.
             </p>
 
-            <ActionButton color="primary" className="mt-4" size="lg">
+            <ActionButton color="primary" className="mt-4 bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6]" size="lg">
               <Link href="/e-invite">Learn More</Link>
             </ActionButton>
           </div>
@@ -55,7 +55,7 @@ const Categories = () => {
               latest products, offers, and updates all in one sleek, shareable
               webpage. No app, no clutter. Just smart, simple visibility.
             </p>
-            <ActionButton size="lg" color="primary">
+            <ActionButton size="lg" color="primary" className='bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6]'>
               <Link href="/e-wall">Learn More</Link>
             </ActionButton>
           </div>
