@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getHeading } from "utils/greetingUtils";
@@ -13,12 +13,11 @@ const shuffleArray = (array) => {
 };
 
 const EternitySpotlight = ({ data, shuffle = false }) => {
-
   const [images, setImages] = useState(data.images);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if(shuffle){
+      if (shuffle) {
         setImages(shuffleArray(data.images));
       }
     }, 8000); // shuffle every 8s
@@ -32,10 +31,14 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
     transition: { duration: 1.2 },
   };
 
-
   return (
     <div className="flex items-center justify-center flex-col h-screen relative">
-      <div className="absolute h-screen inset-0 z-10 pointer-events-none" style={{background: `linear-gradient(to top, ${data.theme}, rgba(228, 255, 229, 0))`,}}></div>
+      <div
+        className="absolute h-screen inset-0 z-10 pointer-events-none"
+        style={{
+          background: `linear-gradient(to top, ${data.theme}, rgba(228, 255, 229, 0))`,
+        }}
+      ></div>
       <div className="w-full h-screen">
         <div className="shadow-md overflow-hidden">
           <div className="relative h-screen w-full">
@@ -94,12 +97,17 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
               height={300}
             />
           </div>
-
         </div>
 
-      <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 text-center w-full z-10" style={{color:'#fff' }}>
+        <div
+          className="absolute bottom-[110px] left-1/2 -translate-x-1/2 text-center w-full z-10"
+          style={{ color: "#fff" }}
+        >
           <p className="text-md mb-1">{getHeading(data)}</p>
-          <h1 className="text-4xl md:text-3xl" style={{fontFamily: "Fleur De Leah"}}>
+          <h1
+            className="text-4xl md:text-3xl"
+            style={{ fontFamily: "Fleur De Leah" }}
+          >
             {data?.groom} & {data?.bride}
           </h1>
         </div>
@@ -123,6 +131,3 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
 };
 
 export default EternitySpotlight;
-
-
-

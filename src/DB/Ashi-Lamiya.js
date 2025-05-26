@@ -20,7 +20,7 @@ export const ashi_lamiya = {
   highlight_color: "#ddae6b",
   phone2: "",
   begin_time: "11:30 AM",
-  music: "/audio/audio1.mp3",
+  music: "/audio/tamil_theme.mp3",
   quote:
     "invite you to join us as we celebrate the beginning of our forever. Surrounded by the blessings of family, friends, and well-wishers, we step into a new chapter of life together and your presence will make our day truly complete.",
   hide_info: false,

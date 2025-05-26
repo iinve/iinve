@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import EternityCoupleDetails from "Components/EternityCoupleDetails/EternityCoupleDetails";
 import EternityInviteQuote from "Components/EternityInviteQuote/EternityInviteQuote";
 import EternitySpotlight from "Components/EternitySpotlight/EternitySpotlight";
@@ -7,10 +7,8 @@ import Map from "Components/Map";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
-import ganesh from "../../assets/images/ganesh.png";
+import ganesh from "../../assets/images/ganapathy.png";
 import Leaves from "../../assets/images/leaf.png";
-
-
 
 const index = ({ data }) => {
   return (
@@ -19,7 +17,7 @@ const index = ({ data }) => {
         "--theme-color": data?.theme,
         "--content-color": data?.default_color,
         "--highlight-color": data?.highlight_color,
-        background: data.theme
+        background: data.theme,
       }}
     >
       <div className="relative z-10 mb-[320px]">

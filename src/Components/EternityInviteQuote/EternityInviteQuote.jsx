@@ -5,7 +5,10 @@ import Quote from "../../assets/images/comma.svg";
 
 const EternityInviteQuote = ({ data }) => {
   return (
-    <div className="flex items-center justify-center" style={{background: data.theme}}>
+    <div
+      className="flex items-center justify-center"
+      style={{ background: data.theme }}
+    >
       <div className="relative  w-full  rounded-lg text-center px-6 py-16">
         {/* Top Leaf Decoration (optional) */}
 
@@ -15,13 +18,18 @@ const EternityInviteQuote = ({ data }) => {
         </div>
 
         {/* Invitation Text */}
-        <p className="text-base leading-relaxed max-w-2xl mx-auto text-center" style={{ color: data.default_color }}>
+        <p
+          className="text-base leading-relaxed max-w-2xl mx-auto text-center"
+          style={{ color: data.default_color }}
+        >
           With hearts full of love and joy, we,{" "}
-          <strong>[Names of the Couple]</strong>, invite you, our beloved
-          family, to join us in celebrating our union and the beginning of our
-          new life together. Your presence at our wedding ceremony and reception
-          will mean the world to us as we embark on this beautiful journey as a
-          family.
+          <strong>
+            {data?.groom} & {data?.bride}
+          </strong>
+          , invite you, our beloved family, to join us in celebrating our union
+          and the beginning of our new life together. Your presence at our
+          wedding ceremony and reception will mean the world to us as we embark
+          on this beautiful journey as a family.
           <br />
           <br />
           Let us come together to share in the love, happiness, and cherished
