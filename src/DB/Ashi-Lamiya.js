@@ -27,12 +27,12 @@ export const ashi_lamiya = {
   couples_data: [
     {
       full_name: "Ashi",
-      bio: "S/O  Father name",
+      bio: "S/o  Rahmath",
       avatar: Groom,
     },
     {
       full_name: "Lamiya",
-      bio: "D/O Father name",
+      bio: "D/o Abdul Nasir",
       avatar: Bride,
     },
   ],
