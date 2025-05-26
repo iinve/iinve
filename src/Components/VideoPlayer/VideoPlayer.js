@@ -15,23 +15,27 @@ const VideoPlayer = ({ url }) => {
       <ReactPlayer
         url={url}
         playing
-        autoplay
-        muted={isMuted || true}
+        muted={isMuted}
         controls={false}
         width="100%"
         height="100%"
         loop
+        playsinline
       />
-        <Button
-          onPress={toggleMute}
-          isIconOnly
-          color='primary'
-          variant='faded'
-          className='rounded-full absolute bottom-3 right-3 !bg-white/50 p-2 border border-white'
-          size='sm'
-        >
-          {!isMuted ? <ProIcon name={'FaVolumeMute'} size={22} /> : <ProIcon name={'FaVolumeUp'} size={22} />}
-        </Button>
+      <Button
+        onPress={toggleMute}
+        isIconOnly
+        color="primary"
+        variant="faded"
+        className="rounded-full absolute bottom-3 right-3 !bg-white/50 p-2 border border-white"
+        size="sm"
+      >
+        {!isMuted ? (
+          <ProIcon name="FaVolumeMute" size={22} />
+        ) : (
+          <ProIcon name="FaVolumeUp" size={22} />
+        )}
+      </Button>
     </div>
   );
 };
