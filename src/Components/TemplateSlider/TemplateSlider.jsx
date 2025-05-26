@@ -53,7 +53,7 @@ const TemplateSlider = () => {
             <ActionButton
               variant={"bordered"}
               size="md"
-              className="bg-primary border border-primary !px-10 !py-6"
+              className="bg-primary bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] border border-primary !px-10 !py-6"
             >
               <Link href={"/templates"}>Explore Showcase</Link>
             </ActionButton>
