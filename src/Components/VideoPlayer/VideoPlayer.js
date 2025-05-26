@@ -3,7 +3,7 @@ import ProIcon from 'ProUI/Icons/icons';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 
-const VideoPlayer = ({ url, controls = false, loop = true }) => {
+const VideoPlayer = ({ url }) => {
   const [isMuted, setIsMuted] = useState(true);
 
   const toggleMute = () => {
@@ -15,11 +15,12 @@ const VideoPlayer = ({ url, controls = false, loop = true }) => {
       <ReactPlayer
         url={url}
         playing
-        muted={isMuted}
-        controls={controls}
+        autoplay
+        muted={isMuted || true}
+        controls={false}
         width="100%"
         height="100%"
-        loop={loop}
+        loop
       />
         <Button
           onPress={toggleMute}
