@@ -1,13 +1,13 @@
-import Bride from "../assets/coffeePremium/Ashi-Lami/bride.png";
 import image01 from "../assets/coffeePremium/Ashi-Lami/ashi-lami1.JPG";
 import image02 from "../assets/coffeePremium/Ashi-Lami/ashi-lami2.jpg";
 import image03 from "../assets/coffeePremium/Ashi-Lami/ashi-lami3.jpg";
-import Groom from "../assets/coffeePremium/Ashi-Lami/groom.png";
 import image04 from "../assets/coffeePremium/Ashi-Lami/ashi-lami4.JPG";
 import image05 from "../assets/coffeePremium/Ashi-Lami/ashi-lami5.jpg";
 import image06 from "../assets/coffeePremium/Ashi-Lami/ashi-lami6.JPG";
 import image07 from "../assets/coffeePremium/Ashi-Lami/ashi-lami7.jpg";
 import image08 from "../assets/coffeePremium/Ashi-Lami/ashi-lami8.jpg";
+import Bride from "../assets/coffeePremium/Ashi-Lami/bride.png";
+import Groom from "../assets/coffeePremium/Ashi-Lami/groom.png";
 
 export const ashi_lamiya = {
   bride: "Lamiya",
@@ -47,6 +47,7 @@ export const ashi_lamiya = {
     image07,
     image08,
   ],
+  video:"https://res.cloudinary.com/dttvg5xil/video/upload/v1748291780/1748291751639393_t7ijmy.mp4",
   dateData: [
     { date: "18", day: "Thu" },
     { date: "19", day: "Fri" },

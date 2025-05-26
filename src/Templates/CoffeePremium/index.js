@@ -7,6 +7,7 @@ import Map from "Components/Map/index.js";
 import MeshMasonrySpotlight from "Components/MeshMasonrySpotlight/index.js";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import Quote from "Components/Quotes/index.js";
+import VideoPlayer from "Components/VideoPlayer/VideoPlayer";
 import Style from "./CoffeePremium.module.scss";
 
 function CoffeePremium({ data }) {
@@ -31,6 +32,9 @@ function CoffeePremium({ data }) {
             />
           ))}
         <Quote data={data} />
+        {data?.video && <div className="w-[90%] md:w-3/4 mx-auto mb-8">
+          <VideoPlayer url={data.video} />
+        </div>}
         <Calendar data={data} />
         <MeshMasonrySpotlight isNotSpotlight />
         <Map data={data} />
