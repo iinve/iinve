@@ -104,10 +104,7 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
           style={{ color: "#fff" }}
         >
           <p className="text-md mb-1">{getHeading(data)}</p>
-          <h1
-            className="text-4xl md:text-3xl"
-            style={{ fontFamily: "Fleur De Leah" }}
-          >
+          <h1 className="text-4xl lg:text-6xl" style={{fontFamily: "Fleur De Leah"}}>
             {data?.groom} & {data?.bride}
           </h1>
         </div>

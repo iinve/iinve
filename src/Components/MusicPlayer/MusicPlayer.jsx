@@ -115,7 +115,7 @@ export default function MusicPlayer({ music }) {
           className={`rounded-full shadow-lg mr-4 absolute transition-all duration-300 left-2 
               ${isPlaying ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-75'}`}
         />
-        <audio ref={audioRef} src={music} />
+        <audio ref={audioRef} src={music} loop />
 
         <ActionButton
           onClick={togglePlay}

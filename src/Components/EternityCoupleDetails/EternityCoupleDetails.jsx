@@ -11,7 +11,7 @@ const EternityCoupleDetails = ({ data }) => {
       <div className="bg-white py-16 px-4 text-center text-gray-700 max-w-[500px] w-full mx-auto">
         {/* Top separator */}
         <div className="flex justify-center mb-8">
-          <Image src={aom} alt="Separator" width={100} height={180}  className="object-contain" />
+          <Image src={aom} alt="Separator" width={140} height={180}  className="object-contain" />
         </div>
 
         {/* Groom */}
