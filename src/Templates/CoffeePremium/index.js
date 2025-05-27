@@ -20,7 +20,15 @@ function CoffeePremium({ data }) {
         "--highlight-color": data?.highlight_color,
       }}
     >
-      <div className={`relative z-10 `} style={{ background: data.theme, borderBottomLeftRadius: '40px', borderBottomRightRadius: '40px', marginBottom: '350px' }}>
+      <div
+        className={`relative z-10 `}
+        style={{
+          background: data.theme,
+          borderBottomLeftRadius: "40px",
+          borderBottomRightRadius: "40px",
+          marginBottom: "350px",
+        }}
+      >
         <MeshMasonrySpotlight data={data} />
         {!data?.hide_info &&
           data?.couples_data?.map((item, i) => (
@@ -38,21 +46,6 @@ function CoffeePremium({ data }) {
         <Calendar data={data} />
         <MeshMasonrySpotlight isNotSpotlight />
         <Map data={data} />
-
-        {/* <DrawerSheet
-        handleComments={handleComments}
-        formData={formData}
-        handleSubmit={handleSubmit}
-        selected={selected}
-        setSelected={setSelected}
-        handleSuggestion={handleSuggestion}
-        loading={loading}
-        setLoading={setLoading}
-        isNotValid={isNotValid}
-        drawerOpen={drawerOpen}
-        setDrawerOpen={setDrawerOpen}
-      />
-      {comments && <Comments data={comments.slice().reverse()} />} */}
         <MusicPlayer music={data?.music} />
       </div>
       <Footer data={data} />

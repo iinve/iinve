@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion } from "framer-motion";
 import { FaMapLocationDot } from "react-icons/fa6";
@@ -18,9 +18,8 @@ const Map = ({ data }) => {
   return (
     <div className={Style.map}>
       <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
-        With great joy and heartfelt excitement, we invite you to share in our
-        happiness as we exchange vows and embark on this beautiful journey
-        together.
+        {data.quote ||
+          "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together."}
       </motion.p>
 
       <motion.div
@@ -32,7 +31,9 @@ const Map = ({ data }) => {
           src={data?.map}
           width="650"
           height={
-            typeof window !== 'undefined' && window.innerWidth >= 560 ? "350" : "240"
+            typeof window !== "undefined" && window.innerWidth >= 560
+              ? "350"
+              : "240"
           }
           className={Style.mapBox}
           allowFullScreen=""
