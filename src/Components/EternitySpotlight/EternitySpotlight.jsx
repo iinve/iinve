@@ -32,20 +32,20 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col h-screen relative">
+    <div className="relative h-[750px] md:h-[900px]">
       <div
-        className="absolute h-screen inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background: `linear-gradient(to top, ${data.theme}, rgba(228, 255, 229, 0))`,
         }}
       ></div>
-      <div className="w-full h-screen">
-        <div className="shadow-md overflow-hidden">
-          <div className="relative h-screen w-full">
+      <div className="w-full">
+        <div className=" overflow-hidden">
+          <div className="relative h-[60vh] w-full">
             <Image
               src={images[2]}
               alt="Couple"
-              layout="fill"
+              className="w-full"
               objectFit="cover"
             />
           </div>
