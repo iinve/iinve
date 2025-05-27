@@ -41,8 +41,13 @@ const Calendar = ({ data }) => {
         ))}
       </ul>
       <div className={Style.exactTime}>
-        {data?.muhurtham && <span className={Style.time}>Muhurtham - {data?.muhurtham}</span>}
-        <Image src={Assets?.divider} alt="Divider" />
+        {data?.muhurtham && (
+          <p className={Style.time}>
+            Muhurtham -
+            <span dangerouslySetInnerHTML={{ __html: data?.muhurtham }}></span>
+          </p>
+        )}
+        {/* <Image src={Assets?.divider} alt="Divider" /> */}
       </div>
 
       <div className={Style.destination}>
@@ -66,7 +71,7 @@ const Calendar = ({ data }) => {
           endTime="20:00"
           timeZone="Asia/Calcutta"
           description={`Celebrate the wedding of ${data?.bride} & ${data?.groom}`}
-        options={['Apple','Google']}
+          options={["Apple", "Google"]}
           buttonsList
           hideTextLabelButton
           buttonStyle="round"

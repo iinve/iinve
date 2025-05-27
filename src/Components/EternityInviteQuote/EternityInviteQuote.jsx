@@ -33,9 +33,11 @@ const EternityInviteQuote = ({ data }) => {
           <br />
           <br />
           Let us come together to share in the love, happiness, and cherished
-          memories on <strong>[Date of the Wedding]</strong> at{" "}
-          <strong>[Venue Name and Address]</strong>. We look forward to creating
-          unforgettable moments with all of you.
+          memories on <strong>{data?.date}</strong> at
+          <strong>
+            {data?.venue} and {data?.place}
+          </strong>
+          . We look forward to creating unforgettable moments with all of you.
         </p>
 
         {/* Bottom Separator */}

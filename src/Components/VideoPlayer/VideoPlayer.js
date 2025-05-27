@@ -1,13 +1,13 @@
-import { Button } from '@heroui/react';
-import ProIcon from 'ProUI/Icons/icons';
-import { useState } from 'react';
-import ReactPlayer from 'react-player';
+import { Button } from "@heroui/react";
+import ProIcon from "ProUI/Icons/icons";
+import { useState } from "react";
+import ReactPlayer from "react-player";
 
 const VideoPlayer = ({ url }) => {
   const [isMuted, setIsMuted] = useState(true);
 
   const toggleMute = () => {
-    setIsMuted(prev => !prev);
+    setIsMuted((prev) => !prev);
   };
 
   return (
@@ -30,7 +30,7 @@ const VideoPlayer = ({ url }) => {
         className="rounded-full absolute bottom-3 right-3 !bg-white/50 p-2 border border-white"
         size="sm"
       >
-        {!isMuted ? (
+        {isMuted ? (
           <ProIcon name="FaVolumeMute" size={22} />
         ) : (
           <ProIcon name="FaVolumeUp" size={22} />

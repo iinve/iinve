@@ -9,6 +9,9 @@ import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
 import ganesh from "../../assets/images/ganapathy.png";
 import Leaves from "../../assets/images/leaf.png";
+import Calendar from "Components/Calendar";
+import aom from "../../assets/images/aoom1.png";
+import Subtract from "../../assets/images/Subtract.png";
 
 const index = ({ data }) => {
   return (
@@ -32,8 +35,34 @@ const index = ({ data }) => {
           <PhotoMessSwiper data={data} />
         </div>
         <EternityInviteQuote data={data} />
+        <div
+          className="flex items-center justify-center"
+          style={{ background: data.theme }}
+        >
+          <Image
+            src={aom}
+            alt="Separator"
+            width={140}
+            height={180}
+            className="object-contain"
+          />
+        </div>
+
+        <Calendar data={data} />
         {/* <EternityBanner /> */}
-        <div className="bg-white py-6 rounded-b-[40px]">
+        <div
+          className=" py-6 rounded-b-[40px]"
+          style={{ background: data.theme }}
+        >
+          <div className="flex justify-center mb-12">
+            <Image
+              src={Subtract}
+              alt="Separator"
+              width={180}
+              height={180}
+              className="object-contain rotate-180"
+            />
+          </div>
           <div className="flex items-center justify-center">
             <Image
               src={ganesh}

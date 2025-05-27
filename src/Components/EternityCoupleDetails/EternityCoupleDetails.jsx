@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Subtract from "../../assets/images/Subtract.png";
-import bride from "../../assets/images/groom_avathar.jpeg";
-import aom from "../../assets/images/aoom1.png";
-
+import gurudevan from "../../assets/images/gurudevan.png";
 
 const EternityCoupleDetails = ({ data }) => {
   return (
@@ -11,31 +9,35 @@ const EternityCoupleDetails = ({ data }) => {
       <div className="bg-white py-16 px-4 text-center text-gray-700 max-w-[500px] w-full mx-auto">
         {/* Top separator */}
         <div className="flex justify-center mb-8">
-          <Image src={aom} alt="Separator" width={140} height={180}  className="object-contain" />
+          <Image
+            src={gurudevan}
+            alt="Gurudevan"
+            className="w-20 h-auto rounded-full object-contain"
+          />
         </div>
 
         {/* Groom */}
         <div className="py-10">
-        {data?.couples_data.map((item, index) => (
-          <div
-            key={index}
-            className={`flex items-center gap-4 mb-4 ${
-              index % 2 !== 0 ? "flex-row-reverse text-right" : "text-left"
-            }`}
-          >
-            <Image
-              src={item.avatar}
-              alt={item.full_name}
-              className="w-16 h-16 rounded-xl border-2 border-green-800 object-cover"
-            />
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-700">
-                {item.full_name}
-              </h2>
-              <p className="text-sm max-w-md">{item.bio}</p>
+          {data?.couples_data.map((item, index) => (
+            <div
+              key={index}
+              className={`flex items-center gap-4 mb-4 ${
+                index % 2 !== 0 ? "flex-row-reverse text-right" : "text-left"
+              }`}
+            >
+              <Image
+                src={item.avatar}
+                alt={item.full_name}
+                className="w-16 h-16 rounded-xl border-2 border-green-800 object-cover"
+              />
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-700">
+                  {item.full_name}
+                </h2>
+                <p className="text-sm max-w-md">{item.bio}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
 
         {/* Bride */}
@@ -57,7 +59,13 @@ const EternityCoupleDetails = ({ data }) => {
 
         {/* Bottom separator */}
         <div className="flex justify-center mt-12">
-        <Image src={Subtract} alt="Separator" width={180} height={180}  className="object-contain rotate-180" />
+          <Image
+            src={Subtract}
+            alt="Separator"
+            width={180}
+            height={180}
+            className="object-contain rotate-180"
+          />
         </div>
       </div>
     </div>
