@@ -123,7 +123,7 @@ export default function MusicPlayer({ music }) {
 
   return (
     <div className='fixed bottom-0 right-0 m-4 z-[999]'>
-      <div className={`flex items-center justify-end p-2 rounded-full shadow-lg ${isPlaying ? 'w-[130px]' : 'w-[65px]'} bg-white/50 backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`flex items-center justify-end p-2 rounded-full ${isPlaying ? 'w-[130px]' : 'w-[65px]'} bg-white/50 backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`} style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
         <canvas
           ref={canvasRef}
           width={50}
