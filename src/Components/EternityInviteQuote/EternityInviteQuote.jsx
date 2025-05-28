@@ -33,7 +33,7 @@ const EternityInviteQuote = ({ data }) => {
           <br />
           <br />
           Let us come together to share in the love, happiness, and cherished
-          memories on <strong>{data?.short_date}</strong> at
+          memories on <strong>{data?.short_date}</strong> at 
           <strong>
             {data?.venue} and {data?.place}
           </strong>
