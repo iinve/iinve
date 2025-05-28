@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getHeading } from "utils/greetingUtils";
+import ganesh from "../../assets/images/ganapathy.png";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -49,6 +50,13 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
               objectFit="cover"
             />
           </div>
+        </div>
+        <div className="absolute flex items-center justify-center bottom-6 inset-x-0 z-10">
+          <Image
+            src={ganesh}
+            alt="Ganesha"
+            className="w-40 h-auto object-contain"
+          />
         </div>
         <div className="absolute bottom-0 flex h-[600px] w-full lg:h-[800px] overflow-hidden pt-[100px]">
           {/* Left Column (2 stacked images) */}

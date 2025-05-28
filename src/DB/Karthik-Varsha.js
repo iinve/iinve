@@ -18,9 +18,9 @@ export const karthik_varsha = {
   highlight_color: "#ddae6b",
   phone2: "",
   begin_time: "10:30 AM",
-  music: "/audio/tamil_theme.mp3",
+  music: "/audio/sita_kalyanam.mp3",
   quote:
-    "Cordially invite your esteemed presence with family on the auspicious occasion of the marriage of our son",
+    "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony",
   hide_info: false,
   couples_data: [
     {
