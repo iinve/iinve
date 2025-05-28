@@ -1,20 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import Subtract from "../../assets/images/Subtract.png";
-import gurudevan from "../../assets/images/gurudevan.png";
 
 const EternityCoupleDetails = ({ data }) => {
   return (
     <div className="bg-white ">
       <div className="bg-white py-16 px-4 text-center text-gray-700 max-w-[500px] w-full mx-auto">
         {/* Top separator */}
-        <div className="flex justify-center mb-8">
-          <Image
-            src={gurudevan}
-            alt="Gurudevan"
-            className="w-20 h-auto rounded-full object-contain"
-          />
-        </div>
 
         {/* Groom */}
         <div className="py-10">
