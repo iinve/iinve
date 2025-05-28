@@ -38,25 +38,41 @@ export default function MusicPlayer({ music }) {
 
       analyser.getByteFrequencyData(dataArray);
 
-      ctx.fillStyle = "#fff"; // Background
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+      const width = canvas.width;
+      const height = canvas.height;
 
-      const barWidth = (canvas.width / bufferLength) * 6;
-      let x = 0;
-      const centerY = canvas.height / 2;
+      ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < bufferLength; i++) {
-        const barHeight = dataArray[i];
+      const barCount = 9;
+      const spacing = 2;
+      const barWidth = 3;
+      const centerX = width / 2;
+      const centerY = height / 2;
 
-        ctx.fillStyle = `rgb(${barHeight}, ${Math.floor(barHeight * 0.4)}, ${255 - barHeight})`;
+      const gradient = ctx.createLinearGradient(0, 0, 0, height);
+      gradient.addColorStop(0, "#56BAE4"); // light top
+      gradient.addColorStop(1, "#1345A9"); // dark base
 
-        // Draw from center upwards and downwards (mirror effect)
-        ctx.fillRect(x, centerY - barHeight / 9, barWidth, barHeight / 9);
-        ctx.fillRect(x, centerY, barWidth, barHeight / 9);
+      ctx.fillStyle = gradient;
 
-        x += barWidth + 1;
+      for (let i = 0; i < barCount; i++) {
+        const offset = i - Math.floor(barCount / 2);
+        const index = Math.floor((i / barCount) * dataArray.length);
+        const barHeight = Math.max(2, dataArray[index] / 5); // Minimum height: 4
+
+        const totalBarWidth = barCount * barWidth + (barCount - 1) * spacing;
+        const startX = centerX - totalBarWidth / 2;
+        const x = startX + i * (barWidth + spacing);
+        const y = centerY - barHeight / 2;
+
+        ctx.beginPath();
+        ctx.roundRect(x, y, barWidth, barHeight, 3); // rounded corners
+        ctx.fill();
       }
     };
+
 
     draw();
 
@@ -112,7 +128,7 @@ export default function MusicPlayer({ music }) {
           ref={canvasRef}
           width={50}
           height={50}
-          className={`rounded-full shadow-lg mr-4 absolute transition-all duration-300 left-2 
+          className={`rounded-full shadow-lg mr-4 bg-black absolute transition-all duration-300 left-2 
               ${isPlaying ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-75'}`}
         />
         <audio ref={audioRef} src={music} loop />
@@ -128,7 +144,7 @@ export default function MusicPlayer({ music }) {
           <ProIcon name={isPlaying ? "FaPause" : "IoIosPlay"} color="white" size={18} />
         </ActionButton>
       </div>
-     {!isPlaying && showPlayer && <div className={Style.pulseRing}></div>}
+      {!isPlaying && showPlayer && <div className={Style.pulseRing}></div>}
     </div>
   );
 }
