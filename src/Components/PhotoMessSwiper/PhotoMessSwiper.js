@@ -55,6 +55,7 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
                 x: offset.x,
                 y: offset.y,
                 rotate: isTop ? [0, -5, 5, -5, 5, 0] : offset.rotate,
+                filter: isTop ? 'brightness(1)' : 'brightness(0.6)',
                 transition: {
                   rotate: isTop
                     ? { type: 'spring', stiffness: 300, damping: 10 }
