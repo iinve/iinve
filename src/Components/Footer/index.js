@@ -20,7 +20,7 @@ const Footer = ({ data }) => {
       </div> */}
       <footer
         className={Style.footer}
-        style={{ "--theme": data?.highlight_color }}
+        style={{ "--theme": data?.highlight_color, fontFamily: 'Afacad'  }}
       >
         <div className='flex items-center justify-center mb-8'>
           <Link href={"/"}>
