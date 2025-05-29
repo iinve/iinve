@@ -31,6 +31,7 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
     exit: { opacity: 0 },
     transition: { duration: 1.2 },
   };
+  
 
   return (
     <div className="relative h-[750px] md:h-[900px]">
