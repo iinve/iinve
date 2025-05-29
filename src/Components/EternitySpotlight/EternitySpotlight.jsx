@@ -112,9 +112,9 @@ const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
           className="absolute bottom-[200px] left-1/2 -translate-x-1/2 text-center w-full z-10"
           style={{ color: "#fff" }}
         >
-          <p className="text-md mb-6">{getHeading(data)}</p>
+          <p className={isMalayalamPage ? "text-lg md:text-2xl md:mb-10" :"text-md mb-6"}>{getHeading(data)}</p>
           <h1
-            className="text-4xl lg:text-6xl"
+            className={isMalayalamPage ? "text-3xl lg:text-[70px]" : "text-4xl lg:text-6xl"}
             style={{ fontFamily: isMalayalamPage? 'Goodnewsj' : "Fleur De Leah" }}
           >
             {data?.groom} & {data?.bride}
