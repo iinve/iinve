@@ -13,7 +13,7 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const EternitySpotlight = ({ data, shuffle = false }) => {
+const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
   const [images, setImages] = useState(data.images);
 
   useEffect(() => {
@@ -115,7 +115,7 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
           <p className="text-md mb-6">{getHeading(data)}</p>
           <h1
             className="text-4xl lg:text-6xl"
-            style={{ fontFamily: "Fleur De Leah" }}
+            style={{ fontFamily: isMalayalamPage? 'Goodnewsj' : "Fleur De Leah" }}
           >
             {data?.groom} & {data?.bride}
           </h1>

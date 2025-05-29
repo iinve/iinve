@@ -86,6 +86,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Goodnewsj';
+    src: url('../../public/fonts/roman/Goodnewsj-Roman.woff') format('woff2'),
+        url('../../public/fonts/roman/Goodnewsj-Roman.woff2') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 * {
     list-style: none;
@@ -205,4 +215,28 @@ body {
 
 .rs-uploader-trigger {
     width: 100%;
+}
+
+.baloo-chettan {
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+.noto-sans {
+    font-family: 'Noto Sans Malayalam', sans-serif;
+}
+
+.chilanka {
+    font-family: 'Chilanka', cursive;
+}
+
+.manjari {
+    font-family: 'Manjari', sans-serif;
+}
+
+.noto-serif {
+    font-family: 'Noto Serif Malayalam', serif;
+}
+
+.baloo-tamma {
+    font-family: 'Baloo Tamma 2', cursive;
 }

@@ -20,7 +20,7 @@ export const getHeading = (data) => {
     case 'nikkah':
       return 'The Nikkah of';
     case 'wedding_ml':
-      return 'വിവാഹിതരാവുന്നു';
+      return 'hn-hm-ln-X-cm-hp-¶p-';
     default:
       return 'The Wedding of';
   }

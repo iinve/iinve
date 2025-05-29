@@ -21,7 +21,7 @@ const   Calendar = ({ data }) => {
     <div className={Style.calendarWrapper}>
       <span className={Style.Starttime}>
         {data?.name_starter || "Celebration Begins at "}
-        {data?.begin_time}
+        <span className="font-serif">{data?.begin_time}</span>
       </span>
       <ul className={Style.calendar} ref={ref}>
         {CalendarData.map((item, index) => (
