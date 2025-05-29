@@ -181,4 +181,23 @@ export const templateData = [
       "Social Media Links", "Gallery", "Video Player"
     ]
   },
+  {
+    id: 11,
+    image: Assets.templates.premium_04.preview,
+    name: "Astra",
+    template_name: "Astra",
+    price: 349,
+    type:"premium",
+    isTopSelling: true,
+    full_template: Assets.templates.premium_04.full_template,
+    features: [
+      'AVATAR', 'THEME_EDITOR', 'NAME', 'GREETING', 'BIO', 
+      'ABOUT_INFO', 'COLLAB_BUTTON', 'PORTFOLIO_LINKS', 
+      'SOCIAL_LINKS', 'VIDEO_LINKS', 'GALLERY'
+    ],
+    available_features: [
+      "Custom Theme", "Custom Text Color", "Custom Links", 
+      "Social Media Links", "Gallery", "Video Player"
+    ]
+  },
 ];

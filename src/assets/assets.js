@@ -128,6 +128,10 @@ export const Assets = {
       full_template: "/assets/images/templates/premium_03_full.png",
       preview: "/assets/images/templates/premium_03.png",
     },
+    premium_04: {
+      full_template: "/assets/images/templates/premium_04_full.png",
+      preview: "/assets/images/templates/premium_04.png",
+    },
   },
   steps: {
     create_account: "/assets/images/wedding.png",
