@@ -18,13 +18,13 @@ export const karthiksurya_varsha = {
   default_color: "#FEF3E2",
   highlight_color: "#ddae6b",
   phone2: "",
-  begin_time: " 10:30 AM",
+  begin_time: "10:30 AM",
   name_starter:"kzo-I-c-Ww-",
   music: "/audio/sita_kalyanam.mp3",
   quote:
     "{]-kvXp-X- aw-K-f-I-À-½-¯n-Â- ]s¦Sp-¡p-hm-³- Xm-¦tfbpw- Ip-Spw-_t¯bpw- km-Z-cw- £-Wn-¨psImÅp-¶p-.",
   hide_info: false,
-  invite_quote:"kv-t\l-hpw- k-t´mj-hpw- -\\n-d-ª-  lr-Z-b-§tfm-sS, <b> Im-À-¯n-Ivkq-cy-bpw- h-À-j-bpw- </b>, R-§-fpsS {]n-bs¸«- Ip-Spw-_-am-b- -\\n-§sf, R-§-fpsS sF-Iy-hpw- ]p-Xn-b- Po-hn-X-¯n-sâ Xp-S-¡-hpw- BtLmjn-¡m-³- <b> R-§tfm-sSm¸w- -tNcm-³- £-Wn-¡p-¶p- </b>. H-cp- Ip-Spw-_sa¶- -\\n-e-bn-Â- Cu- at\ml-c-am-b- bm-{X- B-cw-`n-¡pt¼mÄ-, R-§-fpsS hn-hm-l- N-S-§n-epw- kzo-I-c-W-¯n-ep-ap-Å- -\\n-§-fpsS km-¶n-[yw- -t{]Xo-£n-¡p-¶p- . <br/><br/> <b> 2025 Pqsse 11 \v aw-K-em-]p-cs¯ k^- I-¬sh³-j-³- skâ-À- -tXm¶-bv¡-Â- </b> h-¨v kv-t-\\l-¯n-epw- k-t´mj-¯n-epw- {]n-bs¸«- Hm-À-½-I-fn-epw- ]-¦ptNcm-³- -\\-ap-¡v H-¯ptNcmw-.",
+  invite_quote:"kv-t\l-hpw- k-t´mj-hpw- -\\n-d-ª-  lr-Z-b-§tfm-sS, <b> Im-À-¯n-Ivkq-cy-bpw- h-À-j-bpw- </b>, R-§-fpsS {]n-bs¸«- Ip-Spw-_-am-b- -\\n-§sf, R-§-fpsS sF-Iy-hpw- ]p-Xn-b- Po-hn-X-¯n-sâ Xp-S-¡-hpw- BtLmjn-¡m-³- <b> R-§tfm-sSm¸w- -tNcm-³- £-Wn-¡p-¶p- </b>. H-cp- Ip-Spw-_sa¶- -\\n-e-bn-Â- Cu- at-\\ml-c-am-b- bm-{X- B-cw-`n-¡pt¼mÄ-, R-§-fpsS hn-hm-l- N-S-§n-epw- kzo-I-c-W-¯n-ep-ap-Å- -\\n-§-fpsS km-¶n-[yw- -t{]Xo-£n-¡p-¶p- . <br/><br/> <b> 2025 Pqsse 11 \v aw-K-em-]p-cs¯ k^- I-¬sh³-j-³- skâ-À- -tXm¶-bv¡-Â- </b> h-¨v kv-t-\\l-¯n-epw- k-t´mj-¯n-epw- {]n-bs¸«- Hm-À-½-I-fn-epw- ]-¦ptNcm-³- -\\-ap-¡v H-¯ptNcmw-.",
   couples_data: [
     {
       full_name: "Im-À-¯n-Iv kq-cy-.F-kv",
@@ -58,9 +58,9 @@ export const karthiksurya_varsha = {
     { date: "14", day: "Xn-¦-Ä- " },
   ],
   month: "Pqsse",
-  muhurtham: `ap-lq-À-¯w- <b> 12:20 </b> & <b> 12:40 </b>`,
+  muhurtham: `ap-lq-À-¯w- <b><span class='font-serif'>12:20 PM</span></b> & <b><span class='font-serif'>12:40 PM</span></b>`,
   venue: "k^- I-¬sh³-j-³- skâ-À-",
-  place: "-tXm¶-bv¡-Â- , aw-K-e-]p-cw-",
+  place: "-tXm¶-bv¡-Â-, aw-K-em-]p-cw- ",
   date: "2025-07-11",
   short_date: "11-ജൂലൈ-2025 (1200 മിഥുനം 27)",
   map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4257.938559518577!2d76.84405947531285!3d8.631641195081729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05c03fb0049aef%3A0x843c0c1f0b9a877f!2sSafa%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1748358184714!5m2!1sen!2sin",

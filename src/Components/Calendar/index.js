@@ -3,20 +3,23 @@
 import "add-to-calendar-button";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { Assets } from "assets/assets";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
 import Style from "./Calendar.module.scss";
-import { useCalendar } from "./useCalendar";
 
-const   Calendar = ({ data }) => {
+const Calendar = ({ data }) => {
   const CalendarData =
     window?.innerWidth <= 1050 ? data?.dateData?.slice(1, -1) : data?.dateData;
-  const { handleAddEvent } = useCalendar();
+  // const { handleAddEvent } = useCalendar();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
+  
+  //TODO: REMOVE EVENT_TYPE CHECK
+  const eventName = data.event_type === "wedding_ml" ? "Karthiksurya & Varsha's Wedding Ceremony" : `${data?.bride} & ${data?.groom}'s Wedding Ceremony`
+  const description = data.event_type === "wedding_ml" ? "Celebrate the wedding of Karthiksurya & Varsha" : `Celebrate the wedding of ${data?.bride} & ${data?.groom}`
+
   return (
     <div className={Style.calendarWrapper}>
       <span className={Style.Starttime}>
@@ -52,7 +55,7 @@ const   Calendar = ({ data }) => {
       </div>
 
       <div className={Style.destination}>
-        <h5>at</h5>
+        <h5 className="!font-serif">at</h5>
         <h2>
           {data?.venue}
           <br />
@@ -63,15 +66,15 @@ const   Calendar = ({ data }) => {
       <div className="p-4 flex justify-center flex-col items-center ">
         <h5 className={Style.addEventHead}>Add to your calendar</h5>
         <AddToCalendarButton
-          name={`${data?.bride} & ${data?.groom}'s Wedding Ceremony`}
-          title={`${data?.bride} & ${data?.groom}'s Wedding Ceremony`}
+          name={eventName}
+          title={eventName}
           startDate={data?.date}
           endDate={data?.date}
           location={`${data?.place}`}
           startTime={data?.begin_time}
           endTime="20:00"
           timeZone="Asia/Calcutta"
-          description={`Celebrate the wedding of ${data?.bride} & ${data?.groom}`}
+          description={description}
           options={["Apple", "Google"]}
           buttonsList
           hideTextLabelButton
