@@ -3,8 +3,9 @@
 import "add-to-calendar-button";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { Assets } from "assets/assets";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import Style from "./Calendar.module.scss";
 
 const Calendar = ({ data }) => {
@@ -15,7 +16,7 @@ const Calendar = ({ data }) => {
     triggerOnce: true,
     threshold: 0.5,
   });
-  
+  console.log(CalendarData)
   //TODO: REMOVE EVENT_TYPE CHECK
   const eventName = data.event_type === "wedding_ml" ? "Karthiksurya & Varsha's Wedding Ceremony" : `${data?.bride} & ${data?.groom}'s Wedding Ceremony`
   const description = data.event_type === "wedding_ml" ? "Celebrate the wedding of Karthiksurya & Varsha" : `Celebrate the wedding of ${data?.bride} & ${data?.groom}`
