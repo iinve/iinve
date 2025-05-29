@@ -1,7 +1,6 @@
 import { paattoholic_noufa } from "DB/paattoholic_noufa";
-
+import dynamic from "next/dynamic";
 import Head from "next/head";
-import Luna from "Templates/Luna";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
@@ -19,7 +18,7 @@ export const metadata = {
       "Paattoholic and Noufa are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}/assets/images/og-image/sreejitha_og_image.jpg`,
+        url: `${metadataBase}/assets/images/og-image/pattholic-og.jpg`,
         alt: "Paattoholic & Noufa Wedding Invitation",
       },
     ],
@@ -27,9 +26,9 @@ export const metadata = {
   metadataBase: metadataBase, // Add this line to set the metadataBase
 };
 
-// const Luna = dynamic(() => import("../../../../Templates/Luna"), {
-//   ssr: false, // Ensure it only loads on the client side
-// });
+const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
+  ssr: false, // Ensure it only loads on the client side
+});
 
 const Page = () => {
   return (
@@ -51,7 +50,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <Luna data={paattoholic_noufa} />
+      <CoffeePremium data={paattoholic_noufa} />
     </div>
   );
 };
