@@ -18,6 +18,7 @@ function CoffeePremium({ data }) {
         "--theme-color": data?.theme,
         "--content-color": data?.default_color,
         "--highlight-color": data?.highlight_color,
+
       }}
     >
       <div

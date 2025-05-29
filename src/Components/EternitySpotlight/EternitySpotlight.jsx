@@ -13,7 +13,7 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const EternitySpotlight = ({ data, shuffle = false }) => {
+const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
   const [images, setImages] = useState(data.images);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
     exit: { opacity: 0 },
     transition: { duration: 1.2 },
   };
+  
 
   return (
     <div className="relative h-[750px] md:h-[900px]">
@@ -111,10 +112,10 @@ const EternitySpotlight = ({ data, shuffle = false }) => {
           className="absolute bottom-[200px] left-1/2 -translate-x-1/2 text-center w-full z-10"
           style={{ color: "#fff" }}
         >
-          <p className="text-md mb-1">{getHeading(data)}</p>
+          <p className="text-md mb-6">{getHeading(data)}</p>
           <h1
             className="text-4xl lg:text-6xl"
-            style={{ fontFamily: "Fleur De Leah" }}
+            style={{ fontFamily: isMalayalamPage? 'Goodnewsj' : "Fleur De Leah" }}
           >
             {data?.groom} & {data?.bride}
           </h1>

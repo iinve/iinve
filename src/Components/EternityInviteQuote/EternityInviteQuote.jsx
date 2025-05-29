@@ -21,23 +21,22 @@ const EternityInviteQuote = ({ data }) => {
         <p
           className="text-base leading-relaxed max-w-2xl mx-auto text-center"
           style={{ color: data.default_color }}
+          dangerouslySetInnerHTML={{__html:data?.invite_quote}}
         >
-          With hearts full of love and joy, we,{" "}
+          
+          {/* With hearts full of love and joy, we,
           <strong>
             {data?.groom} & {data?.bride}
           </strong>
-          , invite you, our beloved family, to join us in celebrating our union
-          and the beginning of our new life together. Your presence at our
-          wedding ceremony and reception will mean the world to us as we embark
-          on this beautiful journey as a family.
+          
           <br />
           <br />
           Let us come together to share in the love, happiness, and cherished
-          memories on <strong>{data?.short_date}</strong> at
+          memories on <strong>{data?.short_date}</strong> at 
           <strong>
             {data?.venue} and {data?.place}
           </strong>
-          . We look forward to creating unforgettable moments with all of you.
+          . We look forward to creating unforgettable moments with all of you. */}
         </p>
 
         {/* Bottom Separator */}

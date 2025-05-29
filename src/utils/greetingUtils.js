@@ -19,6 +19,8 @@ export const getHeading = (data) => {
       return 'The Wedding Reception of';
     case 'nikkah':
       return 'The Nikkah of';
+    case 'wedding_ml':
+      return 'hn-hm-ln-X-cm-hp-¶p-';
     default:
       return 'The Wedding of';
   }

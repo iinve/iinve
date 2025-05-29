@@ -120,7 +120,7 @@ const jsonLd = {
     }
   ],
   "keywords": [
-   "iinve",
+    "iinve",
     "iinve invite",
     "iinve wall",
     "digital invitations",
@@ -164,7 +164,7 @@ const jsonLd = {
       },
     })),
   },
-  
+
 };
 
 
@@ -172,20 +172,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-        <meta name="apple-mobile-web-app-title" content="iinve" />
-      </Head>
-      <body className={JosefinSans.className}>
-        <MainLayout>
-          <ClientLayout>
-            <HeroUIProvider>
-              {children}
-            </HeroUIProvider>
-          </ClientLayout>
-        </MainLayout>
-      </body>
-    </html>
-  );
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;700&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet"/>
+              <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+                  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+                    <script type="application/ld+json">
+                      {JSON.stringify(jsonLd)}
+                    </script>
+                    <meta name="apple-mobile-web-app-title" content="iinve" />
+                  </Head>
+                  <body className={JosefinSans.className}>
+                    <MainLayout>
+                      <ClientLayout>
+                        <HeroUIProvider>
+                          {children}
+                        </HeroUIProvider>
+                      </ClientLayout>
+                    </MainLayout>
+                  </body>
+                </html>
+                );
 }

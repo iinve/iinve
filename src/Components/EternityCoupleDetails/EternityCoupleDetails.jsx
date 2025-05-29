@@ -26,7 +26,7 @@ const EternityCoupleDetails = ({ data }) => {
                 <h2 className="text-2xl font-semibold text-gray-700">
                   {item.full_name}
                 </h2>
-                <p className="text-sm max-w-md">{item.bio}</p>
+                <p className="text-sm max-w-md" dangerouslySetInnerHTML={{__html:item.bio}}></p>
               </div>
             </div>
           ))}

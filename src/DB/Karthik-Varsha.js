@@ -22,6 +22,7 @@ export const karthik_varsha = {
   quote:
     "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony",
   hide_info: false,
+  invite_quote:"With hearts full of love and joy, we, <b>Karthiksurya & Varsha</b>, invite you, our beloved family, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness, and cherished memories on <b>11-July-2025 </b> at <b>Safa Convention Centre </b> and Thonnakkal , Mangalapuram. We look forward to creating unforgettable moments with all of you.",
   couples_data: [
     {
       full_name: "Karthiksurya.S",

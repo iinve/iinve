@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 import Style from "./Calendar.module.scss";
 import { useCalendar } from "./useCalendar";
 
-const Calendar = ({ data }) => {
+const   Calendar = ({ data }) => {
   const CalendarData =
     window?.innerWidth <= 1050 ? data?.dateData?.slice(1, -1) : data?.dateData;
   const { handleAddEvent } = useCalendar();
@@ -20,7 +20,8 @@ const Calendar = ({ data }) => {
   return (
     <div className={Style.calendarWrapper}>
       <span className={Style.Starttime}>
-        Celebration Begins at {data?.begin_time}
+        {data?.name_starter || "Celebration Begins at "}
+        <span className="font-serif">{data?.begin_time}</span>
       </span>
       <ul className={Style.calendar} ref={ref}>
         {CalendarData.map((item, index) => (
@@ -43,7 +44,7 @@ const Calendar = ({ data }) => {
       <div className={Style.exactTime}>
         {data?.muhurtham && (
           <p className={Style.time}>
-            Muhurtham -
+            {/* Muhurtham - */}
             <span dangerouslySetInnerHTML={{ __html: data?.muhurtham }}></span>
           </p>
         )}

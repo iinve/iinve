@@ -1,4 +1,5 @@
 "use client";
+import Calendar from "Components/Calendar";
 import EternityCoupleDetails from "Components/EternityCoupleDetails/EternityCoupleDetails";
 import EternityInviteQuote from "Components/EternityInviteQuote/EternityInviteQuote";
 import EternitySpotlight from "Components/EternitySpotlight/EternitySpotlight";
@@ -7,14 +8,25 @@ import Map from "Components/Map";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
-import Leaves from "../../assets/images/leaf.png";
-import Calendar from "Components/Calendar";
+import { useEffect, useState } from "react";
 import aom from "../../assets/images/aoom1.png";
-import Subtract from "../../assets/images/Subtract.png";
 import gurudevan from "../../assets/images/gurudevan.png";
+import Leaves from "../../assets/images/leaf.png";
+import Subtract from "../../assets/images/Subtract.png";
 
 
-const index = ({ data }) => {
+
+const Index = ({ data }) => {
+  const [isMalayalamPage, setIsMalayalamPage] = useState(false);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (location.pathname.includes('/ml/')) {
+        console.log('URL contains /ml/');
+        setIsMalayalamPage(true)
+      }
+    }
+  }, []);
+
   return (
     <div
       style={{
@@ -22,10 +34,11 @@ const index = ({ data }) => {
         "--content-color": data?.default_color,
         "--highlight-color": data?.highlight_color,
         background: data.theme,
+        fontFamily: isMalayalamPage ? "Goodnewsj" : '',
       }}
     >
       <div className="relative z-10 mb-[320px]">
-        <EternitySpotlight data={data} shuffle={false} />
+        <EternitySpotlight data={data} shuffle={false} isMalayalamPage={isMalayalamPage}/>
         <EternityCoupleDetails data={data} />
         <div className="relative py-6" style={{ background: data.theme }}>
           <Image
@@ -80,4 +93,4 @@ const index = ({ data }) => {
   );
 };
 
-export default index;
+export default Index;
