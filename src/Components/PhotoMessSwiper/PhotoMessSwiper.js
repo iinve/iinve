@@ -83,12 +83,12 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
                 willChange: 'transform, opacity',
               }}
             >
-              <div className="w-full h-full shadow-xl rounded-md overflow-hidden">
+              <div className="w-full h-full shadow-xl rounded-lg overflow-hidden">
                 <Image
                   src={src}
                   alt={`photo-${i}`}
                   fill
-                  className="object-cover rounded-md border-[10px] border-white"
+                  className="object-cover rounded-3xl border-[8px] border-white"
                   priority={isTop}
                 />
               </div>
