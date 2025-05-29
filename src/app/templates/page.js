@@ -1,6 +1,7 @@
 'use client';
 
 import { Tab, Tabs } from "@heroui/react"; // Import Hero UI components
+import MainFooter from "Components/MainFooter/MainFooter";
 import TemplateCard from "Components/TemplateCard/TemplateCard";
 import { templateData } from "DB/templateData";
 import { motion } from "framer-motion"; // Import motion from framer-motion
@@ -158,6 +159,7 @@ const Page = () => {
           </SheetFooter>
         </Sheet>
       </div>
+      <MainFooter/>
     </div>
   );
 }
