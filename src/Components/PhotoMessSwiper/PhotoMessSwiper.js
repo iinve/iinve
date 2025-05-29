@@ -10,9 +10,16 @@ const randomOffset = () => ({
   rotate: (Math.random() - 0.5) * 15,
 });
 
+const generateOffsets = (images) => images.map(() => randomOffset());
+
 export default function PhotoMessSwiper({ data, delay = 3000 }) {
   const { images } = data;
   const [index, setIndex] = useState(0);
+  const [offsets, setOffsets] = useState(generateOffsets(images));
+
+  useEffect(() => {
+    setOffsets(generateOffsets(images));
+  }, [index]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,26 +28,26 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
     return () => clearInterval(interval);
   }, [images.length, delay]);
 
-  const stack = [...images.slice(index), ...images.slice(0, index)];
+  const MAX_VISIBLE = 4;
+  const stack = [...images.slice(index), ...images.slice(0, index)].slice(0, MAX_VISIBLE);
 
   return (
     <div className="relative h-[300px] w-[200px] mx-auto mt-10">
-      {stack.map((src, i) => {
-        const zIndex = stack.length - i;
-        const isTop = i === 0;
-        const offset = randomOffset();
+      <AnimatePresence initial={false}>
+        {stack.map((src, i) => {
+          const zIndex = stack.length - i;
+          const isTop = i === 0;
+          const offset = offsets[i];
 
-        return (
-          <AnimatePresence key={i}>
+          return (
             <motion.div
               key={i}
               initial={{
                 opacity: 0,
-                scale: 0.9,
+                scale: 0.95,
                 x: 0,
                 y: 0,
                 rotate: 0,
-                filter: 'brightness(0.7)',
               }}
               animate={{
                 opacity: 1,
@@ -48,12 +55,10 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
                 x: offset.x,
                 y: offset.y,
                 rotate: isTop ? [0, -5, 5, -5, 5, 0] : offset.rotate,
-                filter: isTop ? 'brightness(1)' : 'brightness(0.5)',
                 transition: {
                   rotate: isTop
-                    ? { type: 'spring', stiffness: 300, damping: 10, duration: 0.6 }
+                    ? { type: 'spring', stiffness: 300, damping: 10 }
                     : { type: 'spring', stiffness: 120, damping: 20 },
-                  filter: { duration: 0.5 },
                   x: { type: 'spring', stiffness: 120, damping: 20 },
                   y: { type: 'spring', stiffness: 120, damping: 20 },
                   scale: { type: 'spring', stiffness: 120, damping: 20 },
@@ -62,11 +67,10 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
               }}
               exit={{
                 opacity: 0,
-                scale: 0.8,
+                scale: 0.9,
                 x: 0,
                 y: 0,
                 rotate: 0,
-                filter: 'brightness(0.7)',
                 transition: {
                   type: 'spring',
                   stiffness: 100,
@@ -76,21 +80,22 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
               className="absolute top-0 left-0 w-full h-full"
               style={{
                 zIndex,
+                willChange: 'transform, opacity',
               }}
             >
-
               <div className="w-full h-full shadow-xl rounded-md overflow-hidden">
                 <Image
                   src={src}
                   alt={`photo-${i}`}
                   fill
                   className="object-cover rounded-md border-[10px] border-white"
+                  priority={isTop}
                 />
               </div>
             </motion.div>
-          </AnimatePresence>
-        );
-      })}
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 }
