@@ -19,12 +19,12 @@ export const karthiksurya_varsha = {
   highlight_color: "#ddae6b",
   phone2: "",
   begin_time: "10:30 AM",
-  name_starter:"kzo-I-c-Ww-",
+  name_starter:"kzo-I-c-Ww- ",
   music: "/audio/sita_kalyanam.mp3",
   quote:
     "{]-kvXp-X- aw-K-f-I-À-½-¯n-Â- ]s¦Sp-¡p-hm-³- Xm-¦tfbpw- Ip-Spw-_t¯bpw- km-Z-cw- £-Wn-¨psImÅp-¶p-.",
   hide_info: false,
-  invite_quote:"kv-t\l-hpw- k-t´mj-hpw- -\\n-d-ª-  lr-Z-b-§tfm-sS, <b> Im-À-¯n-Ivkq-cy-bpw- h-À-j-bpw- </b>, R-§-fpsS {]n-bs¸«- Ip-Spw-_-am-b- -\\n-§sf, R-§-fpsS sF-Iy-hpw- ]p-Xn-b- Po-hn-X-¯n-sâ Xp-S-¡-hpw- BtLmjn-¡m-³- <b> R-§tfm-sSm¸w- -tNcm-³- £-Wn-¡p-¶p- </b>. H-cp- Ip-Spw-_sa¶- -\\n-e-bn-Â- Cu- at-\\ml-c-am-b- bm-{X- B-cw-`n-¡pt¼mÄ-, R-§-fpsS hn-hm-l- N-S-§n-epw- kzo-I-c-W-¯n-ep-ap-Å- -\\n-§-fpsS km-¶n-[yw- -t{]Xo-£n-¡p-¶p- . <br/><br/> <b> 2025 Pqsse 11 \v aw-K-em-]p-cs¯ k^- I-¬sh³-j-³- skâ-À- -tXm¶-bv¡-Â- </b> h-¨v kv-t-\\l-¯n-epw- k-t´mj-¯n-epw- {]n-bs¸«- Hm-À-½-I-fn-epw- ]-¦ptNcm-³- -\\-ap-¡v H-¯ptNcmw-.",
+  invite_quote:" <span class='font-serif'>13 - 07 - 2025</span> Rm-b-dm-gvN- I-g-¡q-«w- Im-cy-h-«w- {Sm-h-³-Iq-À- C-â-À-\m-j-W-Â- I-¬sh³-j-³- skâ-dn-Â- (kv-t]mÀ-Svkv l-ºv , {Ko-³-^o-Â-Uv C-â-À-\m-j-W-Â- kv-täUn-bw- ) h-¨v \\-S-¯p-¶- hn-cp-¶v kÂ-¡m-c-¯nte¡v Xm-¦-Ä- Ip-Spw-_- k-taXw- ]s¦Sp-¡p-atÃm.",
   couples_data: [
     {
       full_name: "Im-À-¯n-Iv kq-cy-.F-kv",
