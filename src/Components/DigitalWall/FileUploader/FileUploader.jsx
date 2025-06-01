@@ -1,26 +1,27 @@
-import Image from 'next/image'
-import ActionButton from 'ProUI/ActionButton/ActionButton'
-import ProIcon from 'ProUI/Icons/icons'
-import React, { useEffect, useState } from 'react'
-import { getImagePreviewUrl } from 'utils/imageUtils'
+import Image from "next/image";
+import ActionButton from "ProUI/ActionButton/ActionButton";
+import ProIcon from "ProUI/Icons/icons";
+import React, { useEffect, useState } from "react";
+import { getImagePreviewUrl } from "utils/imageUtils";
 
 const FileUploader = ({ onUpload, refs, placeholder }) => {
   return (
-    <div className='w-full h-24 border border-dashed rounded relative'>
-      <span className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>{placeholder}</span>
+    <div className="w-full h-24 border border-dashed rounded relative">
+      <span className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+        {placeholder}
+      </span>
       <input
         type="file"
         accept="image/*"
         onChange={(e) => onUpload(e)}
-        ref={el => refs.current.spotlight = el}
+        ref={(el) => (refs.current.spotlight = el)}
         className="mb-2 w-full h-24 border rounded opacity-0"
       />
     </div>
-  )
-}
+  );
+};
 
-export default FileUploader
-
+export default FileUploader;
 
 export const ImagePreview = ({ image, onRemove }) => {
   const [previewUrl, setPreviewUrl] = useState("");
@@ -41,7 +42,7 @@ export const ImagePreview = ({ image, onRemove }) => {
       {previewUrl && (
         <Image
           src={previewUrl}
-          alt="Spotlight Preview"
+          alt="Image Preview"
           width={500}
           height={100}
           className="w-full h-[150px] rounded border object-cover"
@@ -54,7 +55,7 @@ export const ImagePreview = ({ image, onRemove }) => {
         onPress={onRemove}
         isIconOnly
       >
-       <ProIcon name='IoMdClose' color='#fff' size={12} />
+        <ProIcon name="IoMdClose" color="#fff" size={12} />
       </ActionButton>
     </div>
   );

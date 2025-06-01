@@ -1,17 +1,30 @@
 import { useEffect, useState } from "react";
 import { extractColorFromUserImage } from "utils/colorUtils";
+import { getImagePreviewUrl } from "utils/imageUtils";
 
 export const useWallDashboard = (image) => {
-  const [colorFromImage, setColorFromImage] = useState()
+  const [colorFromImage, setColorFromImage] = useState();
   useEffect(() => {
-    const imageUrl = image;
-    if (imageUrl) {
-      const fetchColors = async () => {
+    const processImage = async () => {
+      const imageUrl = await getImagePreviewUrl(image);
+      console.log("imageUrl", imageUrl);
+
+      if (imageUrl) {
         const extractedColors = await extractColorFromUserImage(imageUrl);
-        const notIncludeWhite = !extractedColors.some(color => color.hex === "#ffffff");
-        const notIncludeBlack = !extractedColors.some(color => color.hex === "#000000");
+
+        const notIncludeWhite = !extractedColors?.some(
+          (color) => color.hex === "#ffffff"
+        );
+        const notIncludeBlack = !extractedColors?.some(
+          (color) => color.hex === "#000000"
+        );
+
         if (notIncludeWhite && notIncludeBlack) {
-          setColorFromImage([...extractedColors, { hex: "#ffffff" }, { hex: "#000000" }]);
+          setColorFromImage([
+            ...(Array.isArray(extractedColors) ? extractedColors : []),
+            { hex: "#ffffff" },
+            { hex: "#000000" },
+          ]);
         } else if (notIncludeWhite) {
           setColorFromImage([...extractedColors, { hex: "#ffffff" }]);
         } else if (notIncludeBlack) {
@@ -22,16 +35,14 @@ export const useWallDashboard = (image) => {
 
         if (!extractedColors || extractedColors.length < 2) {
           console.error("Not enough colors extracted.");
-          return;
         }
-        // const sortedColors = extractedColors?.sort((a, b) => b.score - a.score);
-        // const selectedColors = sortedColors?.slice(0, 2).map(color => color.hex);
-        // setColorFromImage({ ...colorScheme, theme_color: selectedColors[0], content_color: selectedColors[1] })
-      };
-      fetchColors();
+      }
+    };
+
+    if (image) {
+      processImage();
     }
   }, [image]);
 
-
-  return { colorFromImage, setColorFromImage }
-}
+  return { colorFromImage, setColorFromImage };
+};
