@@ -14,15 +14,13 @@ import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";
 
-
-
 const Index = ({ data }) => {
   const [isMalayalamPage, setIsMalayalamPage] = useState(false);
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (location.pathname.includes('/ml/')) {
-        console.log('URL contains /ml/');
-        setIsMalayalamPage(true)
+    if (typeof window !== "undefined") {
+      if (location.pathname.includes("/ml/")) {
+        console.log("URL contains /ml/");
+        setIsMalayalamPage(true);
       }
     }
   }, []);
@@ -34,11 +32,15 @@ const Index = ({ data }) => {
         "--content-color": data?.default_color,
         "--highlight-color": data?.highlight_color,
         background: data.theme,
-        fontFamily: isMalayalamPage ? "Goodnewsj" : '',
+        fontFamily: isMalayalamPage ? "Goodnewsj" : "",
       }}
     >
       <div className="relative z-10 mb-[320px]">
-        <EternitySpotlight data={data} shuffle={false} isMalayalamPage={isMalayalamPage}/>
+        <EternitySpotlight
+          data={data}
+          shuffle={false}
+          isMalayalamPage={isMalayalamPage}
+        />
         <EternityCoupleDetails data={data} />
         <div className="relative py-6" style={{ background: data.theme }}>
           <Image
@@ -64,7 +66,7 @@ const Index = ({ data }) => {
             src={aom}
             alt="Separator"
             width={140}
-            height={180}
+            height={100}
             className="object-contain"
           />
         </div>
