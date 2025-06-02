@@ -9,7 +9,7 @@ import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import aom from "../../assets/images/aoom1.png";
+import aom from "../../assets/images/om_tamil.png";
 import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";

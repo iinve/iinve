@@ -17,10 +17,11 @@ const Map = ({ data }) => {
 
   return (
     <div className={Style.map}>
-      <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
-        {data.quote ||
-          "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together."}
-      </motion.p>
+      <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}
+        dangerouslySetInnerHTML={{
+          __html: data?.quote || "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together."
+        }}
+      ></motion.p>
 
       <motion.div
         className={Style.mapContainer}
@@ -48,7 +49,7 @@ const Map = ({ data }) => {
         transition={{ ...fadeUp.transition, delay: 0.5 }}
       >
         <CommonButton
-          style={{fontFamily:"Arial"}}
+          style={{ fontFamily: "Arial" }}
           text={"Location"}
           icon={<FaMapLocationDot />}
           onClick={handleOpenGoogleMaps}
