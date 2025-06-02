@@ -20,9 +20,9 @@ export const karthik_varsha = {
   begin_time: "10:30 AM",
   music: "/audio/sita_kalyanam.mp3",
   quote:
-    "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony",
+    "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony .  <br /><br /> You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
   hide_info: false,
-  invite_quote:"With hearts full of love and joy, we, <b>Karthiksurya & Varsha</b>, invite you, our beloved family, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness, and cherished memories on <b>11-July-2025 </b> at <b>Safa Convention Centre </b> and Thonnakkal , Mangalapuram. We look forward to creating unforgettable moments with all of you.",
+  invite_quote:"With hearts full of love and joy, we <b>Karthiksurya & Varsha</b>, invite you our beloved family to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness and cherished memories on <b>11-July-2025 </b> at <b>Safa Convention Centre </b> and Thonnakkal , Mangalapuram. We look forward to creating unforgettable moments with all of you.",
   couples_data: [
     {
       full_name: "Karthiksurya.S",
