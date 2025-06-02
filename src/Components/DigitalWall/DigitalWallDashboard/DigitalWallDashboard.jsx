@@ -448,54 +448,82 @@ export default function DigitalWallDashboard() {
         variant: "bordered",
       });
       setIsLoading(false);
-
       return;
     }
+
     const formData = new FormData();
 
     if (walls.id) {
       formData.append("digitalWallId", walls.id);
     }
-    // logo
+
+    // Handle logo - only append if it's a File object (new upload)
     const { logo, ...textDetails } = companyDetails;
     formData.append("company_details", JSON.stringify(textDetails));
-    formData.append("logo", logo);
 
+    if (logo instanceof File) {
+      formData.append("logo", logo);
+    } else if (typeof logo === "string" && logo) {
+      // It's an existing URL, pass it as form value
+      formData.append("logo", logo);
+    }
+
+    // Handle other form data
     formData.append("categories", JSON.stringify(categories));
     formData.append("offers", JSON.stringify(offers));
-    formData.append("products", JSON.stringify(products));
-    formData.append("banners", JSON.stringify(banners));
-    formData.append("newArrivals", JSON.stringify(newArrivals));
-    formData.append("spotlight", JSON.stringify(spotlight));
+
+    // For arrays with images, separate the image data from text data
+    const productsData = products.map((prod) => ({
+      ...prod,
+      image: typeof prod.image === "string" ? prod.image : null, // Keep existing URLs, remove File objects
+    }));
+    formData.append("products", JSON.stringify(productsData));
+
+    const bannersData = banners.map((banner) => ({
+      ...banner,
+      image: typeof banner.image === "string" ? banner.image : null,
+    }));
+    formData.append("banners", JSON.stringify(bannersData));
+
+    const newArrivalsData = newArrivals.map((item) => ({
+      ...item,
+      image: typeof item.image === "string" ? item.image : null,
+    }));
+    formData.append("newArrivals", JSON.stringify(newArrivalsData));
+
+    const spotlightData = {
+      ...spotlight,
+      image: typeof spotlight.image === "string" ? spotlight.image : null,
+    };
+    formData.append("spotlight", JSON.stringify(spotlightData));
 
     formData.append("wall_slug", user?.wall_slug);
     formData.append("shop_name", user?.shop_name);
     formData.append("daily_prices", JSON.stringify(dailyPrices));
     formData.append("template", user?.template || "hero_wall");
-
     formData.append("theme", JSON.stringify(themeColor));
     formData.append("social_links", JSON.stringify(socialDetails));
 
-    // Attach image files (without imageKey)
+    // Only attach NEW image files (File objects), not existing URLs
     products.forEach((prod, idx) => {
-      if (prod.image) {
+      if (prod.image instanceof File) {
         formData.append(`products[${idx}][image]`, prod.image);
       }
     });
 
     banners.forEach((banner, idx) => {
-      if (banner.image) {
+      if (banner.image instanceof File) {
         formData.append(`banners[${idx}][image]`, banner.image);
       }
     });
 
     newArrivals.forEach((item, idx) => {
-      if (item.image) {
+      if (item.image instanceof File) {
         formData.append(`newArrivals[${idx}][image]`, item.image);
       }
     });
 
-    if (spotlight.image) {
+    if (spotlight.image instanceof File) {
       formData.append("spotlight_image", spotlight.image);
     }
 
@@ -519,12 +547,34 @@ export default function DigitalWallDashboard() {
         });
         setIsWallUpdated(true);
         setIsLoading(false);
+
+        // Update the state with the response data to convert File objects to URLs
+        if (data.data && data.data[0]) {
+          const updatedWall = data.data[0];
+          setSpotlight(updatedWall.spotlight || {});
+          setProducts(updatedWall.products || []);
+          setBanners(updatedWall.banners || []);
+          setNewArrivals(updatedWall.new_arrivals || []);
+          setCompanyDetails(updatedWall.company_details || {});
+        }
       } else {
-        alert(data.error || "Failed to save digital wall");
+        addToast({
+          title: "Error",
+          description: data.error || "Failed to save digital wall",
+          type: "error",
+          color: "danger",
+          variant: "bordered",
+        });
       }
     } catch (error) {
       console.error("Error saving digital wall:", error);
-      alert("Failed to save digital wall");
+      addToast({
+        title: "Error",
+        description: "Failed to save digital wall",
+        type: "error",
+        color: "danger",
+        variant: "bordered",
+      });
     } finally {
       setIsLoading(false);
     }
