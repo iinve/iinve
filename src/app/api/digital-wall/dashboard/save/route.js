@@ -48,6 +48,7 @@ export async function POST(request) {
 
     // Process formData into fileMap and formValues
     for (const [key, value] of formData.entries()) {
+      // Only upload if it's a NEW File object (not an existing URL string)
       if (value instanceof File && value.size > 0) {
         try {
           const publicUrl = await uploadFileToSupabase(
@@ -58,6 +59,7 @@ export async function POST(request) {
           );
           fileMap[key] = publicUrl;
         } catch (error) {
+          console.error(`Error uploading ${key}:`, error);
           fileMap[key] = null;
         }
       } else {
@@ -77,9 +79,11 @@ export async function POST(request) {
     const theme = JSON.parse(formValues.theme || "{}");
     const social_links = JSON.parse(formValues.social_links || "{}");
 
+    // Handle logo - only use new upload if available, otherwise keep existing
     company_details.logo =
       fileMap["logo"] || formValues["logo"] || company_details.logo || null;
 
+    // Handle spotlight image
     const spotlight = {
       ...spotlightRaw,
       image:
@@ -89,27 +93,31 @@ export async function POST(request) {
         null,
     };
 
+    // Handle product images - preserve existing URLs, only replace with new uploads
     const products = productsRaw.map((p, i) => {
-      const key = `products[${i}][image]`;
+      const imageKey = `products[${i}][image]`;
       return {
         ...p,
-        image: fileMap[key] || formValues[key] || p.image || null,
+        // Priority: new upload > existing formValue > existing product image > null
+        image: fileMap[imageKey] || formValues[imageKey] || p.image || null,
       };
     });
 
+    // Handle banner images
     const banners = bannersRaw.map((b, i) => {
-      const key = `banners[${i}][image]`;
+      const imageKey = `banners[${i}][image]`;
       return {
         ...b,
-        image: fileMap[key] || formValues[key] || b.image || null,
+        image: fileMap[imageKey] || formValues[imageKey] || b.image || null,
       };
     });
 
+    // Handle new arrivals images
     const newArrivals = newArrivalsRaw.map((n, i) => {
-      const key = `newArrivals[${i}][image]`;
+      const imageKey = `newArrivals[${i}][image]`;
       return {
         ...n,
-        image: fileMap[key] || formValues[key] || n.image || null,
+        image: fileMap[imageKey] || formValues[imageKey] || n.image || null,
       };
     });
 
