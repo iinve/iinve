@@ -65,7 +65,7 @@ const Index = ({ data }) => {
           <Image
             src={aom}
             alt="Separator"
-            width={140}
+            width={80}
             height={100}
             className="object-contain"
           />
