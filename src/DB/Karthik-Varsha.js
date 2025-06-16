@@ -21,7 +21,8 @@ export const karthik_varsha = {
   music: "/audio/sita_kalyanam.mp3",
   quote:
     "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony .  <br /><br /> You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
-  hide_info: false,
+  location_name:"Reception Location ",
+    hide_info: false,
   invite_quote:"With hearts full of love and joy, we <b>Karthiksurya & Varsha</b>, invite you our beloved family to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness and cherished memories on <b>11-July-2025 </b> at <b>Safa Convention Centre </b> and Thonnakkal , Mangalapuram. We look forward to creating unforgettable moments with all of you.",
   couples_data: [
     {
@@ -64,4 +65,5 @@ export const karthik_varsha = {
   map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4257.938559518577!2d76.84405947531285!3d8.631641195081729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05c03fb0049aef%3A0x843c0c1f0b9a877f!2sSafa%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1748358184714!5m2!1sen!2sin",
   // map_name: "Kalikavu",
   map_link: "https://maps.app.goo.gl/gVM35tUa1b7FLZtE9",
+  reception_link:"https://maps.app.goo.gl/nsM1eDCCZXemXBTD6",
 };

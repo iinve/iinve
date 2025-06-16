@@ -50,10 +50,18 @@ const Map = ({ data }) => {
       >
         <CommonButton
           style={{ fontFamily: "Arial" }}
-          text={"Location"}
+          text={"Wedding Location"}
           icon={<FaMapLocationDot />}
-          onClick={handleOpenGoogleMaps}
+          onClick ={()=>handleOpenGoogleMaps(data.map_link)}
         />
+        { data.reception_link && 
+          <CommonButton
+            style={{ fontFamily: "Arial" }}
+            text={"Reception Location"}
+            icon={<FaMapLocationDot />}
+            onClick={()=> handleOpenGoogleMaps(data.reception_link)}
+          />
+        }
       </motion.div>
     </div>
   );
