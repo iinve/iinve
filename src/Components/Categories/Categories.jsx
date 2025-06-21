@@ -12,7 +12,7 @@ const Categories = () => {
         <div className="category_item flex flex-col items-center md:flex-row gap-20 items-center justify-between mb-8 ">
           <div className="category_content max-w-2xl text-left">
             <h2 className="text-xl md:text-4xl font-bold mb-4 text-white">
-             E-Invitation
+              E-Invitation
             </h2>
             <p className="text-gray-400 text-md md:text-lg leading-relaxed mb-4">
               Say goodbye to paper waste and hello to stylish digital
@@ -21,7 +21,11 @@ const Categories = () => {
               through iinve.
             </p>
 
-            <ActionButton color="primary" className="mt-4 bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6]" size="lg">
+            <ActionButton
+              color="primary"
+              className="mt-4 bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6]"
+              size="lg"
+            >
               <Link href="/e-invite">Learn More</Link>
             </ActionButton>
           </div>
@@ -36,7 +40,7 @@ const Categories = () => {
             />
           </div>
         </div>
-        <div className="category_item flex flex-col md:flex-row flex-col-reverse gap-20 items-center items-center justify-between  mt-24 md:mt-0">
+        {/* <div className="category_item flex flex-col md:flex-row flex-col-reverse gap-20 items-center items-center justify-between  mt-24 md:mt-0">
           <div className="category_img w-full rounded-xl overflow-hidden shadow-lg">
             <Image
               src={Assets?.digital_wall}
@@ -59,7 +63,7 @@ const Categories = () => {
               <Link href="/e-wall">Learn More</Link>
             </ActionButton>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

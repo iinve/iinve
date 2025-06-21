@@ -18,7 +18,7 @@ export default function Home() {
       <StepContainer />
       <TemplateSlider />
       {/* <Pricing/> */}
-      <BlogList />
+      {/* <BlogList /> */}
       <FAQs />
       {/* <Testimonials /> */}
       <GetADemo />

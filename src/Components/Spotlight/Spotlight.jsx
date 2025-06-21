@@ -36,15 +36,14 @@ const homeTemplatesVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" },
   },
   exit: {
     opacity: 0,
     x: -50,
-    transition: { duration: 0.4, ease: "easeIn" }
+    transition: { duration: 0.4, ease: "easeIn" },
   },
 };
-
 
 const slides = [
   {
@@ -57,16 +56,6 @@ const slides = [
       "Create stunning digital event invitations and bring your brand to life with magical digital walls that showcase offers, new arrivals, and announcements with style.",
     buttons: [{ label: "Create Invitation", action: "invite" }],
   },
-  {
-    heading: (
-      <>
-        Your Shop, Digitally Framed on <span>Every Wall</span>
-      </>
-    ),
-    description:
-      "Display offers, new arrivals, and updates on a branded digital wall. Perfect for local shops & events.",
-    buttons: [{ label: "Create Wall", action: "wall" }],
-  },
 ];
 
 const Spotlight = () => {
@@ -75,31 +64,33 @@ const Spotlight = () => {
   const [currentSpotlight, setCurrentSpotlight] = useState("invitation");
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-      setCurrentSpotlight(currentSpotlight === 'invitation' ? 'wall' : 'invitation')
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [currentSpotlight]);
+  //   useEffect(() => {
+  //     const interval = setInterval(() => {
+  //       setIndex((prev) => (prev + 1) % slides.length);
+  //       setCurrentSpotlight(currentSpotlight === 'invitation' ? 'wall' : 'invitation')
+  //     }, 8000);
+  //     return () => clearInterval(interval);
+  //   }, [currentSpotlight]);
 
   return (
     <HeroHighlight>
       <div id="spotlight" className={Style.spotlight}>
         {/* {isMobile && <SpotlightTags />} */}
         {/* {isMobile && <HomeTemplates type={currentSpotlight} style='slider-row' />} */}
-        {isMobile && <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={currentSpotlight}
-                variants={homeTemplatesVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="mb-6 pt-[85px]"
-              >
-                <HomeTemplates type={currentSpotlight} isHorizontal={isMobile} />
-              </motion.div>
-            </AnimatePresence>}
+        {isMobile && (
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={currentSpotlight}
+              variants={homeTemplatesVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="mb-6 pt-[85px]"
+            >
+              <HomeTemplates type={currentSpotlight} isHorizontal={isMobile} />
+            </motion.div>
+          </AnimatePresence>
+        )}
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -147,7 +138,7 @@ const Spotlight = () => {
                     key={i}
                     size="lg"
                     color="primary"
-                    className='bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] px-8'
+                    className="bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] px-8"
                     onPress={() => handleSendWhatsAppMessage(btn.action)}
                   >
                     {btn.label}
@@ -167,7 +158,7 @@ const Spotlight = () => {
                 animate="visible"
                 exit="exit"
               >
-                <HomeTemplates type={currentSpotlight}  />
+                <HomeTemplates type={currentSpotlight} />
               </motion.div>
             </AnimatePresence>
           )}
