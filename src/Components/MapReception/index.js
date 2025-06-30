@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { FaMapLocationDot } from "react-icons/fa6";
 import CommonButton from "../CommonButton";
-import Style from "./Map.module.scss";
-import { useMap } from "./useMap";
+import Style from "../Map/Map.module.scss";
+import { useMap } from "Components/Map/useMap";
 
 const Map = ({ data }) => {
   const { handleOpenGoogleMaps, mapOnLoad } = useMap(data);
@@ -33,7 +33,7 @@ const Map = ({ data }) => {
         transition={{ ...fadeUp.transition, delay: 0.3 }}
       >
         <iframe
-          src={data?.map}
+          src={data?.map_reception}
           width="650"
           height={
             typeof window !== "undefined" && window.innerWidth >= 560
@@ -54,18 +54,10 @@ const Map = ({ data }) => {
       >
         <CommonButton
           style={{ fontFamily: "Arial" }}
-          text={"Wedding Location"}
+          text={"Reception Location"}
           icon={<FaMapLocationDot />}
-          onClick={() => handleOpenGoogleMaps(data.map_link)}
+          onClick={() => handleOpenGoogleMaps(data.reception_link)}
         />
-        {/* { data.reception_link && 
-          <CommonButton
-            style={{ fontFamily: "Arial" }}
-            text={"Reception Location"}
-            icon={<FaMapLocationDot />}
-            onClick={()=> handleOpenGoogleMaps(data.reception_link)}
-          />
-        } */}
       </motion.div>
     </div>
   );

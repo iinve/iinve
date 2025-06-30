@@ -5,6 +5,7 @@ import EternityInviteQuote from "Components/EternityInviteQuote/EternityInviteQu
 import EternitySpotlight from "Components/EternitySpotlight/EternitySpotlight";
 import Footer from "Components/Footer";
 import Map from "Components/Map";
+import MapReception from "Components/MapReception";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
@@ -77,6 +78,7 @@ const Index = ({ data }) => {
           className=" py-6 rounded-b-[40px]"
           style={{ background: data.theme }}
         >
+          <Map data={data} />
           <div className="flex justify-center mb-12">
             <Image
               src={Subtract}
@@ -86,7 +88,7 @@ const Index = ({ data }) => {
               className="object-contain rotate-180"
             />
           </div>
-          <Map data={data} />
+          <MapReception data={data} />
           <MusicPlayer music={data.music} />
         </div>
       </div>
