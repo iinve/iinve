@@ -5,6 +5,7 @@ import EternityInviteQuote from "Components/EternityInviteQuote/EternityInviteQu
 import EternitySpotlight from "Components/EternitySpotlight/EternitySpotlight";
 import Footer from "Components/Footer";
 import Map from "Components/Map";
+import CalendarReception from "Components/CalendarReception";
 import MapReception from "Components/MapReception";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
@@ -88,6 +89,7 @@ const Index = ({ data }) => {
               className="object-contain rotate-180"
             />
           </div>
+          <CalendarReception data={data} />
           <MapReception data={data} />
           <MusicPlayer music={data.music} />
         </div>
