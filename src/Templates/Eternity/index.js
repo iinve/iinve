@@ -79,6 +79,7 @@ const Index = ({ data }) => {
           className=" py-6 rounded-b-[40px]"
           style={{ background: data.theme }}
         >
+          <h3 className="text-center text-3xl">Wedding</h3>
           <Map data={data} />
           <div className="flex justify-center mb-12">
             <Image
@@ -89,8 +90,9 @@ const Index = ({ data }) => {
               className="object-contain rotate-180"
             />
           </div>
-          <CalendarReception data={data} />
+
           <MapReception data={data} />
+          <CalendarReception data={data} />
           <MusicPlayer music={data.music} />
         </div>
       </div>

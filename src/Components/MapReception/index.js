@@ -17,6 +17,7 @@ const Map = ({ data }) => {
 
   return (
     <div className={Style.map}>
+      <h3 className="text-center text-3xl mb-6">Reception</h3>
       <motion.p
         {...fadeUp}
         transition={{ ...fadeUp.transition, delay: 0.1 }}

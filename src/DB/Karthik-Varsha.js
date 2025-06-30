@@ -21,7 +21,9 @@ export const karthik_varsha = {
   reception_begin_time: "05:00 pM",
   music: "/audio/sita_kalyanam.mp3",
   quote:
-    "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony .  <br /><br /> You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
+    "You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
+  wdn_quote:
+    "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony . ",
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:

@@ -22,7 +22,7 @@ const Map = ({ data }) => {
         transition={{ ...fadeUp.transition, delay: 0.1 }}
         dangerouslySetInnerHTML={{
           __html:
-            data?.quote ||
+            data?.wdn_quote ||
             "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together.",
         }}
       ></motion.p>
