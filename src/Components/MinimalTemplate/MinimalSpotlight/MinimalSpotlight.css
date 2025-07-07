@@ -90,6 +90,7 @@ body {
     font-size: 140px;
     margin: 0 20px;
     display: inline-block;
+    font-size: 36px;
 }
 
 .spotlight small {
@@ -99,7 +100,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     z-index: 44;
-    font-size: 16px;
+    font-size: 32px;
     animation: bounce 2s ease-in forwards infinite;
 }
 
