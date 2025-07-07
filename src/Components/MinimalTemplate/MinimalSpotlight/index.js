@@ -75,7 +75,7 @@ const MinimalSpotlight = ({
           <div class="content">
             <p>
               Invite your esteemed presence to celebrate the joyous occasion of
-              their Wedding Reception <br />
+              our Wedding Reception <br />
               <br />{" "}
               <b>
                 {" "}
