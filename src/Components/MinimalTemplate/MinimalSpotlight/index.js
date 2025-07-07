@@ -62,17 +62,29 @@ const MinimalSpotlight = ({
               </h2>
             </motion.div>
           </div>
-          <small>Reception</small>
+          <small>Wedding Reception</small>
+          <div className="relative">
+            <div className="absolute -right-[174px] top-[90px] -rotate-45">
+              <Image src={LotusTwo} alt="Logo" width={300} height={100} />
+            </div>
+          </div>
         </div>
       </section>
       <section id="bottom">
         <div class="weapper">
           <div class="content">
             <p>
-              You are also invited for the post-marriage reception that will be
-              arranged at Travancore International Convention Center (The Sports
-              hub, Green Field international Stadium) Karyavattom, on
-              <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>
+              Invite your esteemed presence to celebrate the joyous occasion of
+              their Wedding Reception <br />
+              <br />{" "}
+              <b>
+                {" "}
+                On 13th July 2025 at Travancore International convention centre,
+                Karyavattom (The Sports hub, Greenfield International stadium)
+                from 5 PM onwards.
+              </b>
+              <br />
+              <br /> Grace us with your love and support!
             </p>
           </div>
           <div class="slide-img">

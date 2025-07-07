@@ -17,7 +17,7 @@ const Map = ({ data }) => {
 
   return (
     <div className={Style.map}>
-      <h3 className="text-center text-3xl mb-6">Reception</h3>
+      {/* <h3 className="text-center text-3xl mb-6">Reception</h3>
       <motion.p
         {...fadeUp}
         transition={{ ...fadeUp.transition, delay: 0.1 }}
@@ -26,7 +26,7 @@ const Map = ({ data }) => {
             data?.quote ||
             "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together.",
         }}
-      ></motion.p>
+      ></motion.p> */}
 
       <motion.div
         className={Style.mapContainer}
