@@ -6,7 +6,7 @@ import CommonButton from "../CommonButton";
 import Style from "./Map.module.scss";
 import { useMap } from "./useMap";
 
-const Map = ({ data }) => {
+const Map = ({ data, isBlue }) => {
   const { handleOpenGoogleMaps, mapOnLoad } = useMap(data);
   const fadeUp = {
     initial: { opacity: 0, y: 30, filter: "blur(6px)" },
@@ -21,9 +21,10 @@ const Map = ({ data }) => {
         {...fadeUp}
         transition={{ ...fadeUp.transition, delay: 0.1 }}
         dangerouslySetInnerHTML={{
-          __html:
-            data?.wdn_quote ||
-            "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together.",
+          __html: isBlue
+            ? data.quote
+            : data?.wdn_quote ||
+              "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together.",
         }}
       ></motion.p>
 
@@ -53,8 +54,9 @@ const Map = ({ data }) => {
         transition={{ ...fadeUp.transition, delay: 0.5 }}
       >
         <CommonButton
-          style={{ fontFamily: "Arial" }}
-          text={"Wedding Location"}
+          //   style={{ fontFamily: "Arial" }}
+          className={isBlue && "bg-[#3F547A] text-white"}
+          text={isBlue ? "Get Location" : "Wedding Location"}
           icon={<FaMapLocationDot />}
           onClick={() => handleOpenGoogleMaps(data.map_link)}
         />

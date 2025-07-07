@@ -130,6 +130,10 @@ body {
 
 }
 
+.fleur {
+    font-family: "Fleur De Leah";
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;

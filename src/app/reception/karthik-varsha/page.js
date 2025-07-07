@@ -1,7 +1,15 @@
+import Calendar from "Components/Calendar";
+import Map from "Components/Map";
+import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import { reception_karthik } from "DB/Reception-karthik";
 import MinimalTemplate from "Templates/MinimalTemplate";
 import ReceptionKarthik from "Templates/ReceptionKarthik";
 import Head from "next/head";
+import Image from "next/image";
+import lotus from "../../../assets/coffeePremium/Karthik-Varsha/lotus.png";
+import lotus2 from "../../../assets/coffeePremium/Karthik-Varsha/lotus-2.png";
+import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
+import { Lotus } from "../Lotus";
 
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
@@ -30,7 +38,7 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <div>
+    <div className="bg-white">
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
@@ -48,7 +56,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <MinimalTemplate data={reception_karthik} />
+      <Lotus reception_karthik={reception_karthik} />
     </div>
   );
 };
