@@ -1,7 +1,8 @@
+"use client";
 import ActionButton from "ProUI/ActionButton/ActionButton";
 import ProIcon from "ProUI/Icons/icons";
 import { useEffect, useRef, useState } from "react";
-import Style from './MusicPlayer.module.scss'
+import Style from "./MusicPlayer.module.scss";
 
 export default function MusicPlayer({ music }) {
   const audioRef = useRef(null);
@@ -16,10 +17,12 @@ export default function MusicPlayer({ music }) {
   const scrollTimeout = useRef(null);
 
   useEffect(() => {
-    if (!audioRef.current || !canvasRef.current || audioContextRef.current) return;
+    if (!audioRef.current || !canvasRef.current || audioContextRef.current)
+      return;
 
     // Initialize AudioContext and Analyser only once
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioContext = new (window.AudioContext ||
+      window.webkitAudioContext)();
     const source = audioContext.createMediaElementSource(audioRef.current);
     const analyser = audioContext.createAnalyser();
 
@@ -73,7 +76,6 @@ export default function MusicPlayer({ music }) {
       }
     };
 
-
     draw();
 
     // Save references
@@ -122,14 +124,25 @@ export default function MusicPlayer({ music }) {
   };
 
   return (
-    <div className='fixed bottom-0 right-0 m-4 z-[999]'>
-      <div className={`flex items-center justify-end p-2 rounded-full ${isPlaying ? 'w-[130px]' : 'w-[65px]'} bg-white/50 backdrop-blur-lg transition-all duration-300 ${showPlayer ? 'opacity-100' : 'opacity-0'}`} style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}}>
+    <div className="fixed bottom-0 right-0 m-4 z-[999]">
+      <div
+        className={`flex items-center justify-end p-2 rounded-full ${
+          isPlaying ? "w-[130px]" : "w-[65px]"
+        } bg-white/50 backdrop-blur-lg transition-all duration-300 ${
+          showPlayer ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}
+      >
         <canvas
           ref={canvasRef}
           width={50}
           height={50}
           className={`rounded-full shadow-lg mr-4 bg-black absolute transition-all duration-300 left-2 
-              ${isPlaying ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-75'}`}
+              ${
+                isPlaying
+                  ? "opacity-100 visible scale-100"
+                  : "opacity-0 invisible scale-75"
+              }`}
         />
         <audio ref={audioRef} src={music} loop />
 
@@ -141,7 +154,11 @@ export default function MusicPlayer({ music }) {
           variant="faded"
           size="lg"
         >
-          <ProIcon name={isPlaying ? "FaPause" : "IoIosPlay"} color="white" size={18} />
+          <ProIcon
+            name={isPlaying ? "FaPause" : "IoIosPlay"}
+            color="white"
+            size={18}
+          />
         </ActionButton>
       </div>
       {!isPlaying && showPlayer && <div className={Style.pulseRing}></div>}
