@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Style from "./Calendar.module.scss";
 
-const Calendar = ({ data }) => {
+const Calendar = ({ data, isBlue }) => {
   const CalendarData =
     window?.innerWidth <= 1050 ? data?.dateData?.slice(1, -1) : data?.dateData;
   // const { handleAddEvent } = useCalendar();
@@ -16,10 +16,16 @@ const Calendar = ({ data }) => {
     triggerOnce: true,
     threshold: 0.5,
   });
-  console.log(CalendarData)
+  console.log(CalendarData);
   //TODO: REMOVE EVENT_TYPE CHECK
-  const eventName = data.event_type === "wedding_ml" ? "Karthiksurya & Varsha's Wedding Ceremony" : `${data?.bride} & ${data?.groom}'s Wedding Ceremony`
-  const description = data.event_type === "wedding_ml" ? "Celebrate the wedding of Karthiksurya & Varsha" : `Celebrate the wedding of ${data?.bride} & ${data?.groom}`
+  const eventName =
+    data.event_type === "wedding_ml"
+      ? "Karthiksurya & Varsha's Wedding Ceremony"
+      : `${data?.bride} & ${data?.groom}'s Wedding Ceremony`;
+  const description =
+    data.event_type === "wedding_ml"
+      ? "Celebrate the wedding of Karthiksurya & Varsha"
+      : `Celebrate the wedding of ${data?.bride} & ${data?.groom}`;
 
   return (
     <div className={Style.calendarWrapper}>

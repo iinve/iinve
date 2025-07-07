@@ -17,16 +17,18 @@ const Map = ({ data, isBlue }) => {
 
   return (
     <div className={Style.map}>
-      <motion.p
-        {...fadeUp}
-        transition={{ ...fadeUp.transition, delay: 0.1 }}
-        dangerouslySetInnerHTML={{
-          __html: isBlue
-            ? data.quote
-            : data?.wdn_quote ||
-              "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together.",
-        }}
-      ></motion.p>
+      {!isBlue && (
+        <motion.p
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.1 }}
+          dangerouslySetInnerHTML={{
+            __html: isBlue
+              ? data.quote
+              : data?.wdn_quote ||
+                "With great joy and heartfelt excitement, we invite you to share in our happiness as we exchange vows and embark on this beautiful journey together.",
+          }}
+        ></motion.p>
+      )}
 
       <motion.div
         className={Style.mapContainer}
@@ -55,7 +57,7 @@ const Map = ({ data, isBlue }) => {
       >
         <CommonButton
           //   style={{ fontFamily: "Arial" }}
-          className={isBlue && "bg-[#3F547A] text-white"}
+          className={isBlue && "bg-[#be607d] text-white"}
           text={isBlue ? "Get Location" : "Wedding Location"}
           icon={<FaMapLocationDot />}
           onClick={() => handleOpenGoogleMaps(data.map_link)}

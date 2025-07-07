@@ -15,11 +15,11 @@ export const reception_karthik = {
   phone1: "",
   theme: "#eccde1",
   default_color: "#FEF3E2",
-  highlight_color: "#C1739E",
+  highlight_color: "#be607d",
   phone2: "",
   begin_time: "05:00 PM",
   reception_begin_time: "05:00 pM",
-  music: "/audio/minimal.mp3",
+  music: "/audio/pookal.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
   wdn_quote:
@@ -79,10 +79,9 @@ export const reception_karthik = {
   reception_place: "Karyavattom",
   reception_date: "2025-07-13",
   short_date: "13-July-2025",
-  map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4257.938559518577!2d76.84405947531285!3d8.631641195081729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05c03fb0049aef%3A0x843c0c1f0b9a877f!2sSafa%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1748358184714!5m2!1sen!2sin",
-  map_reception:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.2250118127654!2d76.88546939999999!3d8.5729369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf1b75dfbd09%3A0x195da672c6f81df1!2sTravancore%20International%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1751286921750!5m2!1sen!2sin",
+  map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.2250118127654!2d76.88546939999999!3d8.5729369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf1b75dfbd09%3A0x195da672c6f81df1!2sTravancore%20International%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1751286921750!5m2!1sen!2sin",
+  map_reception: "",
   // map_name: "Kalikavu",
-  map_link: "https://maps.app.goo.gl/gVM35tUa1b7FLZtE9",
+  map_link: "https://maps.app.goo.gl/nsM1eDCCZXemXBTD6",
   reception_link: "https://maps.app.goo.gl/nsM1eDCCZXemXBTD6",
 };

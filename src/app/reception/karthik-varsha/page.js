@@ -7,7 +7,7 @@ import ReceptionKarthik from "Templates/ReceptionKarthik";
 import Head from "next/head";
 import Image from "next/image";
 import lotus from "../../../assets/coffeePremium/Karthik-Varsha/lotus.png";
-import lotus2 from "../../../assets/coffeePremium/Karthik-Varsha/lotus-2.png";
+// import lotus2 from "../../../assets/coffeePremium/Karthik-Varsha/lotus-2.png";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import { Lotus } from "../Lotus";
 
