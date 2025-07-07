@@ -43,6 +43,7 @@ const Calendar = ({ data }) => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0 }}
             transition={{ duration: 0.5, delay: 0.1 * index }}
+            style={item.active && { color: data.highlight_color }}
           >
             <span>{data?.month}</span>
             <h5>{item.date}</h5>

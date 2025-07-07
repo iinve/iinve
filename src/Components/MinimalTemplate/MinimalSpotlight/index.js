@@ -11,6 +11,10 @@ import "swiper/css/effect-fade";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./MinimalSpotlight.css";
+import CalendarReception from "Components/CalendarReception";
+import MapReception from "Components/MapReception";
+import Lotus from "../../../assets/images/lotus.png";
+import LotusTwo from "../../../assets/images/lotus2.png";
 
 const MinimalSpotlight = ({
   brideName,
@@ -25,6 +29,7 @@ const MinimalSpotlight = ({
   location,
   endTime,
   mapLink,
+  data,
 }) => {
   const handleOpenGoogleMaps = () => {
     const location = "Kumaramangalam Auditorium";
@@ -39,7 +44,7 @@ const MinimalSpotlight = ({
   };
 
   return (
-    <div className="minimal">
+    <div className="minimal ">
       <section className="spotlight">
         <div class="wrapper">
           <div class="main">
@@ -50,25 +55,24 @@ const MinimalSpotlight = ({
               variants={fadeUpVariants}
               transition={{ duration: 0.5 }}
             >
-              <h2>
+              <h2 className="minimalhead">
                 {groomName}
                 <span>&amp;</span>
                 {brideName}
               </h2>
             </motion.div>
           </div>
-          <small>Getting Married</small>
+          <small>Reception</small>
         </div>
       </section>
       <section id="bottom">
         <div class="weapper">
           <div class="content">
             <p>
-              With joyful hearts, {groomName} and {brideName}, together with
-              their families, invite you to celebrate their union. Please join
-              us for the wedding ceremony on {date}, at {time} at {place}.
-              Reception at SN Auditorium Ayyapankavu. We eagerly await your
-              presence to share in this special day.
+              You are also invited for the post-marriage reception that will be
+              arranged at Travancore International Convention Center (The Sports
+              hub, Green Field international Stadium) Karyavattom, on
+              <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>
             </p>
           </div>
           <div class="slide-img">
@@ -109,7 +113,7 @@ const MinimalSpotlight = ({
             </ul>
           </div>
         </div>
-        <div class="venue">
+        {/* <div class="venue">
           <span className="fixed-background"></span>
           <div class="date">
             <h4>{date}</h4>
@@ -148,9 +152,18 @@ const MinimalSpotlight = ({
               lightMode="bodyScheme"
             ></add-to-calendar-button>
           </button>
+        </div> */}
+
+        <CalendarReception data={data} />
+        <div className="relative">
+          <div className="absolute -left-[240px] -top-[150px]">
+            <Image src={LotusTwo} alt="Logo" width={500} height={150} />
+          </div>
         </div>
+        <MapReception data={data} />
+
         <div className="wrapper">
-          <div class="location">
+          {/* <div class="location">
             <div class="gmap">
               <iframe
                 src={mapLink}
@@ -168,13 +181,17 @@ const MinimalSpotlight = ({
                 <FaMapLocationDot />
               </a>
             </button>
-          </div>
-          <div class="logo">
-            <Link href={"/"}>
+          </div> */}
+
+          <div class="logo relative overflow-hidden">
+            <div className="flex justify-center absolute -md:bottom-[140px] -bottom-[80px]">
+              <Image src={Lotus} alt="Logo" width={500} height={150} />
+            </div>
+            <Link href={"/"} className="pb-[160px]">
               <Image
                 src={Assets?.Created_by}
                 alt="Logo"
-                width={50}
+                width={130}
                 height={50}
               />
             </Link>

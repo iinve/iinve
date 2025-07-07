@@ -54,7 +54,7 @@ const Map = ({ data }) => {
         transition={{ ...fadeUp.transition, delay: 0.5 }}
       >
         <CommonButton
-          style={{ fontFamily: "Arial" }}
+          style={{ fontFamily: "Arial", background: "#eccde1" }}
           text={"Reception Location"}
           icon={<FaMapLocationDot />}
           onClick={() => handleOpenGoogleMaps(data.reception_link)}
