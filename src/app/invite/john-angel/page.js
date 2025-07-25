@@ -20,7 +20,7 @@ export const metadata = {
     images: [
       {
         url: `${metadataBase}/assets/images/og-image/og-Juliet.jpg`,
-        alt: "Karthik & Varsha Wedding Invitation",
+        alt: "John & Angel Wedding Invitation",
       },
     ],
   },
