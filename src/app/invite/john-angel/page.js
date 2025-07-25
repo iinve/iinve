@@ -9,17 +9,17 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Karthik & Varsha Wedding Invitation | iinve",
+  title: "John & Angel Wedding Invitation | iinve",
   description:
-    "Karthik and Varsha are getting married and joyfully invite you to celebrate their wedding.",
+    "John and Angel are getting married and joyfully invite you to celebrate their wedding.",
   robots: "noindex, nofollow",
   openGraph: {
-    title: "Karthik and Varsha Wedding Invitation | iinve",
+    title: "John and Angel Wedding Invitation | iinve",
     description:
-      "Karthik and Varsha are getting married and joyfully invite you to celebrate their wedding.",
+      "John and Angel are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}/assets/images/og-image/og-karthik.jpg`,
+        url: `${metadataBase}/assets/images/og-image/og-Juliet.jpg`,
         alt: "Karthik & Varsha Wedding Invitation",
       },
     ],
