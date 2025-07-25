@@ -56,7 +56,7 @@ export const mahesh_megha = {
     { date: "15", day: "Tue" },
     { date: "16", day: "Wed" },
   ],
-  month: "September",
+  month: "Sept",
   muhurtham: `<b> 10:30 </b> & <b> 10:45 </b>`,
   reception_muhurtham: `<b> 10:30 </b> & <b> 10:45 </b>`,
   venue: "Contour Convention Centre",
@@ -65,7 +65,7 @@ export const mahesh_megha = {
   reception_venue: "Travancore International Convention Center",
   reception_place: "Karyavattom",
   reception_date: "2025-07-13",
-  short_date: "11-September-2025",
+  short_date: "11-Sept-2025",
   map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.117440125417!2d76.52629971044331!3d9.433366490605989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0626697ec4fc45%3A0x70b6173cbdd67733!2sContour%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1753471307914!5m2!1sen!2sin",
   map_reception:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.2250118127654!2d76.88546939999999!3d8.5729369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf1b75dfbd09%3A0x195da672c6f81df1!2sTravancore%20International%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1751286921750!5m2!1sen!2sin",
