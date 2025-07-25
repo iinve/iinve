@@ -9,9 +9,9 @@ import image06 from "../assets/coffeePremium/Karthik-Varsha/six.jpeg";
 import image03 from "../assets/coffeePremium/Karthik-Varsha/three.jpeg";
 import image02 from "../assets/coffeePremium/Karthik-Varsha/two.jpeg";
 
-export const karthik_varsha = {
+export const saran_namitha = {
   groom: "Saran",
-  bride: "Varsha",
+  bride: "Namitha",
   phone1: "",
   theme: "#3c4028",
   default_color: "#FEF3E2",
@@ -21,13 +21,13 @@ export const karthik_varsha = {
   reception_begin_time: "05:00 pM",
   music: "/audio/sita_kalyanam.mp3",
   quote:
-    "You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
+    "You are also invited for the post-marriage reception that will be arranged at RDR convention centre  Edapazhanji , Trivandrum, on <b> 30th Augest 2025 Saturday from 5:00pm to 09:00pm </b>",
   wdn_quote:
     "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony . ",
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we <b>Saran & Namitha</b>, invite you our beloved family to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness and cherished memories on <b>11-July-2025 </b> at <b>Safa Convention Centre </b> and Thonnakkal , Mangalapuram. We look forward to creating unforgettable moments with all of you.",
+    "With hearts full of love and joy, we <b>Saran & Namitha</b>, invite you our beloved family to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness and cherished memories on <b>28-Aug-2025 </b> at <b>Grace Auditorium </b> Kodukulanji,Chengannur. We look forward to creating unforgettable moments with all of you.",
   couples_data: [
     {
       full_name: "Saran",
@@ -83,6 +83,6 @@ export const karthik_varsha = {
   map_reception:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.2250118127654!2d76.88546939999999!3d8.5729369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf1b75dfbd09%3A0x195da672c6f81df1!2sTravancore%20International%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1751286921750!5m2!1sen!2sin",
   // map_name: "Kalikavu",
-  map_link: "https://maps.app.goo.gl/gVM35tUa1b7FLZtE9",
-  reception_link: "https://maps.app.goo.gl/nsM1eDCCZXemXBTD6",
+  map_link: "https://maps.app.goo.gl/f6jtjkccqddnR4XH6?g_st=aw",
+  reception_link: "https://maps.app.goo.gl/qFPjXSJBUXhxWeYL6?g_st=aw",
 };
