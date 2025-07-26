@@ -26,7 +26,7 @@ export const saran_namitha = {
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we, <b>Saran & Namitha</b>, warmly invite you, our beloved family, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception would mean the world to us as we embark on this beautiful journey as one. Let us gather to share in the love, happiness, and cherished memories on <b>28th August 2025</b>, at <b>Grace Auditorium</b>, Kodukulanji, Chengannur. We look forward to creating unforgettable moments with each and every one of you.",
+    "With hearts full of love and joy, we, <b>Saran & Namitha</b>, warmly invite you, our beloved family and friends, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception would mean the world to us as we embark on this beautiful journey as one. Let us gather to share in the love, happiness, and cherished memories on <b>28th August 2025</b>, at <b>Grace Auditorium</b>, Kodukulanji, Chengannur. We look forward to creating unforgettable moments with each and every one of you.",
   couples_data: [
     {
       full_name: "Saran",
