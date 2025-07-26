@@ -30,12 +30,12 @@ export const saran_namitha = {
   couples_data: [
     {
       full_name: "Saran",
-      bio: "S/O Saraswathy.C & Sivakumar",
+      bio: "S/O Saraswathy.C & Sivakumar.V",
       avatar: Groom,
     },
     {
       full_name: "Namitha",
-      bio: "D/O Jayasree.C & NG Rameshan Nair",
+      bio: "D/O Jayasree.S & NG Rameshan Nair (Late)",
       avatar: Bride,
     },
   ],
