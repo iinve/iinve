@@ -43,7 +43,7 @@ const Index = ({ data }) => {
           shuffle={false}
           isMalayalamPage={isMalayalamPage}
         />
-        <EternityCoupleDetails data={data} />
+        <EternityCoupleDetails data={data} showMap />
         <div className="relative py-6" style={{ background: data.theme }}>
           <Image
             src={Leaves}
