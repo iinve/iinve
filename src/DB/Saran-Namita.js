@@ -1,10 +1,10 @@
-import Bride from "../assets/coffeePremium/Juliet-Nathaniel/bride-one.webp";
-import image05 from "../assets/coffeePremium/Juliet-Nathaniel/five.webp";
-import image04 from "../assets/coffeePremium/Juliet-Nathaniel/four.webp";
-import Groom from "../assets/coffeePremium/Juliet-Nathaniel/groom.webp";
-import image01 from "../assets/coffeePremium/Juliet-Nathaniel/one.webp";
-import image03 from "../assets/coffeePremium/Juliet-Nathaniel/three.webp";
-import image02 from "../assets/coffeePremium/Juliet-Nathaniel/two.webp";
+import Bride from "../assets/coffeePremium/saran-namitha/bride.jpg";
+import Groom from "../assets/coffeePremium/saran-namitha/groom.jpg";
+import image01 from "../assets/coffeePremium/saran-namitha/cartoon.png";
+import image03 from "../assets/coffeePremium/saran-namitha/img1.jpg";
+import image02 from "../assets/coffeePremium/saran-namitha/img2.jpg";
+import image04 from "../assets/coffeePremium/saran-namitha/cartoon2.png";
+import image05 from "../assets/coffeePremium/saran-namitha/cartoon3.png";
 
 export const saran_namitha = {
   groom: "Saran",
@@ -16,7 +16,7 @@ export const saran_namitha = {
   phone2: "",
   begin_time: "10:30 AM",
   reception_begin_time: "05:00 pM",
-  music: "/audio/minimal.mp3",
+  music: "/audio/sitakalyanam_Song.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at RDR convention centre  Edapazhanji , Trivandrum, on <b> 30th Augest 2025 Saturday from 5:00pm to 09:00pm </b>",
   wdn_quote:
@@ -40,13 +40,13 @@ export const saran_namitha = {
 
   images: [
     image01,
-    image02,
     image03,
-    image04,
     image05,
+    image01,
+    image02,
     image04,
     image03,
-    image02,
+    image04,
   ],
   dateData: [
     { date: "25", day: "Mon" },
@@ -68,7 +68,7 @@ export const saran_namitha = {
   ],
   month: "Aug",
   muhurtham: `<b> 12:00 </b> & <b> 12:20 </b>`,
-  reception_muhurtham: `<b> 05:00 </b> & <b> 10:00 </b>`,
+  reception_muhurtham: `<b> 05:00 </b> & <b> 09:00 </b>`,
   venue: "Grace Auditorium",
   place: "Kodukulanji , Chengannur",
   date: "2025-08-28",
