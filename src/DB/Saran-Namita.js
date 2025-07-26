@@ -1,10 +1,12 @@
 import Bride from "../assets/coffeePremium/saran-namitha/bride.jpg";
 import Groom from "../assets/coffeePremium/saran-namitha/groom.jpg";
-import image01 from "../assets/coffeePremium/saran-namitha/cartoon.png";
-import image03 from "../assets/coffeePremium/saran-namitha/img1.jpg";
+import image01 from "../assets/coffeePremium/saran-namitha/img1.jpg";
 import image02 from "../assets/coffeePremium/saran-namitha/img2.jpg";
-import image04 from "../assets/coffeePremium/saran-namitha/cartoon2.png";
-import image05 from "../assets/coffeePremium/saran-namitha/cartoon3.png";
+import image03 from "../assets/coffeePremium/saran-namitha/img3.jpg";
+import image04 from "../assets/coffeePremium/saran-namitha/img4.jpg";
+import image05 from "../assets/coffeePremium/saran-namitha/img5.jpg";
+import image06 from "../assets/coffeePremium/saran-namitha/img6.png";
+import image07 from "../assets/coffeePremium/saran-namitha/img7.jpg";
 
 export const saran_namitha = {
   groom: "Saran",
@@ -39,14 +41,14 @@ export const saran_namitha = {
   ],
 
   images: [
-    image01,
     image03,
-    image05,
+    image04,
     image01,
     image02,
-    image04,
-    image03,
-    image04,
+    image05,
+    image06,
+    image07,
+    image01,
   ],
   dateData: [
     { date: "25", day: "Mon" },
