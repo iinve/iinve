@@ -1,12 +1,17 @@
 import Image from "next/image";
 import React from "react";
 import Subtract from "../../assets/images/Subtract.png";
+import map from "../../assets/coffeePremium/mahesh-megha/map.png";
 
 const EternityCoupleDetails = ({ data }) => {
   return (
     <div className="bg-white ">
       <div className="bg-white py-16 px-4 text-center text-gray-700 max-w-[500px] w-full mx-auto">
         {/* Top separator */}
+
+        <div className="w-full overflow-hidden">
+          <Image src={map} alt="map" className="object-cover" />
+        </div>
 
         {/* Groom */}
         <div className="py-10">
