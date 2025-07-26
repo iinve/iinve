@@ -16,7 +16,7 @@ export const saran_namitha = {
   phone2: "",
   begin_time: "10:30 AM",
   reception_begin_time: "05:00 pM",
-  music: "/audio/sita_kalyanam.mp3",
+  music: "/audio/minimal.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at RDR convention centre  Edapazhanji , Trivandrum, on <b> 30th Augest 2025 Saturday from 5:00pm to 09:00pm </b>",
   wdn_quote:

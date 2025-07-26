@@ -11,12 +11,12 @@ import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import aom from "../../assets/images/om_tamil.png";
+import aom from "../../assets/images/ohm.png";
 import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";
 
-const Index = ({ data, isHindu }) => {
+const Index = ({ data, isHindu, showGuru = false }) => {
   const [isMalayalamPage, setIsMalayalamPage] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,13 +51,15 @@ const Index = ({ data, isHindu }) => {
             alt="Leaves Decoration"
             className="absolute top-0 left-0 w-32 h-auto object-cover"
           />
-          <div className="flex justify-center my-10">
-            <Image
-              src={gurudevan}
-              alt="Gurudevan"
-              className="w-24 h-auto rounded-full object-contain"
-            />
-          </div>
+          {showGuru && (
+            <div className="flex justify-center my-10">
+              <Image
+                src={gurudevan}
+                alt="Gurudevan"
+                className="w-24 h-auto rounded-full object-contain"
+              />
+            </div>
+          )}
           <PhotoMessSwiper data={data} />
         </div>
         <EternityInviteQuote data={data} />
