@@ -1,13 +1,10 @@
-import Bride from "../assets/coffeePremium/Karthik-Varsha/bride_avathar.jpeg";
-import image08 from "../assets/coffeePremium/Karthik-Varsha/eight.jpeg";
-import image05 from "../assets/coffeePremium/Karthik-Varsha/five.jpeg";
-import image04 from "../assets/coffeePremium/Karthik-Varsha/four.jpeg";
-import Groom from "../assets/coffeePremium/Karthik-Varsha/groom_avathar.jpeg";
-import image01 from "../assets/coffeePremium/Karthik-Varsha/one.jpeg";
-import image07 from "../assets/coffeePremium/Karthik-Varsha/seven.jpeg";
-import image06 from "../assets/coffeePremium/Karthik-Varsha/six.jpeg";
-import image03 from "../assets/coffeePremium/Karthik-Varsha/three.jpeg";
-import image02 from "../assets/coffeePremium/Karthik-Varsha/two.jpeg";
+import Bride from "../assets/coffeePremium/Juliet-Nathaniel/bride-one.webp";
+import image05 from "../assets/coffeePremium/Juliet-Nathaniel/five.webp";
+import image04 from "../assets/coffeePremium/Juliet-Nathaniel/four.webp";
+import Groom from "../assets/coffeePremium/Juliet-Nathaniel/groom.webp";
+import image01 from "../assets/coffeePremium/Juliet-Nathaniel/one.webp";
+import image03 from "../assets/coffeePremium/Juliet-Nathaniel/three.webp";
+import image02 from "../assets/coffeePremium/Juliet-Nathaniel/two.webp";
 
 export const saran_namitha = {
   groom: "Saran",
@@ -42,32 +39,32 @@ export const saran_namitha = {
   ],
 
   images: [
-    image06,
+    image01,
+    image02,
     image03,
     image04,
-    image02,
     image05,
-    image01,
-    image08,
-    image07,
+    image04,
+    image03,
+    image02,
   ],
   dateData: [
-    { date: "08", day: "Tue" },
-    { date: "09", day: "Wed" },
-    { date: "10", day: "Thu" },
-    { date: "11", day: "Fri", active: true },
-    { date: "12", day: "Sat" },
-    { date: "13", day: "Sun" },
-    { date: "14", day: "Mon" },
+    { date: "25", day: "Mon" },
+    { date: "26", day: "Tue" },
+    { date: "27", day: "Wed" },
+    { date: "28", day: "Thu", active: true },
+    { date: "29", day: "Fri" },
+    { date: "30", day: "Sat" },
+    { date: "31", day: "Sun" },
   ],
   dateReception: [
-    { date: "10", day: "Thu" },
-    { date: "11", day: "Fri" },
-    { date: "12", day: "Sat" },
-    { date: "13", day: "Sun", active: true },
-    { date: "14", day: "Mon" },
-    { date: "15", day: "Tue" },
-    { date: "16", day: "Wed" },
+    { date: "27", day: "Wed" },
+    { date: "28", day: "Thu" },
+    { date: "29", day: "Fri" },
+    { date: "30", day: "Sat", active: true },
+    { date: "31", day: "Sun" },
+    { date: "01", day: "Mon" },
+    { date: "02", day: "Tue" },
   ],
   month: "Aug",
   muhurtham: `<b> 12:00 </b> & <b> 12:20 </b>`,
@@ -79,9 +76,9 @@ export const saran_namitha = {
   reception_place: "Edapazhanji , Trivandrum",
   reception_date: "2025-08-30",
   short_date: "28-Aug-2025",
-  map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4257.938559518577!2d76.84405947531285!3d8.631641195081729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05c03fb0049aef%3A0x843c0c1f0b9a877f!2sSafa%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1748358184714!5m2!1sen!2sin",
+  map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.9152948433766!2d76.6103868!3d9.2697925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06192c875ba7b5%3A0x63d6475bb378b3c7!2zR3JhY2UgQXVkaXRvcml1bS0gS29kdWt1bGFuamksIENoZW5nYW5udXIgKOC0l-C1jeC0sOC1h-C0uOC1jSDgtIbgtKHgtL_gtLHgtY3gtLHgtYvgtLHgtL_gtK_gtIIsIOC0leC1i-C0n-C1geC0leC1geC0s-C0nuC1jeC0nuC0vywg4LSa4LWG4LSZ4LWN4LSZ4LSo4LWN4LSo4LWC4LW8ICk!5e1!3m2!1sen!2sin!4v1753515644688!5m2!1sen!2sin",
   map_reception:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.2250118127654!2d76.88546939999999!3d8.5729369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf1b75dfbd09%3A0x195da672c6f81df1!2sTravancore%20International%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1751286921750!5m2!1sen!2sin",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.92071118646!2d76.96804329999999!3d8.5036624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05ba4a6959e6c9%3A0xcb867b71b24e2b48!2sRDR%20Convention%20Centre!5e1!3m2!1sen!2sin!4v1753515575870!5m2!1sen!2sin",
   // map_name: "Kalikavu",
   map_link: "https://maps.app.goo.gl/f6jtjkccqddnR4XH6?g_st=aw",
   reception_link: "https://maps.app.goo.gl/qFPjXSJBUXhxWeYL6?g_st=aw",
