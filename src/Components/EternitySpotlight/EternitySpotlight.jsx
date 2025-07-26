@@ -49,7 +49,7 @@ const EternitySpotlight = ({
         <div className=" overflow-hidden">
           <div className="relative h-[60vh] w-full">
             <Image
-              src={images[2]}
+              src={images[1]}
               alt="Couple"
               className="w-full"
               objectFit="cover"
@@ -69,14 +69,14 @@ const EternitySpotlight = ({
           {/* Left Column (2 stacked images) */}
           <div className="w-1/3 flex flex-col pt-[100px]">
             <Image
-              src={images[1]}
+              src={images[2]}
               alt="Image 1"
               className="w-full h-1/2 object-cover"
               width={500}
               height={300}
             />
             <Image
-              src={images[4]}
+              src={images[3]}
               alt="Image 2"
               className="w-full h-1/2 object-cover"
               width={500}
@@ -87,7 +87,7 @@ const EternitySpotlight = ({
           {/* Center Column (1 full-height image) */}
           <div className="w-2/3 md:1/3">
             <Image
-              src={images[3]}
+              src={images[4]}
               alt="Image 3"
               className="w-full h-full object-cover"
               width={600}
@@ -98,14 +98,14 @@ const EternitySpotlight = ({
           {/* Right Column (2 stacked images) */}
           <div className="w-1/3 flex flex-col pt-[100px]">
             <Image
-              src={images[1]}
+              src={images[5]}
               alt="Image 4"
               className="w-full h-1/2 object-cover"
               width={500}
               height={300}
             />
             <Image
-              src={images[5]}
+              src={images[6]}
               alt="Image 5"
               className="w-full h-1/2 object-cover"
               width={500}

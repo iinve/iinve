@@ -20,13 +20,13 @@ export const saran_namitha = {
   reception_begin_time: "05:00 pM",
   music: "/audio/sitakalyanam_Song.mp3",
   quote:
-    "You are also invited for the post-marriage reception that will be arranged at RDR convention centre  Edapazhanji , Trivandrum, on <b> 30th Augest 2025 Saturday from 5:00pm to 09:00pm </b>",
+    "You are also invited for the post-marriage reception that will be arranged at RDR convention centre  Edapazhanji , Trivandrum, on <b> 30th August  2025 Saturday from 5:00pm to 09:00pm </b>",
   wdn_quote:
     "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony . ",
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we <b>Saran & Namitha</b>, invite you our beloved family to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness and cherished memories on <b>28-Aug-2025 </b> at <b>Grace Auditorium </b> Kodukulanji,Chengannur. We look forward to creating unforgettable moments with all of you.",
+    "With hearts full of love and joy, we, <b>Saran & Namitha</b>, warmly invite you, our beloved family, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception would mean the world to us as we embark on this beautiful journey as one. Let us gather to share in the love, happiness, and cherished memories on <b>28th August 2025</b>, at <b>Grace Auditorium</b>, Kodukulanji, Chengannur. We look forward to creating unforgettable moments with each and every one of you.",
   couples_data: [
     {
       full_name: "Saran",
@@ -41,13 +41,13 @@ export const saran_namitha = {
   ],
 
   images: [
-    image03,
-    image04,
-    image01,
     image02,
-    image05,
+    image01,
+    image04,
     image06,
+    image02,
     image07,
+    image05,
     image01,
   ],
   dateData: [
