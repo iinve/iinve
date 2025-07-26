@@ -4,18 +4,20 @@ import Groom from "../assets/coffeePremium/mahesh-megha/mahesh.jpg";
 import image01 from "../assets/coffeePremium/mahesh-megha/cartoon.png";
 import image03 from "../assets/coffeePremium/mahesh-megha/img2.jpg";
 import image02 from "../assets/coffeePremium/mahesh-megha/img1.jpg";
+import image4 from "../assets/coffeePremium/mahesh-megha/image-01.png";
+import image5 from "../assets/coffeePremium/mahesh-megha/image-02.png";
 
 export const mahesh_megha = {
   groom: "Mahesh",
   bride: "Megha",
   phone1: "",
-  theme: "#3c4028",
+  theme: "#5a2f43",
   default_color: "#FEF3E2",
-  highlight_color: "#ddae6b",
+  highlight_color: "#fff",
   phone2: "",
   begin_time: "10:30 AM",
   reception_begin_time: "05:00 pM",
-  music: "/audio/sita_kalyanam.mp3",
+  music: "/audio/minimal.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
   wdn_quote:
@@ -23,7 +25,7 @@ export const mahesh_megha = {
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we <b>Mahesh & Megha</b>, invite you our beloved family to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception will mean the world to us as we embark on this beautiful journey as a family. <br/><br/> Let us come together to share in the love, happiness and cherished memories on <b>10-September-2025 </b> at <b>Contour Convention Centre </b> and Changanassery . We look forward to creating unforgettable moments with all of you.",
+    "With hearts full of love and joy, we, <b>Mahesh & Megha</b>, warmly invite you, our beloved family, to join us in celebrating the beginning of our new life together. Your presence at our wedding ceremony and reception will truly mean the world to us.<br/><br/> Let’s come together to celebrate love, laughter, and unforgettable memories on <b>10-September-2025</b> at <b>Contour Convention Centre</b>, Changanassery.<br/><br/>We also invite you to join us for the joyous Haldi ceremony, filled with fun, colors, and blessings, on the morning of <b>9-September-2025</b> at our residence. <br/>We look forward to sharing these precious moments with you.",
   couples_data: [
     {
       full_name: "Mahesh",
@@ -37,7 +39,7 @@ export const mahesh_megha = {
     },
   ],
 
-  images: [image04, image02, image04, image01, image03, image02, image04],
+  images: [image03, image01, image5, image4, image03, image02, image4],
   dateData: [
     { date: "07", day: "Sun" },
     { date: "08", day: "Mon" },

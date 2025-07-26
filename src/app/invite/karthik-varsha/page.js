@@ -47,7 +47,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <Eternity data={karthik_varsha} />
+      <Eternity data={karthik_varsha} isHindu />
     </div>
   );
 };

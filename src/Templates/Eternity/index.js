@@ -16,7 +16,7 @@ import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";
 
-const Index = ({ data }) => {
+const Index = ({ data, isHindu }) => {
   const [isMalayalamPage, setIsMalayalamPage] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -42,6 +42,7 @@ const Index = ({ data }) => {
           data={data}
           shuffle={false}
           isMalayalamPage={isMalayalamPage}
+          isHindu={isHindu}
         />
         <EternityCoupleDetails data={data} />
         <div className="relative py-6" style={{ background: data.theme }}>

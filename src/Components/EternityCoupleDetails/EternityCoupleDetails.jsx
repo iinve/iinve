@@ -20,13 +20,16 @@ const EternityCoupleDetails = ({ data }) => {
               <Image
                 src={item.avatar}
                 alt={item.full_name}
-                className="w-16 h-16 rounded-xl border-2 border-green-800 object-cover"
+                className="w-16 h-16 rounded-xl border-2 border-[#5a2f43] object-cover"
               />
               <div>
                 <h2 className="text-2xl font-semibold text-gray-700">
                   {item.full_name}
                 </h2>
-                <p className="text-sm max-w-md" dangerouslySetInnerHTML={{__html:item.bio}}></p>
+                <p
+                  className="text-sm max-w-md"
+                  dangerouslySetInnerHTML={{ __html: item.bio }}
+                ></p>
               </div>
             </div>
           ))}

@@ -13,7 +13,12 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
+const EternitySpotlight = ({
+  data,
+  shuffle = false,
+  isMalayalamPage,
+  isHindu = false,
+}) => {
   const [images, setImages] = useState(data.images);
 
   useEffect(() => {
@@ -31,7 +36,6 @@ const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
     exit: { opacity: 0 },
     transition: { duration: 1.2 },
   };
-  
 
   return (
     <div className="relative h-[750px] md:h-[900px]">
@@ -52,13 +56,15 @@ const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
             />
           </div>
         </div>
-        <div className="absolute flex items-center justify-center bottom-6 inset-x-0 z-10">
-          <Image
-            src={ganesh}
-            alt="Ganesha"
-            className="w-40 h-auto object-contain"
-          />
-        </div>
+        {isHindu && (
+          <div className="absolute flex items-center justify-center bottom-6 inset-x-0 z-10">
+            <Image
+              src={ganesh}
+              alt="Ganesha"
+              className="w-40 h-auto object-contain"
+            />
+          </div>
+        )}
         <div className="absolute bottom-0 flex h-[600px] w-full lg:h-[800px] overflow-hidden pt-[100px]">
           {/* Left Column (2 stacked images) */}
           <div className="w-1/3 flex flex-col pt-[100px]">
@@ -109,13 +115,27 @@ const EternitySpotlight = ({ data, shuffle = false, isMalayalamPage }) => {
         </div>
 
         <div
-          className="absolute bottom-[200px] left-1/2 -translate-x-1/2 text-center w-full z-10"
+          className={`absolute ${
+            isHindu ? "bottom-[200px]" : "bottom-[80px]"
+          } left-1/2 -translate-x-1/2 text-center w-full z-10`}
           style={{ color: "#fff" }}
         >
-          <p className={isMalayalamPage ? "text-lg md:text-2xl md:mb-10" :"text-md mb-6"}>{getHeading(data)}</p>
+          <p
+            className={
+              isMalayalamPage ? "text-lg md:text-2xl md:mb-10" : "text-md mb-6"
+            }
+          >
+            {getHeading(data)}
+          </p>
           <h1
-            className={isMalayalamPage ? "text-3xl lg:text-[70px]" : "text-4xl lg:text-6xl"}
-            style={{ fontFamily: isMalayalamPage? 'Goodnewsj' : "Fleur De Leah" }}
+            className={
+              isMalayalamPage
+                ? "text-3xl lg:text-[70px]"
+                : "text-4xl lg:text-6xl"
+            }
+            style={{
+              fontFamily: isMalayalamPage ? "Goodnewsj" : "Fleur De Leah",
+            }}
           >
             {data?.groom} & {data?.bride}
           </h1>

@@ -50,28 +50,10 @@ const Index = ({ data }) => {
             alt="Leaves Decoration"
             className="absolute top-0 left-0 w-32 h-auto object-cover"
           />
-          {/* <div className="flex justify-center my-10">
-            <Image
-              src={gurudevan}
-              alt="Gurudevan"
-              className="w-24 h-auto rounded-full object-contain"
-            />
-          </div> */}
+
           <PhotoMessSwiper data={data} />
         </div>
         <EternityInviteQuote data={data} />
-        {/* <div
-          className="flex items-center justify-center"
-          style={{ background: data.theme }}
-        >
-          <Image
-            src={aom}
-            alt="Separator"
-            width={80}
-            height={100}
-            className="object-contain"
-          />
-        </div> */}
 
         <Calendar data={data} />
         {/* <EternityBanner /> */}
