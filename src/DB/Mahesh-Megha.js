@@ -52,7 +52,7 @@ export const mahesh_megha = {
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we, <b>Mahesh & Megha</b>, warmly invite you, our beloved family, to join us in celebrating the beginning of our new life together. Your presence at our wedding ceremony and reception will truly mean the world to us.<br/><br/> Let’s come together to celebrate love, laughter, and unforgettable memories on <b>10-September-2025</b> at <b>Contour Convention Centre</b>, Changanassery.<br/><br/>We also invite you to join us for the joyous Haldi ceremony, filled with fun, colors, and blessings, on the morning of <b>9-September-2025</b> at our residence. <br/>We look forward to sharing these precious moments with you.",
+    "With hearts full of love and joy, we, <b>Mahesh & Megha</b>, warmly invite you, our beloved family, to join us in celebrating the beginning of our new life together. Your presence at our wedding ceremony and reception will truly mean the world to us.<br/><br/> Let’s come together to celebrate love, laughter, and unforgettable memories on <b>10-September-2025</b> at <b>Contour Convention Centre</b>, Changanassery.",
   couples_data: [
     {
       full_name: "Mahesh",
@@ -140,7 +140,7 @@ export const mahesh_megha = {
     { date: "16", day: "Wed" },
   ],
   month: "Sept",
-  muhurtham: `<b> 10:30 </b> & <b> 10:45 </b>`,
+  muhurtham: `<b>Muhurtham 10:30 </b> & <b> 10:45 </b>`,
   reception_muhurtham: `<b> 10:30 </b> & <b> 10:45 </b>`,
   venue: "Contour Convention Centre",
   place: "Changanassery",
