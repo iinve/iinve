@@ -2,11 +2,11 @@
     width: 60px;
     height: 60px;
     border: 2px solid #f1f1f1;
-    background: #ffffffa1;
+    background: #ffffff85;
     border-radius: 50%;
     position: relative;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     animation: down 1.5s infinite;
     -webkit-animation: down 1.5s infinite;
 
