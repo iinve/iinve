@@ -49,6 +49,7 @@ export const saran_namitha = {
     image07,
     image05,
     image01,
+    image03,
   ],
   dateData: [
     { date: "25", day: "Mon" },
