@@ -51,7 +51,7 @@ export const Lotus = ({ reception_karthik }) => {
             </p>
           </div>
           {/* section-3*/}
-          <PhotoMessSwiper data={reception_karthik} />
+          <PhotoMessSwiper images={reception_karthik.images} />
           <div className="w-full h-fit absolute -bottom-[50px] -left-[50px]">
             <Image
               src={lotus}

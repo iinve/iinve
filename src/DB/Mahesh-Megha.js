@@ -1,23 +1,50 @@
 import Bride from "../assets/coffeePremium/mahesh-megha/megha.jpg";
-import image04 from "../assets/coffeePremium/mahesh-megha/cartoon2.png";
 import Groom from "../assets/coffeePremium/mahesh-megha/mahesh.jpg";
-import image01 from "../assets/coffeePremium/mahesh-megha/cartoon.png";
-import image03 from "../assets/coffeePremium/mahesh-megha/img2.jpg";
-import image02 from "../assets/coffeePremium/mahesh-megha/img1.jpg";
-import image4 from "../assets/coffeePremium/mahesh-megha/image-01.png";
-import image5 from "../assets/coffeePremium/mahesh-megha/image-02.png";
+import image1 from "../assets/coffeePremium/mahesh-megha/image1.jpg";
+import image2 from "../assets/coffeePremium/mahesh-megha/image2.jpg";
+import image3 from "../assets/coffeePremium/mahesh-megha/image3.jpg";
+import image4 from "../assets/coffeePremium/mahesh-megha/image4.jpg";
+import image5 from "../assets/coffeePremium/mahesh-megha/image5.jpg";
+import image6 from "../assets/coffeePremium/mahesh-megha/image6.jpg";
+import image7 from "../assets/coffeePremium/mahesh-megha/image7.jpg";
+import image8 from "../assets/coffeePremium/mahesh-megha/image8.jpg";
+import image9 from "../assets/coffeePremium/mahesh-megha/image9.jpg";
+import image10 from "../assets/coffeePremium/mahesh-megha/image10.jpg";
+import image11 from "../assets/coffeePremium/mahesh-megha/image11.jpg";
+import image12 from "../assets/coffeePremium/mahesh-megha/image12.jpg";
+import image13 from "../assets/coffeePremium/mahesh-megha/image13.jpg";
+import image14 from "../assets/coffeePremium/mahesh-megha/image14.jpg";
+import image15 from "../assets/coffeePremium/mahesh-megha/image15.jpg";
+import image16 from "../assets/coffeePremium/mahesh-megha/image16.jpg";
+import image17 from "../assets/coffeePremium/mahesh-megha/image17.jpg";
+import image18 from "../assets/coffeePremium/mahesh-megha/image18.jpg";
+import image19 from "../assets/coffeePremium/mahesh-megha/image19.jpg";
+import image20 from "../assets/coffeePremium/mahesh-megha/image20.jpg";
+import image21 from "../assets/coffeePremium/mahesh-megha/image21.jpg";
+import image22 from "../assets/coffeePremium/mahesh-megha/image22.jpg";
+import image23 from "../assets/coffeePremium/mahesh-megha/image23.jpg";
+import image24 from "../assets/coffeePremium/mahesh-megha/image24.jpg";
+import image25 from "../assets/coffeePremium/mahesh-megha/image25.jpg";
+import image26 from "../assets/coffeePremium/mahesh-megha/image26.jpg";
+import image27 from "../assets/coffeePremium/mahesh-megha/image27.jpg";
+import image28 from "../assets/coffeePremium/mahesh-megha/image28.jpg";
+import image29 from "../assets/coffeePremium/mahesh-megha/img2.jpg";
+import image30 from "../assets/coffeePremium/mahesh-megha/image29.jpg";
+import wedding_ai from "../assets/coffeePremium/mahesh-megha/wedding-ai.png";
 
 export const mahesh_megha = {
   groom: "Mahesh",
   bride: "Megha",
+  event_type: "custom",
+  event_heading: "We're inviting you to the wedding of",
   phone1: "",
-  theme: "#5a2f43",
+  theme: "#4E1F2F",
   default_color: "#FEF3E2",
   highlight_color: "#fff",
   phone2: "",
   begin_time: "10:30 AM",
   reception_begin_time: "05:00 pM",
-  music: "/audio/minimal.mp3",
+  music: "/audio/kadhai-poma.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
   wdn_quote:
@@ -39,7 +66,61 @@ export const mahesh_megha = {
     },
   ],
 
-  images: [image03, image01, image5, image4, image03, image02, image4],
+  images: [
+    image1,
+    wedding_ai,
+    image26,
+    image3,
+    image24,
+    image30,
+    image19,
+    image22,
+    image2,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image16,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image15,
+    image17,
+    image18,
+    image20,
+    image21,
+    image23,
+    image25,
+    image27,
+    image28,
+  ],
+  imageOne: [image15, image16, image19, image22, image20, image21, image27],
+  imageTwo: [
+    image1,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image17,
+    image18,
+    image23,
+    image24,
+    image25,
+    image26,
+    image28,
+  ],
   dateData: [
     { date: "07", day: "Sun" },
     { date: "08", day: "Mon" },

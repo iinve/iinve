@@ -59,7 +59,7 @@ const Index = ({ data }) => {
               className="w-24 h-auto rounded-full object-contain"
             />
           </div> */}
-          <PhotoMessSwiper data={data} />
+          <PhotoMessSwiper images={data.images} />
         </div>
         {/* <EternityInviteQuote data={data} /> */}
         {/* <div

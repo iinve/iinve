@@ -15,6 +15,7 @@ import aom from "../../assets/images/ohm.png";
 import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";
+import ScrollToTop from "Components/ScrollUp/ScrollUp";
 
 const Index = ({ data, isHindu, showGuru = false }) => {
   const [isMalayalamPage, setIsMalayalamPage] = useState(false);
@@ -44,6 +45,8 @@ const Index = ({ data, isHindu, showGuru = false }) => {
           isMalayalamPage={isMalayalamPage}
           isHindu={isHindu}
         />
+        <ScrollToTop />
+
         <EternityCoupleDetails data={data} />
         <div className="relative py-6" style={{ background: data.theme }}>
           <Image
@@ -60,7 +63,7 @@ const Index = ({ data, isHindu, showGuru = false }) => {
               />
             </div>
           )}
-          <PhotoMessSwiper data={data} />
+          <PhotoMessSwiper images={data.images} />
         </div>
         <EternityInviteQuote data={data} />
         <div

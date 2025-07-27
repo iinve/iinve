@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { AnimatePresence, motion, useInView } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const randomOffset = () => ({
   x: (Math.random() - 0.5) * 30,
@@ -12,8 +12,7 @@ const randomOffset = () => ({
 
 const generateOffsets = (images) => images.map(() => randomOffset());
 
-export default function PhotoMessSwiper({ data, delay = 3000 }) {
-  const { images } = data;
+export default function PhotoMessSwiper({ images, delay = 3000 }) {
   const [index, setIndex] = useState(0);
   const [offsets, setOffsets] = useState(generateOffsets(images));
 
@@ -32,13 +31,13 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
   }, [images.length, delay]);
 
   const MAX_VISIBLE = 4;
-  const stack = [...images.slice(index), ...images.slice(0, index)].slice(0, MAX_VISIBLE);
+  const stack = [...images.slice(index), ...images.slice(0, index)].slice(
+    0,
+    MAX_VISIBLE
+  );
 
   return (
-    <div
-      ref={ref}
-      className="relative h-[300px] w-[200px] mx-auto mt-10"
-    >
+    <div ref={ref} className="relative h-[300px] w-[200px] mx-auto mt-10">
       <AnimatePresence initial={false}>
         {inView &&
           stack.map((src, i) => {
@@ -62,15 +61,15 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
                   x: offset.x,
                   y: offset.y,
                   rotate: isTop ? [0, -5, 5, -5, 5, 0] : offset.rotate,
-                  filter: isTop ? 'brightness(1)' : 'brightness(0.6)',
+                  filter: isTop ? "brightness(1)" : "brightness(0.6)",
                 }}
                 transition={{
                   rotate: isTop
-                    ? { type: 'spring', stiffness: 300, damping: 10 }
-                    : { type: 'spring', stiffness: 120, damping: 20 },
-                  x: { type: 'spring', stiffness: 120, damping: 20 },
-                  y: { type: 'spring', stiffness: 120, damping: 20 },
-                  scale: { type: 'spring', stiffness: 120, damping: 20 },
+                    ? { type: "spring", stiffness: 300, damping: 10 }
+                    : { type: "spring", stiffness: 120, damping: 20 },
+                  x: { type: "spring", stiffness: 120, damping: 20 },
+                  y: { type: "spring", stiffness: 120, damping: 20 },
+                  scale: { type: "spring", stiffness: 120, damping: 20 },
                   opacity: { duration: 0.4 },
                   delay: i * 0.1,
                 }}
@@ -81,7 +80,7 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
                   y: 0,
                   rotate: 0,
                   transition: {
-                    type: 'spring',
+                    type: "spring",
                     stiffness: 100,
                     damping: 15,
                   },
@@ -89,7 +88,7 @@ export default function PhotoMessSwiper({ data, delay = 3000 }) {
                 className="absolute top-0 left-0 w-full h-full"
                 style={{
                   zIndex,
-                  willChange: 'transform, opacity',
+                  willChange: "transform, opacity",
                 }}
               >
                 <div className="w-full h-full shadow-xl rounded-lg overflow-hidden">

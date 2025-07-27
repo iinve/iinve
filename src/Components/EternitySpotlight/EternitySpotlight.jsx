@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getHeading } from "utils/greetingUtils";
 import ganesh from "../../assets/images/ganapathy.png";
+import ScrollToTop from "Components/ScrollUp/ScrollUp";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
