@@ -6,14 +6,13 @@ import map from "../../assets/coffeePremium/mahesh-megha/map.png";
 const EternityCoupleDetails = ({ data, showMap = false }) => {
   return (
     <div className="bg-white ">
+      {showMap && (
+        <div className="w-full overflow-hidden">
+          <Image src={map} alt="map" className="object-cover" />
+        </div>
+      )}
       <div className="bg-white py-16 px-4 text-center text-gray-700 max-w-[500px] w-full mx-auto">
         {/* Top separator */}
-
-        {showMap && (
-          <div className="w-full overflow-hidden">
-            <Image src={map} alt="map" className="object-cover" />
-          </div>
-        )}
 
         {/* Groom */}
         <div className="py-10">
