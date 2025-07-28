@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Subtract from "../../assets/images/Subtract.png";
-import map from "../../assets/coffeePremium/mahesh-megha/map.png";
+import map from "../../assets/coffeePremium/mahesh-megha/map.jpg";
 
 const EternityCoupleDetails = ({ data, showMap = false }) => {
   return (
