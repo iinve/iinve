@@ -139,7 +139,7 @@ const Index = ({ data }) => {
               >
                 We also invite you to join us on our wedding reception, a small
                 evening get together for friends and family to make memories
-                together on the evening of
+                together on the evening of{" "}
                 <span className="font-bold text-red-900">
                   11 September 2025 6pm onwards
                 </span>{" "}
