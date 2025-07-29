@@ -17,9 +17,14 @@ import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";
 import haldiBg from "../../assets/coffeePremium/mahesh-megha/haldi.jpg";
 import ScrollToTop from "Components/ScrollUp/ScrollUp";
+import CommonButton from "Components/CommonButton";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { useMap } from "Components/Map/useMap";
 
 const Index = ({ data }) => {
   const [isMalayalamPage, setIsMalayalamPage] = useState(false);
+  const { handleOpenGoogleMaps, mapOnLoad } = useMap(data);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (location.pathname.includes("/ml/")) {
@@ -102,7 +107,7 @@ const Index = ({ data }) => {
                 Haldi
               </h2>
               <p
-                className="text-lg sm:text-xl md:text-2xl font-medium text-white drop-shadow-lg max-w-2xl mx-auto"
+                className="text-lg sm:text-xl md:text-2xl font-medium text-white drop-shadow-lg max-w-2xl mx-auto mb-4"
                 // style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 We also invite you to join us for the joyous Haldi ceremony,
@@ -112,6 +117,18 @@ const Index = ({ data }) => {
                 </span>{" "}
                 at contour convention Center, changanassery 4pm onwards.
               </p>
+
+              <CommonButton
+                //   style={{ fontFamily: "Arial" }}
+                className={"bg-[#be607d] text-white"}
+                text="Get Location"
+                icon={<FaMapLocationDot />}
+                onClick={() =>
+                  handleOpenGoogleMaps(
+                    "https://maps.app.goo.gl/CXcyxbRjoWfDh4hc7"
+                  )
+                }
+              />
             </div>
           </section>
 
@@ -122,11 +139,11 @@ const Index = ({ data }) => {
               style={{
                 // Replace with your reception-themed image path
                 backgroundImage:
-                  "url('https://caratsandcake.com/_images/cache/wedding-news-40-252938-1682958507.jpg')",
+                  "url('https://static.vecteezy.com/system/resources/previews/043/920/528/non_2x/wedding-stage-decoration-background-inside-the-building-with-elegant-and-beautiful-flower-decorations-free-photo.jpeg')",
               }}
             />
             {/* Overlay for grape wine & cream gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#4E1B2E]  to-cream-100 opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FFFDD0] to-cream-100 opacity-90" />
 
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[400px] px-4 py-12">
@@ -134,17 +151,28 @@ const Index = ({ data }) => {
                 Reception
               </h2>
               <p
-                className="text-lg sm:text-xl md:text-2xl font-medium text-white drop-shadow-lg max-w-2xl mx-auto"
+                className="text-lg sm:text-xl md:text-2xl font-medium text-white drop-shadow-lg max-w-2xl mx-auto mb-4"
                 // style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 We also invite you to join us on our wedding reception, a small
                 evening get together for friends and family to make memories
                 together on the evening of{" "}
-                <span className="font-bold text-red-900">
+                <span className="font-bold text-[#be607d]">
                   11 September 2025 6pm onwards
                 </span>{" "}
                 at Marthoma church Auditorium, Vettiyar
               </p>
+              <CommonButton
+                //   style={{ fontFamily: "Arial" }}
+                className={"bg-[#be607d] text-white"}
+                text="Get Location"
+                icon={<FaMapLocationDot />}
+                onClick={() =>
+                  handleOpenGoogleMaps(
+                    "https://maps.app.goo.gl/vmP2D6exKSDme2Jm7"
+                  )
+                }
+              />
             </div>
           </section>
           {/* <MapReception data={data} />

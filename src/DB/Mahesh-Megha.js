@@ -21,7 +21,6 @@ import image18 from "../assets/coffeePremium/mahesh-megha/image18.jpg";
 import image19 from "../assets/coffeePremium/mahesh-megha/image19.jpg";
 import image20 from "../assets/coffeePremium/mahesh-megha/image20.jpg";
 import image21 from "../assets/coffeePremium/mahesh-megha/image21.jpg";
-import image22 from "../assets/coffeePremium/mahesh-megha/image22.jpg";
 import image23 from "../assets/coffeePremium/mahesh-megha/image23.jpg";
 import image24 from "../assets/coffeePremium/mahesh-megha/image24.jpg";
 import image25 from "../assets/coffeePremium/mahesh-megha/image25.jpg";
@@ -30,7 +29,6 @@ import image27 from "../assets/coffeePremium/mahesh-megha/image27.jpg";
 import image28 from "../assets/coffeePremium/mahesh-megha/image28.jpg";
 import image29 from "../assets/coffeePremium/mahesh-megha/img2.jpg";
 import image30 from "../assets/coffeePremium/mahesh-megha/image29.jpg";
-import wedding_ai from "../assets/coffeePremium/mahesh-megha/wedding-ai.png";
 
 export const mahesh_megha = {
   groom: "Mahesh",
@@ -56,12 +54,12 @@ export const mahesh_megha = {
   couples_data: [
     {
       full_name: "Mahesh",
-      bio: "S/O Sreelatha & Balachandran pillai",
+      bio: "S/O Sreelatha & Balachandran pillai. <br> Vigneswaram (H), Mavelikara",
       avatar: Groom,
     },
     {
       full_name: "Megha",
-      bio: "D/O Rejani R. & Manoj Kumar.",
+      bio: "D/O Rejani R. & Manoj Kumar.<br/> Neeranjanam (H), Ernakulam",
       avatar: Bride,
     },
   ],
@@ -72,11 +70,10 @@ export const mahesh_megha = {
     image26,
     image3,
     image24,
-    wedding_ai,
-    image19,
-    image22,
+    image23,
     image2,
     image4,
+    image19,
     image5,
     image6,
     image7,
@@ -94,11 +91,10 @@ export const mahesh_megha = {
     image20,
     image21,
     image23,
-    image25,
     image27,
     image28,
   ],
-  imageOne: [image15, image16, image19, image22, image20, image21, image27],
+  imageOne: [image15, image16, image19, image23, image20, image21, image27],
   imageTwo: [
     image1,
     image3,
