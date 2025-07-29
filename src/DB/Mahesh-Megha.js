@@ -29,6 +29,10 @@ import image27 from "../assets/coffeePremium/mahesh-megha/image27.jpg";
 import image28 from "../assets/coffeePremium/mahesh-megha/image28.jpg";
 import image29 from "../assets/coffeePremium/mahesh-megha/img2.jpg";
 import image30 from "../assets/coffeePremium/mahesh-megha/image29.jpg";
+import image31 from "../assets/coffeePremium/mahesh-megha/30.jpg";
+import image32 from "../assets/coffeePremium/mahesh-megha/31.jpg";
+import image33 from "../assets/coffeePremium/mahesh-megha/32.jpg";
+import image34 from "../assets/coffeePremium/mahesh-megha/33.jpg";
 
 export const mahesh_megha = {
   groom: "Mahesh",
@@ -50,7 +54,7 @@ export const mahesh_megha = {
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we, <b>Mahesh & Megha</b>, warmly invite you and your beloved family to join us in celebrating the beginning of our new life together. Your presence at our wedding ceremony l will truly mean the world to us.Let's come together to celebrate love, laughter, and unforgettable memories on <b>10-September-2025</b> at <b>Contour Convention Centre, Changanassery.</b>",
+    "With hearts full of love and joy, we, <b>Mahesh & Megha</b>, warmly invite you and your beloved family to join us in celebrating the beginning of our new life together. Your presence at our wedding ceremony will truly mean the world to Us. Let's come together to celebrate love, laughter, and unforgettable memories on <b>10-September-2025</b> at <b>Contour Convention Centre, Changanassery.</b>",
   couples_data: [
     {
       full_name: "Mahesh",
@@ -94,7 +98,17 @@ export const mahesh_megha = {
     image27,
     image28,
   ],
-  imageOne: [image15, image16, image19, image23, image20, image21, image27],
+  imageOne: [
+    image15,
+    image16,
+    image19,
+    image23,
+    image20,
+    image21,
+    image27,
+    image34,
+    image33,
+  ],
   imageTwo: [
     image1,
     image3,
@@ -116,6 +130,8 @@ export const mahesh_megha = {
     image25,
     image26,
     image28,
+    image31,
+    image32,
   ],
   dateData: [
     { date: "07", day: "Sun" },

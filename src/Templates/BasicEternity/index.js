@@ -110,12 +110,12 @@ const Index = ({ data }) => {
                 className="text-lg sm:text-xl md:text-2xl font-medium text-white drop-shadow-lg max-w-2xl mx-auto mb-4"
                 // style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
-                We also invite you to join us for the joyous Haldi ceremony,
-                filled with fun, colors, and blessings, on{" "}
+                Delicate hands, perite fingers and vibrant mehandi on her hand.
+                Come join Megha on her colorful Haldi ceremony on{" "}
                 <span className="font-semibold text-yellow-800">
                   8-September-2025
                 </span>{" "}
-                at contour convention Center, changanassery 4pm onwards.
+                at contour convention Center, changanassery from 4pm onwards.
               </p>
 
               <CommonButton
