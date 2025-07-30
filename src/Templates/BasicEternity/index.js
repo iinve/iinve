@@ -110,7 +110,7 @@ const Index = ({ data }) => {
                 className="text-lg sm:text-xl md:text-2xl font-medium text-white drop-shadow-lg max-w-2xl mx-auto mb-4"
                 // style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
-                Delicate hands, perite fingers and vibrant mehandi on her hand.
+                Delicate hands, Petite fingers and vibrant mehandi on her hand.
                 Come join Megha on her colorful Haldi ceremony on{" "}
                 <span className="font-semibold text-yellow-800">
                   8-September-2025
