@@ -13,10 +13,11 @@ export default function Home() {
   return (
     <>
       <Spotlight />
+      <TemplateSlider />
       <Bento />
       <Categories />
       <StepContainer />
-      <TemplateSlider />
+
       {/* <Pricing/> */}
       {/* <BlogList /> */}
       <FAQs />
