@@ -22,7 +22,7 @@ export const shamil_najiya = {
   couples_data: [
     {
       full_name: "Shamil",
-      bio: "S/o  father name",
+      bio: "S/o  Saidali & Sajitha",
       avatar: Groom,
     },
     {
