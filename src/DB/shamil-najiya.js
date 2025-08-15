@@ -1,6 +1,9 @@
-import image01 from "../assets/coffeePremium/shamil-najiya/img1.jpg";
-import image02 from "../assets/coffeePremium/shamil-najiya/img2.jpg";
-import image03 from "../assets/coffeePremium/shamil-najiya/img3.jpg";
+import image01 from "../assets/coffeePremium/shamil-najiya/s1.jpg";
+import image02 from "../assets/coffeePremium/shamil-najiya/s2.jpg";
+import image03 from "../assets/coffeePremium/shamil-najiya/s3.jpg";
+import image04 from "../assets/coffeePremium/shamil-najiya/n1.jpg";
+import image05 from "../assets/coffeePremium/shamil-najiya/n2.jpg";
+import image06 from "../assets/coffeePremium/shamil-najiya/n3.jpg";
 import Bride from "../assets/coffeePremium/shamil-najiya/bride.jpg";
 import Groom from "../assets/coffeePremium/shamil-najiya/groom.jpg";
 
@@ -32,7 +35,7 @@ export const shamil_najiya = {
     },
   ],
 
-  images: [image01, image02, image03, image01, image02, image03],
+  images: [image01, image02, image03, image04, image05, image06],
 
   dateData: [
     { date: "04", day: "Thu" },
