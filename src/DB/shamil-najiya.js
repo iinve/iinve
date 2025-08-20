@@ -35,7 +35,7 @@ export const shamil_najiya = {
     },
   ],
 
-  images: [image01, image02, image03, image04, image05, image06],
+  images: [image01, image04, image02, image05, image03, image06],
 
   dateData: [
     { date: "04", day: "Thu" },
