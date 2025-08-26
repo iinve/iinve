@@ -22,12 +22,12 @@
     }
     h4 {
       font-size: 70px;
-      color: var(--content-color);
+      color: var(--highlight-color) !important;
       font-family: "Fleur De Leah";
       // font-family: "Fleur De Leah", cursive !important;
       font-weight: 400;
       font-style: normal;
-      color: #e0b476;
+      //   color: #e0b476;
       @media (max-width: 760px) {
         font-size: 60px;
       }
