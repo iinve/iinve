@@ -33,7 +33,15 @@ import image31 from "../assets/coffeePremium/mahesh-megha/30.jpg";
 import image32 from "../assets/coffeePremium/mahesh-megha/31.jpg";
 import image33 from "../assets/coffeePremium/mahesh-megha/32.jpg";
 import image34 from "../assets/coffeePremium/mahesh-megha/33.jpg";
-
+import mm1 from "../assets/coffeePremium/mahesh-megha/mm1.jpg";
+import mm2 from "../assets/coffeePremium/mahesh-megha/mm2.jpg";
+import mm3 from "../assets/coffeePremium/mahesh-megha/mm3.jpg";
+import mm4 from "../assets/coffeePremium/mahesh-megha/mm4.jpg";
+import mm5 from "../assets/coffeePremium/mahesh-megha/mm5.jpg";
+import mm6 from "../assets/coffeePremium/mahesh-megha/mm6.jpg";
+import mm7 from "../assets/coffeePremium/mahesh-megha/mm7.jpg";
+import mm8 from "../assets/coffeePremium/mahesh-megha/mm8.jpg";
+import mm9 from "../assets/coffeePremium/mahesh-megha/mm9.jpg";
 export const mahesh_megha = {
   groom: "Mahesh",
   bride: "Megha",
@@ -99,6 +107,11 @@ export const mahesh_megha = {
     image28,
   ],
   imageOne: [
+    mm1,
+    mm2,
+    mm3,
+    mm4,
+    mm5,
     image15,
     image16,
     image19,
@@ -110,6 +123,10 @@ export const mahesh_megha = {
     image33,
   ],
   imageTwo: [
+    mm6,
+    mm7,
+    mm8,
+    mm9,
     image1,
     image3,
     image4,
