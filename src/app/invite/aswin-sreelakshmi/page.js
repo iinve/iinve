@@ -9,18 +9,18 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Saran & Namitha Wedding Invitation | iinve",
+  title: "Aswin & Sreelakshmi Wedding Invitation | iinve",
   description:
-    "Saran and Namitha are getting married and joyfully invite you to celebrate their wedding.",
+    "Aswin and Sreelakshmi are getting married and joyfully invite you to celebrate their wedding.",
   robots: "noindex, nofollow",
   openGraph: {
-    title: "Saran and Namitha Wedding Invitation | iinve",
+    title: "Aswin and Sreelakshmi Wedding Invitation | iinve",
     description:
-      "Saran and Namitha are getting married and joyfully invite you to celebrate their wedding.",
+      "Aswin and Sreelakshmi are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}/assets/images/og-image/og-saran.jpg`,
-        alt: "Saran & Namitha Wedding Invitation",
+        url: `${metadataBase}/assets/images/og-image/aswin-og.jpg`,
+        alt: "Aswin & Sreelakshmi Wedding Invitation",
       },
     ],
   },
