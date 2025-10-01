@@ -28,7 +28,7 @@ const Luna = ({ data }) => {
         <LunaCoupleDetails data={data} />
         <LunaBanner data={data} />
         <LunaWeddingMessage data={data} />
-        <LunaShareWhishes data={data} />
+        {/* <LunaShareWhishes data={data} /> */}
         <LunaGallerySlider data={data} />
         <Map data={data} />
         <MusicPlayer music={data?.music} />

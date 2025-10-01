@@ -19,13 +19,13 @@ export const aswin_sreelakshmi = {
   reception_begin_time: "04:00 PM",
   music: "/audio/sitakalyanam_Song.mp3",
   quote:
-    "You are also invited for the post-marriage reception that will be arranged at RDR convention centre  Edapazhanji , Trivandrum, on <b> 30th August  2025 Saturday from 5:00pm to 09:00pm </b>",
+    "You are also invited for the post-marriage reception that will be arranged at Sampathikodharana Sangham Hall  Elavally , on <b> 15th November  2025 Saturday from 4:00pm to 07:00pm </b>",
   wdn_quote:
     "Cordially invite your esteemed presence with family on the auspicious occasion of our wedding ceremony . ",
   location_name: "Reception Location ",
   hide_info: false,
   invite_quote:
-    "With hearts full of love and joy, we, <b>Aswin & Sreelakshmi</b>, warmly invite you, our beloved family and friends, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception would mean the world to us as we embark on this beautiful journey as one. Let us gather to share in the love, happiness, and cherished memories on <b>28th August 2025</b>, at <b>Grace Auditorium</b>, Kodukulanji, Chengannur. We look forward to creating unforgettable moments with each and every one of you.",
+    "With hearts full of love and joy, we, <b>Aswin & Sreelakshmi</b>, warmly invite you, our beloved family and friends, to join us in celebrating our union and the beginning of our new life together. Your presence at our wedding ceremony and reception would mean the world to us as we embark on this beautiful journey as one. Let us gather to share in the love, happiness, and cherished memories on <b>15th November 2025</b>, at <b>Guruvayur Temple</b>, Guruvayur. We look forward to creating unforgettable moments with each and every one of you.",
   couples_data: [
     {
       full_name: "Aswin",
@@ -50,15 +50,6 @@ export const aswin_sreelakshmi = {
     image03,
   ],
   dateData: [
-    { date: "12", day: "Wed" },
-    { date: "13", day: "Thu" },
-    { date: "14", day: "Fri" },
-    { date: "15", day: "Sat", active: true },
-    { date: "16", day: "Sun" },
-    { date: "17", day: "Mon" },
-    { date: "18", day: "Tue" },
-  ],
-  dateReception: [
     { date: "12", day: "Wed" },
     { date: "13", day: "Thu" },
     { date: "14", day: "Fri" },

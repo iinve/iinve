@@ -98,7 +98,7 @@ const Index = ({ data, isHindu, showGuru = false }) => {
           </div>
 
           <MapReception data={data} />
-          <CalendarReception data={data} />
+          {/* <CalendarReception data={data} /> */}
           <MusicPlayer music={data.music} />
         </div>
       </div>

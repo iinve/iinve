@@ -2,11 +2,11 @@ import Image from "next/image";
 import React from "react";
 import Banner from "../../../assets/images/LunaBanner.png";
 
-const LunaBanner = () => {
+const LunaBanner = ({ data }) => {
   return (
     <div className="relative w-[100%] mx-auto h-[350px] overflow-hidden">
       <Image
-        src={Banner} // Update this path
+        src={data.images[0]} // Update this path
         alt="Couple"
         className="w-full h-full object-cover"
       />
