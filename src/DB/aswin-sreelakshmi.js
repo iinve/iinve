@@ -17,7 +17,7 @@ export const aswin_sreelakshmi = {
   phone2: "",
   begin_time: "06:00 AM",
   reception_begin_time: "04:00 PM",
-  music: "/audio/sita_kalyanam.mp3",
+  music: "/audio/instrumental_sitha.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at Sampathikodharana Sangham Hall  Elavally , on <b> 15th November  2025 Saturday from 4:00pm to 07:00pm </b>",
   wdn_quote:
