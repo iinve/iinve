@@ -113,9 +113,9 @@ const Index = ({ data }) => {
                 Delicate hands, Petite fingers and vibrant mehandi on her hand.
                 Come join Megha on her colorful Haldi ceremony on{" "}
                 <span className="font-semibold text-yellow-800">
-                  8-September-2025
+                  4-December-2025
                 </span>{" "}
-                at contour convention Center, changanassery from 4pm onwards.
+                at EMS Auditorium , Nayarangady from 6pm onwards.
               </p>
 
               <CommonButton
@@ -125,7 +125,7 @@ const Index = ({ data }) => {
                 icon={<FaMapLocationDot />}
                 onClick={() =>
                   handleOpenGoogleMaps(
-                    "https://maps.app.goo.gl/CXcyxbRjoWfDh4hc7"
+                    "https://maps.app.goo.gl/KQFeTrDqEjGobxAT7"
                   )
                 }
               />
@@ -158,9 +158,9 @@ const Index = ({ data }) => {
                 evening get together for friends and family to make memories
                 together on the evening of{" "}
                 <span className="font-bold text-[#be607d]">
-                  11 September 2025 6pm onwards
+                  10 December 2025 5pm onwards
                 </span>{" "}
-                at Marthoma church Auditorium, Vettiyar
+                at Rural Bank Auditorium(Banquet Hall), Kuthuparamba
               </p>
               <CommonButton
                 //   style={{ fontFamily: "Arial" }}
@@ -169,7 +169,7 @@ const Index = ({ data }) => {
                 icon={<FaMapLocationDot />}
                 onClick={() =>
                   handleOpenGoogleMaps(
-                    "https://maps.app.goo.gl/vmP2D6exKSDme2Jm7"
+                    "https://maps.app.goo.gl/mKjT5Gok45ePaKe87"
                   )
                 }
               />
