@@ -9,18 +9,18 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Mahesh & Megha Wedding Invitation | iinve",
+  title: "Sreerag & KrishnaPriya Wedding Invitation | iinve",
   description:
-    "Mahesh and Megha are getting married and joyfully invite you to celebrate their wedding.",
+    "Sreerag and KrishnaPriya are getting married and joyfully invite you to celebrate their wedding.",
   robots: "noindex, nofollow",
   openGraph: {
-    title: "Mahesh and Megha Wedding Invitation | iinve",
+    title: "Sreerag and KrishnaPriya Wedding Invitation | iinve",
     description:
-      "Mahesh and Megha are getting married and joyfully invite you to celebrate their wedding.",
+      "Sreerag and KrishnaPriya are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
-        url: `${metadataBase}/assets/images/og-image/og-mahesh.jpg`,
-        alt: "Mahesh & Megha Wedding Invitation",
+        url: `${metadataBase}/assets/images/og-image/og-sreerag.jpg`,
+        alt: "Sreerag & KrishnaPriya Wedding Invitation",
       },
     ],
   },
