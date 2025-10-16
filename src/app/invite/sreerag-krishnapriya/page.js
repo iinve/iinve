@@ -9,7 +9,7 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Sreerag & KrishnaPriya Wedding Invitation | iinve",
+  title: "Sreerag & Krishna Priya Wedding Invitation | iinve",
   description:
     "Sreerag and KrishnaPriya are getting married and joyfully invite you to celebrate their wedding.",
   robots: "noindex, nofollow",
@@ -20,7 +20,7 @@ export const metadata = {
     images: [
       {
         url: `${metadataBase}/assets/images/og-image/og-sreerag.jpg`,
-        alt: "Sreerag & KrishnaPriya Wedding Invitation",
+        alt: "Sreerag & Krishna Priya Wedding Invitation",
       },
     ],
   },

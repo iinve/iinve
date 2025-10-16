@@ -111,7 +111,7 @@ const Index = ({ data }) => {
                 // style={{ fontFamily: "'Patrick Hand', cursive" }}
               >
                 Delicate hands, Petite fingers and vibrant mehandi on her hand.
-                Come join Megha on her colorful Haldi ceremony on{" "}
+                Come join Sreerag on he colorful Haldi ceremony on{" "}
                 <span className="font-semibold text-yellow-800">
                   4-December-2025
                 </span>{" "}
