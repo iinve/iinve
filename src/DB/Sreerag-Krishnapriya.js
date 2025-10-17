@@ -21,6 +21,13 @@ import image18 from "../assets/coffeePremium/sreerag-krishnapriya/image18.jpeg";
 import image19 from "../assets/coffeePremium/sreerag-krishnapriya/image19.jpeg";
 import image20 from "../assets/coffeePremium/sreerag-krishnapriya/image20.jpeg";
 import image21 from "../assets/coffeePremium/sreerag-krishnapriya/image21.jpeg";
+import image22 from "../assets/coffeePremium/sreerag-krishnapriya/image22.jpeg";
+import image23 from "../assets/coffeePremium/sreerag-krishnapriya/image23.jpeg";
+import image24 from "../assets/coffeePremium/sreerag-krishnapriya/image24.jpeg";
+import image25 from "../assets/coffeePremium/sreerag-krishnapriya/image25.jpeg";
+import image26 from "../assets/coffeePremium/sreerag-krishnapriya/image26.jpeg";
+import image28 from "../assets/coffeePremium/sreerag-krishnapriya/image28.jpeg";
+import image29 from "../assets/coffeePremium/sreerag-krishnapriya/image29.jpeg";
 export const sreerag_krishnapriya = {
   groom: "Sreerag Sreenivas",
   bride: "Krishna Priya",
@@ -45,7 +52,7 @@ export const sreerag_krishnapriya = {
   couples_data: [
     {
       full_name: "Sreerag Sreenivas",
-      bio: "S/O Meena U.P R. & Sreenivasan P.N. <br> Kuthuparamba, Kannur",
+      bio: "S/O Meena U.P & Sreenivasan P.N. <br> Kuthuparamba, Kannur",
       avatar: Groom,
     },
     {
@@ -57,7 +64,7 @@ export const sreerag_krishnapriya = {
 
   images: [
     image5,
-    image10,
+    image22,
     image15,
     image6,
     image8,
@@ -77,6 +84,7 @@ export const sreerag_krishnapriya = {
     image18,
     image20,
     image21,
+    image10,
   ],
   imageOne: [
     Groom,
@@ -90,6 +98,9 @@ export const sreerag_krishnapriya = {
     image3,
     image18,
     image19,
+    image24,
+    image29,
+    image28,
   ],
   imageTwo: [
     Bride,
@@ -101,6 +112,9 @@ export const sreerag_krishnapriya = {
     image4,
     image20,
     image21,
+    image25,
+    image26,
+    image23,
     image7
   ],
   dateData: [
