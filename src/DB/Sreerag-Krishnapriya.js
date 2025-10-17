@@ -40,7 +40,7 @@ export const sreerag_krishnapriya = {
   phone2: "",
   begin_time: "06:00 PM",
   reception_begin_time: "05:00 pM",
-  music: "/audio/kadhai-poma.mp3",
+  music: "/audio/mild-one.mp3",
   quote:
     "You are also invited for the post-marriage reception that will be arranged at Travancore International Convention Center (The Sports hub, Green Field international Stadium) Karyavattom, on <b> 13th july 2025 Sunday from 5:00pm to 10:00pm </b>",
   wdn_quote:
