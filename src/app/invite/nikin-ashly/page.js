@@ -9,18 +9,18 @@ const metadataBase = isProduction
   : "http://localhost:3000";
 
 export const metadata = {
-  title: "Nikin & Ashly Wedding Invitation | iinve",
+  title: "Phil & Ashly Wedding Invitation | iinve",
   description:
-    "Nikin and Ashly are getting married and joyfully invite you to celebrate their wedding.",
+    "Phil and Ashly are getting married and joyfully invite you to celebrate their wedding.",
   robots: "noindex, nofollow",
   openGraph: {
     title: "Nikin and Ashly Wedding Invitation | iinve",
     description:
-      "Nikin and Ashly are getting married and joyfully invite you to celebrate their wedding.",
+      "Phil and Ashly are getting married and joyfully invite you to celebrate their wedding.",
     images: [
       {
         url: `${metadataBase}/assets/images/og-image/og-nikin.jpg`,
-        alt: "Nikin & Ashly Wedding Invitation",
+        alt: "Phil & Ashly Wedding Invitation",
       },
     ],
   },
