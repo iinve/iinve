@@ -14,7 +14,7 @@ export const metadata = {
     "Phil and Ashly are getting married and joyfully invite you to celebrate their wedding.",
   robots: "noindex, nofollow",
   openGraph: {
-    title: "Nikin and Ashly Wedding Invitation | iinve",
+    title: "Phil and Ashly Wedding Invitation | iinve",
     description:
       "Phil and Ashly are getting married and joyfully invite you to celebrate their wedding.",
     images: [
