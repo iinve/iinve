@@ -35,7 +35,7 @@ export const nikin_ashly = {
     },
     {
       full_name: "Ashly",
-      bio: "D/o Mr. V.P sabu",
+      bio: "D/o Mr. V.P Sabu",
       avatar: Bride,
     },
   ],
@@ -63,7 +63,7 @@ export const nikin_ashly = {
     { date: "15", day: "Tue" },
   ],
   month: "Feb",
-    muhurtham: "11:00 AM",
+  muhurtham: "11:00 AM",
   venue: "LA Mirage Koratty",
   place: "Koratty",
   date: "2026-02-12",
