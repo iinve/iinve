@@ -47,7 +47,7 @@ const Page = () => {
           />
         )}
       </Head>
-      <BasicEternity data={sreerag_krishnapriya} />
+      <BasicEternity data={sreerag_krishnapriya_} />
     </div>
   );
 };
