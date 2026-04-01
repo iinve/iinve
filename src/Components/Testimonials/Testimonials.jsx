@@ -158,7 +158,7 @@ function TestimonialCard({ t, index }) {
         {/* quote */}
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <p className="text-white/60 text-sm leading-relaxed">
-          "{t.quote}"
+          {`"${t.quote}"`}
         </p>
 
         {/* divider */}
@@ -240,7 +240,7 @@ function SectionHeader() {
       </h2>
 
       <p className="text-white/35 text-md max-w-md leading-relaxed">
-        From intimate weddings to corporate launches, here's what hosts say after their first iinve.
+        From intimate weddings to corporate launches, here&apos;s what hosts say after their first iinve.
       </p>
 
       {/* aggregate rating */}
