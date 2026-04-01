@@ -7,6 +7,7 @@ import TemplateSwiper from "../TemplateSwiper/TemplateSwiper";
 import Style from "./TemplateSlider.module.scss";
 import NumberCounter from "ProUI/NumerCounter/NumberCounter";
 import ActionButton from "ProUI/ActionButton/ActionButton";
+import Link from "next/link";
 
 const TemplateSlider = () => {
   const targetRef = useRef(null);
@@ -65,9 +66,10 @@ const TemplateSlider = () => {
                 color="default"
                 variant="bordered"
                 className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8 mt-10"
-              // onPress={() => handleSendWhatsAppMessage("explore")}
               >
-                Explore Templates
+                <Link href="/templates">
+                  Explore Templates
+                </Link>
               </ActionButton>
             </motion.div>
           </div>

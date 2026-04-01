@@ -17,6 +17,7 @@ import FormSheet from "Components/FormSheet/FormSheet";
 import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 import { sheetVisibility } from "atoms/sheetAtom";
 import { useRecoilState } from "recoil";
+import Link from "next/link";
 
 
 const fadeUp = {
@@ -91,6 +92,7 @@ const Spotlight = () => {
       [SHEETS.LEAD_FORM]: false,
     }));
   };
+
 
   return (
     <div id="spotlight" className={`${Style.spotlight} relative bg-[#050505]`}>
@@ -179,9 +181,11 @@ const Spotlight = () => {
               color="default"
               variant="bordered"
               className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8"
-              onPress={() => handleSendWhatsAppMessage("explore")}
+
             >
-              Explore Templates
+              <Link href="/templates">
+                Explore Templates
+              </Link>
             </ActionButton>
           </div>
         </motion.div>

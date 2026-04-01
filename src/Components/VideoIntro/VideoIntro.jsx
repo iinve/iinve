@@ -53,11 +53,13 @@ const VideoIntro = () => {
 
             <ActionButton
               size="lg"
-              color="primary"
-              // className='bg-white text-black'
-              onPress={() => handleSendWhatsAppMessage("invite")}
+              color="default"
+              variant="bordered"
+              className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8"
             >
-              <Link href="/templates" className="relative z-10">Start Creating</Link>
+              <Link href="/templates">
+                Explore Templates
+              </Link>
             </ActionButton>
           </div>
 
