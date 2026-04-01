@@ -21,6 +21,7 @@ import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 import { sheetVisibility } from "atoms/sheetAtom";
 import { useRecoilState } from "recoil";
 import FormSheet from "Components/FormSheet/FormSheet";
+import Loader from "Components/Loader";
 
 /* ─── Category pill with animated indicator ─── */
 const CATEGORIES = [
@@ -206,6 +207,7 @@ function LuxuryCard({ template, isSelected, onSelect }) {
 function PreviewSheet({ template, onClose }) {
   const scrollRef = useRef(null);
   const { toggleSheetVisibility } = useToggleVisibility();
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -266,32 +268,30 @@ function PreviewSheet({ template, onClose }) {
             }}
             className="relative shrink-0 order-1"
           >
-            <div className="relative w-[200px] sm:w-[280px] md:w-[320px] mt-[80px] md:mt-0">
+            <div className="relative w-[200px] sm:w-[280px] md:w-[320px] mt-[120px] md:mt-0">
               {/* Phone frame */}
-              <div className="absolute inset-0 rounded-[2.5rem] border-4 md:border-[9px] border-zinc-800 shadow-[0_40px_120px_rgba(0,0,0,0.9)] z-10 pointer-events-none" />
+              <div className="absolute inset-0 rounded-[2rem] md:rounded-[2.5rem] border-4 md:border-[9px] border-zinc-800 shadow-[0_40px_120px_rgba(0,0,0,0.9)] z-10 pointer-events-none" />
 
               {/* Notch */}
-              <div className="absolute top-[20px] left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 md:h-8 bg-zinc-800 rounded-2xl z-20" />
+              <div className="absolute top-[10px] md:top-[20px] left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 md:h-8 bg-zinc-800 rounded-2xl z-20" />
 
               {/* Screen */}
               <div
                 ref={scrollRef}
                 className="aspect-[9/19] rounded-[2.6rem] bg-zinc-900 relative overflow-y-auto no-scrollbar"
               >
-                {template.full_template ? (
-                  <Image
-                    src={template.full_template}
-                    alt={template.name}
-                    width={400}
-                    height={1200} // 👈 make it tall
-                    className="w-full h-auto object-top"
-                    priority
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-8 h-8 border-2 border-white/20 border-t-white/80 rounded-full animate-spin" />
-                  </div>
-                )}
+                {!loaded && <Loader />}
+                <Image
+                  src={template.full_template}
+                  alt={template.name}
+                  width={400}
+                  height={1200}
+                  className={`w-full h-auto object-top transition-opacity duration-500 ${
+                    loaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  onLoad={() => setLoaded(true)}
+                  priority
+                />
               </div>
             </div>
           </motion.div>
@@ -368,7 +368,6 @@ function PreviewSheet({ template, onClose }) {
           </motion.div>
         </div>
 
-        {/* ❌ Close Button */}
         <motion.button
           className="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white transition"
           onClick={onClose}
