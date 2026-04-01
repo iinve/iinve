@@ -37,7 +37,7 @@ const VideoIntro = () => {
 
           {/* Hero Heading */}
           <div className="md:w-2/3">
-            <h2 className="text-5xl md:text-5xl font-bold text-white mb-8 leading-tight ">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight ">
               The Future of <br />
               <AnimatedText>Invitations</AnimatedText>
             </h2>
