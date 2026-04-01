@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { sheetVisibility } from "atoms/sheetAtom";
 import { SHEETS } from "utils/sheetUtils";
 import FormSheet from "Components/FormSheet/FormSheet";
+import { Toaster } from "sonner";
 
 export default function ClientLayout({ children }) {
   const [sheetsVisibility, setSheetsVisibility] =
@@ -19,6 +20,7 @@ export default function ClientLayout({ children }) {
   };
   return (
     <RecoilProvider>
+      <Toaster />
       {React.cloneElement(children,)}
       <FormSheet
         isOpen={sheetsVisibility?.[SHEETS.LEAD_FORM] || false}

@@ -204,13 +204,12 @@ function LuxuryCard({ template, isSelected, onSelect }) {
 }
 
 function PreviewSheet({ template, onClose }) {
-  if (!template) return null;
   const scrollRef = useRef(null);
   const { toggleSheetVisibility } = useToggleVisibility();
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el) return;
+    if (!el || !template) return;
 
     let direction = 1;
 
@@ -231,7 +230,9 @@ function PreviewSheet({ template, onClose }) {
     }, 20);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [template]);
+
+  if (!template) return null;
 
   return (
     <Sheet
