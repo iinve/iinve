@@ -252,7 +252,7 @@ function PreviewSheet({ template, onClose }) {
           gap-10 lg:gap-16 
           p-6 md:p-12 pt-20 md:pt-16 
           min-h-screen
-          text-center lg:text-left
+          text-center lg:text-left 
         "
         >
           <motion.div
@@ -266,12 +266,12 @@ function PreviewSheet({ template, onClose }) {
             }}
             className="relative shrink-0 order-1"
           >
-            <div className="relative w-[240px] sm:w-[280px] md:w-[320px]">
+            <div className="relative w-[200px] sm:w-[280px] md:w-[320px] mt-[80px] md:mt-0">
               {/* Phone frame */}
-              <div className="absolute inset-0 rounded-[2.5rem] border-[10px] border-zinc-800 shadow-[0_40px_120px_rgba(0,0,0,0.9)] z-10 pointer-events-none" />
+              <div className="absolute inset-0 rounded-[2.5rem] border-4 md:border-[9px] border-zinc-800 shadow-[0_40px_120px_rgba(0,0,0,0.9)] z-10 pointer-events-none" />
 
               {/* Notch */}
-              <div className="absolute top-[20px] left-1/2 -translate-x-1/2 w-20 h-6 bg-zinc-800 rounded-2xl z-20" />
+              <div className="absolute top-[20px] left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 md:h-8 bg-zinc-800 rounded-2xl z-20" />
 
               {/* Screen */}
               <div
@@ -305,11 +305,11 @@ function PreviewSheet({ template, onClose }) {
               duration: 0.5,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="flex flex-col gap-6 max-w-md w-full order-2"
+            className="flex flex-col gap-6 max-w-md w-full order-2 pb-20"
           >
             {/* Category */}
             <div className="flex items-center justify-center lg:justify-start gap-3">
-              <div className="h-px w-8 bg-white/30" />
+              <div className="h-px w-8 bg-white/30 hidden md:block" />
               <span className="text-white/40 text-xs tracking-[0.2em] uppercase font-medium">
                 {template.type}
               </span>
