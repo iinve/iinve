@@ -15,6 +15,8 @@ import { GiLovers } from "react-icons/gi";
 import AnimatedText from "ProUI/AnimatedText/AnimatedText";
 import FormSheet from "Components/FormSheet/FormSheet";
 import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
+import { sheetVisibility } from "atoms/sheetAtom";
+import { useRecoilState } from "recoil";
 
 
 const fadeUp = {
@@ -80,7 +82,15 @@ const Spotlight = () => {
   const shouldReduceMotion = useReducedMotion();
   const { toggleSheetVisibility } = useToggleVisibility();
 
+  const [sheetsVisibility, setSheetsVisibility] =
+    useRecoilState(sheetVisibility);
 
+  const handleCloseDemoSheet = () => {
+    setSheetsVisibility((prev) => ({
+      ...prev,
+      [SHEETS.LEAD_FORM]: false,
+    }));
+  };
 
   return (
     <div id="spotlight" className={`${Style.spotlight} relative bg-[#050505]`}>
@@ -204,6 +214,10 @@ const Spotlight = () => {
           </AnimatePresence>
         )
       }
+      <FormSheet
+        isOpen={sheetsVisibility?.[SHEETS.LEAD_FORM] || false}
+        handleClose={handleCloseDemoSheet}
+      />
     </div >
   );
 };
