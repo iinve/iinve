@@ -8,8 +8,8 @@ import { GoArrowUpRight, GoCheck } from "react-icons/go";
 import { MdContentCopy } from "react-icons/md";
 import { toast } from "sonner";
 
-const VALID_USERNAME = "admin";
-const VALID_PASSWORD = "1234";
+const VALID_USERNAME = "magicadmin";
+const VALID_PASSWORD = "eyeapple";
 
 const invitations = [
   {
