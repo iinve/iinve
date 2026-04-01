@@ -1,17 +1,21 @@
-
 import Header from "Components/Header/Header";
 import MainFooter from "Components/MainFooter/MainFooter";
 import Head from "next/head";
 
-
 export const metadata = {
   title: "Create a Digital Wall for Your Shop Offers & Announcements | iinve",
-  description: "Promote your shop’s latest offers and new arrivals with a customizable digital wall from iinve. Fast, eye-catching, and easy to share.",
+  description:
+    "Promote your shop’s latest offers and new arrivals with a customizable digital wall from iinve. Fast, eye-catching, and easy to share.",
   openGraph: {
     title: "Create a Digital Wall for Your Shop Offers & Announcements | iinve",
-    description: "Turn your shop updates into beautiful digital displays. Share offers, arrivals, and more with customers using iinve's e-wall.",
+    description:
+      "Turn your shop updates into beautiful digital displays. Share offers, arrivals, and more with customers using iinve's e-wall.",
     url: "https://iinve.com/e-wall",
     siteName: "iinve",
+    robots: {
+      index: false,
+      follow: false,
+    },
     images: [
       {
         url: "https://iinve.com/assets/images/og-image.jpg",
@@ -26,7 +30,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Create a Digital Wall for Your Shop Offers & Announcements | iinve",
-    description: "Showcase your shop’s updates with style. Use iinve’s e-wall for digital promotions and customer engagement.",
+    description:
+      "Showcase your shop’s updates with style. Use iinve’s e-wall for digital promotions and customer engagement.",
     images: ["https://iinve.com/e-wall-og.jpg"], // update with actual image URL
   },
 };
@@ -34,36 +39,35 @@ export const metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Digital E-Wall",
-  "serviceType": "Shop Promotion Display",
-  "provider": {
+  name: "Digital E-Wall",
+  serviceType: "Shop Promotion Display",
+  provider: {
     "@type": "Organization",
-    "name": "iinve",
-    "url": "https://iinve.com"
+    name: "iinve",
+    url: "https://iinve.com",
   },
-  "url": "https://iinve.com/e-wall",
-  "description": "Share your shop's latest offers and arrivals using a sleek digital wall from iinve — perfect for retail, salons, cafés, and more.",
-  "areaServed": {
+  url: "https://iinve.com/e-wall",
+  description:
+    "Share your shop's latest offers and arrivals using a sleek digital wall from iinve — perfect for retail, salons, cafés, and more.",
+  areaServed: {
     "@type": "Place",
-    "name": "Global"
+    name: "Global",
   },
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://iinve.com"
+      position: 1,
+      name: "Home",
+      item: "https://iinve.com",
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": "Digital E-Wall",
-      "item": "https://iinve.com/e-wall"
-    }
-  ]
+      position: 2,
+      name: "Digital E-Wall",
+      item: "https://iinve.com/e-wall",
+    },
+  ],
 };
-
-
 
 const layout = ({ children }) => {
   return (
@@ -75,12 +79,10 @@ const layout = ({ children }) => {
         />
       </Head>
       <Header />
-      <div className="pt-[150px]">
-        {children}
-      </div>
+      <div className="pt-[150px]">{children}</div>
       <MainFooter />
     </>
-  )
-}
+  );
+};
 
-export default layout
+export default layout;

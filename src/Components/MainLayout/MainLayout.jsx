@@ -1,6 +1,5 @@
 'use client'
 
-import { useAuthHandler } from "hooks/useAuthHandler";
 import { allRoutes } from "utils/pagesUtils";
 import { HeroUIProvider, ToastProvider } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -25,11 +24,7 @@ const ClientOnly = ({ children }) => {
 const GA_MEASUREMENT_ID = 'G-1FQFWSZL9B'
 
 export default function MainLayout({ children }) {
-  const { isAuthPage } = useAuthHandler()
   const pathName = usePathname();
-  const isViiewMe = !allRoutes.includes(pathName);
-  const isEditor = pathName === '/editor';
-
   const router = useRouter()
 
   useEffect(() => {
@@ -72,10 +67,10 @@ export default function MainLayout({ children }) {
             <HeroUIProvider>
               <ToastProvider placement="top-center" />
               <RecoilProvider>
-                {!isViiewMe && !isEditor && <Header />}
+                <Header />
                 {children}
               </RecoilProvider>
-              {!isAuthPage && !isViiewMe && <MainFooter />}
+              <MainFooter />
             </HeroUIProvider>
           </ClientOnly>
         </body>

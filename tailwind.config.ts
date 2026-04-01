@@ -31,10 +31,15 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-5px)" },
         },
+        textSmooth: {
+          "0%": { backgroundPosition: "0% center" },
+          "100%": { backgroundPosition: "400% center" },
+        },
       },
       animation: {
         float: "float 3s ease-in-out infinite",
         floatSlow: "floatSlow 4s ease-in-out infinite",
+        textSmooth: "textSmooth 20s linear infinite",
       },
       colors: {
         background: "var(--background)",

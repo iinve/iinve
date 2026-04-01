@@ -10,18 +10,18 @@ import useWindowDimensions from 'utils/useWindowDimensions'
 const FAQs = () => {
   const { isMobile } = useWindowDimensions()
   return (
-    <div id='faq' className={Style.faq_container}>
+    <div id='faq' className={`bg-[#050505] ${Style.faq_container}`}>
       <div className='container mx-auto'>
-      <div className={Style.faq}>
-        <div className={Style.head}>
-          <InfoChip icon={<ProIcon name='LuBadgeHelp' size={18} color='#fff' />} name={"FAQs"} className={"chip"} isLeft/>
-          <ProHeading>All You Need to Know,{!isMobile && <br/> }at a Glance!</ProHeading>
+        <div className={Style.faq}>
+          <div className={Style.head}>
+            <InfoChip icon={<ProIcon name='LuBadgeHelp' size={18} color='#fff' />} name={"FAQs"} className={"chip"} isLeft />
+            <ProHeading>All You Need to Know,{!isMobile && <br />}at a Glance!</ProHeading>
+          </div>
+          <div className={Style.accordion}>
+            <AccordionContainer />
+          </div>
         </div>
-        <div className={Style.accordion}>
-          <AccordionContainer />
-        </div>
-      </div>
-      {/* <span className={Style.help_center}>
+        {/* <span className={Style.help_center}>
         <small className={Style.help}>Still have more questions? Contact our</small> <Link href={"/contact"}>help center.</Link>
       </span> */}
       </div>

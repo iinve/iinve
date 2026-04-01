@@ -63,8 +63,8 @@ export const Assets = {
     digital_wall: "/assets/images/digital_wall_logo.png",
     icon_outline: "/assets/images/iinve-icon.svg",
     icon_outline_lg: "/assets/images/iinve-icon-lg.svg",
-    logo_outlined: '/assets/images/logo/logo-outlined.png',
-    icon:"/assets/images/logo/icon.png"
+    logo_outlined: "/assets/images/logo/logo-outlined.png",
+    icon: "/assets/images/logo/icon.png",
   },
   tags: {
     digital_wall: "/assets/images/tags/digital-wall-tag.png",
@@ -81,6 +81,7 @@ export const Assets = {
     performance: "/assets/images/performance.png",
     cube: "/assets/images/cube.png",
     crown: "/assets/images/crown.png",
+    speed: "/assets/images/speed.png",
   },
   og_background: "/assets/images/og-image/og_background.png",
   templates: {
@@ -176,8 +177,8 @@ export const Assets = {
     blue_wave_1: "/assets/images/abstract-1.png",
     blue_wave_2: "/assets/images/abstract-2.png",
   },
-  walls:{
-    wall_01:'/assets/images/wall/wall_01.png',
-    wall_02:'/assets/images/wall/wall_02.png',
-  }
+  walls: {
+    wall_01: "/assets/images/wall/wall_01.png",
+    wall_02: "/assets/images/wall/wall_02.png",
+  },
 };

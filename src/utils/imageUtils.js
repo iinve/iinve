@@ -1,17 +1,16 @@
-import imageCompression from 'browser-image-compression';
+import imageCompression from "browser-image-compression";
 
 export async function blobUrlToFile(blobUrl, fileName = "image.png") {
   try {
-      const response = await fetch(blobUrl); // Fetch the blob
-      const blob = await response.blob();    // Convert to Blob
-      const file = new File([blob], fileName, { type: blob.type }); // Convert Blob to File
-      return file;
+    const response = await fetch(blobUrl); // Fetch the blob
+    const blob = await response.blob(); // Convert to Blob
+    const file = new File([blob], fileName, { type: blob.type }); // Convert Blob to File
+    return file;
   } catch (error) {
-      console.error("Error converting Blob URL to File:", error);
-      return null;
+    console.error("Error converting Blob URL to File:", error);
+    return null;
   }
 }
-
 
 export async function fileToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -22,17 +21,12 @@ export async function fileToBase64(file) {
   });
 }
 
-
-
 export const getImagePreviewUrl = async (inputFileOrUrl) => {
-  if (!inputFileOrUrl) return ""; // Return empty if no image is provided
-  // If it's already a URL (backend-stored image), return it
+  if (!inputFileOrUrl) return "";
   if (typeof inputFileOrUrl === "string" && inputFileOrUrl.startsWith("http")) {
     return inputFileOrUrl;
   }
-
-  // If it's a File object, create a temporary Blob URL for preview
-  if (inputFileOrUrl instanceof File ||  inputFileOrUrl instanceof Blob) {
+  if (inputFileOrUrl instanceof File || inputFileOrUrl instanceof Blob) {
     return await blobToBase64(inputFileOrUrl);
   }
 
@@ -58,23 +52,26 @@ export async function compressImage(imageFile) {
   try {
     const compressedFile = await imageCompression(imageFile, options);
 
-    // Use original file extension
-    const extension = imageFile.type.split('/')[1];
-    const renamedFile = new File([compressedFile], imageFile.name || `image.${extension}`, {
-      type: compressedFile.type,
-      lastModified: Date.now(),
-    });
+    const extension = imageFile.type.split("/")[1];
+    const renamedFile = new File(
+      [compressedFile],
+      imageFile.name || `image.${extension}`,
+      {
+        type: compressedFile.type,
+        lastModified: Date.now(),
+      },
+    );
 
     return renamedFile;
   } catch (error) {
-    console.error('Image compression failed:', error);
+    console.error("Image compression failed:", error);
     return null;
   }
 }
 
 // Convert Base64 to Blob
 function base64ToBlob(base64, mimeType) {
-  const byteCharacters = atob(base64.split(',')[1]);
+  const byteCharacters = atob(base64.split(",")[1]);
   const byteNumbers = new Array(byteCharacters.length);
   for (let i = 0; i < byteCharacters.length; i++) {
     byteNumbers[i] = byteCharacters.charCodeAt(i);
@@ -83,6 +80,4 @@ function base64ToBlob(base64, mimeType) {
   return new Blob([byteArray], { type: mimeType });
 }
 
-
 export { base64ToBlob };
-

@@ -1,69 +1,84 @@
 "use client";
+import React, { useRef } from "react";
 import ProHeading from "ProUI/ProHeading/ProHeading";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import ProIcon from "../../ProUI/Icons/icons";
-import InfoChip from "../InfoChip/InfoChip";
 import TemplateSwiper from "../TemplateSwiper/TemplateSwiper";
 import Style from "./TemplateSlider.module.scss";
+import NumberCounter from "ProUI/NumerCounter/NumberCounter";
 import ActionButton from "ProUI/ActionButton/ActionButton";
-import Link from "next/link";
 
 const TemplateSlider = () => {
-  const { ref: containerRef, inView } = useInView({ threshold: 0.6 });
-  const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.5, 1]);
-  return (
-    <div className={Style.templates_slider} id="templates">
-      <div className={Style.template_container} ref={containerRef}>
-        <motion.div
-          className={Style.head}
-          style={{ scale }}
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <InfoChip
-            icon={<ProIcon name={"LuLayoutTemplate"} size={18} color="#fff" />}
-            name={"Templates"}
-            isLeft
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <ProHeading>Choose your favorites.</ProHeading>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="hidden md:block"
-          >
-            Elegant, minimalist invites that elevate your event seamlessly
-            blending your event details, personalized message, and a touch of
-            your style through photos or custom themes.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            <ActionButton
-              variant={"bordered"}
-              size="md"
-              className="bg-primary bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] border border-primary !px-10 !py-6"
-            >
-              <Link href={"/templates"}>Explore Showcase</Link>
-            </ActionButton>
-          </motion.div>
-        </motion.div>
+  const targetRef = useRef(null);
+  const { ref: inViewRef, inView } = useInView({ threshold: 0.2, triggerOnce: true });
 
-        {/* swiper container */}
-        <TemplateSwiper inView={inView} />
-      </div>
-    </div>
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const scale = useTransform(smoothProgress, [0, 0.2], [0.95, 1]);
+
+  return (
+    <section className="py-10 bg-[#050505] overflow-hidden relative" id="templates" ref={targetRef}>
+      <motion.div ref={inViewRef} style={{ scale }}
+        viewport={{ once: true }}
+        className="container mx-auto px-6">
+
+        {/* Single Line Heading */}
+        <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
+          <div className="flex flex-row items-center md:w-2/3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              viewport={{ once: true }}
+
+              transition={{ duration: 0.8 }}
+            >
+              <h4 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">
+                Curated Invitations for Every Moment.
+              </h4>
+              <p className="text-white/50 text-lg font-light">Elegant, minimalist invites that elevate your event seamlessly blending your event details, personalized message, and a touch of your style through photos or custom themes.</p>
+              <motion.div
+                className="mt-16 flex justify-start items-center gap-8"
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
+                transition={{ delay: 0.5, duration: 1 }}
+              >
+                <div className="flex flex-col items-start ">
+                  <span className="text-3xl font-bold text-white">
+                    <NumberCounter value="10K+" duration={2} />
+                  </span>
+                  <span className="text-[16px] text-white/30">Invite Shared</span>
+                </div>
+                <div className="w-[1px] h-8 bg-white/10" />
+                <div className="flex flex-col items-start">
+                  <span className="text-3xl font-bold text-white">
+                    <NumberCounter value="99.9%" duration={3} />
+                  </span>
+                  <span className="text-[16px] text-white/30">Satisfaction Rate</span>
+                </div>
+              </motion.div>
+              <ActionButton
+                size="lg"
+                color="default"
+                variant="bordered"
+                className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8 mt-10"
+              // onPress={() => handleSendWhatsAppMessage("explore")}
+              >
+                Explore Templates
+              </ActionButton>
+            </motion.div>
+          </div>
+
+          {/* Swiper Container */}
+          <TemplateSwiper inView={inView} />
+        </div>
+
+
+      </motion.div>
+    </section>
   );
 };
 

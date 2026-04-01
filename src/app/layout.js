@@ -6,9 +6,8 @@ import MainLayout from "Components/MainLayout/MainLayout";
 import { faqData } from "DB/faqData";
 import { Josefin_Sans } from "next/font/google";
 import Head from "next/head";
-import '../i18n';
+import "../i18n";
 import "../styles/global.css";
-
 
 // Setup font
 const JosefinSans = Josefin_Sans({ subsets: ["latin"] });
@@ -51,7 +50,6 @@ export const metadata = {
     "wedding invitation templates",
     "wedding invitations near me",
     "event invitation",
-
   ],
   robots: "index, follow",
   canonical: "https://iinve.com",
@@ -86,40 +84,40 @@ export const metadata = {
   },
 };
 
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "iinve.com",
-  "url": "https://iinve.com",
-  "description": "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner for stunning e-invitations and impactful e-walls.",
-  "itemListElement": [
+  name: "iinve.com",
+  url: "https://iinve.com",
+  description:
+    "Whether you're preparing for your big day or building stronger customer connections, iinve is your digital partner for stunning e-invitations and impactful e-walls.",
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://iinve.com"
+      position: 1,
+      name: "Home",
+      item: "https://iinve.com",
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": "E-Invitations",
-      "item": "https://iinve.com/e-invite"
+      position: 2,
+      name: "E-Invitations",
+      item: "https://iinve.com/e-invite",
     },
     {
       "@type": "ListItem",
-      "position": 3,
-      "name": "Digital E-Wall",
-      "item": "https://iinve.com/e-wall"
+      position: 3,
+      name: "Digital E-Wall",
+      item: "https://iinve.com/e-wall",
     },
     {
       "@type": "ListItem",
-      "position": 4,
-      "name": "Blogs",
-      "item": "https://iinve.com/#blogs"
-    }
+      position: 4,
+      name: "Blogs",
+      item: "https://iinve.com/#blogs",
+    },
   ],
-  "keywords": [
+  keywords: [
     "iinve",
     "iinve invite",
     "iinve wall",
@@ -148,50 +146,62 @@ const jsonLd = {
     "digital flyer",
     "shop promotions online",
   ],
-  "potentialAction": {
+  potentialAction: {
     "@type": "SearchAction",
-    "target": "https://iinve.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+    target: "https://iinve.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string",
   },
-  "mainEntityOfPage": {
+  mainEntityOfPage: {
     "@type": "FAQPage",
-    "mainEntity": faqData.map((item) => ({
+    mainEntity: faqData.map((item) => ({
       "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
+      name: item.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": item.answer,
+        text: item.answer,
       },
     })),
   },
-
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;700&display=swap" rel="stylesheet"/>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-            <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet"/>
-              <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap" rel="stylesheet"/>
-                <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-                  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-                    <script type="application/ld+json">
-                      {JSON.stringify(jsonLd)}
-                    </script>
-                    <meta name="apple-mobile-web-app-title" content="iinve" />
-                  </Head>
-                  <body className={JosefinSans.className}>
-                    <MainLayout>
-                      <ClientLayout>
-                        <HeroUIProvider>
-                          {children}
-                        </HeroUIProvider>
-                      </ClientLayout>
-                    </MainLayout>
-                  </body>
-                </html>
-                );
+        <link
+          href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <meta name="apple-mobile-web-app-title" content="iinve" />
+      </Head>
+      <body className={JosefinSans.className}>
+        <MainLayout>
+          <ClientLayout>
+            <HeroUIProvider>{children}</HeroUIProvider>
+          </ClientLayout>
+        </MainLayout>
+      </body>
+    </html>
+  );
 }

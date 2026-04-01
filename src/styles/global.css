@@ -267,3 +267,70 @@ body {
 .baloo-tamma {
     font-family: 'Baloo Tamma 2', cursive;
 }
+
+.custom-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #444;
+  border-radius: 999px;
+  outline: none;
+}
+
+/* Track (progress line) */
+.custom-range::-webkit-slider-runnable-track {
+  height: 6px;
+  background: linear-gradient(to right, #153AA4 0%, #08AAD0 var(--progress), #444 var(--progress), #d5d5d5 100%);
+  border-radius: 999px;
+}
+
+/* Thumb (circle) */
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  background: #08AAD0;
+  border-radius: 50%;
+  margin-top: -4px;
+  cursor: pointer;
+}
+
+/* Firefox */
+.custom-range::-moz-range-track {
+  background: #b1b1b1;
+  height: 6px;
+}
+
+.custom-range::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  background: #153AA4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(255,188,63,0.5);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE, Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scroll-indicator::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.6));
+  pointer-events: none;
+}
