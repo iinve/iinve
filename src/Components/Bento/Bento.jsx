@@ -164,11 +164,11 @@ function SectionHeader() {
         <InfoChip icon={<FaRegGem />} name={"Why iinve"} isLeft />
         <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mt-6">
           Everything you need,<br />
-          <span className="text-white/30">nothing you don't.</span>
+          <span className="text-white/30">nothing you don&apos;t.</span>
         </h2>
       </div>
       <p className="text-white/50 text-lg max-w-lg leading-relaxed">
-        Built for modern hosts who care about first impressions — fast, beautiful, and completely personal.
+        {"Built for modern hosts who care about first impressions — fast, beautiful, and completely personal."}
       </p>
     </motion.div>
   );

@@ -156,6 +156,7 @@ function TestimonialCard({ t, index }) {
         </div>
 
         {/* quote */}
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         <p className="text-white/60 text-sm leading-relaxed">
           "{t.quote}"
         </p>

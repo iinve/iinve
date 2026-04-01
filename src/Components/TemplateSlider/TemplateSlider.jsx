@@ -36,7 +36,7 @@ const TemplateSlider = () => {
 
               transition={{ duration: 0.8 }}
             >
-              <h4 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">
+              <h4 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
                 Curated Invitations for Every Moment.
               </h4>
               <p className="text-white/50 text-lg font-light">Elegant, minimalist invites that elevate your event seamlessly blending your event details, personalized message, and a touch of your style through photos or custom themes.</p>
