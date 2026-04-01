@@ -60,12 +60,6 @@ const invitations = [
     type: "Wedding",
     template: "Opaline",
   },
-  {
-    name: "Nikil Sreejitha",
-    url: "wedding/nikil-sreejitha",
-    type: "Wedding",
-    template: "Opaline",
-  },
 ];
 
 export default function Page() {
