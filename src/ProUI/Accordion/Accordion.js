@@ -42,9 +42,9 @@ const AccordionContainer = () => {
             key={i}
             aria-label={data.question}
             title={data.question}
-            className="w-full overflow-hidden text-white"
+            className="w-full text-md overflow-hidden text-white"
           >
-            <div className="text-text_gray text-sm md:text-md">
+            <div className="text-text_gray text-base md:text-md">
               {data.answer}
             </div>
           </AccordionItem>
