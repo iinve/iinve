@@ -3,10 +3,14 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Style from './Hamburger.module.scss';
+import ActionButton from 'ProUI/ActionButton/ActionButton';
+import { SHEETS, useToggleVisibility } from 'utils/sheetUtils';
 
 const Hamburger = ({ navItems }) => {
   const [isActive, setIsActive] = useState(false);
   const [inView, setInView] = useState(false);
+  const { toggleSheetVisibility } = useToggleVisibility();
+
   const handleClickHamburger = () => {
     setIsActive(!isActive);
     if (typeof window !== "undefined") {
@@ -55,6 +59,15 @@ const Hamburger = ({ navItems }) => {
               <Link href={menu.link}>{menu.name}</Link>
             </motion.li>
           ))}
+
+          <ActionButton
+            size="lg"
+            color="primary"
+            className='px-10'
+            onPress={() => toggleSheetVisibility(SHEETS.LEAD_FORM, true)}
+          >
+            Create Invitation
+          </ActionButton>
         </motion.ul>
       </div>
     </div>

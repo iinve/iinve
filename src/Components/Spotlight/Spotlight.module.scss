@@ -39,10 +39,12 @@
                 padding: 0 30px;
             }
             @media (max-width: 640px) {
-                font-size: 34px; 
+                font-size: 32px; 
                 margin-top: 10px; 
                 max-width: 100%;  
                 text-align: center;
+                padding: 0;
+
             }
         
         }

@@ -14,7 +14,8 @@ import { TiStarOutline } from "react-icons/ti";
 const testimonials = [
   {
     name: "Rooney & Rose",
-    event: "Wedding · Dubai",
+    event: "Wedding",
+    place: 'Dubai',
     avatar: "/testimonials/rooney-rose.jpg",
     rating: 4,
     quote:
@@ -24,7 +25,8 @@ const testimonials = [
   },
   {
     name: "Sara Al Mansouri",
-    event: "Birthday Party · Abu Dhabi",
+    event: "Birthday Party",
+    place: 'Abu Dhabi',
     avatar: "/testimonials/sara.jpg",
     rating: 5,
     quote:
@@ -33,18 +35,20 @@ const testimonials = [
     template: "Bloom",
   },
   {
-    name: "Nour & Khalid",
-    event: "Engagement · Riyadh",
+    name: "Karthik & Varsha",
+    event: "Wedding",
+    place: 'Kerala',
     avatar: "/testimonials/nour-khalid.jpg",
     rating: 5,
     quote:
-      "The customization was effortless. We matched our exact color palette and every detail felt intentional.",
+      "I loved how easy it was to customize everything. We matched our wedding colors perfectly, and every detail felt thoughtfully designed.",
     accent: "#0D9DC6",
-    template: "Aurum",
+    template: "Opaline",
   },
   {
-    name: "Premagic Events",
-    event: "Corporate Launch · Bangalore",
+    name: "Ashi & Laami",
+    event: "Wedding",
+    place: 'Kerala',
     avatar: "/testimonials/premagic.jpg",
     rating: 5,
     quote:
@@ -54,7 +58,8 @@ const testimonials = [
   },
   {
     name: "Aisha & Omar",
-    event: "Anniversary · Cairo",
+    event: "Anniversary",
+    place: 'Cairo',
     avatar: "/testimonials/aisha-omar.jpg",
     rating: 4,
     quote:
@@ -64,12 +69,24 @@ const testimonials = [
   },
   {
     name: "Layla Hassan",
-    event: "Housewarming · London",
+    event: "Housewarming",
+    place: 'London',
     avatar: "/testimonials/layla.jpg",
     rating: 4,
     quote:
       "I've used it three times now — for a birthday, a baby shower, and a dinner party. Each one looked completely different and stunning.",
     accent: "#153BA6",
+    template: "Dusk",
+  },
+  {
+    name: "Sreejitha & Nikil",
+    event: "Wedding",
+    place: 'Kerala',
+    avatar: "/testimonials/layla.jpg",
+    rating: 4,
+    quote:
+      "We used it for our wedding invite and it was a showstopper. Clean, modern, and super creative—everyone asked where we got it from!",
+    accent: "#0D9DC6",
     template: "Dusk",
   },
 ];
@@ -122,13 +139,11 @@ function TestimonialCard({ t, index }) {
         transition: "border-color 0.4s ease, box-shadow 0.4s ease",
       }}
     >
-      {/* accent glow */}
       <div
         className="absolute -top-10 -left-10 w-32 h-32 rounded-full blur-3xl pointer-events-none transition-opacity duration-500"
         style={{ background: t.accent, opacity: hovered ? 0.18 : 0.08 }}
       />
 
-      {/* grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
@@ -151,7 +166,7 @@ function TestimonialCard({ t, index }) {
               border: `1px solid ${t.accent}30`,
             }}
           >
-            {t.template}
+            {t.event}
           </span>
         </div>
 
@@ -182,7 +197,7 @@ function TestimonialCard({ t, index }) {
           </div>
           <div>
             <p className="text-white text-sm font-semibold leading-none">{t.name}</p>
-            <p className="text-white/35 text-xs mt-1">{t.event}</p>
+            <p className="text-white/35 text-xs mt-1">{t.place}</p>
           </div>
         </div>
       </div>

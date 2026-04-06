@@ -90,11 +90,11 @@ function PulseDot() {
   );
 }
 
-/* ── Animated Logo: full wordmark ↔ icon swap ── */
-function AnimatedLogo({ scrolled, isCompact }) {
+
+function AnimatedLogo({ scrolled, isCompact, isMobile }) {
   return (
-    <div className="relative flex items-center" style={{ width: scrolled ? 108 : (isCompact ? 90 : 108), height: 60, transition: "width 0.4s cubic-bezier(0.22,1,0.36,1)" }}>
-      {/* Full logo — visible when not scrolled */}
+    <div className="relative flex items-center" style={{ width: scrolled ? 108 : (isCompact ? 80 : 108), height: 60, transition: "width 0.4s cubic-bezier(0.22,1,0.36,1)" }}>
+
       <AnimatePresence mode="wait">
         {!scrolled ? (
           <motion.div
@@ -108,7 +108,7 @@ function AnimatedLogo({ scrolled, isCompact }) {
             <Logo width={isCompact ? 90 : 108} height={40} />
           </motion.div>
         ) : (
-          /* Icon only — visible when scrolled */
+
           <motion.div
             key="icon"
             initial={{ opacity: 0, scale: 0.6, rotate: -15, filter: "blur(4px)" }}
@@ -125,8 +125,8 @@ function AnimatedLogo({ scrolled, isCompact }) {
                 <Image
                   src={Assets?.Logo?.icon}
                   alt="iinve icon"
-                  width={50}
-                  height={50}
+                  width={isMobile ? 40 : 50}
+                  height={isMobile ? 40 : 50}
                 />
               </motion.div>
             </Link>
@@ -187,7 +187,7 @@ const Header = () => {
           whileHover={{ scale: 1.04 }}
           transition={{ type: "spring", stiffness: 280, damping: 22 }}
         >
-          <AnimatedLogo scrolled={scrolled} isCompact={isCompact} />
+          <AnimatedLogo scrolled={scrolled} isCompact={isCompact} isMobile={isMobile} />
         </motion.div>
 
         {/* Desktop Nav */}
@@ -199,7 +199,6 @@ const Header = () => {
           </nav>
         )}
 
-        {/* CTA */}
         <div className="flex items-center gap-4">
           <motion.div
             ref={magnet.ref}

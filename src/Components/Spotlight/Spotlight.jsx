@@ -102,7 +102,7 @@ const Spotlight = () => {
       </div>
       {/* ── Mobile: templates carousel at top ── */}
       {isMobile && (
-        <div className="w-[40%] pt-[250px]">
+        <div className="w-[34%] pt-[250px]">
           <HomeTemplates type="invitation" isHorizontal />
         </div>
       )}
