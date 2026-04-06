@@ -115,7 +115,7 @@ function AnimatedLogo({ scrolled, isCompact, isMobile }) {
             animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 0.6, rotate: 15, filter: "blur(4px)" }}
             transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0 flex items-center justify-start"
           >
             <Link href="/">
               <motion.div
