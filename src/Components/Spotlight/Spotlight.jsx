@@ -13,7 +13,8 @@ import { LuPartyPopper } from "react-icons/lu";
 import { PiBagSimple } from "react-icons/pi";
 import { GiLovers } from "react-icons/gi";
 import AnimatedText from "ProUI/AnimatedText/AnimatedText";
-import FormSheet from "Components/FormSheet/FormSheet";
+import dynamic from "next/dynamic";
+const FormSheet = dynamic(() => import("Components/FormSheet/FormSheet"), { ssr: false });
 import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 import { sheetVisibility } from "atoms/sheetAtom";
 import { useRecoilState } from "recoil";
@@ -181,11 +182,10 @@ const Spotlight = () => {
               color="default"
               variant="bordered"
               className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8"
-
+              as={Link}
+              href="/templates"
             >
-              <Link href="/templates">
-                Explore Templates
-              </Link>
+              Explore Templates
             </ActionButton>
           </div>
         </motion.div>

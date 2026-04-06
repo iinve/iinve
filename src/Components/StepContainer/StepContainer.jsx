@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { Assets } from "assets/assets";
 import Link from "next/link";
+import Image from "next/image";
 
 const stepCardData = [
   { id: 1, title: "Wedding Invitations", desc: "Design elegant, heartfelt invites with RSVP and photo galleries.", img: Assets.steps.create_account, tag: "Most Popular", accent: "#C8A96E" },
@@ -163,6 +164,8 @@ const Card = ({ card, index, progress, total, isActive }) => {
     { stiffness: 60, damping: 18 }
   );
 
+  const MotionImage = motion.create(Image);
+
   return (
     <motion.div
       style={{ scale, opacity, rotateY, perspective: 1200 }}
@@ -192,12 +195,13 @@ const Card = ({ card, index, progress, total, isActive }) => {
         {/* Image area */}
         <div className="relative h-[58%] w-full overflow-hidden">
           <motion.div className="absolute inset-0" style={{ y: imageY }}>
-            <motion.img
+            <MotionImage
               src={card.img?.url || card.img}
               alt={card.title}
               className="h-[115%] w-full object-cover"
               animate={{ scale: hovered ? 1.06 : 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              fill
             />
           </motion.div>
 

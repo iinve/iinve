@@ -1,10 +1,10 @@
 // src/app/layout.tsx
 
-import { HeroUIProvider } from "@heroui/react";
 import ClientLayout from "Components/ClientLayout/ClientLayout";
 import MainLayout from "Components/MainLayout/MainLayout";
 import { faqData } from "DB/faqData";
 import { Josefin_Sans } from "next/font/google";
+// Removed next/head as it's not supported in app router
 import Head from "next/head";
 import "../i18n";
 import "../styles/global.css";
@@ -168,6 +168,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;700&display=swap"
           rel="stylesheet"
@@ -197,9 +203,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body className={JosefinSans.className}>
         <MainLayout>
-          <ClientLayout>
-            <HeroUIProvider>{children}</HeroUIProvider>
-          </ClientLayout>
+          <ClientLayout>{children}</ClientLayout>
         </MainLayout>
       </body>
     </html>

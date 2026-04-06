@@ -17,7 +17,6 @@ const MinimalTemplate = ({ data }) => {
     reception_link,
   } = data;
 
-  console.log(data, "================================================");
   return (
     <div>
       <MinimalSpotlight

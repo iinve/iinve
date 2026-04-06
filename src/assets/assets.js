@@ -23,7 +23,7 @@ import mayoori_logo from "./images/mayoori_logo.png";
 import default_og_image from "./images/og-image.jpg";
 import star from "./images/star-icon.png";
 import ansar_og_image from "./MinimalTemplate/ansar_og_image.jpg";
-import couples from "./MinimalTemplate/couples.JPG";
+import couples from "./MinimalTemplate/couples.jpg";
 import minimal_cover from "./MinimalTemplate/cover.jpg";
 import sreejitha_og_image from "./MinimalTemplate/sreejitha_og_image.jpg";
 

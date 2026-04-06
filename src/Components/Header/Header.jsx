@@ -125,8 +125,8 @@ function AnimatedLogo({ scrolled, isCompact, isMobile }) {
                 <Image
                   src={Assets?.Logo?.icon}
                   alt="iinve icon"
-                  width={isMobile ? 40 : 50}
-                  height={isMobile ? 40 : 50}
+                  width={isMobile ? 30 : 40}
+                  height={isMobile ? 30 : 40}
                 />
               </motion.div>
             </Link>
@@ -153,12 +153,19 @@ const Header = () => {
 
   return (
     <motion.header
-      initial={{ y: -24, opacity: 0 }}
+      initial={{ y: 0, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-500 py-2 md:py-4 border-b border-transparent
-        ${scrolled ? "bg-black/40 backdrop-blur-xl border-b border-white/5" : "bg-transparent"}
-      `}
+      className={`
+  fixed inset-x-0 top-0 z-50 w-full
+  transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+  py-2 md:py-3
+  border-b border-transparent
+  ${scrolled
+          ? "bg-black/50 backdrop-blur-2xl border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+          : "bg-transparent"
+        }
+`}
     >
       {/* Noise shimmer */}
       <AnimatePresence>

@@ -32,6 +32,8 @@ const VideoIntro = () => {
               url="/assets/videos/iinve-intro.mp4"
               autoPlay
               muted
+              playsInline
+              aria-label="iinve introduction video"
             />
           </motion.div>
 
@@ -56,10 +58,10 @@ const VideoIntro = () => {
               color="default"
               variant="bordered"
               className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8"
+              as={Link}
+              href="/templates"
             >
-              <Link href="/templates">
-                Explore Templates
-              </Link>
+              Explore Templates
             </ActionButton>
           </div>
 

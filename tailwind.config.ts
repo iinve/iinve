@@ -62,6 +62,7 @@ const config: Config = {
           800: "#27272a",
           900: "#18181b",
         },
+        
       },
       fontFamily: {
         afacad: ["var(--font-afacad)"],
@@ -85,7 +86,9 @@ const config: Config = {
     function ({ addBase, theme }) {
       const colors = flattenColorPalette(theme("colors"));
       const newVars = Object.fromEntries(
-        Object.entries(colors).map(([key, val]) => [`--${key}`, val])
+        Object.entries(colors)
+          .filter(([key, val]) => typeof val === "string")
+          .map(([key, val]) => [`--${key}`, String(val)])
       );
 
       addBase({

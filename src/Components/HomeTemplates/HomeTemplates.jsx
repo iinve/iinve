@@ -1,11 +1,8 @@
+import { Assets } from 'assets/assets';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Style from './HomeTemplates.module.scss';
-import { Assets } from 'assets/assets';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow } from "swiper/modules";
-import { Pagination, Autoplay } from "swiper/modules";
+
 
 
 const HomeTemplates = ({ type, isHorizontal = false }) => {
@@ -102,44 +99,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
 
 
 
-  // Original stacked layout
   return (
-    // <motion.div
-    //   className={Style.Home_template}
-    //   style={{ position: 'relative', width: '100%', height: '800px' }}
-    // >
-    //   <div>
-    //     {templateSet.map((src, index) => (
-    //       <motion.div
-    //         key={index}
-    //         animate={{
-    //           top: positions[index].top,
-    //           left: positions[index].left,
-    //         }}
-    //         transition={{
-    //           type: 'spring',
-    //           stiffness: 180,
-    //           damping: 12,
-    //           mass: 0.2,
-    //         }}
-    //         style={{
-    //           position: 'absolute',
-    //           zIndex: positions[index].zIndex,
-    //           skewX: isSkewed ? '-15deg' : '0deg',
-    //         }}
-    //       >
-    //         <Image
-    //           src={src}
-    //           width={400}
-    //           height={600}
-    //           priority
-    //           className="w-[400px] lg:w-[300px] lg:h-[450px] md:w-[200px] md:h-[375px] max-sm:w-[140px] max-sm:h-[250px] rounded-3xl"
-    //           alt={`home_${index + 1}`}
-    //         />
-    //       </motion.div>
-    //     ))}
-    //   </div>
-    // </motion.div>
 
     <div
       className="relative flex items-center justify-center"

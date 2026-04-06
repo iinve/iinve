@@ -1,9 +1,13 @@
 // Use ES module imports
-import path from 'path';
+import path from "path";
 
 const nextConfig = {
   reactStrictMode: false,
+  experimental: {
+    optimizePackageImports: ["react-icons", "@heroui/react", "framer-motion"],
+  },
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
@@ -13,7 +17,7 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
-    config.resolve.modules.push(path.resolve('src'));  // You don't need __dirname in ES modules
+    config.resolve.modules.push(path.resolve("src")); // You don't need __dirname in ES modules
     return config;
   },
   async headers() {
@@ -30,10 +34,10 @@ const nextConfig = {
       },
       // New CORS headers for assets
       {
-        source: '/assets/:path*',
+        source: "/assets/:path*",
         headers: [
-          { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET' },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET" },
         ],
       },
     ];
