@@ -277,7 +277,7 @@ function SectionHeader() {
         </div>
         <span className="text-white font-bold text-sm">4.9</span>
         <span className="text-white/30 text-xs">·</span>
-        <span className="text-white/40 text-xs">from 2,400+ invitations</span>
+        <span className="text-white/40 text-xs">from 100+ invitations</span>
       </motion.div>
     </motion.div>
   );
@@ -343,7 +343,7 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-        <p className="text-white/20 text-sm">2,400+ invitations sent this month</p>
+        <p className="text-white/20 text-sm">50+ invitations sent this month</p>
       </motion.div>
     </section>
   );
