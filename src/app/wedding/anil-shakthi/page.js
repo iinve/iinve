@@ -2,7 +2,6 @@ import { anilShakthiData } from "DB/Anil-Shakthi";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-
 // Determine the base URL of your application
 const isProduction = process.env.NODE_ENV === "production";
 const metadataBase = isProduction
@@ -11,12 +10,11 @@ const metadataBase = isProduction
 
 // Dynamically import the data module
 
-
 export const metadata = {
   title: "Anil & Shakthi Wedding Invitation | iinve",
   description:
     "Anil and Shakthi are getting married and joyfully invite you to celebrate their wedding.",
-    robots: "noindex, nofollow",
+  robots: "noindex, nofollow",
   openGraph: {
     title: "Anil & Shakthi Wedding Invitation | iinve",
     description:
@@ -32,7 +30,7 @@ export const metadata = {
 };
 
 const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
-  ssr: false, // Ensure it only loads on the client side
+  ssr: true, // Ensure it only loads on the client side
 });
 
 const Page = () => {
@@ -54,7 +52,7 @@ const Page = () => {
           />
         )}
       </Head>
-       <CoffeePremium data={anilShakthiData} />
+      <CoffeePremium data={anilShakthiData} />
     </div>
   );
 };

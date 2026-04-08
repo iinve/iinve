@@ -1,13 +1,13 @@
-import Bride from "../assets/coffeePremium/nikil_sreejitha/bride_avathar.JPG";
-import Groom from "../assets/coffeePremium/nikil_sreejitha/groom_avathar.JPG";
-import image01 from "../assets/coffeePremium/nikil_sreejitha/image01.JPG";
-import image02 from "../assets/coffeePremium/nikil_sreejitha/image02.JPG";
-import image03 from "../assets/coffeePremium/nikil_sreejitha/image03.JPG";
-import image04 from "../assets/coffeePremium/nikil_sreejitha/image04.JPG";
-import image05 from "../assets/coffeePremium/nikil_sreejitha/image05.JPG";
-import image06 from "../assets/coffeePremium/nikil_sreejitha/image06.JPG";
-import image07 from "../assets/coffeePremium/nikil_sreejitha/image07.JPG";
-import image08 from "../assets/coffeePremium/nikil_sreejitha/image08.JPG";
+import Bride from "../assets/coffeePremium/nikil_sreejitha/bride_avathar.jpg";
+import Groom from "../assets/coffeePremium/nikil_sreejitha/groom_avathar.jpg";
+import image01 from "../assets/coffeePremium/nikil_sreejitha/image01.jpg";
+import image02 from "../assets/coffeePremium/nikil_sreejitha/image02.jpg";
+import image03 from "../assets/coffeePremium/nikil_sreejitha/image03.jpg";
+import image04 from "../assets/coffeePremium/nikil_sreejitha/image04.jpg";
+import image05 from "../assets/coffeePremium/nikil_sreejitha/image05.jpg";
+import image06 from "../assets/coffeePremium/nikil_sreejitha/image06.jpg";
+import image07 from "../assets/coffeePremium/nikil_sreejitha/image07.jpg";
+import image08 from "../assets/coffeePremium/nikil_sreejitha/image08.jpg";
 
 export const Nikil_Sreejitha = {
   bride: "Sreejitha",
@@ -15,9 +15,9 @@ export const Nikil_Sreejitha = {
   phone1: "+918139894272",
   phone2: "+918139894272",
   begin_time: "11:30 AM",
-  theme:"#fefbf3",
-  default_color:"#333",
-  highlight_color:"#ddae6b",
+  theme: "#fefbf3",
+  default_color: "#333",
+  highlight_color: "#ddae6b",
   quote:
     " We're so excited to celebrate our special day with you. Here, you'll find all the details you need about our wedding. We can't wait to share this moment with our closest family and friends.",
   couples_data: [

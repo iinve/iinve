@@ -14,17 +14,18 @@ export const karthiksurya_varsha = {
   bride: "h-À-j-",
   phone1: "",
   theme: "#3c4028",
-  event_type:"wedding_ml",
+  event_type: "wedding_ml",
   default_color: "#FEF3E2",
   highlight_color: "#ddae6b",
   phone2: "",
   begin_time: "10:30 AM",
-  name_starter:"kzo-I-c-Ww- ",
+  name_starter: "kzo-I-c-Ww- ",
   music: "/audio/sita_kalyanam.mp3",
   quote:
     "{]-kvXp-X- aw-K-f-I-À-½-¯n-Â- ]s¦Sp-¡p-hm-³- Xm-¦tfbpw- Ip-Spw-_t¯bpw- km-Z-cw- £-Wn-¨psImÅp-¶p-.",
   hide_info: false,
-  invite_quote:" <span class='font-serif'>13 - 07 - 2025</span> Rm-b-dm-gvN- I-g-¡q-«w- Im-cy-h-«w- {Sm-h-³-Iq-À- C-â-À-\m-j-W-Â- I-¬sh³-j-³- skâ-dn-Â- (kv-t]mÀ-Svkv l-ºv , {Ko-³-^o-Â-Uv C-â-À-\m-j-W-Â- kv-täUn-bw- ) h-¨v \\-S-¯p-¶- hn-cp-¶v kÂ-¡m-c-¯nte¡v Xm-¦-Ä- Ip-Spw-_- k-taXw- ]s¦Sp-¡p-atÃm.",
+  invite_quote:
+    " <span class='font-serif'>13 - 07 - 2025</span> Rm-b-dm-gvN- I-g-¡q-«w- Im-cy-h-«w- {Sm-h-³-Iq-À- C-â-À-\m-j-W-Â- I-¬sh³-j-³- skâ-dn-Â- (kv-t]mÀ-Svkv l-ºv , {Ko-³-^o-Â-Uv C-â-À-\m-j-W-Â- kv-täUn-bw- ) h-¨v \\-S-¯p-¶- hn-cp-¶v kÂ-¡m-c-¯nte¡v Xm-¦-Ä- Ip-Spw-_- k-taXw- ]s¦Sp-¡p-atÃm.",
   couples_data: [
     {
       full_name: "Im-À-¯n-Iv kq-cy-.F-kv",

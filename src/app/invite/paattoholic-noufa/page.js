@@ -27,7 +27,7 @@ export const metadata = {
 };
 
 const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
-  ssr: false, // Ensure it only loads on the client side
+  ssr: true, // Ensure it only loads on the client side
 });
 
 const Page = () => {

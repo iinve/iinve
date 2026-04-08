@@ -1,4 +1,3 @@
-
 import { atheeq_hisana } from "DB/Atheeq-Hisana";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -9,28 +8,27 @@ const metadataBase = isProduction
   ? "https://iinve.com"
   : "http://localhost:3000";
 
-  export const metadata = {
+export const metadata = {
+  title: "Atheeq & Hisana Wedding Invitation | iinve",
+  description:
+    "Atheeq and Hisana are getting married and joyfully invite you to celebrate their wedding.",
+  robots: "noindex, nofollow",
+  openGraph: {
     title: "Atheeq & Hisana Wedding Invitation | iinve",
     description:
       "Atheeq and Hisana are getting married and joyfully invite you to celebrate their wedding.",
-      robots: "noindex, nofollow",
-    openGraph: {
-      title: "Atheeq & Hisana Wedding Invitation | iinve",
-      description:
-        "Atheeq and Hisana are getting married and joyfully invite you to celebrate their wedding.",
-      images: [
-        {
-          url: `${metadataBase}/assets/images/og-image/og-atheeq.jpg`,
-          alt: "Atheeq & Hisana Wedding Invitation",
-        },
-      ],
-    },
-    metadataBase: metadataBase, // Add this line to set the metadataBase
-  };
-  
+    images: [
+      {
+        url: `${metadataBase}/assets/images/og-image/og-atheeq.jpg`,
+        alt: "Atheeq & Hisana Wedding Invitation",
+      },
+    ],
+  },
+  metadataBase: metadataBase, // Add this line to set the metadataBase
+};
 
 const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
-  ssr: false, // Ensure it only loads on the client side
+  ssr: true, // Ensure it only loads on the client side
 });
 
 const Page = () => {

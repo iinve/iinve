@@ -16,7 +16,6 @@ import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
 import Subtract from "../../assets/images/Subtract.png";
 import haldiBg from "../../assets/coffeePremium/mahesh-megha/haldi.jpg";
-import ScrollToTop from "Components/ScrollUp/ScrollUp";
 import CommonButton from "Components/CommonButton";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { useMap } from "Components/Map/useMap";
@@ -51,7 +50,6 @@ const Index = ({ data }) => {
           shuffle={false}
           isMalayalamPage={isMalayalamPage}
         />
-        <ScrollToTop />
 
         <EternityCoupleDetails data={data} showMap />
         <div className="relative py-6" style={{ background: data.theme }}>
@@ -125,7 +123,7 @@ const Index = ({ data }) => {
                 icon={<FaMapLocationDot />}
                 onClick={() =>
                   handleOpenGoogleMaps(
-                    "https://maps.app.goo.gl/KQFeTrDqEjGobxAT7"
+                    "https://maps.app.goo.gl/KQFeTrDqEjGobxAT7",
                   )
                 }
               />
@@ -169,7 +167,7 @@ const Index = ({ data }) => {
                 icon={<FaMapLocationDot />}
                 onClick={() =>
                   handleOpenGoogleMaps(
-                    "https://maps.app.goo.gl/mKjT5Gok45ePaKe87"
+                    "https://maps.app.goo.gl/mKjT5Gok45ePaKe87",
                   )
                 }
               />

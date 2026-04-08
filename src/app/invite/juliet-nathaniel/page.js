@@ -12,7 +12,7 @@ export const metadata = {
   title: "Juliet & Nathaniel Wedding Invitation | iinve",
   description:
     "Juliet and Nathaniel are getting married and joyfully invite you to celebrate their wedding.",
-    robots: "noindex, nofollow",
+  robots: "noindex, nofollow",
   openGraph: {
     title: "Juliet and Nathaniel Wedding Invitation | iinve",
     description:
@@ -28,7 +28,7 @@ export const metadata = {
 };
 
 const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
-  ssr: false, // Ensure it only loads on the client side
+  ssr: true, // Ensure it only loads on the client side
 });
 
 const Page = () => {
