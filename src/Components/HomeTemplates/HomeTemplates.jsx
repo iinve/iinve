@@ -1,9 +1,7 @@
-import { Assets } from 'assets/assets';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-
-
+import { Assets } from "assets/assets";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const HomeTemplates = ({ type, isHorizontal = false }) => {
   const [isSkewed, setIsSkewed] = useState(false);
@@ -25,11 +23,7 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
       setIsSkewed(true);
 
       const interval = setInterval(() => {
-        setPositions((prev) => [
-          prev[1],
-          prev[2],
-          prev[0],
-        ]);
+        setPositions((prev) => [prev[1], prev[2], prev[0]]);
       }, 3000);
 
       return () => clearInterval(interval);
@@ -53,9 +47,9 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
   const templateSet = invitationTemplates;
 
   /**
- * Generates stack positions for N cards.
- * Index 0 = furthest back, last index = front.
- */
+   * Generates stack positions for N cards.
+   * Index 0 = furthest back, last index = front.
+   */
   const generateStackPositions = (count) => {
     return Array.from({ length: count }, (_, i) => {
       const progress = i / (count - 1);
@@ -74,7 +68,6 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
 
   const STACK_POSITIONS = generateStackPositions(templateSet.length);
 
-
   // Auto-cycle: rotate front card to back
   useEffect(() => {
     const interval = setInterval(() => {
@@ -85,25 +78,22 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
 
   const getPosition = (cardIndex) => {
     // How many steps behind the front is this card? (0 = front)
-    const depth = (cardIndex - frontIndex + templateSet.length) % templateSet.length;
+    const depth =
+      (cardIndex - frontIndex + templateSet.length) % templateSet.length;
     // depth 0 = front, depth count-1 = furthest back
     const positionIndex = templateSet.length - 1 - depth; // flip so higher = closer to front
     return generateStackPositions(templateSet.length)[positionIndex];
   };
-
 
   // Slider row layout
   if (false) {
     return null;
   }
 
-
-
   return (
-
     <div
       className="relative flex items-center justify-center"
-      style={{ width: '100%' }}
+      style={{ width: "100%" }}
       onClick={handleClick}
       role="button"
       aria-label="Cycle invitation cards"
@@ -124,15 +114,15 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
               zIndex: pos.zIndex,
             }}
             transition={{
-              type: 'spring',
+              type: "spring",
               stiffness: 200,
               damping: 18,
               mass: 0.3,
             }}
             style={{
-              position: 'absolute',
-              transformOrigin: 'center bottom',
-              willChange: 'transform',
+              position: "absolute",
+              transformOrigin: "center bottom",
+              willChange: "transform",
             }}
           >
             <Image
@@ -152,4 +142,3 @@ const HomeTemplates = ({ type, isHorizontal = false }) => {
 };
 
 export default HomeTemplates;
-

@@ -26,7 +26,7 @@ export default function Home() {
 
       <TemplateSlider />
       <Bento />
-      <StepContainer />
+      {/* <StepContainer /> */}
       <Testimonials />
       <FAQs />
     </>
