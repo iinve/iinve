@@ -184,7 +184,7 @@ body {
 #bottom .venue {
     background: linear-gradient(rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)),
-        url(../../../assets/MinimalTemplate/nine.JPG);
+        url(../../../assets/MinimalTemplate/nine.jpg);
     background-size: cover;
     background-position: 0 0;
     background-repeat: no-repeat;
