@@ -60,7 +60,7 @@ function BentoCard({ item, index }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 32, scale: 0.96, filter: "blur(6px)" }}
+      initial={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
       animate={inView ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" } : {}}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
       className={`${item.gridClass} relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#808080]/20 to-[#000] border border-white/[0.06] group cursor-pointer min-h-[200px] md:min-h-0`}
@@ -96,7 +96,7 @@ function BentoCard({ item, index }) {
 
       <div className="relative z-10 p-6 flex flex-col h-full">
         <motion.span
-          initial={{ opacity: 0, x: -8 }}
+          initial={{ opacity: 1, x: 0 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ delay: index * 0.08 + 0.3, duration: 0.5 }}
           className="inline-flex items-center gap-1.5 self-start mb-auto"
@@ -115,7 +115,7 @@ function BentoCard({ item, index }) {
 
         <div className="mt-auto pt-24">
           <motion.h3
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: index * 0.08 + 0.2, duration: 0.55 }}
             className="text-white font-semibold text-lg leading-tight mb-1.5"
@@ -124,7 +124,7 @@ function BentoCard({ item, index }) {
             <span style={{ color: item.accent }}>.</span>
           </motion.h3>
           <motion.p
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: index * 0.08 + 0.32, duration: 0.55 }}
             className="text-white/40 text-md leading-relaxed"
@@ -154,7 +154,7 @@ function SectionHeader() {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="mb-10 flex flex-col  md:items-start justify-between gap-4"

@@ -44,9 +44,8 @@ const TemplateSlider = () => {
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
           <div className="flex flex-row items-center md:w-2/3">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
               <h4 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
@@ -59,7 +58,7 @@ const TemplateSlider = () => {
               </p>
               <motion.div
                 className="mt-16 flex justify-start items-center gap-8"
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.5, duration: 1 }}
               >
