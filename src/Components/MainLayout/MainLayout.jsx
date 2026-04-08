@@ -25,7 +25,9 @@ const GA_MEASUREMENT_ID = "G-1FQFWSZL9B";
 export default function MainLayout({ children }) {
   const pathName = usePathname();
 
-  const showLayout = ["/invite", "/wedding/"].includes(pathName);
+  const hideLayout =
+    pathName.includes("/invite/") || pathName.includes("/wedding/");
+  const showLayout = !hideLayout;
 
   const router = useRouter();
 
