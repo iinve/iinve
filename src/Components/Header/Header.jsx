@@ -1,21 +1,26 @@
 "use client";
 
-import Link from "next/link";
+import { Assets } from "assets/assets";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
+import { useWhatsAppMessage } from "hooks/useWhatsAppMessage";
 import Image from "next/image";
+import Link from "next/link";
+import Button from "ProUI/Button/Button";
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 import useWindowDimensions from "utils/useWindowDimensions";
 import Hamburger from "../Hamburger/Hamburger";
 import { Logo } from "../Logo/Logo";
-import ActionButton from "../../ProUI/ActionButton/ActionButton";
-import { useWhatsAppMessage } from "hooks/useWhatsAppMessage";
-import { Assets } from "assets/assets";
-import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 
 const navItems = [
   { name: "Templates", link: "/templates" },
-  { name: "Invitations", link: "#invitations" },
-  { name: "Blogs", link: "#blogs" },
+  { name: "Invitations", link: "/e-invite" },
+  // { name: "Blogs", link: "#blogs" },
   { name: "FAQs", link: "#faq" },
 ];
 
@@ -32,7 +37,10 @@ function useMagnet(strength = 0.35) {
     x.set((e.clientX - (r.left + r.width / 2)) * strength);
     y.set((e.clientY - (r.top + r.height / 2)) * strength);
   };
-  const onLeave = () => { x.set(0); y.set(0); };
+  const onLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
   return { ref, sx, sy, onMove, onLeave };
 }
 
@@ -90,11 +98,16 @@ function PulseDot() {
   );
 }
 
-
 function AnimatedLogo({ scrolled, isCompact, isMobile }) {
   return (
-    <div className="relative flex items-center" style={{ width: scrolled ? 108 : (isCompact ? 80 : 108), height: 60, transition: "width 0.4s cubic-bezier(0.22,1,0.36,1)" }}>
-
+    <div
+      className="relative flex items-center"
+      style={{
+        width: scrolled ? 108 : isCompact ? 80 : 108,
+        height: 60,
+        transition: "width 0.4s cubic-bezier(0.22,1,0.36,1)",
+      }}
+    >
       <AnimatePresence mode="wait">
         {!scrolled ? (
           <motion.div
@@ -108,10 +121,14 @@ function AnimatedLogo({ scrolled, isCompact, isMobile }) {
             <Logo width={isCompact ? 90 : 108} height={40} />
           </motion.div>
         ) : (
-
           <motion.div
             key="icon"
-            initial={{ opacity: 0, scale: 0.6, rotate: -15, filter: "blur(4px)" }}
+            initial={{
+              opacity: 0,
+              scale: 0.6,
+              rotate: -15,
+              filter: "blur(4px)",
+            }}
             animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 0.6, rotate: 15, filter: "blur(4px)" }}
             transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
@@ -161,10 +178,11 @@ const Header = () => {
   transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
   py-2 md:py-3
   border-b border-transparent
-  ${scrolled
-          ? "bg-black/50 backdrop-blur-2xl border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
-          : "bg-transparent"
-        }
+  ${
+    scrolled
+      ? "bg-black/50 backdrop-blur-2xl border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+      : "bg-transparent"
+  }
 `}
     >
       {/* Noise shimmer */}
@@ -176,9 +194,16 @@ const Header = () => {
             exit={{ opacity: 0 }}
             className="absolute inset-0 pointer-events-none overflow-hidden"
           >
-            <svg className="absolute inset-0 w-full h-full opacity-[0.03]" aria-hidden="true">
+            <svg
+              className="absolute inset-0 w-full h-full opacity-[0.03]"
+              aria-hidden="true"
+            >
               <filter id="hdr-noise">
-                <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" />
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.7"
+                  numOctaves="3"
+                />
                 <feColorMatrix type="saturate" values="0" />
               </filter>
               <rect width="100%" height="100%" filter="url(#hdr-noise)" />
@@ -188,13 +213,16 @@ const Header = () => {
       </AnimatePresence>
 
       <div className="container mx-auto px-6 flex items-center justify-between relative z-10">
-
         {/* Logo — animates between wordmark and icon */}
         <motion.div
           whileHover={{ scale: 1.04 }}
           transition={{ type: "spring", stiffness: 280, damping: 22 }}
         >
-          <AnimatedLogo scrolled={scrolled} isCompact={isCompact} isMobile={isMobile} />
+          <AnimatedLogo
+            scrolled={scrolled}
+            isCompact={isCompact}
+            isMobile={isMobile}
+          />
         </motion.div>
 
         {/* Desktop Nav */}
@@ -214,13 +242,16 @@ const Header = () => {
             onMouseLeave={magnet.onLeave}
             className="hidden md:block"
           >
-            <ActionButton
+            <Button
               size="md"
-              className="bg-gradient-to-tr from-[#153BA6] to-[#0D9DC6] text-white px-8 rounded-full font-semibold shadow-lg shadow-blue-500/20"
+              type="primary"
               onPress={() => toggleSheetVisibility(SHEETS.LEAD_FORM, true)}
             >
-              <PulseDot /> Create Invitation
-            </ActionButton>
+              <span className="mr-2 inline-block">
+                <PulseDot />
+              </span>{" "}
+              Create Invitation
+            </Button>
           </motion.div>
 
           {isCompact && <Hamburger navItems={navItems} />}

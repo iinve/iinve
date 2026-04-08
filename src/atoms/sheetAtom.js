@@ -1,7 +1,3 @@
-'use client'
-import { atom } from 'recoil';
+import { atom } from "jotai";
 
-export const sheetVisibility = atom({
-  key: 'sheetVisibility', 
-  default: null,  
-});
+export const sheetVisibility = atom({});

@@ -1,21 +1,36 @@
-import { Button, Divider } from "@heroui/react";
-import Style from "./CommonButton.module.scss";
+"use client";
 
+import { Button } from "@heroui/react";
+import { motion } from "framer-motion";
+import styles from "./CommonButton.module.scss";
 
-const CommonButton = ({ text, icon, onClick, ...props }) => {
+const CommonButton = ({
+  text,
+  icon,
+  onClick,
+  loading = false,
+  variant = "primary",
+  ...props
+}) => {
   return (
-    <Button
-      radius="full"
-      className={Style.button}
-      endContent={icon}
-      se
-      size="lg"
-      onClick={onClick}
-      {...props}
+    <motion.div
+      whileTap={{ scale: 0.96 }}
+      whileHover={{ scale: 1.03 }}
+      className={styles.wrapper}
     >
-      {text}
-      <Divider orientation="vertical" className={Style.divider} />
-    </Button>
+      <Button
+        radius="full"
+        size="lg"
+        onClick={onClick}
+        isLoading={loading}
+        endContent={!loading && icon}
+        className={`${styles.button} ${styles[variant]} px-8 py-3 text-base`}
+        {...props}
+      >
+        <span className={styles.text}>{text}</span>
+        <span className={styles.shimmer}></span>
+      </Button>
+    </motion.div>
   );
 };
 

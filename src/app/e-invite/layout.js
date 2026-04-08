@@ -1,14 +1,15 @@
-
 import Header from "Components/Header/Header";
 import MainFooter from "Components/MainFooter/MainFooter";
 import Head from "next/head";
 
 export const metadata = {
   title: "Free Customizable E-Invites for Events & Weddings | iinve",
-  description: "Create stunning, free digital invitations for weddings, events, and more with iinve. Customize your e-invite with ease and impress your guests.",
+  description:
+    "Create stunning, free digital invitations for weddings, events, and more with iinve. Customize your e-invite with ease and impress your guests.",
   openGraph: {
     title: "Free Customizable E-Invites for Events & Weddings | iinve",
-    description: "Design your perfect e-invite for any occasion. Fast, free, and fully customizable — only on iinve.",
+    description:
+      "Design your perfect e-invite for any occasion. Fast, free, and fully customizable — only on iinve.",
     url: "https://iinve.com/e-invite",
     siteName: "iinve",
     images: [
@@ -25,60 +26,57 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Free Customizable E-Invites for Events & Weddings | iinve",
-    description: "Make your big moments memorable with personalized digital invites from iinve.",
+    description:
+      "Make your big moments memorable with personalized digital invites from iinve.",
     images: ["https://iinve.com/assets/images/og-image.jpg"],
   },
 };
 
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "E-Invitations",
-  "serviceType": "Digital Invitation Builder",
-  "provider": {
+  name: "E-Invitations",
+  serviceType: "Digital Invitation Builder",
+  provider: {
     "@type": "Organization",
-    "name": "iinve",
-    "url": "https://iinve.com"
+    name: "iinve",
+    url: "https://iinve.com",
   },
-  "url": "https://iinve.com/e-invite",
-  "description": "Create stunning, customizable digital invitations for weddings, parties, and corporate events with iinve.",
-  "areaServed": {
+  url: "https://iinve.com/e-invite",
+  description:
+    "Create stunning, customizable digital invitations for weddings, parties, and corporate events with iinve.",
+  areaServed: {
     "@type": "Place",
-    "name": "Global"
+    name: "Global",
   },
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://iinve.com"
+      position: 1,
+      name: "Home",
+      item: "https://iinve.com",
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": "E-Invitations",
-      "item": "https://iinve.com/e-invite"
-    }
-  ]
+      position: 2,
+      name: "E-Invitations",
+      item: "https://iinve.com/e-invite",
+    },
+  ],
 };
-
 
 const layout = ({ children }) => {
   return (
     <>
       <Head>
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
-      <Header />
-      <div className="pt-[150px]">
-        {children}
-      </div>
-      <MainFooter />
-    </>
-  )
-}
+      {/* <Header /> */}
+      <div>{children}</div>
 
-export default layout
+      {/* <MainFooter /> */}
+    </>
+  );
+};
+
+export default layout;

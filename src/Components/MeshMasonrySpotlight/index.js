@@ -18,7 +18,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
   const yTransform = useTransform(
     scrollY,
     [0, 1000],
-    [window?.innerWidth > 480 ? -50 : 0, 200]
+    [window?.innerWidth > 480 ? -50 : 0, 200],
   );
 
   const calculateY = (index) => {
@@ -75,18 +75,14 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
           layout
           ref={ref}
         >
-          <Skeleton
-            className={`${Style.skelton} rounded-lg`}
-            isLoaded={isLoaded}
-          >
-            <Image
-              src={item}
-              alt={`Image ${i}`}
-              width={200}
-              height={200}
-              onLoad={() => setIsLoaded(true)}
-            />
-          </Skeleton>
+          <Image
+            src={item}
+            alt={`Image ${i}`}
+            width={200}
+            height={200}
+            onLoad={() => setIsLoaded(true)}
+            onLoadingComplete={() => setIsLoaded(true)}
+          />
         </motion.div>
       ))}
     </div>
@@ -113,28 +109,28 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
         )}
 
         {/* Horizontal scroll container */}
-        <div 
+        <div
           className={`${Style.scrollContainer} overflow-hidden mt-4`}
-          style={{ width: '100%', position: 'relative' }}
+          style={{ width: "100%", position: "relative" }}
         >
           <motion.div
             ref={scrollContainerRef}
             animate={controls}
             className={`${Style.masonry} flex items-center justify-center`}
-            style={{ 
-              display: 'flex', 
-              width: 'max-content',
-              willChange: 'transform'
+            style={{
+              display: "flex",
+              width: "max-content",
+              willChange: "transform",
             }}
           >
             {/* Original content */}
-            {masonryColumns.map((items, index) => 
-              renderColumn(index, items, "original-")
+            {masonryColumns.map((items, index) =>
+              renderColumn(index, items, "original-"),
             )}
-            
+
             {/* Duplicated content for seamless loop */}
-            {masonryColumns.map((items, index) => 
-              renderColumn(index, items, "duplicate-")
+            {masonryColumns.map((items, index) =>
+              renderColumn(index, items, "duplicate-"),
             )}
           </motion.div>
         </div>
@@ -145,7 +141,7 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
             className={Style.quote}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span>&quot;</span>
             <p dangerouslySetInnerHTML={{ __html: data?.quote }}></p>

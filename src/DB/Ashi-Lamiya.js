@@ -1,9 +1,9 @@
-import image01 from "../assets/coffeePremium/Ashi-Lami/ashi-lami1.JPG";
+import image01 from "../assets/coffeePremium/Ashi-Lami/ashi-lami1.jpg";
 import image02 from "../assets/coffeePremium/Ashi-Lami/ashi-lami2.jpg";
 import image03 from "../assets/coffeePremium/Ashi-Lami/ashi-lami3.jpg";
-import image04 from "../assets/coffeePremium/Ashi-Lami/ashi-lami4.JPG";
+import image04 from "../assets/coffeePremium/Ashi-Lami/ashi-lami4.jpg";
 import image05 from "../assets/coffeePremium/Ashi-Lami/ashi-lami5.jpg";
-import image06 from "../assets/coffeePremium/Ashi-Lami/ashi-lami6.JPG";
+import image06 from "../assets/coffeePremium/Ashi-Lami/ashi-lami6.jpg";
 import image07 from "../assets/coffeePremium/Ashi-Lami/ashi-lami7.jpg";
 import image08 from "../assets/coffeePremium/Ashi-Lami/ashi-lami8.jpg";
 import Bride from "../assets/coffeePremium/Ashi-Lami/bride.png";
@@ -47,7 +47,8 @@ export const ashi_lamiya = {
     image07,
     image08,
   ],
-  video:"https://res.cloudinary.com/dttvg5xil/video/upload/v1748291780/1748291751639393_t7ijmy.mp4",
+  video:
+    "https://res.cloudinary.com/dttvg5xil/video/upload/v1748291780/1748291751639393_t7ijmy.mp4",
   dateData: [
     { date: "18", day: "Thu" },
     { date: "19", day: "Fri" },

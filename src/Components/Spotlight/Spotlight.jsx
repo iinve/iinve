@@ -1,25 +1,24 @@
 "use client";
 
+import AnimatedText from "ProUI/AnimatedText/AnimatedText";
 import ProHeading from "ProUI/ProHeading/ProHeading";
+import { sheetVisibility } from "atoms/sheetAtom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useWhatsAppMessage } from "hooks/useWhatsAppMessage";
+import { useAtom } from "jotai";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { GiDoorRingHandle, GiLovers } from "react-icons/gi";
+import { LiaBirthdayCakeSolid } from "react-icons/lia";
+import { LuPartyPopper } from "react-icons/lu";
+import { PiBagSimple } from "react-icons/pi";
+import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
 import useWindowDimensions from "utils/useWindowDimensions";
 import ActionButton from "../../ProUI/ActionButton/ActionButton";
 import HomeTemplates from "../HomeTemplates/HomeTemplates";
 import Style from "./Spotlight.module.scss";
-import { GiDoorRingHandle } from "react-icons/gi";
-import { LiaBirthdayCakeSolid } from "react-icons/lia";
-import { LuPartyPopper } from "react-icons/lu";
-import { PiBagSimple } from "react-icons/pi";
-import { GiLovers } from "react-icons/gi";
-import AnimatedText from "ProUI/AnimatedText/AnimatedText";
-import dynamic from "next/dynamic";
-const FormSheet = dynamic(() => import("Components/FormSheet/FormSheet"), { ssr: false });
-import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
-import { sheetVisibility } from "atoms/sheetAtom";
-import { useRecoilState } from "recoil";
-import Link from "next/link";
-
+import Button from "ProUI/Button/Button";
+import LeadGenerationForm from "Components/LeadGenerationForm/LeadGenerationForm";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
@@ -53,30 +52,28 @@ const slideFromRight = {
   },
 };
 
-
 const tags = [
   {
-    emoji: <GiDoorRingHandle />
-    , label: "Weddings"
+    emoji: <GiDoorRingHandle />,
+    label: "Weddings",
   },
   {
-    emoji: <LiaBirthdayCakeSolid />
-    , label: "Birthdays"
+    emoji: <LiaBirthdayCakeSolid />,
+    label: "Birthdays",
   },
   {
-    emoji: <LuPartyPopper />
-    , label: "Parties"
+    emoji: <LuPartyPopper />,
+    label: "Parties",
   },
   {
-    emoji: <PiBagSimple />
-    , label: "Corporate"
+    emoji: <PiBagSimple />,
+    label: "Corporate",
   },
   {
-    emoji: <GiLovers />
-    , label: "Engagements"
+    emoji: <GiLovers />,
+    label: "Engagements",
   },
 ];
-
 
 const Spotlight = () => {
   const { isMobile } = useWindowDimensions();
@@ -84,8 +81,7 @@ const Spotlight = () => {
   const shouldReduceMotion = useReducedMotion();
   const { toggleSheetVisibility } = useToggleVisibility();
 
-  const [sheetsVisibility, setSheetsVisibility] =
-    useRecoilState(sheetVisibility);
+  const [sheetsVisibility, setSheetsVisibility] = useAtom(sheetVisibility);
 
   const handleCloseDemoSheet = () => {
     setSheetsVisibility((prev) => ({
@@ -93,7 +89,6 @@ const Spotlight = () => {
       [SHEETS.LEAD_FORM]: false,
     }));
   };
-
 
   return (
     <div id="spotlight" className={`${Style.spotlight} relative bg-[#050505]`}>
@@ -109,18 +104,18 @@ const Spotlight = () => {
       )}
 
       <motion.div className={Style.main} initial="hidden" animate="visible">
-
-        {!isMobile && <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-wrap gap-2 mb-6 md:justify-start justify-center"
-        >
-          {tags.map((tag) => (
-            <span
-              key={tag.label}
-              className="
+        {!isMobile && (
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-wrap gap-2 mb-6 md:justify-start justify-center"
+          >
+            {tags.map((tag) => (
+              <span
+                key={tag.label}
+                className="
                   inline-flex items-center gap-1.5
                   px-4 py-2 rounded-full
                   text-xs font-medium tracking-wide
@@ -129,12 +124,13 @@ const Spotlight = () => {
                   backdrop-blur-sm
                   select-none
                 "
-            >
-              <span className="text-sm">{tag.emoji}</span>
-              {tag.label}
-            </span>
-          ))}
-        </motion.div>}
+              >
+                <span className="text-sm">{tag.emoji}</span>
+                {tag.label}
+              </span>
+            ))}
+          </motion.div>
+        )}
 
         {/* Heading */}
         <motion.div
@@ -144,7 +140,16 @@ const Spotlight = () => {
           animate="visible"
         >
           <ProHeading className={Style.heading}>
-            Unveil the <AnimatedText className="text-shadow-glow" shadeOne={"#C8A96E"} shadeTwo={"#ffbc41ff"} shadeThree={"#C8A96E"}>Luxury</AnimatedText> of <br className="hidden md:block" /> Your Special Day!
+            Unveil the{" "}
+            <AnimatedText
+              className="text-shadow-glow"
+              shadeOne={"#C8A96E"}
+              shadeTwo={"#ffbc41ff"}
+              shadeThree={"#C8A96E"}
+            >
+              Luxury
+            </AnimatedText>{" "}
+            of <br className="hidden md:block" /> Your Special Day!
           </ProHeading>
         </motion.div>
 
@@ -168,61 +173,53 @@ const Spotlight = () => {
           animate="visible"
         >
           <div className="flex md:justify-start justify-center gap-3 flex-wrap">
-            <ActionButton
+            <Button
               size="lg"
-              color="primary"
-              className='px-10'
+              type="primary"
               onPress={() => toggleSheetVisibility(SHEETS.LEAD_FORM, true)}
             >
               Create Invitation
-            </ActionButton>
+            </Button>
 
-            <ActionButton
-              size="lg"
-              color="default"
-              variant="bordered"
-              className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8"
-              as={Link}
-              href="/templates"
-            >
+            <Button size="lg" type="secondary" href="/templates">
               Explore Templates
-            </ActionButton>
+            </Button>
           </div>
         </motion.div>
 
         {/* Social proof micro-line */}
-        {!isMobile && <motion.p
-          custom={0.75}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-10 text-xs text-white/35 md:text-left text-center tracking-wide uppercase max-w-[350px] mx-auto md:max-w-full"
-        >
-          Trusted by 10,000+ hosts · 50+ premium templates · No app needed
-        </motion.p>}
+        {!isMobile && (
+          <motion.p
+            custom={0.75}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mt-10 text-xs text-white/35 md:text-left text-center tracking-wide uppercase max-w-[350px] mx-auto md:max-w-full"
+          >
+            Trusted by 10,000+ hosts · 50+ premium templates · No app needed
+          </motion.p>
+        )}
       </motion.div>
 
       {/* ── Desktop: templates sidebar ── */}
-      {
-        !isMobile && (
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              variants={shouldReduceMotion ? {} : slideFromRight}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="w-1/2 shrink-1"
-            >
-              <HomeTemplates type="invitation" />
-            </motion.div>
-          </AnimatePresence>
-        )
-      }
-      <FormSheet
+      {!isMobile && (
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            variants={shouldReduceMotion ? {} : slideFromRight}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="w-1/2 shrink-1"
+          >
+            <HomeTemplates type="invitation" />
+          </motion.div>
+        </AnimatePresence>
+      )}
+      <LeadGenerationForm
         isOpen={sheetsVisibility?.[SHEETS.LEAD_FORM] || false}
         handleClose={handleCloseDemoSheet}
       />
-    </div >
+    </div>
   );
 };
 

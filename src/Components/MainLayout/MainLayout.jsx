@@ -1,13 +1,12 @@
-'use client'
+"use client";
 
-import { allRoutes } from "utils/pagesUtils";
 import { HeroUIProvider, ToastProvider } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import Header from "../Header/Header";
+
 import MainFooter from "../MainFooter/MainFooter";
-import { RecoilProvider } from "../recoil";
+import Header from "Components/Header/Header";
 
 const ClientOnly = ({ children }) => {
   const [isClient, setIsClient] = useState(false);
@@ -21,26 +20,28 @@ const ClientOnly = ({ children }) => {
   return <>{children}</>;
 };
 
-const GA_MEASUREMENT_ID = 'G-1FQFWSZL9B'
+const GA_MEASUREMENT_ID = "G-1FQFWSZL9B";
 
 export default function MainLayout({ children }) {
   const pathName = usePathname();
-  const router = useRouter()
+
+  const showLayout = ["/invite", "/wedding/"].includes(pathName);
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      window.gtag('config', GA_MEASUREMENT_ID, {
+      window.gtag("config", GA_MEASUREMENT_ID, {
         page_path: url,
-      })
-    }
+      });
+    };
     if (router?.events?.on) {
-      router.events.on('routeChangeComplete', handleRouteChange)
+      router.events.on("routeChangeComplete", handleRouteChange);
       return () => {
-        router.events.off('routeChangeComplete', handleRouteChange)
-      }
+        router.events.off("routeChangeComplete", handleRouteChange);
+      };
     }
-  }, [router.events])
-
+  }, [router.events]);
 
   return (
     <>
@@ -59,19 +60,19 @@ export default function MainLayout({ children }) {
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
           </Script>
-          <meta name="google-site-verification" content="JN_fsI_iOK1i78YW1IT847atzJhUc9cEgQ5bKjQKx1g" />
-
+          <meta
+            name="google-site-verification"
+            content="JN_fsI_iOK1i78YW1IT847atzJhUc9cEgQ5bKjQKx1g"
+          />
         </head>
         <body className="antialiased dark" suppressHydrationWarning={true}>
           <ClientOnly>
-            <HeroUIProvider>
-              <ToastProvider placement="top-center" />
-              <RecoilProvider>
-                <Header />
-                {children}
-              </RecoilProvider>
-              <MainFooter />
-            </HeroUIProvider>
+            {/* <HeroUIProvider> */}
+            <ToastProvider placement="top-center" />
+            {showLayout && <Header />}
+            {children}
+            {showLayout && <MainFooter />}
+            {/* </HeroUIProvider> */}
           </ClientOnly>
         </body>
       </html>

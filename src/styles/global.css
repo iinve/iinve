@@ -1,8 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/container-queries";
 
+@source "../app/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../Components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../ProUI/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../Templates/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../atoms/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../hooks/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+@import "@heroui/styles";
 /* @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap'); */
+
 :root {
     --background: #0a0a0a;
     --foreground: #fff;
@@ -118,14 +128,27 @@
 
 
 
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
     list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
-    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure, blockquote {
+    /* margin: 0;
+    padding: 0; */
+}
+
+button {
     outline: none;
-    box-sizing: border-box;
 }
 
 html {
@@ -163,87 +186,6 @@ body {
     .text-balance {
         text-wrap: balance;
     }
-}
-
-.rs-uploader-picture .rs-uploader-trigger-btn:focus,
-.rs-uploader-picture .rs-uploader-trigger-btn:hover {
-    background-color: transparent !important;
-    border-color: var(--hover-primary) !important;
-}
-
-.rs-uploader-draggable .rs-uploader-trigger-drag-over .rs-uploader-trigger-btn.rs-uploader-trigger-customize,
-.rs-uploader-draggable .rs-uploader-trigger.rs-uploader-trigger-customize:not(.rs-uploader-trigger-disabled) .rs-uploader-trigger-btn:hover {
-    border-color: var(--hover-primary) !important;
-}
-
-.rs-uploader-trigger-btn {
-    border: 1px dashed #333 !important;
-}
-
-.quill {
-    background: #262629;
-    border: 2px solid #3F3F46 !important;
-    border-radius: 12px;
-    font-family: 'Afacad' !important;
-    min-height: 250px !important;
-}
-
-.ql-container {
-    font-family: 'Afacad' !important;
-    font-size: 16px !important;
-    height: 200px !important;
-
-}
-
-.ql-toolbar,
-.ql-toolbar.ql-snow+.ql-container.ql-snow {
-    background: transparent;
-    border: 2px solid transparent !important;
-}
-
-.ql-toolbar {
-    border-radius: 12px;
-    background: #1d1d1f;
-}
-
-.ql-toolbar span {
-    color: #fff;
-}
-
-.ql-snow .ql-stroke {
-    stroke: #fff !important;
-}
-
-.swiper-button-prev {
-    background: #fff;
-    padding: 30px 20px 30px 10px;
-    width: 60px;
-    height: 80px;
-    left: 0 !important;
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
-    font-size: 14px;
-}
-
-.swiper-button-next {
-    background: #fff;
-    padding: 30px 10px 30px 20px;
-    width: 60px;
-    height: 80px;
-    right: 0 !important;
-    border-top-left-radius: 40px;
-    border-bottom-left-radius: 40px;
-    font-size: 14px;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    font-size: 16px !important;
-    color: var(--primary);
-}
-
-.rs-uploader-trigger {
-    width: 100%;
 }
 
 .baloo-chettan {
@@ -335,4 +277,16 @@ body {
   height: 60px;
   background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.6));
   pointer-events: none;
+}
+
+
+@theme {
+  /* 1. Define the utility name and link it to the keyframes */
+  --animate-text-smooth: text-smooth 15s linear infinite;
+
+  /* 2. Define the keyframes using standard CSS syntax */
+  @keyframes text-smooth {
+    0% { background-position: 0% center; }
+    100% { background-position: 400% center; }
+  }
 }

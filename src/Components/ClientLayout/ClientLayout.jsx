@@ -1,19 +1,14 @@
 "use client";
 
-import React from "react";
-import { RecoilProvider } from "../recoil";
-import { useRecoilState } from "recoil";
 import { sheetVisibility } from "atoms/sheetAtom";
-import { SHEETS } from "utils/sheetUtils";
+import LeadGenerationForm from "Components/LeadGenerationForm/LeadGenerationForm";
+import { useAtom } from "jotai";
 import dynamic from "next/dynamic";
-const FormSheet = dynamic(() => import("Components/FormSheet/FormSheet"), { ssr: false });
 import { Toaster } from "sonner";
-import { HeroUIProvider } from "@heroui/react";
-
+import { SHEETS } from "utils/sheetUtils";
 
 export default function ClientLayout({ children }) {
-  const [sheetsVisibility, setSheetsVisibility] =
-    useRecoilState(sheetVisibility);
+  const [sheetsVisibility, setSheetsVisibility] = useAtom(sheetVisibility);
 
   const handleCloseDemoSheet = () => {
     setSheetsVisibility((prev) => ({
@@ -22,15 +17,15 @@ export default function ClientLayout({ children }) {
     }));
   };
   return (
-    <RecoilProvider>
-      <HeroUIProvider>
-        <Toaster />
-        {React.cloneElement(children,)}
-      </HeroUIProvider>
-      <FormSheet
+    <>
+      {/* <HeroUIProvider> */}
+      <Toaster richColors />
+      {children}
+      {/* </HeroUIProvider> */}
+      <LeadGenerationForm
         isOpen={sheetsVisibility?.[SHEETS.LEAD_FORM] || false}
         handleClose={handleCloseDemoSheet}
       />
-    </RecoilProvider>
+    </>
   );
 }

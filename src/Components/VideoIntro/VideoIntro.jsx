@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ActionButton from "ProUI/ActionButton/ActionButton";
 import AnimatedText from "ProUI/AnimatedText/AnimatedText";
+import Button from "ProUI/Button/Button";
 import { VideoPlayer } from "ProUI/VideoPlayer/VideoPlayer";
 
 const VideoIntro = () => {
@@ -21,12 +22,11 @@ const VideoIntro = () => {
           className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-16"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 1 }}
             className="relative w-full max-w-4xl group"
-
           >
             <VideoPlayer
               url="/assets/videos/iinve-intro.mp4"
@@ -46,27 +46,20 @@ const VideoIntro = () => {
 
             {/* Supporting Text */}
             <p className="text-white/50 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl">
-              Say goodbye to paper waste and hello to stylish digital experiences.
-              Whether it’s a wedding or a corporate gala, create and share
-              beautiful invites instantly through a platform designed for the modern era.
+              Say goodbye to paper waste and hello to stylish digital
+              experiences. Whether it’s a wedding or a corporate gala, create
+              and share beautiful invites instantly through a platform designed
+              for the modern era.
             </p>
 
             {/* Centered CTA */}
 
-            <ActionButton
-              size="lg"
-              color="default"
-              variant="bordered"
-              className="border-1 border-white/20 text-white/80 hover:bg-white/5 px-8"
-              as={Link}
-              href="/templates"
-            >
-              Explore Templates
-            </ActionButton>
+            <Button size="lg" type="secondary" href="/templates">
+              Create Your Invitation
+            </Button>
           </div>
 
           {/* Hero Image - Elevated with Glow */}
-
         </motion.div>
       </div>
     </section>

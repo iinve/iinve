@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Avatar } from "@heroui/react";
 import { motion } from "framer-motion";
@@ -14,12 +14,13 @@ const CouplesDetails = ({ full_name, bio, avatar }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className={Style.avatar}>
-        <Avatar
-          isBordered
-          radius="full"
-          src={avatar?.src}
-          className={`${Style.avatar} w-16 h-16`}
-        />
+        <Avatar size="lg" className="w-full h-full">
+          <Avatar.Image
+            radius="full"
+            src={avatar?.src}
+            className="object-cover"
+          />
+        </Avatar>
       </div>
 
       <div className={Style.ContentBox}>

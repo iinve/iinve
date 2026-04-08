@@ -1,5 +1,6 @@
+"use client";
 import { sheetVisibility } from "atoms/sheetAtom";
-import { useRecoilState } from "recoil";
+import { useAtom } from "jotai";
 
 export const SHEETS = {
   GET_DEMO: "GET_DEMO",
@@ -11,7 +12,7 @@ export const SHEETS = {
 };
 
 export const useToggleVisibility = () => {
-  const [_, setSheetsVisibility] = useRecoilState(sheetVisibility);
+  const [_, setSheetsVisibility] = useAtom(sheetVisibility);
   const toggleSheetVisibility = (sheetKey, isVisible) => {
     setSheetsVisibility((prevState) => ({
       ...prevState,

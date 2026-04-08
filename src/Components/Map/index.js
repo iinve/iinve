@@ -57,11 +57,12 @@ const Map = ({ data, isBlue }) => {
       >
         <CommonButton
           //   style={{ fontFamily: "Arial" }}
-          className={isBlue && "bg-[#be607d] text-white"}
+          // className={isBlue && "bg-[#be607d] text-white"}
           text={isBlue ? "Get Location" : "Wedding Location"}
           icon={<FaMapLocationDot />}
           onClick={() => handleOpenGoogleMaps(data.map_link)}
         />
+
         {/* { data.reception_link && 
           <CommonButton
             style={{ fontFamily: "Arial" }}

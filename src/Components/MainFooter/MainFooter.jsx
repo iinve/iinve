@@ -37,8 +37,8 @@ const socialLinks = [
 
 const quickLinks = [
   { name: "Templates", href: "/templates" },
-  { name: "Invitations", href: "#invitations" },
-  { name: "Blog", href: "#blogs" },
+  { name: "Invitations", href: "/e-invite" },
+  // { name: "Blog", href: "#blogs" },
   { name: "FAQs", href: "#faq" },
 ];
 

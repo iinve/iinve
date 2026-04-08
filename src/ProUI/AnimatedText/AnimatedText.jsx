@@ -7,7 +7,7 @@ export default function AnimatedText({
 }) {
     return (
         <span
-            className={`inline-block pr-[2px] bg-[length:400%_100%] bg-clip-text text-transparent animate-textSmooth ${className}`}
+            className={`inline-block pr-[2px] bg-[length:400%_100%] bg-clip-text text-transparent animate-text-smooth ${className}`}
             style={{
                 backgroundImage: `linear-gradient(to right, ${shadeOne}, ${shadeTwo}, ${shadeThree})`,
             }}

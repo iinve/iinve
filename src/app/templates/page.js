@@ -1,27 +1,24 @@
 "use client";
 
-import { useMemo, useState, useRef, useEffect } from "react";
+import { sheetVisibility } from "atoms/sheetAtom";
+import LeadGenerationForm from "Components/LeadGenerationForm/LeadGenerationForm";
+import Loader from "Components/Loader";
+import { templateData } from "DB/templateData";
 import {
-  motion,
   AnimatePresence,
+  motion,
   useMotionValue,
   useSpring,
   useTransform,
 } from "framer-motion";
+import { useAtom } from "jotai";
 import Image from "next/image";
-import { Tab, Tabs } from "@heroui/react";
-import MainFooter from "Components/MainFooter/MainFooter";
-import TemplateCard from "Components/TemplateCard/TemplateCard";
-import { templateData } from "DB/templateData";
-import ActionButton from "ProUI/ActionButton/ActionButton";
-import { Sheet, SheetBody } from "ProUI/Sheet/Sheet";
 import AnimatedText from "ProUI/AnimatedText/AnimatedText";
-import PageLoader from "Components/PageLoader/PageLoader";
+import Button from "ProUI/Button/Button";
+import ProDrawer from "ProUI/ProDrawer/ProDrawer";
+import { SheetBody } from "ProUI/Sheet/Sheet";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SHEETS, useToggleVisibility } from "utils/sheetUtils";
-import { sheetVisibility } from "atoms/sheetAtom";
-import { useRecoilState } from "recoil";
-import FormSheet from "Components/FormSheet/FormSheet";
-import Loader from "Components/Loader";
 
 /* ─── Category pill with animated indicator ─── */
 const CATEGORIES = [
@@ -237,7 +234,7 @@ function PreviewSheet({ template, onClose }) {
   if (!template) return null;
 
   return (
-    <Sheet
+    <ProDrawer
       isOpen={!!template}
       onClose={onClose}
       hideCloseButton
@@ -252,7 +249,7 @@ function PreviewSheet({ template, onClose }) {
           items-center  
           justify-center 
           gap-10 lg:gap-16 
-          p-6 md:p-12 pt-20 md:pt-16 
+          p-6 md:p-12 pt-16 
           min-h-screen
           text-center lg:text-left 
         "
@@ -268,7 +265,7 @@ function PreviewSheet({ template, onClose }) {
             }}
             className="relative shrink-0 order-1"
           >
-            <div className="relative w-[200px] sm:w-[280px] md:w-[320px] mt-[120px] md:mt-0">
+            <div className="relative w-[200px] sm:w-[280px] md:w-[320px]">
               {/* Phone frame */}
               <div className="absolute inset-0 rounded-[2rem] md:rounded-[2.5rem] border-4 md:border-[9px] border-zinc-800 shadow-[0_40px_120px_rgba(0,0,0,0.9)] z-10 pointer-events-none" />
 
@@ -347,44 +344,21 @@ function PreviewSheet({ template, onClose }) {
 
             {/* Actions */}
             <div className="flex flex-col gap-3 pt-2">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full h-14 rounded-full bg-white text-black font-bold text-sm tracking-wide hover:bg-white/90 transition"
+              <Button
+                size="lg"
                 onClick={() => toggleSheetVisibility(SHEETS.LEAD_FORM, true)}
               >
                 Reserve This Template
-              </motion.button>
+              </Button>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={onClose}
-                className="w-full h-12 rounded-full border border-white/20 text-white/70 text-sm font-medium hover:border-white/40 hover:text-white transition"
-              >
+              <Button size="lg" type="secondary" onClick={onClose}>
                 Back to Gallery
-              </motion.button>
+              </Button>
             </div>
           </motion.div>
         </div>
-
-        <motion.button
-          className="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white transition"
-          onClick={onClose}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path
-              d="M1 1L13 13M13 1L1 13"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </motion.button>
       </SheetBody>
-    </Sheet>
+    </ProDrawer>
   );
 }
 
@@ -393,8 +367,7 @@ const Page = () => {
   const [selectedTab, setSelectedTab] = useState("all");
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const [sheetsVisibility, setSheetsVisibility] =
-    useRecoilState(sheetVisibility);
+  const [sheetsVisibility, setSheetsVisibility] = useAtom(sheetVisibility);
 
   const handleCloseDemoSheet = () => {
     setSheetsVisibility((prev) => ({
@@ -442,7 +415,7 @@ const Page = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-5xl md:text-5xl font-bold tracking-tighter leading-none mb-6"
+          className="text-3xl md:text-5xl font-bold tracking-tighter leading-none mb-6"
         >
           Select Your <AnimatedText>Aesthetic</AnimatedText>
         </motion.h1>
@@ -533,7 +506,7 @@ const Page = () => {
         template={selectedTemplate}
         onClose={() => setSelectedTemplate(null)}
       />
-      <FormSheet
+      <LeadGenerationForm
         isOpen={sheetsVisibility?.[SHEETS.LEAD_FORM] || false}
         handleClose={handleCloseDemoSheet}
       />

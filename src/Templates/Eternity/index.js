@@ -5,17 +5,15 @@ import EternityInviteQuote from "Components/EternityInviteQuote/EternityInviteQu
 import EternitySpotlight from "Components/EternitySpotlight/EternitySpotlight";
 import Footer from "Components/Footer";
 import Map from "Components/Map";
-import CalendarReception from "Components/CalendarReception";
 import MapReception from "Components/MapReception";
 import MusicPlayer from "Components/MusicPlayer/MusicPlayer";
 import PhotoMessSwiper from "Components/PhotoMessSwiper/PhotoMessSwiper";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import aom from "../../assets/images/ohm.png";
 import gurudevan from "../../assets/images/gurudevan.png";
 import Leaves from "../../assets/images/leaf.png";
+import aom from "../../assets/images/ohm.png";
 import Subtract from "../../assets/images/Subtract.png";
-import ScrollToTop from "Components/ScrollUp/ScrollUp";
 
 const Index = ({ data, isHindu, showGuru = false }) => {
   const [isMalayalamPage, setIsMalayalamPage] = useState(false);
@@ -45,7 +43,7 @@ const Index = ({ data, isHindu, showGuru = false }) => {
           isMalayalamPage={isMalayalamPage}
           isHindu={isHindu}
         />
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
 
         <EternityCoupleDetails data={data} />
         <div className="relative py-6" style={{ background: data.theme }}>

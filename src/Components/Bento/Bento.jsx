@@ -1,13 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
-import useWindowDimensions from "utils/useWindowDimensions";
 import { Assets } from "assets/assets";
-import { ProChip } from "ProUI/Common/Common";
 import InfoChip from "Components/InfoChip/InfoChip";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
 import { FaRegGem } from "react-icons/fa";
+import useWindowDimensions from "utils/useWindowDimensions";
 
 
 const bentoData = [

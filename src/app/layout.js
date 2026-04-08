@@ -6,7 +6,6 @@ import { faqData } from "DB/faqData";
 import { Josefin_Sans } from "next/font/google";
 // Removed next/head as it's not supported in app router
 import Head from "next/head";
-import "../i18n";
 import "../styles/global.css";
 
 // Setup font

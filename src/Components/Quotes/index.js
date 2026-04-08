@@ -1,7 +1,6 @@
 "use client";
 
-
-import { Avatar, AvatarGroup } from "@heroui/react";
+import { Avatar } from "@heroui/react";
 import { Assets } from "assets/assets";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
@@ -39,11 +38,13 @@ const Quote = ({ data }) => {
           <Image src={Assets?.quote} alt="Quote" />
         </span>
         <div className={Style.avatars}>
-          <AvatarGroup isBordered max={2}>
+          <div className="flex -space-x-4 relative !z-[-1]">
             {data?.couples_data.map((item, i) => (
-              <Avatar src={item?.avatar?.src} size="lg" key={i} />
+              <Avatar size="lg" key={i}>
+                <Avatar.Image src={item?.avatar.src} className="object-cover" />
+              </Avatar>
             ))}
-          </AvatarGroup>
+          </div>
         </div>
       </div>
       <motion.div
@@ -52,23 +53,26 @@ const Quote = ({ data }) => {
         animate={controls}
         variants={variants}
         transition={{ duration: 0.5 }}
-        className={Style.container}
+        className={`${Style.container} backdrop-blur-lg `}
       >
         <p>
           Your presence will bring immense joy and blessings to our hearts. We
-          look forward to celebrating this special day with you. <br /> Your prayers are with us.
+          look forward to celebrating this special day with you. <br /> Your
+          prayers are with us.
         </p>
         <p className={Style.name}>
           - By {data?.groom} and {data?.bride}
         </p>
       </motion.div>
-    {data?.send_wishes && <div className={Style.button_box}>
-      <CommonButton
-        text={"Send Wishes"}
-        icon={<LuMessagesSquare />}
-        onClick={handleWishes}
-      />
-    </div>}
+      {data?.send_wishes && (
+        <div className={Style.button_box}>
+          <CommonButton
+            text={"Send Wishes"}
+            icon={<LuMessagesSquare />}
+            onClick={handleWishes}
+          />
+        </div>
+      )}
     </div>
   );
 };
