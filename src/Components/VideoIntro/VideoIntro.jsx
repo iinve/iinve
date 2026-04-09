@@ -27,7 +27,7 @@ const VideoIntro = () => {
             className="relative w-full max-w-4xl group"
           >
             <VideoPlayer
-              url="/assets/videos/iinve-intro.mp4"
+              url="/assets/videos/intro.webm"
               autoPlay
               muted
               playsInline
@@ -43,7 +43,7 @@ const VideoIntro = () => {
             </h2>
 
             {/* Supporting Text */}
-            <p className="text-white/50 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl">
+            <p className="text-white/50 text-lg md:text-xl font-light mb-12 max-w-2xl">
               Say goodbye to paper waste and hello to stylish digital
               experiences. Whether it’s a wedding or a corporate gala, create
               and share beautiful invites instantly through a platform designed

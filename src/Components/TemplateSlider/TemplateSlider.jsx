@@ -51,7 +51,7 @@ const TemplateSlider = () => {
               <h4 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
                 Curated Invitations for Every Moment.
               </h4>
-              <p className="text-white/50 text-lg font-light">
+              <p className="text-white/50 text-lg md:text-xl font-light">
                 Elegant, minimalist invites that elevate your event seamlessly
                 blending your event details, personalized message, and a touch
                 of your style through photos or custom themes.

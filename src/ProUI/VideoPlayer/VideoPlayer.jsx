@@ -1,148 +1,191 @@
-import { useEffect, useRef, useState } from "react"
-import { FaPause, FaPlay } from "react-icons/fa6"
-import { GoMute, GoUnmute } from "react-icons/go"
+import { useEffect, useRef, useState, useCallback } from "react";
+import { FaPause, FaPlay } from "react-icons/fa6";
+import { GoMute, GoUnmute } from "react-icons/go";
 
-export function VideoPlayer({
-    url,
-    thumbnail,
-    muted = true,
-    autoPlay,
-}) {
-    const videoRef = useRef(null)
-    const hideTimeout = useRef(null)
+export function VideoPlayer({ url, thumbnail, muted = true, autoPlay }) {
+  const videoRef = useRef(null);
+  const progressRef = useRef(null); // direct DOM manipulation instead of state
+  const hideTimeout = useRef(null);
+  const rafRef = useRef(null);
+  const isSeekingRef = useRef(false);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMuted, setIsMuted] = useState(muted);
 
-    const [isPlaying, setIsPlaying] = useState(false)
-    const [isHovered, setIsHovered] = useState(false)
-    const [isMuted, setIsMuted] = useState(muted)
-    const [currentTime, setCurrentTime] = useState(0)
-    const [duration, setDuration] = useState(0)
+  // RAF-based progress update — no setState on every frame
+  const updateProgress = useCallback(() => {
+    const video = videoRef.current;
+    const bar = progressRef.current;
+    if (!video || !bar || isSeekingRef.current) return;
 
-    const togglePlay = () => {
-        const video = videoRef.current
-        if (!video) return
+    const pct = video.duration ? (video.currentTime / video.duration) * 100 : 0;
+    bar.style.setProperty("--progress", `${pct}%`);
+    bar.value = video.currentTime;
 
-        if (video.paused) {
-            video.play()
-            setIsPlaying(true)
-        } else {
-            video.pause()
-            setIsPlaying(false)
-        }
+    rafRef.current = requestAnimationFrame(updateProgress);
+  }, []);
+
+  const startProgress = useCallback(() => {
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(updateProgress);
+  }, [updateProgress]);
+
+  const stopProgress = useCallback(() => {
+    cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(hideTimeout.current);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  const togglePlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
     }
+  }, []);
 
-    const handleMute = () => {
-        const video = videoRef.current
-        if (!video) return
-        video.muted = !video.muted
-        setIsMuted(video.muted)
-    }
+  const handleMute = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  }, []);
 
-    const handleMouseMove = () => {
-        setIsHovered(true)
-        clearTimeout(hideTimeout.current)
-        hideTimeout.current = setTimeout(() => {
-            setIsHovered(false)
-        }, 3000)
-    }
+  const handleMouseMove = useCallback(() => {
+    setIsHovered(true);
+    clearTimeout(hideTimeout.current);
+    hideTimeout.current = setTimeout(() => setIsHovered(false), 3000);
+  }, []);
 
-    useEffect(() => {
-        return () => clearTimeout(hideTimeout.current)
-    }, [])
+  const handleSeekStart = () => {
+    isSeekingRef.current = true;
+  };
 
-    return (
-        <div
-            className="relative w-full rounded-3xl overflow-hidden"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={() => {
-                clearTimeout(hideTimeout.current)
-                setIsHovered(false)
-            }}
-        >
-            <video
-                ref={videoRef}
-                src={url}
-                autoPlay={autoPlay}
-                muted={muted}
-                loop
-                playsInline
-                poster={thumbnail}
-                preload="metadata"
-                className="w-full aspect-video object-cover"
-                onClick={togglePlay}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                onTimeUpdate={() => {
-                    const video = videoRef.current
-                    if (video) setCurrentTime(video.currentTime)
-                }}
-                onLoadedMetadata={() => {
-                    const video = videoRef.current
-                    if (video) setDuration(video.duration)
-                }}
-            />
+  const handleSeek = (e) => {
+    const video = videoRef.current;
+    if (!video) return;
+    const time = Number(e.target.value);
+    video.currentTime = time;
+    const pct = video.duration ? (time / video.duration) * 100 : 0;
+    progressRef.current?.style.setProperty("--progress", `${pct}%`);
+  };
 
-            {/* Progress bar */}
-            <div
-                className={`absolute bottom-4 left-0 w-full z-30 px-10 ${isPlaying && !isHovered
-                    ? "opacity-0 pointer-events-none"
-                    : "opacity-100"
-                    }`}
-            >
-                <input
-                    type="range"
-                    min={0}
-                    max={duration}
-                    value={currentTime}
-                    style={{
-                        "--progress": `${(currentTime / duration) * 100}%`,
-                    }}
-                    onChange={(e) => {
-                        const video = videoRef.current
-                        const time = Number(e.target.value)
-                        if (video) {
-                            video.currentTime = time
-                            setCurrentTime(time)
-                        }
-                    }}
-                    className="w-full custom-range"
-                />
-            </div>
+  const handleSeekEnd = () => {
+    isSeekingRef.current = false;
+  };
 
-            {/* Play / Pause */}
-            <button
-                onClick={togglePlay}
-                className={`absolute inset-0 flex items-center justify-center transition-all duration-300 z-20
-        ${isPlaying && !isHovered
-                        ? "opacity-0 pointer-events-none"
-                        : "opacity-100"
-                    }`}
-            >
-                <div className="relative z-10 w-20 h-20 flex items-center justify-center bg-black/50 text-white rounded-full p-6 backdrop-blur-md transform transition-transform hover:scale-110 active:scale-95 shadow-xl">
-                    {isPlaying ? (
-                        <FaPause size={28} />
-                    ) : (
-                        <FaPlay size={30} className="ml-1" />
-                    )}
-                </div>
+  const controlsVisible = !isPlaying || isHovered;
 
-                {!isPlaying && (
-                    <div className="animate-ripple bg-black/10 w-[100px] h-[100px] absolute -z-10 rounded-full" />
-                )}
-            </button>
+  return (
+    <div
+      className="relative w-full rounded-3xl overflow-hidden bg-black"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => {
+        clearTimeout(hideTimeout.current);
+        setIsHovered(false);
+      }}
+    >
+      <video
+        ref={videoRef}
+        src={url}
+        autoPlay={autoPlay}
+        muted={isMuted}
+        loop
+        playsInline
+        poster={thumbnail}
+        preload="metadata"
+        className="w-full aspect-video object-cover"
+        onClick={togglePlay}
+        onPlay={() => {
+          setIsPlaying(true);
+          startProgress();
+        }}
+        onPause={() => {
+          setIsPlaying(false);
+          stopProgress();
+        }}
+        onLoadedMetadata={() => {
+          const video = videoRef.current;
+          if (progressRef.current && video) {
+            progressRef.current.max = video.duration;
+          }
+        }}
+        onEnded={() => {
+          setIsPlaying(false);
+          stopProgress();
 
-            {/* Mute */}
-            <button
-                onClick={handleMute}
-                className={`absolute bottom-12 right-10 z-40 bg-black/50 text-white w-10 h-10 flex items-center justify-center rounded-full
-        ${isPlaying && !isHovered
-                        ? "opacity-0 pointer-events-none"
-                        : "opacity-100"
-                    }`}
-            >
-                {isMuted ? <GoMute /> : <GoUnmute />}
-            </button>
+          if (progressRef.current) {
+            progressRef.current.value = 0;
+            progressRef.current.style.setProperty("--progress", "0%");
+          }
+        }}
+      />
+
+      {/* Progress bar — no state, direct DOM */}
+      <div
+        className="absolute bottom-4 left-0 w-full z-30 px-10"
+        style={{
+          opacity: controlsVisible ? 1 : 0,
+          pointerEvents: controlsVisible ? "auto" : "none",
+          transition: "opacity 0.3s",
+        }}
+      >
+        <input
+          ref={progressRef}
+          type="range"
+          min={0}
+          max={100}
+          defaultValue={0}
+          step={0.1}
+          className="w-full custom-range"
+          onMouseDown={handleSeekStart}
+          onTouchStart={handleSeekStart}
+          onChange={handleSeek}
+          onMouseUp={handleSeekEnd}
+          onTouchEnd={handleSeekEnd}
+        />
+      </div>
+
+      {/* Play / Pause */}
+      <button
+        onClick={togglePlay}
+        className="absolute inset-0 flex items-center justify-center z-20"
+        style={{
+          opacity: controlsVisible ? 1 : 0,
+          pointerEvents: controlsVisible ? "auto" : "none",
+          transition: "opacity 0.3s",
+        }}
+      >
+        <div className="w-20 h-20 flex items-center justify-center bg-black/50 text-white rounded-full backdrop-blur-md transition-transform hover:scale-110 active:scale-95">
+          {isPlaying ? (
+            <FaPause size={24} />
+          ) : (
+            <FaPlay size={26} className="ml-1" />
+          )}
         </div>
-    )
+      </button>
+
+      {/* Mute */}
+      <button
+        onClick={handleMute}
+        className="absolute bottom-12 right-10 z-40 bg-black/50 text-white w-10 h-10 flex items-center justify-center rounded-full"
+        style={{
+          opacity: controlsVisible ? 1 : 0,
+          pointerEvents: controlsVisible ? "auto" : "none",
+          transition: "opacity 0.3s",
+        }}
+      >
+        {isMuted ? <GoMute /> : <GoUnmute />}
+      </button>
+    </div>
+  );
 }
