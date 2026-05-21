@@ -13,17 +13,17 @@ export const metadata = {
     title: "Ahana & Ajmal Wedding Invitation | iinve",
     description:
         "Ahana and Ajmal are getting married and joyfully invite you to celebrate their wedding.",
-        robots: "noindex, nofollow",
+    robots: "noindex, nofollow",
     openGraph: {
         title: "Ahana and Ajmal Wedding Invitation | iinve",
         description:
             "Ahana and Ajmal are getting married and joyfully invite you to celebrate their wedding.",
         images: [
             {
-              url: `${metadataBase}/assets/images/og-image/og-Ahana.jpg`,
-              alt: "Ahana & Ajmal Wedding Invitation",
+                url: `${metadataBase}/assets/images/og-image/og-Ahana.jpg`,
+                alt: "Ahana & Ajmal Wedding Invitation",
             },
-          ],
+        ],
 
     },
     metadataBase: metadataBase, // Add this line to set the metadataBase
@@ -31,7 +31,7 @@ export const metadata = {
 
 
 const CoffeePremium = dynamic(() => import("Templates/CoffeePremium"), {
-    ssr: false, // Ensure it only loads on the client side
+    ssr: true, // Ensure it only loads on the client side
 });
 
 const Page = () => {
