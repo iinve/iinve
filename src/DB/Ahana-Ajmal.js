@@ -34,13 +34,13 @@ export const ahana_ajmal = {
 
   images: [
     image01,
-    image03,
+    image02,
     image04,
     image04,
     image05,
     image06,
     image07,
-    image02,
+    image03,
   ],
   dateData: [
     { date: "27", day: "Wed" },
