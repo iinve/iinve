@@ -1,103 +1,140 @@
 "use client";
 
-import { Skeleton } from "@heroui/react";
-import { Assets } from "assets/assets";
-import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { useMemo, useEffect, useRef, useState } from "react";
+import { Assets } from "assets/assets";
 import { getHeading } from "utils/greetingUtils";
 import Style from "./MeshMasonrySpotlight.module.scss";
 
+const COLUMN_OFFSETS = [0, 60, 20];
+
 const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const scrollContainerRef = useRef(null);
-  const controls = useAnimation();
-
   const { scrollY } = useScroll();
-  const yTransform = useTransform(
-    scrollY,
-    [0, 1000],
-    [window?.innerWidth > 480 ? -50 : 0, 200],
-  );
+  const controls = useAnimation();
+  const stripRef = useRef(null);
+  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
+  const [colWidth, setColWidth] = useState(100);
+  const loadedCount = useRef(0);
 
-  const calculateY = (index) => {
-    return index % 2 === 0 ? yTransform : yTransform.on((value) => -value);
-  };
+  const isMobile =
+    typeof window !== "undefined" ? window.innerWidth <= 480 : false;
 
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
+  const y0 = useTransform(scrollY, [0, 800], [0, isMobile ? 0 : -40]);
+  const y1 = useTransform(scrollY, [0, 800], [0, isMobile ? 0 : -70]);
+  const y2 = useTransform(scrollY, [0, 800], [0, isMobile ? 0 : -50]);
+  const columnParallax = [y0, y1, y2];
+
+  // Framer Motion useInView
+  const inView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  const columns = useMemo(() => {
+    const imgs = data?.images ?? [];
+    return [imgs.slice(0, 2), imgs.slice(2, 4), imgs.slice(4, 6)];
+  }, [data?.images]);
+
+  const totalImages = columns.flat().length * 2;
 
   useEffect(() => {
-    if (inView) {
-      setIsLoaded(true);
-    }
-  }, [inView]);
-
-  // Infinite horizontal scroll animation
-  useEffect(() => {
-    const startInfiniteScroll = async () => {
-      if (scrollContainerRef.current) {
-        const scrollWidth = scrollContainerRef.current.scrollWidth;
-        const containerWidth = scrollContainerRef.current.offsetWidth;
-        const scrollDistance = scrollWidth / 2; // Half because we duplicate content
-
-        // Start the infinite scroll
-        await controls.start({
-          x: -scrollDistance,
-          transition: {
-            duration: 35, // Adjust speed here (higher = slower)
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-        });
-      }
+    const calculateColWidth = () => {
+      if (!containerRef.current) return;
+      const containerWidth = containerRef.current.offsetWidth;
+      const gap = 12;
+      const isMobileView = window.innerWidth <= 480;
+      // On desktop use 60% of container, mobile full width
+      const effectiveWidth = isMobileView
+        ? containerWidth
+        : containerWidth * 0.6;
+      const width =
+        (effectiveWidth - gap * (columns.length - 1)) / columns.length;
+      setColWidth(width);
     };
 
-    // Start animation after a small delay to ensure everything is rendered
-    const timer = setTimeout(startInfiniteScroll, 100);
-    return () => clearTimeout(timer);
-  }, [controls, data]);
+    calculateColWidth();
+    window.addEventListener("resize", calculateColWidth);
+    return () => window.removeEventListener("resize", calculateColWidth);
+  }, [columns.length]);
 
-  const renderColumn = (index, items, keyPrefix = "") => (
-    <div className="column" key={`${keyPrefix}${index}`}>
-      {items?.map((item, i) => (
-        <motion.div
-          key={`${keyPrefix}${i}`}
-          className={Style.brick}
-          style={!isNotSpotlight && { y: calculateY(index) }}
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 1, y: 150 }}
-          transition={{ duration: 0.3 }}
-          layout
-          ref={ref}
-        >
-          <Image
-            src={item}
-            alt={`Image ${i}`}
-            width={200}
-            height={200}
-            onLoad={() => setIsLoaded(true)}
-            onLoadingComplete={() => setIsLoaded(true)}
-          />
-        </motion.div>
-      ))}
-    </div>
-  );
+  const handleImageLoad = () => {
+    loadedCount.current += 1;
+    if (loadedCount.current >= totalImages) {
+      setIsReady(true);
+    }
+  };
 
-  // Create the masonry columns data
-  const masonryColumns = [
-    data?.images.slice(0, 1),
-    data?.images.slice(1, 3),
-    data?.images.slice(3, 5),
-    data?.images.slice(7, 8),
-  ];
+  const startAnimation = () => {
+    if (!stripRef.current) return;
+    const halfWidth = stripRef.current.scrollWidth / 2;
+    controls.start({
+      x: [0, -halfWidth],
+      transition: {
+        duration: 30,
+        ease: "linear",
+        repeat: Infinity,
+        repeatType: "loop",
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (!isReady) return;
+    const raf = requestAnimationFrame(startAnimation);
+    return () => cancelAnimationFrame(raf);
+  }, [isReady, colWidth]);
+
+  useEffect(() => {
+    if (!isReady || !stripRef.current) return;
+    const observer = new ResizeObserver(startAnimation);
+    observer.observe(stripRef.current);
+    return () => observer.disconnect();
+  }, [isReady]);
+
+  const renderColumns = (keyPrefix) =>
+    columns.map((colImages, colIndex) => (
+      <motion.div
+        key={`${keyPrefix}-${colIndex}`}
+        className="flex flex-col gap-3 flex-shrink-0"
+        style={{
+          y: !isNotSpotlight ? columnParallax[colIndex] : 0,
+          marginTop: COLUMN_OFFSETS[colIndex],
+          width: colWidth,
+        }}
+      >
+        {colImages.map((src, i) => (
+          <motion.div
+            key={i}
+            className="w-full rounded-2xl overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+              delay: colIndex * 0.1 + i * 0.08,
+            }}
+          >
+            <Image
+              src={src}
+              alt={`Image ${colIndex}-${i}`}
+              width={300}
+              height={400}
+              className="w-full h-auto block object-cover"
+              onLoad={handleImageLoad}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    ));
 
   return (
-    <div className={Style.spotlight}>
+    <div ref={sectionRef} className={Style.spotlight}>
       <div className="wrapper">
         {!isNotSpotlight && (
           <div className={Style.nameBox}>
@@ -108,43 +145,27 @@ const MeshMasonrySpotlight = ({ isNotSpotlight, data }) => {
           </div>
         )}
 
-        {/* Horizontal scroll container */}
-        <div
-          className={`${Style.scrollContainer} overflow-hidden mt-4`}
-          style={{ width: "100%", position: "relative" }}
-        >
+        <div ref={containerRef} className="w-full overflow-hidden py-4">
           <motion.div
-            ref={scrollContainerRef}
+            ref={stripRef}
             animate={controls}
-            className={`${Style.masonry} flex items-center justify-center`}
-            style={{
-              display: "flex",
-              width: "max-content",
-              willChange: "transform",
-            }}
+            className="flex gap-3 items-start"
+            style={{ width: "max-content", willChange: "transform" }}
           >
-            {/* Original content */}
-            {masonryColumns.map((items, index) =>
-              renderColumn(index, items, "original-"),
-            )}
-
-            {/* Duplicated content for seamless loop */}
-            {masonryColumns.map((items, index) =>
-              renderColumn(index, items, "duplicate-"),
-            )}
+            {renderColumns("original")}
+            {renderColumns("duplicate")}
           </motion.div>
         </div>
 
         {!isNotSpotlight && (
           <motion.div
-            ref={ref}
             className={Style.quote}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
             <span>&quot;</span>
-            <p dangerouslySetInnerHTML={{ __html: data?.quote }}></p>
+            <p dangerouslySetInnerHTML={{ __html: data?.quote }} />
           </motion.div>
         )}
 
