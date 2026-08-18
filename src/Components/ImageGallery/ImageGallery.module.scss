@@ -1,0 +1,119 @@
+.gallery {
+  padding: 10px 0 10px;
+}
+
+.slider {
+  padding: 20px 0 40px;
+
+  :global(.swiper-slide) {
+    width: 220px;
+  }
+}
+
+.slide {
+  width: 220px !important;
+}
+
+.slideImage {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.6);
+  border: 1px solid color-mix(in srgb, var(--highlight-color) 30%, transparent);
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 92%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gridItem {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:nth-child(3n + 2) {
+    aspect-ratio: 3 / 5;
+  }
+
+  img {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.06);
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(5, 10, 20, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.lightboxImage {
+  position: relative;
+  width: min(90vw, 640px);
+  height: min(80vh, 800px);
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.close,
+.prev,
+.next {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.close {
+  top: 20px;
+  right: 20px;
+}
+
+.prev {
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}

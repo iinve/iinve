@@ -1,0 +1,88 @@
+.wrapper {
+  // padding: 0 20px 90px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: -3px;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  background: var(--content-color);
+  color: var(--theme-color);
+  border-radius: 4px;
+  padding: 50px 36px 40px;
+  text-align: center;
+  box-shadow: 0 34px 60px -24px rgba(10, 26, 51, 0.4);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 28px;
+}
+
+.dateRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.day {
+  font-family: Georgia, serif;
+  font-size: 76px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.dateMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  span:first-child {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  span:last-child {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+}
+
+.time {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.75;
+  margin-bottom: 26px;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--theme-color);
+  opacity: 0.35;
+  margin: 0 auto 26px;
+}
+
+.venue {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}

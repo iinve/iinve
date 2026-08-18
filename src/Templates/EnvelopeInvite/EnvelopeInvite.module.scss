@@ -1,0 +1,19 @@
+.wrapper {
+  background: var(--theme-color);
+}
+
+.gallery {
+  padding: 40px 0 60px;
+  text-align: center;
+  background-color: var(--theme-color);
+  overflow-x: hidden !important;
+
+}
+
+.galleryEyebrow {
+  display: inline-block;
+  font-family: "Fleur De Leah", cursive;
+  font-size: 32px;
+  color: var(--content-color);
+  margin-bottom: 24px;
+}

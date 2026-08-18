@@ -1,0 +1,48 @@
+.band {
+  position: relative;
+  background: var(--content-color);
+  color: var(--theme-color);
+  padding: 80px 24px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.mark {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.band p {
+  max-width: 520px;
+  margin: 0 auto 26px;
+  font-size: clamp(18px, 3.6vw, 24px);
+  line-height: 1.7;
+  font-family: Georgia, serif;
+  font-weight: 300;
+}
+
+.signature {
+  display: inline-block;
+  font-family: "Fleur De Leah", cursive;
+  font-size: 30px;
+  opacity: 0.85;
+}
+
+.wishes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 30px auto 0;
+  background: var(--theme-color);
+  color: var(--content-color);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}

@@ -81,7 +81,7 @@ const Calendar = ({ data, isBlue }) => {
           endDate={data?.date}
           location={`${data?.place}`}
           startTime={data?.begin_time}
-          endTime="20:00"
+          endTime={data?.end_time || "20:00"}
           timeZone="Asia/Calcutta"
           description={description}
           options={["Apple", "Google"]}

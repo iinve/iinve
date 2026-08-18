@@ -1,0 +1,25 @@
+.field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bloom {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    color-mix(in srgb, var(--theme-color) 20%, transparent),
+    transparent 70%
+  );
+  filter: blur(8px);
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--theme-color);
+  box-shadow: 0 0 6px 1px color-mix(in srgb, var(--theme-color) 60%, transparent);
+}

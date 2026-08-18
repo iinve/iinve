@@ -1,0 +1,89 @@
+.wrapper {
+  // padding: 40px 0 0;
+  text-align: center;
+  background-color: var(--theme-color);
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--highlight-color);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 34px;
+}
+
+.split {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.half {
+  flex: 1 1 260px;
+  padding: 54px 28px;
+
+  h4 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+
+  .house {
+    display: block;
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  .role {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+}
+
+.dark {
+  background: var(--content-color);
+  color: var(--theme-color);
+}
+
+.light {
+  background: var(--theme-color);
+  color: var(--content-color);
+  border: 1px solid color-mix(in srgb, var(--highlight-color) 15%, transparent);
+  border-top: none;
+
+  @media (min-width: 561px) {
+    border-left: none;
+  }
+}
+
+.amp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  color: var(--content-color);
+  border: 1px solid color-mix(in srgb, var(--highlight-color) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fleur De Leah", cursive;
+  font-size: 26px;
+  box-shadow: 0 10px 24px -10px rgba(10, 26, 51, 0.35);
+  z-index: 1;
+}

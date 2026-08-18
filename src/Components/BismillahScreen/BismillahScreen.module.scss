@@ -1,0 +1,22 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--content-color);
+  overflow: hidden;
+}
+
+.arabic {
+  position: relative;
+  z-index: 1;
+  font-family: "Uroob", "Traditional Arabic", "Segoe UI", sans-serif;
+  color: var(--theme-color);
+  font-size: clamp(30px, 8vw, 56px);
+  line-height: 1.6;
+  text-align: center;
+  padding: 0 24px;
+  letter-spacing: 1px;
+}

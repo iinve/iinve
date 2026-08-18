@@ -6,8 +6,13 @@ export const useMap = (data) => {
   const handleOpenGoogleMaps = (locationUrl) => {
     // const locationUrl = data?.map_link;
 
-    if (!locationUrl || !locationUrl.startsWith("https://maps.app.goo.gl")) {
-      console.warn("Invalid or missing Google Maps short link.");
+    const isValidMapsLink =
+      locationUrl?.startsWith("https://maps.app.goo.gl") ||
+      locationUrl?.startsWith("https://goo.gl/maps") ||
+      locationUrl?.startsWith("https://www.google.com/maps");
+
+    if (!isValidMapsLink) {
+      console.warn("Invalid or missing Google Maps link.");
       return;
     }
 

@@ -1,0 +1,59 @@
+.toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--content-color);
+  color: var(--theme-color);
+  border: none;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 24px -10px rgba(10, 26, 51, 0.5);
+
+  span {
+    display: none;
+  }
+
+  .bars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 12px;
+
+    i {
+      display: block;
+      width: 2px;
+      background: var(--theme-color);
+      border-radius: 1px;
+      animation: bounce 0.9s ease-in-out infinite;
+
+      &:nth-child(1) {
+        height: 6px;
+      }
+      &:nth-child(2) {
+        height: 12px;
+        animation-delay: 0.15s;
+      }
+      &:nth-child(3) {
+        height: 8px;
+        animation-delay: 0.3s;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}

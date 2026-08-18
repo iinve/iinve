@@ -1,0 +1,72 @@
+.countdown {
+  padding: 80px 20px 80px;
+  text-align: center;
+  border-bottom: 1px solid color-mix(in srgb, var(--highlight-color) 15%, transparent);
+  background-color: var(--theme-color);
+  .eyebrow {
+    display: inline-block;
+    color: var(--highlight-color);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-family: Georgia, serif;
+    color: var(--content-color);
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  .strip {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .unit {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .sep {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: color-mix(in srgb, var(--content-color) 25%, transparent);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .unitBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 76px;
+    overflow: hidden;
+  }
+
+  .digit {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 8vw, 48px);
+    font-weight: 400;
+    color: var(--content-color);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+
+  .unitLabel {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--content-color);
+    opacity: 0.55;
+    margin-top: 4px;
+  }
+}
