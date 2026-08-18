@@ -10,15 +10,15 @@ const EventDetails = ({ data }) => {
   const eventName = `${data?.groom} & ${data?.bride}'s Wedding Ceremony`;
   const description = `Celebrate the wedding of ${data?.groom} & ${data?.bride}`;
   const weekday = data?.date
-    ? new Date(`${data.date}T00:00:00`).toLocaleDateString("en-US", { weekday: "long" })
+    ? new Date(`${data.date}T00:00:00`).toLocaleDateString("en-US", {
+        weekday: "long",
+      })
     : "";
 
   return (
     <div className={Style.wrapper}>
       <motion.div
         className={Style.panel}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >

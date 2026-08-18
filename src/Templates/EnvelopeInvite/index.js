@@ -81,7 +81,7 @@ function EnvelopeInvite({ data }) {
         animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ duration: 0.7 }}
       >
-        <HeroSlider data={data} />
+        <HeroSlider data={data} active={revealed} />
 
         <ParentsDetails data={data} />
 

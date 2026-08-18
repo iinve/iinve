@@ -40,7 +40,7 @@ export const jinshaAshimData = {
     },
   ],
 
-  images: [photo1, photo2, photo3, photo4, photo5],
+  images: [photo4, photo1, photo2, photo3, photo5],
 
   dateData: [
     { date: "16", day: "Wed" },
@@ -58,5 +58,6 @@ export const jinshaAshimData = {
   date: "2026-09-19",
   end_time: "15:00",
   map: "https://www.google.com/maps?q=KT+Convention+Centre+Wandoor&output=embed",
-  map_link: "https://www.google.com/maps/search/?api=1&query=KT+Convention+Centre+Wandoor",
+  map_link:
+    "https://www.google.com/maps/search/?api=1&query=KT+Convention+Centre+Wandoor",
 };

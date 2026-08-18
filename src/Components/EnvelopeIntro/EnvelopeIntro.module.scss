@@ -78,6 +78,32 @@
   width: min(78vw, 300px);
   padding-top: 40px;
   padding-bottom: 30px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -22% -12%;
+    z-index: -1;
+    background: radial-gradient(
+      circle at 50% 55%,
+      color-mix(in srgb, var(--theme-color) 24%, transparent),
+      transparent 70%
+    );
+    filter: blur(22px);
+    animation: glowPulse 4.5s ease-in-out infinite;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
 }
 
 .envelope {
@@ -136,10 +162,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   box-shadow:
     0 22px 40px -14px rgba(0, 0, 0, 0.38),
     0 4px 10px rgba(0, 0, 0, 0.15);
   transform-style: preserve-3d;
+}
+
+.cardShine {
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .cardBorder {
@@ -231,11 +272,78 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  overflow: hidden;
 
   @media (max-width: 480px) {
     width: 52px;
     height: 52px;
   }
+}
+
+.sealShine {
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 70%
+  );
+  transform: translateX(-70%);
+  animation: sealShine 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sealShine {
+  0% {
+    transform: translateX(-70%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(70%);
+    opacity: 0;
+  }
+}
+
+.burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 62px;
+  height: 62px;
+  z-index: 5;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--content-color) 90%, #fff) 0%,
+    color-mix(in srgb, var(--content-color) 60%, transparent) 55%,
+    transparent 75%
+  );
+  pointer-events: none;
+}
+
+.shard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 8px;
+  z-index: 6;
+  border-radius: 2px;
+  background: radial-gradient(
+    circle at 32% 28%,
+    color-mix(in srgb, var(--content-color) 74%, #fff),
+    var(--content-color) 60%,
+    color-mix(in srgb, var(--content-color) 80%, #000) 100%
+  );
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 .sealRing {

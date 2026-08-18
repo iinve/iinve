@@ -16,13 +16,16 @@ const ParentsDetails = ({ data }) => {
           <motion.div
             className={`${Style.half} ${i === 0 ? Style.dark : Style.light}`}
             key={i}
-            initial={{ opacity: 0, x: i === 0 ? -30 : 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <span className={Style.role}>{p.role}</span>
-            <h4>{p.name}</h4>
+            <motion.h4
+              initial={{ opacity: 0, x: i === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              {p.name}
+            </motion.h4>
             <p>
               {p.relation} {p.parents}
             </p>
