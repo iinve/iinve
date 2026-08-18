@@ -325,6 +325,25 @@
   );
 }
 
+.flapGlow {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 70%;
+  height: 6px;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    #fff,
+    color-mix(in srgb, var(--theme-color) 80%, transparent) 55%,
+    transparent 80%
+  );
+  filter: blur(4px);
+  pointer-events: none;
+}
+
 .seal {
   position: absolute;
   top: 50%;

@@ -157,6 +157,15 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
               <span className={Style.flapShade} />
             </motion.div>
 
+            {isOpen && (
+              <motion.span
+                className={Style.flapGlow}
+                initial={{ opacity: 0, scaleX: 0.3 }}
+                animate={{ opacity: [0, 1, 0], scaleX: [0.3, 1.1, 1.3] }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+            )}
+
             <div className={Style.envelopeFront} />
 
             {!isOpen && (
