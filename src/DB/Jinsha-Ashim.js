@@ -27,8 +27,7 @@ export const jinshaAshimData = {
     {
       role: "Groom",
       name: "Ashim Akbar",
-      relation: "S/O",
-      parents: "Akbar & Nisara",
+envelop t      parents: "Akbar & Nisara",
       house: "Muthangayil House, Pookkottumpadam",
     },
     {
@@ -40,7 +39,7 @@ export const jinshaAshimData = {
     },
   ],
 
-  images: [photo4, photo1, photo2, photo3, photo5],
+  images: [photo1, photo4, photo2, photo3, photo5],
 
   dateData: [
     { date: "16", day: "Wed" },

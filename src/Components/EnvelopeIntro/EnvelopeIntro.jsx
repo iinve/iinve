@@ -27,14 +27,18 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
 
   const handleCardAnimationComplete = () => {
     if (phase === "opening") {
-      setPhase("flipping");
+      setTimeout(() => setPhase("flipping"), 650);
     } else if (phase === "flipping") {
-      setPhase("done");
-      onOpen?.();
+      setPhase("holding");
+      setTimeout(() => {
+        setPhase("done");
+        onOpen?.();
+      }, 2200);
     }
   };
 
-  const isOpen = phase === "opening" || phase === "flipping" || phase === "done";
+  const isOpen = phase !== "sealed" && phase !== "breaking";
+  const isFlipped = phase === "flipping" || phase === "holding" || phase === "done";
 
   return (
     <motion.div className={Style.overlay} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
@@ -77,50 +81,76 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
                 z: -60,
                 rotateX: -50,
                 rotateY: 0,
+                rotateZ: 0,
                 scale: 1,
                 scaleY: 0.82,
                 opacity: 0,
               }}
               animate={
-                phase === "flipping"
-                  ? { y: -520, z: 160, rotateX: 0, rotateY: 110, scale: 1.7, scaleY: 1, opacity: [1, 1, 0] }
+                isFlipped
+                  ? {
+                      y: [-248, -560, -170],
+                      z: 220,
+                      rotateX: 0,
+                      rotateY: 180,
+                      rotateZ: [0, -3, 0],
+                      scale: [1, 6.5, 6],
+                      scaleY: 1,
+                      opacity: 1,
+                    }
                   : isOpen
-                    ? { y: -248, z: 90, rotateX: 0, rotateY: 0, scale: 1, scaleY: 1, opacity: 1 }
-                    : { y: 18, z: -60, rotateX: -50, rotateY: 0, scale: 1, scaleY: 0.82, opacity: 0 }
+                    ? { y: -248, z: 90, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, scaleY: 1, opacity: 1 }
+                    : { y: 18, z: -60, rotateX: -50, rotateY: 0, rotateZ: 0, scale: 1, scaleY: 0.82, opacity: 0 }
               }
               transition={
                 phase === "flipping"
-                  ? { duration: 0.62, ease: [0.7, 0, 0.3, 1], opacity: { times: [0, 0.6, 1] } }
+                  ? { duration: 0.8, ease: [0.62, 0, 0.35, 1] }
                   : isOpen
-                    ? { type: "spring", stiffness: 130, damping: 13, mass: 0.9 }
+                    ? { type: "spring", stiffness: 130, damping: 13, mass: 0.9, delay: 0.25 }
                     : { duration: 0 }
               }
               style={{ zIndex: isOpen ? 6 : 2 }}
               onAnimationComplete={handleCardAnimationComplete}
             >
-              <span className={Style.cardBorder} />
-              <div className={Style.cardMonogram}>
-                <span>{data?.groom?.[0]}</span>
-                <em>&amp;</em>
-                <span>{data?.bride?.[0]}</span>
+              <div className={`${Style.cardFace} ${Style.cardFront}`}>
+                <span className={Style.cardBorder} />
+                <div className={Style.cardMonogram}>
+                  <span>{data?.groom?.[0]}</span>
+                  <em>&amp;</em>
+                  <span>{data?.bride?.[0]}</span>
+                </div>
+                {isOpen && (
+                  <motion.span
+                    className={Style.cardShine}
+                    initial={{ x: "-130%", opacity: 0 }}
+                    animate={{ x: "130%", opacity: [0, 0.9, 0] }}
+                    transition={{ duration: 0.9, delay: 0.3, ease: "easeInOut" }}
+                  />
+                )}
               </div>
-              {isOpen && (
-                <motion.span
-                  className={Style.cardShine}
-                  initial={{ x: "-130%", opacity: 0 }}
-                  animate={{ x: "130%", opacity: [0, 0.9, 0] }}
-                  transition={{ duration: 0.9, delay: 0.3, ease: "easeInOut" }}
-                />
-              )}
+
+              <div className={`${Style.cardFace} ${Style.cardBack}`} />
             </motion.div>
 
             <motion.div
               className={Style.flap}
-              initial={{ rotateX: 0 }}
-              animate={{ rotateX: isOpen ? [0, -178, -172, -178] : 0 }}
+              initial={{ rotateX: 0, scaleY: 1, opacity: 1 }}
+              animate={
+                isOpen
+                  ? {
+                      rotateX: [0, -95, -178, -172, -178],
+                      scaleY: [1, 0.4, 0, 0, 0],
+                      opacity: [1, 1, 0, 0, 0],
+                    }
+                  : { rotateX: 0, scaleY: 1, opacity: 1 }
+              }
               transition={
                 isOpen
-                  ? { duration: 1.05, times: [0, 0.72, 0.88, 1], ease: "easeOut" }
+                  ? {
+                      duration: 0.95,
+                      times: [0, 0.55, 0.78, 0.9, 1],
+                      ease: ["easeIn", "easeIn", "easeOut", "easeInOut"],
+                    }
                   : { duration: 0.4 }
               }
             >
@@ -190,6 +220,51 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
 
           <div className={Style.groundShadow} />
         </div>
+
+        {(phase === "holding" || phase === "done") && (
+          <div className={Style.clouds} aria-hidden="true">
+            <motion.span
+              className={`${Style.cloud} ${Style.cloud1}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5, x: [0, 26, 0] }}
+              transition={{
+                opacity: { duration: 1.2 },
+                x: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+              }}
+            />
+            <motion.span
+              className={`${Style.cloud} ${Style.cloud2}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4, x: [0, -20, 0] }}
+              transition={{
+                opacity: { duration: 1.2, delay: 0.15 },
+                x: { duration: 24, repeat: Infinity, ease: "easeInOut" },
+              }}
+            />
+            <motion.span
+              className={`${Style.cloud} ${Style.cloud3}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.35, x: [0, 18, 0] }}
+              transition={{
+                opacity: { duration: 1.2, delay: 0.3 },
+                x: { duration: 28, repeat: Infinity, ease: "easeInOut" },
+              }}
+            />
+          </div>
+        )}
+
+        {(phase === "holding" || phase === "done") && (
+          <motion.p
+            className={Style.bismillahText}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            dir="rtl"
+            lang="ar"
+          >
+            {data?.bismillah || "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"}
+          </motion.p>
+        )}
 
         {phase === "sealed" && (
           <motion.p

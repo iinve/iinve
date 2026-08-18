@@ -1,7 +1,6 @@
 "use client";
 
 import AnimatedBackground from "Components/AnimatedBackground/AnimatedBackground";
-import BismillahScreen from "Components/BismillahScreen/BismillahScreen";
 import EnvelopeIntro from "Components/EnvelopeIntro/EnvelopeIntro";
 import EventDetails from "Components/EventDetails/EventDetails";
 import Footer from "Components/Footer/index.js";
@@ -18,7 +17,6 @@ import Style from "./EnvelopeInvite.module.scss";
 
 const PHASES = {
   SEALED: "sealed",
-  BISMILLAH: "bismillah",
   REVEALED: "revealed",
 };
 
@@ -61,15 +59,8 @@ function EnvelopeInvite({ data }) {
           <EnvelopeIntro
             key="envelope"
             data={data}
-            onOpen={() => setPhase(PHASES.BISMILLAH)}
+            onOpen={() => setPhase(PHASES.REVEALED)}
             onPlayRequest={playMusic}
-          />
-        )}
-        {phase === PHASES.BISMILLAH && (
-          <BismillahScreen
-            key="bismillah"
-            data={data}
-            onComplete={() => setPhase(PHASES.REVEALED)}
           />
         )}
       </AnimatePresence>
