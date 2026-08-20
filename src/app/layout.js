@@ -197,6 +197,10 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+          rel="stylesheet"
+        />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <meta name="apple-mobile-web-app-title" content="iinve" />
       </Head>

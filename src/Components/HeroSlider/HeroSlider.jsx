@@ -79,15 +79,17 @@ const HeroSlider = ({ data, active = true }) => {
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.9, delay: 0.15 }}
         >
-          {data?.groom}
-          <span className="md:inline md:w-auto block w-full">&amp;</span>
           {data?.bride}
+          <span className="md:inline md:w-auto block w-full">&amp;</span>
+          {data?.groom}
         </motion.h1>
 
         <motion.div
           className={Style.hairline}
           initial={{ width: 0, opacity: 0 }}
-          animate={active ? { width: 64, opacity: 1 } : { width: 0, opacity: 0 }}
+          animate={
+            active ? { width: 64, opacity: 1 } : { width: 0, opacity: 0 }
+          }
           transition={{ duration: 0.8, delay: 0.5 }}
         />
       </div>
@@ -95,7 +97,11 @@ const HeroSlider = ({ data, active = true }) => {
       <motion.div
         className={Style.scrollCue}
         initial={{ opacity: 0, x: "-50%" }}
-        animate={active ? { opacity: 1, x: "-50%", y: [0, 8, 0] } : { opacity: 0, x: "-50%" }}
+        animate={
+          active
+            ? { opacity: 1, x: "-50%", y: [0, 8, 0] }
+            : { opacity: 0, x: "-50%" }
+        }
         transition={{
           opacity: { delay: 1.3, duration: 0.6 },
           y: { duration: 1.8, repeat: Infinity },

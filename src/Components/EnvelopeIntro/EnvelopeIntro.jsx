@@ -1,15 +1,22 @@
 "use client";
 
-import StarField from "Components/StarField/StarField";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getHeading } from "utils/greetingUtils";
 import Style from "./EnvelopeIntro.module.scss";
 
-const SHARD_ANGLES = [10, 55, 95, 135, 180, 220, 260, 305];
+const DUST_MOTES = [
+  { left: "18%", top: "26%", size: 3, duration: 12, delay: 0 },
+  { left: "80%", top: "30%", size: 3, duration: 14, delay: 2 },
+  { left: "26%", top: "70%", size: 3, duration: 13, delay: 4 },
+  { left: "74%", top: "66%", size: 3, duration: 15, delay: 1 },
+  { left: "50%", top: "14%", size: 3, duration: 11, delay: 3 },
+  { left: "30%", top: "82%", size: 3, duration: 13.5, delay: 2.6 },
+];
 
 const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
-  const [phase, setPhase] = useState("sealed"); // sealed -> breaking -> opening -> done
+  const [phase, setPhase] = useState("sealed"); // sealed -> revealing -> leaving -> holding -> done
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -18,274 +25,226 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
     };
   }, []);
 
-  const handleSealClick = () => {
-    if (phase !== "sealed") return;
-    onPlayRequest?.();
-    setPhase("breaking");
-    setTimeout(() => setPhase("opening"), 560);
-  };
-
-  const handleCardAnimationComplete = () => {
-    if (phase === "opening") {
-      setTimeout(() => setPhase("flipping"), 650);
-    } else if (phase === "flipping") {
-      setPhase("holding");
-      setTimeout(() => {
+  useEffect(() => {
+    if (phase === "revealing") {
+      const t = setTimeout(() => setPhase("leaving"), 850 + 1800);
+      return () => clearTimeout(t);
+    }
+    if (phase === "leaving") {
+      const t = setTimeout(() => setPhase("holding"), 850);
+      return () => clearTimeout(t);
+    }
+    if (phase === "holding") {
+      const t = setTimeout(() => {
         setPhase("done");
         onOpen?.();
       }, 2200);
+      return () => clearTimeout(t);
     }
+  }, [phase, onOpen]);
+
+  const handleEnvelopeClick = () => {
+    if (phase !== "sealed") return;
+    onPlayRequest?.();
+    setPhase("revealing");
   };
 
-  const isOpen = phase !== "sealed" && phase !== "breaking";
-  const isFlipped = phase === "flipping" || phase === "holding" || phase === "done";
+  const isLeaving =
+    phase === "leaving" || phase === "holding" || phase === "done";
 
   return (
-    <motion.div className={Style.overlay} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
+    <motion.div
+      className={Style.overlay}
+      style={
+        data?.intro_background
+          ? {
+              "--intro-bg": `url(${data.intro_background.src || data.intro_background})`,
+            }
+          : undefined
+      }
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <div className={Style.backdrop} />
-      <StarField />
+      {data?.intro_background && (
+        <>
+          <motion.div
+            className={Style.bgPhoto}
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.15 }}
+            transition={{ duration: 26, ease: "linear" }}
+          />
+          <div className={Style.bgTint} />
+        </>
+      )}
+
+      <div className={Style.motes} aria-hidden="true">
+        {DUST_MOTES.map((m, i) => (
+          <motion.span
+            key={i}
+            className={Style.mote}
+            style={{ left: m.left, top: m.top, width: m.size, height: m.size }}
+            animate={{ y: [0, -18, 0], opacity: [0.15, 0.75, 0.15] }}
+            transition={{
+              duration: m.duration,
+              delay: m.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      <div className={Style.grain} aria-hidden="true" />
 
       <motion.div
         className={Style.stage}
         animate={{ opacity: phase === "done" ? 0 : 1 }}
-        transition={{ duration: 0.4, ease: "easeIn" }}
+        transition={{ duration: 0.5, ease: "easeIn" }}
       >
-        {!isOpen && (
+        {phase !== "holding" && phase !== "done" && (
           <motion.div
             className={Style.intro}
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className={Style.eyebrow}>{getHeading(data)}</span>
             <h2>
-              {data?.groom} <em>&amp;</em> {data?.bride}
+              <motion.span className={Style.nameReveal}>
+                {data?.bride}
+              </motion.span>{" "}
+              <em className="block md:inline">&amp;</em>{" "}
+              <motion.span className={Style.nameReveal}>
+                {data?.groom}
+              </motion.span>
             </h2>
           </motion.div>
         )}
 
         <div className={Style.stageBox}>
-          <motion.div
-            className={Style.envelope}
-            initial={{ rotateX: 0, scale: 1 }}
-            animate={{ rotateX: isOpen ? -10 : 0, scale: isOpen ? 1.06 : 1 }}
-            transition={{ type: "spring", stiffness: 90, damping: 16 }}
-          >
-            <div className={Style.envelopeBack} />
-            <div className={Style.crease} />
+          {!isLeaving && <span className={Style.envelopeGlow} />}
 
-            <motion.div
-              className={Style.card}
-              initial={{
-                y: 18,
-                z: -60,
-                rotateX: -50,
-                rotateY: 0,
-                rotateZ: 0,
-                scale: 1,
-                scaleY: 0.82,
-                opacity: 0,
-              }}
+          {data?.intro_flower && (
+            <motion.span
+              className={Style.flowerWrap}
+              initial={{ opacity: 0, x: 0, rotate: -6 }}
               animate={
-                isFlipped
-                  ? {
-                      y: [-248, -560, -170],
-                      z: 220,
-                      rotateX: 0,
-                      rotateY: 180,
-                      rotateZ: [0, -3, 0],
-                      scale: [1, 6.5, 6],
-                      scaleY: 1,
-                      opacity: 1,
-                    }
-                  : isOpen
-                    ? { y: -248, z: 90, rotateX: 0, rotateY: 0, rotateZ: 0, scale: 1, scaleY: 1, opacity: 1 }
-                    : { y: 18, z: -60, rotateX: -50, rotateY: 0, rotateZ: 0, scale: 1, scaleY: 0.82, opacity: 0 }
+                isLeaving
+                  ? { opacity: 0, x: -40, y: -260, rotate: -14 }
+                  : { opacity: 1, x: 0, rotate: 0 }
               }
               transition={
-                phase === "flipping"
-                  ? { duration: 0.8, ease: [0.62, 0, 0.35, 1] }
-                  : isOpen
-                    ? { type: "spring", stiffness: 130, damping: 13, mass: 0.9, delay: 0.25 }
-                    : { duration: 0 }
-              }
-              style={{ zIndex: isOpen ? 6 : 2 }}
-              onAnimationComplete={handleCardAnimationComplete}
-            >
-              <div className={`${Style.cardFace} ${Style.cardFront}`}>
-                <span className={Style.cardBorder} />
-                <div className={Style.cardMonogram}>
-                  <span>{data?.groom?.[0]}</span>
-                  <em>&amp;</em>
-                  <span>{data?.bride?.[0]}</span>
-                </div>
-                {isOpen && (
-                  <motion.span
-                    className={Style.cardShine}
-                    initial={{ x: "-130%", opacity: 0 }}
-                    animate={{ x: "130%", opacity: [0, 0.9, 0] }}
-                    transition={{ duration: 0.9, delay: 0.3, ease: "easeInOut" }}
-                  />
-                )}
-              </div>
-
-              <div className={`${Style.cardFace} ${Style.cardBack}`} />
-            </motion.div>
-
-            <motion.div
-              className={Style.flap}
-              initial={{ rotateX: 0, scaleY: 1, opacity: 1 }}
-              animate={
-                isOpen
-                  ? {
-                      rotateX: [0, -95, -178, -172, -178],
-                      scaleY: [1, 0.4, 0, 0, 0],
-                      opacity: [1, 1, 0, 0, 0],
-                    }
-                  : { rotateX: 0, scaleY: 1, opacity: 1 }
-              }
-              transition={
-                isOpen
-                  ? {
-                      duration: 0.95,
-                      times: [0, 0.55, 0.78, 0.9, 1],
-                      ease: ["easeIn", "easeIn", "easeOut", "easeInOut"],
-                    }
-                  : { duration: 0.4 }
+                isLeaving
+                  ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] }
+                  : { duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }
               }
             >
-              <span className={Style.flapShade} />
-            </motion.div>
-
-            {isOpen && (
-              <motion.span
-                className={Style.flapGlow}
-                initial={{ opacity: 0, scaleX: 0.3 }}
-                animate={{ opacity: [0, 1, 0], scaleX: [0.3, 1.1, 1.3] }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+              <Image
+                src={data.intro_flower}
+                alt=""
+                className={Style.flowerImage}
+                sizes="30vw"
+                priority
               />
-            )}
+            </motion.span>
+          )}
 
-            <div className={Style.envelopeFront} />
-
-            {!isOpen && (
-              <motion.button
-                type="button"
-                className={Style.seal}
-                onClick={handleSealClick}
-                whileTap={{ scale: 0.9 }}
-                initial={{ x: "-50%", y: "-50%", scale: 0.8, opacity: 0 }}
+          <motion.button
+            type="button"
+            className={Style.envelopeTap}
+            onClick={handleEnvelopeClick}
+            aria-label="Open invitation"
+            whileTap={phase === "sealed" ? { scale: 0.96 } : undefined}
+            initial={{ opacity: 0, scale: 0.84, y: 14 }}
+            animate={
+              isLeaving
+                ? { opacity: 0, scale: 0.92, y: -260 }
+                : { opacity: 1, scale: 1, y: 0 }
+            }
+            transition={
+              isLeaving
+                ? { duration: 0.85, ease: [0.5, 0, 0.2, 1] }
+                : { type: "spring", stiffness: 150, damping: 15, mass: 0.9 }
+            }
+          >
+            {data?.intro_envelope && (
+              <motion.div
                 animate={
-                  phase === "breaking"
-                    ? { x: "-50%", y: "-64%", scale: 1.5, opacity: 0, rotate: 22 }
-                    : { x: "-50%", y: "-50%", scale: [1, 1.05, 1], opacity: 1, rotate: 0 }
+                  phase === "revealing" ? { scale: [1, 1.09, 1] } : { scale: 1 }
                 }
                 transition={
-                  phase === "breaking"
-                    ? { duration: 0.4, ease: [0.55, 0, 1, 0.45] }
-                    : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
+                  phase === "revealing"
+                    ? { duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }
+                    : { duration: 0.3, ease: "easeOut" }
                 }
-                aria-label="Open invitation"
               >
-                <span className={Style.sealRing} />
-                <span className={Style.sealShine} />
-                <span className={Style.sealLetters}>
-                  {data?.groom?.[0]}
-                  {data?.bride?.[0]}
-                </span>
-              </motion.button>
-            )}
-
-            {phase === "breaking" && (
-              <>
-                <motion.span
-                  className={Style.burst}
-                  initial={{ x: "-50%", y: "-50%", scale: 0.4, opacity: 0.8 }}
-                  animate={{ x: "-50%", y: "-50%", scale: 2.8, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                <Image
+                  src={data.intro_envelope}
+                  alt="Wedding invitation envelope"
+                  className={Style.envelopeImage}
+                  sizes="80vw"
+                  priority
                 />
-                {SHARD_ANGLES.map((angle, i) => {
-                  const rad = (angle * Math.PI) / 180;
-                  const dist = 42 + (i % 3) * 16;
-                  return (
-                    <motion.span
-                      key={angle}
-                      className={Style.shard}
-                      initial={{ x: "-50%", y: "-50%", opacity: 1, scale: 1, rotate: angle }}
-                      animate={{
-                        x: `calc(-50% + ${Math.cos(rad) * dist}px)`,
-                        y: `calc(-50% + ${Math.sin(rad) * dist}px)`,
-                        opacity: 0,
-                        scale: 0.3,
-                        rotate: angle + (i % 2 === 0 ? 90 : -90),
-                      }}
-                      transition={{ duration: 0.55, ease: [0.55, 0, 0.85, 0.45] }}
-                    />
-                  );
-                })}
-              </>
+              </motion.div>
             )}
-          </motion.div>
+          </motion.button>
 
-          <div className={Style.groundShadow} />
+          <motion.div
+            className={Style.groundShadow}
+            animate={{ opacity: isLeaving ? 0 : 1 }}
+            transition={{ duration: 0.5 }}
+          />
         </div>
 
         {(phase === "holding" || phase === "done") && (
-          <div className={Style.clouds} aria-hidden="true">
+          <>
             <motion.span
-              className={`${Style.cloud} ${Style.cloud1}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5, x: [0, 26, 0] }}
+              className={`${Style.bismillahLine} ${Style.bismillahLineTop}`}
+              initial={{ opacity: 0, scaleX: 0.4 }}
+              animate={{ opacity: 1, scaleX: 1 }}
               transition={{
-                opacity: { duration: 1.2 },
-                x: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+                duration: 0.9,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
               }}
             />
+            <motion.p
+              className={Style.bismillahText}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              dir="rtl"
+              lang="ar"
+            >
+              {data?.bismillah || "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"}
+            </motion.p>
             <motion.span
-              className={`${Style.cloud} ${Style.cloud2}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4, x: [0, -20, 0] }}
+              className={`${Style.bismillahLine} ${Style.bismillahLineBottom}`}
+              initial={{ opacity: 0, scaleX: 0.4 }}
+              animate={{ opacity: 1, scaleX: 1 }}
               transition={{
-                opacity: { duration: 1.2, delay: 0.15 },
-                x: { duration: 24, repeat: Infinity, ease: "easeInOut" },
+                duration: 0.9,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
               }}
             />
-            <motion.span
-              className={`${Style.cloud} ${Style.cloud3}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.35, x: [0, 18, 0] }}
-              transition={{
-                opacity: { duration: 1.2, delay: 0.3 },
-                x: { duration: 28, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-          </div>
-        )}
-
-        {(phase === "holding" || phase === "done") && (
-          <motion.p
-            className={Style.bismillahText}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            dir="rtl"
-            lang="ar"
-          >
-            {data?.bismillah || "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"}
-          </motion.p>
+          </>
         )}
 
         {phase === "sealed" && (
           <motion.p
             className={Style.hint}
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.4, 0.9, 0.4], y: [0, -3, 0] }}
+            animate={{ opacity: [0.5, 0.85, 0.5] }}
             transition={{
-              opacity: { delay: 1, duration: 2.6, repeat: Infinity, ease: "easeInOut" },
-              y: { delay: 1, duration: 2.6, repeat: Infinity, ease: "easeInOut" },
+              delay: 1,
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
           >
-            Tap the seal to open
+            Tap to open
           </motion.p>
         )}
       </motion.div>

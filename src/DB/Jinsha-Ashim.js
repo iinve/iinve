@@ -3,14 +3,17 @@ import photo2 from "../assets/coffeePremium/Jinsha-Ashim/2.jpg";
 import photo3 from "../assets/coffeePremium/Jinsha-Ashim/3.jpg";
 import photo4 from "../assets/coffeePremium/Jinsha-Ashim/4.jpg";
 import photo5 from "../assets/coffeePremium/Jinsha-Ashim/5.jpg";
+import introBg from "../assets/coffeePremium/Jinsha-Ashim/bg.png";
+import introEnvelope from "../assets/coffeePremium/Jinsha-Ashim/envelop.png";
+import introFlower from "../assets/coffeePremium/Jinsha-Ashim/flower.png";
 
 export const jinshaAshimData = {
   bride: "Jinsha Ashraf",
   groom: "Ashim Akbar",
   event_type: "nikkah",
   theme: "#FFFFFF",
-  default_color: "#0A1A33",
-  highlight_color: "#1E3A63",
+  default_color: "#132361",
+  highlight_color: "#4870AB",
   phone1: "",
   phone2: "",
   begin_time: "10:30 AM",
@@ -41,6 +44,9 @@ export const jinshaAshimData = {
   ],
 
   images: [photo1, photo4, photo2, photo3, photo5],
+  intro_background: introBg,
+  intro_envelope: introEnvelope,
+  intro_flower: introFlower,
 
   dateData: [
     { date: "16", day: "Wed" },
