@@ -219,19 +219,7 @@
 }
 
 .bismillahLine {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: min(46vw, 220px);
-  height: 1px;
-  z-index: 7;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--highlight-color) 70%, white 20%),
-    transparent
-  );
+  
 }
 
 .bismillahLineTop {

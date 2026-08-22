@@ -219,7 +219,7 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
             >
               {data?.bismillah || "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"}
             </motion.p>
-            <motion.span
+            {/* <motion.span
               className={`${Style.bismillahLine} ${Style.bismillahLineBottom}`}
               initial={{ opacity: 0, scaleX: 0.4 }}
               animate={{ opacity: 1, scaleX: 1 }}
@@ -228,7 +228,7 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
                 delay: 0.2,
                 ease: [0.22, 1, 0.36, 1],
               }}
-            />
+            /> */}
           </>
         )}
 
