@@ -23,7 +23,7 @@ const EventDetails = ({ data }) => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        {data?.intro_flower && (
+        {/* {data?.intro_flower && (
           <span className={Style.flowerWrap}>
             <Image
               src={data.intro_flower}
@@ -32,7 +32,7 @@ const EventDetails = ({ data }) => {
               sizes="20vw"
             />
           </span>
-        )}
+        )} */}
 
         <span className={Style.eyebrow}>Save the Date</span>
 

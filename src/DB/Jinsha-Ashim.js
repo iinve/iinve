@@ -38,7 +38,7 @@ export const jinshaAshimData = {
       role: "Groom",
       name: "Ashim Akbar",
       relation: "S/O",
-      parents: "Akbar & Nisara",
+      parents: "Akbar Muthangayil & Nisara",
       house: "Muthangayil House, Pookkottumpadam",
     },
   ],
