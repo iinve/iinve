@@ -43,7 +43,7 @@ const MessageBand = ({ data }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        {data?.groom} &amp; {data?.bride}
+        {data?.bride} &amp; {data?.groom}
       </motion.span>
 
       {/* {data?.send_wishes && (

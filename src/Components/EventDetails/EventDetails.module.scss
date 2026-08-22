@@ -17,6 +17,16 @@
   box-shadow: 0 34px 60px -24px rgba(10, 26, 51, 0.4);
 }
 
+.flowerWrap {
+  position: absolute;
+  top: 0;
+  right: -10%;
+  transform: translateY(-35%);
+  width: clamp(140px, 20vw, 120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .eyebrow {
   display: inline-block;
   font-size: 11px;
@@ -28,14 +38,14 @@
 
 .dateRow {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   gap: 16px;
   margin-bottom: 8px;
 }
 
 .day {
-  font-family: Georgia, serif;
+  font-family: "Notica", serif;
   font-size: 76px;
   line-height: 1;
   font-weight: 400;
@@ -48,23 +58,27 @@
   text-align: left;
 
   span:first-child {
-    font-size: 16px;
+    font-size: 28px;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
+    font-family: "Notica", serif;
+
   }
 
   span:last-child {
-    font-size: 13px;
-    opacity: 0.6;
+    font-size: 20px;
     margin-top: 2px;
+    font-family: "Notica", serif;
+
   }
 }
 
 .time {
   display: block;
-  font-size: 14px;
+  font-size: 20px;
   letter-spacing: 1px;
-  opacity: 0.75;
+  // opacity: 0.75;
+  font-family: "Notica", serif;
   margin-bottom: 26px;
 }
 
@@ -77,12 +91,21 @@
 }
 
 .venue {
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.6;
   margin-bottom: 30px;
+  font-family: "Notica", serif;
+  font-weight: 600;
+
 }
 
 .button {
   display: flex;
   justify-content: center;
+}
+
+.flowerImage {
+  width: 100% !important;
+  height: auto !important;
+  position: relative !important;
 }

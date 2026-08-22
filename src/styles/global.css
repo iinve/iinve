@@ -133,6 +133,38 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Biancha';
+    src: url('../../public/fonts/biancha/Biancha-X3VOa.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calling Angels';
+    src: url('../../public/fonts/calling-angel/CallingAngelsPersonalUse-VBaB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Magnolia';
+    src: url('../../public/fonts/magnolia/MagnoliaSerif-ARARA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Notica';
+    src: url('../../public/fonts/notica/NoticaSerif-Yqql8.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 
 

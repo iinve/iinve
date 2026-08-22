@@ -13,10 +13,10 @@
   }
 
   h3 {
-    font-family: Georgia, serif;
+    font-family: "Notica", serif;
     color: var(--content-color);
-    font-size: clamp(24px, 5vw, 32px);
-    font-weight: 400;
+    font-size: clamp(28px, 5vw, 32px);
+    font-weight: 600;
     margin-bottom: 40px;
   }
 
@@ -53,7 +53,7 @@
 
   .digit {
     display: block;
-    font-family: Georgia, serif;
+    font-family: "Notica", serif;
     font-size: clamp(32px, 8vw, 48px);
     font-weight: 400;
     color: var(--content-color);

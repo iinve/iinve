@@ -3,6 +3,7 @@
 import "add-to-calendar-button";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Style from "./EventDetails.module.scss";
 
 const EventDetails = ({ data }) => {
@@ -22,6 +23,17 @@ const EventDetails = ({ data }) => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
+        {data?.intro_flower && (
+          <span className={Style.flowerWrap}>
+            <Image
+              src={data.intro_flower}
+              alt=""
+              className={Style.flowerImage}
+              sizes="20vw"
+            />
+          </span>
+        )}
+
         <span className={Style.eyebrow}>Save the Date</span>
 
         <div className={Style.dateRow}>

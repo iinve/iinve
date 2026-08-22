@@ -78,9 +78,10 @@ function EnvelopeInvite({ data }) {
 
         <WeddingCountdown data={data} />
 
-        <MessageBand data={data} />
-
-        <EventDetails data={data} />
+        <div className="overflow-hidden">
+          <MessageBand data={data} />
+          <EventDetails data={data} />
+        </div>
 
         <div className={Style.gallery}>
           <span className={Style.galleryEyebrow}>Our Moments</span>
@@ -89,7 +90,11 @@ function EnvelopeInvite({ data }) {
 
         <LocationSection data={data} />
 
-        <SoundToggle music={data?.music} playing={playing} onToggle={toggleMusic} />
+        <SoundToggle
+          music={data?.music}
+          playing={playing}
+          onToggle={toggleMusic}
+        />
       </motion.div>
 
       {data?.music && <audio ref={audioRef} src={data.music} loop />}

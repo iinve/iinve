@@ -18,15 +18,16 @@
 .band p {
   max-width: 520px;
   margin: 0 auto 26px;
-  font-size: clamp(18px, 3.6vw, 24px);
-  line-height: 1.7;
-  font-family: Georgia, serif;
-  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.2em;
+  letter-spacing: 0.4px;
+  font-family: "Notica", serif;
+  font-weight: 400;
 }
 
 .signature {
   display: inline-block;
-  font-family: "Fleur De Leah", cursive;
+  font-family: "Magnolia", cursive;
   font-size: 30px;
   opacity: 0.85;
 }

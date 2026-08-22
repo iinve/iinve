@@ -27,18 +27,18 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
 
   useEffect(() => {
     if (phase === "revealing") {
-      const t = setTimeout(() => setPhase("leaving"), 850 + 1800);
+      const t = setTimeout(() => setPhase("leaving"), 850 + 800);
       return () => clearTimeout(t);
     }
     if (phase === "leaving") {
-      const t = setTimeout(() => setPhase("holding"), 850);
+      const t = setTimeout(() => setPhase("holding"), 550);
       return () => clearTimeout(t);
     }
     if (phase === "holding") {
       const t = setTimeout(() => {
         setPhase("done");
         onOpen?.();
-      }, 2200);
+      }, 1200);
       return () => clearTimeout(t);
     }
   }, [phase, onOpen]);

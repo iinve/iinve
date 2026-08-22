@@ -28,18 +28,18 @@ export const jinshaAshimData = {
 
   parents_data: [
     {
-      role: "Groom",
-      name: "Ashim Akbar",
-      relation: "S/O",
-      parents: "Akbar & Nisara",
-      house: "Muthangayil House, Pookkottumpadam",
-    },
-    {
       role: "Bride",
       name: "Jinsha Ashraf",
       relation: "D/O",
       parents: "Ashraf Erambath & Jaseena Kalathingal",
       house: "Erambath House, Kalikavu",
+    },
+    {
+      role: "Groom",
+      name: "Ashim Akbar",
+      relation: "S/O",
+      parents: "Akbar & Nisara",
+      house: "Muthangayil House, Pookkottumpadam",
     },
   ],
 

@@ -97,7 +97,7 @@
   }
 
   h2 {
-    font-family: "Ms Claudy", cursive;
+    font-family: "Biancha", cursive;
     color: var(--theme-color);
     font-size: 44px;
     font-weight: 400;
@@ -107,11 +107,14 @@
     em {
       font-style: normal;
       color: #e0c088;
-      padding: 0 6px;
+      padding-top: 20px;
+      font-size: 80px;
+      font-weight: 400;
+      font-family: "MS claudy", cursive;
     }
 
     @media (max-width: 480px) {
-      font-size: 70px;
+      font-size: 46px;
       line-height: 0.8em;
     }
   }
