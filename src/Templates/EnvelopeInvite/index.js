@@ -12,7 +12,7 @@ import ParentsDetails from "Components/ParentsDetails/ParentsDetails";
 import SoundToggle from "Components/SoundToggle/SoundToggle";
 import WeddingCountdown from "Components/WeddingCountdown/WeddingCountdown";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Style from "./EnvelopeInvite.module.scss";
 
 const PHASES = {
@@ -32,16 +32,31 @@ function EnvelopeInvite({ data }) {
     setPlaying(true);
   };
 
-  const toggleMusic = () => {
+  const stopMusic = () => {
     if (!audioRef.current) return;
+    audioRef.current.pause();
+    setPlaying(false);
+  };
+
+  const toggleMusic = () => {
     if (playing) {
-      audioRef.current.pause();
-      setPlaying(false);
+      stopMusic();
     } else {
-      audioRef.current.play().catch(() => {});
-      setPlaying(true);
+      playMusic();
     }
   };
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) stopMusic();
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pagehide", stopMusic);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pagehide", stopMusic);
+    };
+  }, []);
 
   return (
     <div
