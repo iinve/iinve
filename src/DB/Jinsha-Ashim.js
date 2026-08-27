@@ -17,7 +17,7 @@ export const jinshaAshimData = {
   phone1: "",
   phone2: "",
   begin_time: "10:30 AM",
-  music: "/audio/arabic.mp3",
+  music: "/audio/arabic-2.mp3",
   hide_info: false,
   send_wishes: true,
   quote:
