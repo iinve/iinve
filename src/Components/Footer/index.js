@@ -67,7 +67,7 @@ const Footer = ({ data }) => {
           </Button>
           <Button type="secondary" className="w-12 h-12 !p-0">
             <Link
-              href="https://www.instagram.com/hi.iinve"
+              href="https://www.instagram.com/iinve.co"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -76,7 +76,7 @@ const Footer = ({ data }) => {
           </Button>
           <Button type="secondary" className="w-12 h-12 !p-0">
             <Link
-              href="https://x.com/iinve_ai"
+              href="https://x.com/hi_iinve"
               target="_blank"
               rel="noopener noreferrer"
             >
