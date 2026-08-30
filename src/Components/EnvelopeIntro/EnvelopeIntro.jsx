@@ -19,26 +19,23 @@ const EnvelopeIntro = ({ data, onOpen, onPlayRequest }) => {
   const [phase, setPhase] = useState("sealed"); // sealed -> revealing -> leaving -> holding -> done
 
   useEffect(() => {
-    const scrollY = window.scrollY;
-    const { body } = document;
+    const { body, documentElement: html } = document;
     const previous = {
-      position: body.style.position,
-      top: body.style.top,
-      width: body.style.width,
-      overflow: body.style.overflow,
+      bodyOverflow: body.style.overflow,
+      htmlOverflow: html.style.overflow,
     };
+    const preventTouchMove = (e) => e.preventDefault();
 
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.width = "100%";
     body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    document.addEventListener("touchmove", preventTouchMove, {
+      passive: false,
+    });
 
     return () => {
-      body.style.position = previous.position;
-      body.style.top = previous.top;
-      body.style.width = previous.width;
-      body.style.overflow = previous.overflow;
-      window.scrollTo(0, scrollY);
+      body.style.overflow = previous.bodyOverflow;
+      html.style.overflow = previous.htmlOverflow;
+      document.removeEventListener("touchmove", preventTouchMove);
     };
   }, []);
 
