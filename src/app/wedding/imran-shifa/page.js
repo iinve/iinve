@@ -20,6 +20,8 @@ export const metadata = {
     images: [
       {
         url: `${metadataBase}/assets/images/og-image/og-Imran.jpg`,
+        width: 1200,
+        height: 630,
         alt: "Imran & Shifa Wedding Invitation",
       },
     ],
