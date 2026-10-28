@@ -11,7 +11,7 @@ export const imran_shifa = {
   bride: "Shifa",
   groom: "Imran",
   phone1: "",
-  theme: "#FEF3E2",
+  theme: "#F2E3C6",
   default_color: "#3c4028",
   send_wishes: false,
   event_type: "nikkah",
