@@ -50,7 +50,7 @@ export const imran_shifa = {
   month: "Nov",
   //   muhurtham: "11:50 AM",
   venue: "Kallan House",
-  place: "Karuni , Wayanad",
+  place: "Karuni, Wayanad",
   date: "2026-11-15",
   map: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4248.145338046342!2d76.10516007505525!3d11.674827988533846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQwJzI5LjQiTiA3NsKwMDYnMjcuOSJF!5e1!3m2!1sen!2sae!4v1793209247017!5m2!1sen!2sae",
   // map_name: "Kalikavu",
