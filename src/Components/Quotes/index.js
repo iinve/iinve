@@ -61,7 +61,7 @@ const Quote = ({ data }) => {
           prayers are with us.
         </p>
         <p className={Style.name}>
-          - {data?.signature ?? `By ${data?.groom} and ${data?.bride}`}
+          - By {data?.groom} and {data?.bride}
         </p>
       </motion.div>
       {data?.send_wishes && (

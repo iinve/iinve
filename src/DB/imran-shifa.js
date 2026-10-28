@@ -8,11 +8,11 @@ import Bride from "../assets/coffeePremium/imran-shifa/bride.png";
 import Groom from "../assets/coffeePremium/imran-shifa/groom.png";
 
 export const imran_shifa = {
-  bride: "Imran",
-  groom: "Shifa",
+  bride: "Shifa",
+  groom: "Imran",
   phone1: "",
-  theme: "#3c4028",
-  default_color: "#FEF3E2",
+  theme: "#FEF3E2",
+  default_color: "#3c4028",
   send_wishes: false,
   event_type: "nikkah",
   highlight_color: "#ddae6b",
@@ -21,7 +21,6 @@ export const imran_shifa = {
   music: "/audio/tamil_theme.mp3",
   quote:
     "invite you to join us as we celebrate the beginning of our forever. Surrounded by the blessings of family, friends, and well-wishers, we step into a new chapter of life together and your presence will make our day truly complete.",
-  signature: "By Imran and Shifa",
   hide_info: false,
   couples_data: [
     {
