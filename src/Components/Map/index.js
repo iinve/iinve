@@ -59,6 +59,7 @@ const Map = ({ data, isBlue }) => {
           //   style={{ fontFamily: "Arial" }}
           // className={isBlue && "bg-[#be607d] text-white"}
           text={isBlue ? "Get Location" : "Wedding Location"}
+          style={{ color: data?.button_text_color }}
           icon={<FaMapLocationDot />}
           onClick={() => handleOpenGoogleMaps(data.map_link)}
         />

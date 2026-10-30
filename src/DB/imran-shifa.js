@@ -16,6 +16,7 @@ export const imran_shifa = {
   send_wishes: false,
   event_type: "nikkah",
   highlight_color: "#5c3f1a",
+  button_text_color: "#F2E3C6",
   phone2: "",
   begin_time: "11:00 AM",
   music: "/audio/imran-shifa.mp3",
